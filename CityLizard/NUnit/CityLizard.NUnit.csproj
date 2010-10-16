@@ -43,9 +43,14 @@
   <ItemGroup>
     <Compile Include="IdeaTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SchemaTest.cs" />
     <Compile Include="XmlTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CityLizard.csproj">
+      <Project>{5A588E99-D2AB-44AD-A33C-9B3C3413BE80}</Project>
+      <Name>CityLizard</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Xml\CityLizard.Xml.csproj">
       <Project>{270D7B7A-75BC-49BF-AE8E-ABB2FBC8D117}</Project>
       <Name>CityLizard.Xml</Name>

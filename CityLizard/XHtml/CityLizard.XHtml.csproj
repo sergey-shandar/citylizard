@@ -41,6 +41,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="xhtml11.xsd.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Xml\CityLizard.Xml.csproj">
+      <Project>{270D7B7A-75BC-49BF-AE8E-ABB2FBC8D117}</Project>
+      <Name>CityLizard.Xml</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

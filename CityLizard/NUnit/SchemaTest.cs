@@ -21,7 +21,7 @@
             //
             using (var w = 
                 new IO.StreamWriter(
-                    "../../../../../www.w3.org/1999/xhtml/html.xsd.cs"))
+                    "../../../XHtml/xhtml11.xsd.cs"))
             {
                 w.Write(code);
             }

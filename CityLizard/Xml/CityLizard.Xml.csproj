@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{5A588E99-D2AB-44AD-A33C-9B3C3413BE80}</ProjectGuid>
+    <ProjectGuid>{270D7B7A-75BC-49BF-AE8E-ABB2FBC8D117}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CityLizard</RootNamespace>
-    <AssemblyName>CityLizard</AssemblyName>
+    <RootNamespace>CityLizard.Xml</RootNamespace>
+    <AssemblyName>CityLizard.Xml</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,19 +40,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CSharp.cs" />
-    <Compile Include="Dfa.cs" />
-    <Compile Include="Extension\CodeDomExtension.cs" />
-    <Compile Include="Extension\XmlSchemaExtension.cs" />
-    <Compile Include="Fsm.cs" />
+    <Compile Include="Attribute.cs" />
+    <Compile Include="Comment.cs" />
+    <Compile Include="Element.cs" />
+    <Compile Include="Extension\AttributeListExtension.cs" />
+    <Compile Include="IAttribute.cs" />
+    <Compile Include="IComment.cs" />
+    <Compile Include="IElement.cs" />
+    <Compile Include="IName.cs" />
+    <Compile Include="INode.cs" />
+    <Compile Include="IText.cs" />
+    <Compile Include="ITextValue.cs" />
+    <Compile Include="Node.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Schema.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Xml\CityLizard.Xml.csproj">
-      <Project>{270D7B7A-75BC-49BF-AE8E-ABB2FBC8D117}</Project>
-      <Name>CityLizard.Xml</Name>
-    </ProjectReference>
+    <Compile Include="Extension\StringBuilderExtension.cs" />
+    <Compile Include="Text.cs" />
+    <Compile Include="TextValue.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

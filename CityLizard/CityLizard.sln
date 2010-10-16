@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual C# Express 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard", "CityLizard.csproj", "{5A588E99-D2AB-44AD-A33C-9B3C3413BE80}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Xml", "Xml\CityLizard.Xml.csproj", "{270D7B7A-75BC-49BF-AE8E-ABB2FBC8D117}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{5A588E99-D2AB-44AD-A33C-9B3C3413BE80}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A588E99-D2AB-44AD-A33C-9B3C3413BE80}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A588E99-D2AB-44AD-A33C-9B3C3413BE80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{270D7B7A-75BC-49BF-AE8E-ABB2FBC8D117}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{270D7B7A-75BC-49BF-AE8E-ABB2FBC8D117}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{270D7B7A-75BC-49BF-AE8E-ABB2FBC8D117}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{270D7B7A-75BC-49BF-AE8E-ABB2FBC8D117}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

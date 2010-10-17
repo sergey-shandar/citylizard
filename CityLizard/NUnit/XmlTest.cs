@@ -22,7 +22,7 @@
                 "http://example.com/", 
                 "main", 
                 true, 
-                "<main xmlns=\"http://example.com/\"/>");
+                "<main xmlns=\"http://example.com/\" />");
             Element(
                 "http://example.com/",
                 "main",
@@ -156,7 +156,7 @@
         {
             T.html h = html()[head()[title()]][body()];
             N.Assert.AreEqual(
-                "<html xmlns=\"http://example.org/\"><head><title/></head><body></body></html>",
+                "<html xmlns=\"http://example.org/\"><head><title /></head><body></body></html>",
                 h.ToString());
         }
 
@@ -165,7 +165,7 @@
         {
             T.html h = html()[head("xxx")[title()]][body()];
             N.Assert.AreEqual(
-                "<html xmlns=\"http://example.org/\"><head id=\"xxx\"><title/></head><body></body></html>",
+                "<html xmlns=\"http://example.org/\"><head id=\"xxx\"><title /></head><body></body></html>",
                 h.ToString());
         }
 

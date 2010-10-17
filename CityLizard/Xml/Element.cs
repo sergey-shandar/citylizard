@@ -149,6 +149,12 @@
             }
         }
 
+        /// <summary>
+        /// <see cref="http://www.w3.org/TR/xhtml1/#guidelines">C. HTML 
+        /// Compatibility Guidelines</see>.
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <param name="parentNamespace"></param>
         public override void ToStringBuilder(
             T.StringBuilder builder, string parentNamespace)
         {
@@ -161,10 +167,23 @@
             builder.AppendList(this.H.AttributeList, this.H.Ns);
             if (this.H.IsEmpty)
             {
+                // C.2. Empty Elements
+                // 
+                // Include a space before the trailing / and > of empty 
+                // elements, e.g. <br />, <hr /> and <img src="karen.jpg" 
+                // alt="Karen" />. Also, use the minimized tag syntax for empty 
+                // elements, e.g. <br />, as the alternative syntax <br></br> 
+                // allowed by XML gives uncertain results in many existing user 
+                // agents.
                 builder.Append(" />");
             }
             else
             {
+                // C.3. Element Minimization and Empty Element Content
+                //
+                // Given an empty instance of an element whose content model is 
+                // not EMPTY (for example, an empty title or paragraph) do not 
+                // use the minimized form (e.g. use <p> </p> and not <p />).
                 builder.Append('>');
                 builder.AppendList(this.ContentList, this.H.Ns);
                 builder.Append("</");

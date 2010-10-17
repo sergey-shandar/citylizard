@@ -161,7 +161,7 @@
             builder.AppendList(this.H.AttributeList, this.H.Ns);
             if (this.H.IsEmpty)
             {
-                builder.Append("/>");
+                builder.Append(" />");
             }
             else
             {

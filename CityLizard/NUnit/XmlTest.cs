@@ -126,15 +126,6 @@
                         }
                     }
 
-                    public _0 this[Xml.Comment comment]
-                    {
-                        get
-                        {
-                            this.AddComment(comment.Value);
-                            return this;
-                        }
-                    }
-
                     public static implicit operator head(_0 _0)
                     {
                         _0.NotNull();
@@ -201,15 +192,6 @@
             T.head._0 h = null;
             N.Assert.Throws<System.NullReferenceException>(
                 () => { T.head he = h; });
-        }
-
-        [N.Test]
-        public static void Comment()
-        {
-            T.html h = html()[head()[new Xml.Comment("RRR<")]][body()];
-            N.Assert.AreEqual(
-                "<html xmlns=\"http://example.org/\"><head><!--RRR&lt;--></head><body></body></html>",
-                h.ToString());
         }
     }
 }

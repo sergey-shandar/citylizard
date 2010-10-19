@@ -26,7 +26,8 @@
         {
             public class Equality: C.EqualityComparer<XS.XmlSchemaElement>
             {
-                public override bool Equals(XS.XmlSchemaElement x, XS.XmlSchemaElement y)
+                public override bool Equals(
+                    XS.XmlSchemaElement x, XS.XmlSchemaElement y)
                 {
                     return x.QualifiedName == y.QualifiedName;
                 }
@@ -148,6 +149,16 @@
                 }
             }
 
+            private D.CodeConstructor AddConstructor()
+            {
+                var c = new D.CodeConstructor()
+                {
+                    Attributes = D.MemberAttributes.FamilyAndAssembly,
+                };
+                this.Declaration.Members.Add(c);
+                return c;
+            }
+
             public Type(
                 D.CodeTypeDeclaration declaration, 
                 string stateName, 
@@ -159,12 +170,14 @@
                 this.Declaration = declaration;
                 this.Declaration.BaseTypes.Add(typeof(Xml.Element));
                 //
-                this.Declaration.Members.Add(this.Constructor);
-                this.Constructor.Parameters.Add(
-                    new D.CodeParameterDeclarationExpression(
-                        typeof(Xml.Element.Header), "H"));
-                this.Constructor.BaseConstructorArgs.Add(
-                    new D.CodeVariableReferenceExpression("H"));
+                {
+                    var c = this.AddConstructor();
+                    c.Parameters.Add(
+                        new D.CodeParameterDeclarationExpression(
+                            typeof(Xml.Element.Header), "H"));
+                    c.BaseConstructorArgs.Add(
+                        new D.CodeVariableReferenceExpression("H"));
+                }
                 //
                 this.Declaration.Members.Add(this.Constructor2);
                 this.Constructor2.Parameters.Add(
@@ -372,7 +385,7 @@
             bool empty)
         {
             var q = e.QualifiedName;
-            s.AddVariableNew<Xml.Element.Header>(
+            s.AddVariable<Xml.Element.Header>(
                 Attributes.H, 
                 new D.CodePrimitiveExpression(q.Namespace), 
                 new D.CodePrimitiveExpression(q.Name),

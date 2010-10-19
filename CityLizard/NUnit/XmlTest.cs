@@ -126,6 +126,12 @@
                         }
                     }
 
+                    public _0
+                        this[Xml.Comment c]
+                    {
+                        get { return this; }
+                    }
+
                     public static implicit operator head(_0 _0)
                     {
                         _0.NotNull();

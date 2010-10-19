@@ -283,14 +283,15 @@
                     new D.CodeParameterDeclarationExpression(
                         new D.CodeTypeReference(parameter),
                         pName));
+                var s = property.GetStatements;
                 if (returnTypeName == this.Declaration.Name)
                 {
-                    property.GetStatements.Add(
+                    s.Add(
                         new D.CodeMethodInvokeExpression(
                             new D.CodeThisReferenceExpression(),
                             "AddElement",
                             new D.CodeVariableReferenceExpression(pName)));
-                    property.GetStatements.Add(new D.CodeMethodReturnStatement(
+                    s.Add(new D.CodeMethodReturnStatement(
                         new D.CodeThisReferenceExpression()));
                 }
                 else

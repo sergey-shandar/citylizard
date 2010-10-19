@@ -9,9 +9,10 @@
         /// The main entry point for the application.
         /// </summary>
         [S.STAThread]
-        static void Main(string[] args)
+        static void Main(/*string[] args*/)
         {
-            N.AppEntry.Main(args);
+            N.AppEntry.Main(
+                new string[] { "../../../CityLizard.NUnit.csproj" });
         }
     }
 }

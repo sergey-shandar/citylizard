@@ -23,7 +23,7 @@
             return t;
         }
 
-        public static D.CodeVariableDeclarationStatement AddVariableNew<T>(
+        public static D.CodeVariableDeclarationStatement AddVariable<T>(
             this D.CodeStatementCollection statementList,
             string name,
             params D.CodeExpression[] p)

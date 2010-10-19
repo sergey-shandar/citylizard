@@ -169,34 +169,23 @@
                 this.Ns = ns;
                 this.Declaration = declaration;
                 this.Declaration.BaseTypes.Add(typeof(Xml.Element));
-                //
+                // ctor(Xml.Element.Header H): base(H) {}
                 {
                     var c = this.AddConstructor();
-                    c.Parameters.Add(
-                        new D.CodeParameterDeclarationExpression(
-                            typeof(Xml.Element.Header), "H"));
-                    c.BaseConstructorArgs.Add(
-                        new D.CodeVariableReferenceExpression("H"));
+                    c.AddBaseParameter<Xml.Element.Header>("H");
                 }
-                //
-                this.Declaration.Members.Add(this.Constructor2);
-                this.Constructor2.Parameters.Add(
-                    new D.CodeParameterDeclarationExpression(
-                        typeof(Xml.Element), "Part0"));
-                this.Constructor2.Parameters.Add(
-                    new D.CodeParameterDeclarationExpression(
-                        typeof(Xml.Element), "Child"));
-                this.Constructor2.BaseConstructorArgs.Add(
-                    new D.CodeVariableReferenceExpression("Part0"));
-                this.Constructor2.BaseConstructorArgs.Add(
-                    new D.CodeVariableReferenceExpression("Child"));
-                //
-                this.Declaration.Members.Add(this.Constructor3);
-                this.Constructor3.Parameters.Add(
-                    new D.CodeParameterDeclarationExpression(
-                        typeof(Xml.Element), "Part0"));
-                this.Constructor3.BaseConstructorArgs.Add(
-                    new D.CodeVariableReferenceExpression("Part0"));
+                // ctor(Xml.Element Part0, Xml.Element Child): 
+                //   base(Part0, Child) {}
+                {
+                    var c = this.AddConstructor();
+                    c.AddBaseParameter<Xml.Element>("Part0");
+                    c.AddBaseParameter<Xml.Element>("Child");
+                }
+                // ctor(Xml.Element Part0): base(Part0) {}
+                {
+                    var c = this.AddConstructor();
+                    c.AddBaseParameter<Xml.Element>("Part0");
+                }
                 //
                 if (this.Element.ElementSchemaType.IsMixed)
                 {

@@ -56,5 +56,14 @@
             return statementList.AddExpression(new D.CodeMethodInvokeExpression(
                 e, name, paramVarList));
         }
+
+        public static void AddBaseParameter<T>(
+            this D.CodeConstructor c, string name)
+        {
+            c.Parameters.Add(
+                new D.CodeParameterDeclarationExpression(typeof(T), name));
+            c.BaseConstructorArgs.Add(
+                new D.CodeVariableReferenceExpression(name));
+        }
     }
 }

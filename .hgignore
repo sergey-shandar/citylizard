@@ -1,0 +1,13 @@
+relre:.*\.suo
+relre:.*\.exe
+relre:.*\.pdb
+relre:.*\.dll
+relre:.*\.cache
+relre:.*\.FileListAbsolute\.txt
+relre:.*\.tlog
+relre:.*\.resources
+glob:CityLizard/NUnit/bin/Debug/nunit.framework.xml
+relre:.*\.VisualState\.xml
+relre:TestResult\.xml
+glob:CityLizard/XHtml/xhtml11.xsd.cs
+relre:.*\.user

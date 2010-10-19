@@ -206,9 +206,9 @@
         [N.Test]
         public static void Comment()
         {
-            T.html h = html()[head()[new Xml.Comment("RRR<")]][body()];
+            T.html h = html()[head()[new Xml.Comment("RRR<>")]][body()];
             N.Assert.AreEqual(
-                "<html xmlns=\"http://example.org/\"><head><!--RRR&lt;--></head><body></body></html>",
+                "<html xmlns=\"http://example.org/\"><head><!--RRR&lt;&gt;--></head><body></body></html>",
                 h.ToString());
         }
     }

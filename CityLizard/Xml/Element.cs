@@ -98,9 +98,14 @@
             this.Part1.Add(new Text(value));
         }
 
+        protected void AddComment(Comment comment)
+        {
+            this.Part1.Add(comment);
+        }
+
         protected void AddComment(string value)
         {
-            this.Part1.Add(new Comment(value));
+            this.AddComment(new Comment(value));
         }
 
         public string Namespace

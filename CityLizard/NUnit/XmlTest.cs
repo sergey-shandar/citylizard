@@ -203,13 +203,21 @@
                 () => { T.head he = h; });
         }
 
+        public class X : Xml.Static
+        {
+            public static void Comment()
+            {
+                T.html h = html()[head()[C("RRR<>")]][body()];
+                N.Assert.AreEqual(
+                    "<html xmlns=\"http://example.org/\"><head><!--RRR&lt;&gt;--></head><body></body></html>",
+                    h.ToString());
+            }
+        }
+
         [N.Test]
         public static void Comment()
         {
-            T.html h = html()[head()[new Xml.Comment("RRR<>")]][body()];
-            N.Assert.AreEqual(
-                "<html xmlns=\"http://example.org/\"><head><!--RRR&lt;&gt;--></head><body></body></html>",
-                h.ToString());
+            X.Comment();
         }
     }
 }

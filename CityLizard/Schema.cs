@@ -207,25 +207,34 @@
                 {
                     var returnType = new D.CodeTypeReference(
                         this.Declaration.Name);
+                    /*
                     var method = new D.CodeMemberMethod()
                     {
                         Name = "C",
                         ReturnType = returnType,
                         Attributes = D.MemberAttributes.Public,
                     };
+                     * */
+                    var property = new D.CodeMemberProperty()
+                    {
+                        Name = "Item",
+                        Type = returnType,
+                        Attributes = D.MemberAttributes.Public,
+                    };
                     var pName = "comment";
-                    method.Parameters.Add(
+                    var s = property.GetStatements;
+                    property.Parameters.Add(
                         new D.CodeParameterDeclarationExpression(
-                            typeof(string),
+                            typeof(Xml.IComment),
                             pName));
-                    method.Statements.Add(
+                    s.Add(
                         new D.CodeMethodInvokeExpression(
                             new D.CodeThisReferenceExpression(),
                             "AddComment",
                             new D.CodeVariableReferenceExpression(pName)));
-                    method.Statements.Add(new D.CodeMethodReturnStatement(
+                    s.Add(new D.CodeMethodReturnStatement(
                         new D.CodeThisReferenceExpression()));
-                    this.Declaration.Members.Add(method);
+                    this.Declaration.Members.Add(property);
                 }
             }
 
@@ -370,6 +379,7 @@
                 Attributes = 
                     D.MemberAttributes.Static | D.MemberAttributes.Public,
             };
+            common.BaseTypes.Add(typeof(Xml.Static));
             n.Types.Add(common);
 
             var csName = CSharp.Name(q.Name);

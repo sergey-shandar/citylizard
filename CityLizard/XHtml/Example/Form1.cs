@@ -44,6 +44,7 @@ namespace CityLizard.XHtml.Example
                                     ]
                                 ]
                                 [div
+                                    [Comment("comment")]
                                     [p["Textual description of the footer"]]
                                     [a_(href: "http://google.com/")
                                         [span["You can find us here"]]

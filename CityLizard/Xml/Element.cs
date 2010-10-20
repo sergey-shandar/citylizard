@@ -98,7 +98,7 @@
             this.Part1.Add(new Text(value));
         }
 
-        protected void AddComment(Comment comment)
+        protected void AddComment(IComment comment)
         {
             this.Part1.Add(comment);
         }

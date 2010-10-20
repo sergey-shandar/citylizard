@@ -2,7 +2,7 @@
 {
     public class Static
     {
-        public static Comment C(string text)
+        public static Comment Comment(string text)
         {
             return new Comment(text);
         }

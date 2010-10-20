@@ -207,7 +207,7 @@
         {
             public static void Comment()
             {
-                T.html h = html()[head()[C("RRR<>")]][body()];
+                T.html h = html()[head()[Comment("RRR<>")]][body()];
                 N.Assert.AreEqual(
                     "<html xmlns=\"http://example.org/\"><head><!--RRR&lt;&gt;--></head><body></body></html>",
                     h.ToString());

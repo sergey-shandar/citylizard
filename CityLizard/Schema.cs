@@ -102,21 +102,6 @@
         {
             public D.CodeTypeDeclaration Declaration;
 
-            public D.CodeConstructor Constructor = new D.CodeConstructor()
-            {
-                 Attributes = D.MemberAttributes.FamilyAndAssembly,
-            };
-
-            public D.CodeConstructor Constructor2 = new D.CodeConstructor()
-            {
-                Attributes = D.MemberAttributes.FamilyAndAssembly,
-            };
-
-            public D.CodeConstructor Constructor3 = new D.CodeConstructor()
-            {
-                Attributes = D.MemberAttributes.FamilyAndAssembly,
-            };
-
             public XS.XmlSchemaElement Element;
 
             public string Ns;

@@ -109,35 +109,6 @@
             private static D.CodeTypeReference String = 
                 new D.CodeTypeReference(typeof(string));
 
-            /*
-            public static D.CodeExpression Add(params D.CodeExpression[] e)
-            {
-                var r = e[0];
-                for (var i = 1; i < e.Length; ++i)
-                {
-                    r = new D.CodeBinaryOperatorExpression(
-                        r, D.CodeBinaryOperatorType.Add, e[i]);
-                }
-                return r;
-            }
-             * */
-
-            /*
-            public static void Add(
-                D.CodeStatementCollection m, params D.CodeExpression[] eList)
-            {
-                foreach (var e in eList)
-                {
-                    m.Add(
-                        new D.CodeMethodInvokeExpression(
-                            new D.CodeMethodReferenceExpression(
-                                new D.CodeVariableReferenceExpression("R"),
-                                "Append"),
-                            e));
-                }
-            }
-             * */
-
             private D.CodeConstructor AddConstructor()
             {
                 var c = new D.CodeConstructor()

@@ -122,6 +122,7 @@
             }
              * */
 
+            /*
             public static void Add(
                 D.CodeStatementCollection m, params D.CodeExpression[] eList)
             {
@@ -135,6 +136,7 @@
                             e));
                 }
             }
+             * */
 
             private D.CodeConstructor AddConstructor()
             {

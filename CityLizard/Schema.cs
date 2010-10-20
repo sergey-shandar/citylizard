@@ -109,6 +109,7 @@
             private static D.CodeTypeReference String = 
                 new D.CodeTypeReference(typeof(string));
 
+            /*
             public static D.CodeExpression Add(params D.CodeExpression[] e)
             {
                 var r = e[0];
@@ -119,6 +120,7 @@
                 }
                 return r;
             }
+             * */
 
             public static void Add(
                 D.CodeStatementCollection m, params D.CodeExpression[] eList)

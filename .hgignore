@@ -11,3 +11,7 @@ relre:.*\.VisualState\.xml
 relre:TestResult\.xml
 glob:CityLizard/XHtml/xhtml11.xsd.cs
 relre:.*\.user
+relre:.*\.ipch
+relre:.*\.opensdf
+relre:.*\.sdf
+relre:Debug

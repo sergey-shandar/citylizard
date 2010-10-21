@@ -1,4 +1,5 @@
 #include <string>
+#include <iostream>
 
 // library
 
@@ -106,4 +107,5 @@ public:
 int main()
 {
 	T::html h = My::generate();
+	::std::wcout << h;
 }

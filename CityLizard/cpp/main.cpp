@@ -3,20 +3,61 @@
 
 // library
 
+class default_
+{
+public:
+	template<class T>
+	operator T() const
+	{
+		return T();
+	}
+};
+
 class element
 {
 public:
+
+	class header
+	{
+	public:
+
+		::std::wstring const namespace_;
+		::std::wstring const name;
+
+		header(::std::wstring const &Namespace, ::std::wstring const &Name):
+			namespace_(Namespace), name(Name)
+		{
+		}
+
+	private:
+		header &operator=(header const &);
+	};
+
+	void write(::std::wostream &o, ::std::wstring const &ParentNamespace) const
+	{
+		o << L"<" << this->h.name;
+		if(this->h.namespace_ != ParentNamespace)
+		{
+			o << L"xmlns=\"" << this->h.namespace_ << L"\"";
+		}
+		o << L">" << L"</" << this->h.name << L">";
+	}
+
 	void write(::std::wostream &o) const
 	{
-		o << L'<' << this->name << L'>' << L'</' << this->name << L'>';
+		this->write(o, default_());
 	}
+
 protected:
-	element(wchar_t const *Name):
-		name(Name)
+
+	element(header H):
+		h(H)
 	{
 	}
+
 private:
-	wchar_t const *name;
+	header const h;
+	element &operator=(element const &);
 };
 
 inline ::std::wostream &operator<<(::std::wostream &o, element const &e)
@@ -41,7 +82,8 @@ namespace xhtml
 		{
 		public:
 
-			html(): element(L"html")
+			html(): element(header(
+				L"http://www.w3.org/1999/xhtml", L"html"))
 			{
 			}
 
@@ -70,7 +112,8 @@ namespace xhtml
 		class head: public element
 		{
 		public:
-			head(): element(L"head")
+			head(): element(header(
+				L"http://www.w3.org/1999/xhtml", L"head"))
 			{
 			}
 		};
@@ -78,7 +121,8 @@ namespace xhtml
 		class body: public element
 		{
 		public:
-			body(): element(L"body")
+			body(): element(header(
+				L"http://www.w3.org/1999/xhtml", L"body"))
 			{
 			}
 		};

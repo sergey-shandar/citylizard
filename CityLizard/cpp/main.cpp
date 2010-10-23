@@ -1,19 +1,38 @@
 #include <string>
 #include <iostream>
+#include <vector>
+
+#include <boost/shared_ptr.hpp>
 
 // library
 
 class default_
 {
 public:
+
 	template<class T>
 	operator T() const
 	{
 		return T();
 	}
+
 };
 
-class element
+class node
+{
+public:
+
+	virtual void write(::std::wostream &O, bool Xmlns = true) const = 0;
+
+};
+
+inline ::std::wostream &operator<<(::std::wostream &o, node const &e)
+{
+	e.write(o);
+	return o;
+}
+
+class element: public node
 {
 public:
 
@@ -31,23 +50,37 @@ public:
 		}
 
 	private:
+
 		header &operator=(header const &);
+
 	};
 
-	void write(::std::wostream &o, bool xmlns = true) const
+	void write(::std::wostream &O, bool Xmlns = true) const override
 	{
-		o << L"<" << this->h.name;
-		if(xmlns)
+		O << L"<" << this->h.name;
+		if(Xmlns)
 		{
-			o << L"xmlns=\"" << this->h.namespace_ << L"\"";
+			O << L"xmlns=\"" << this->h.namespace_ << L"\"";
 		}
 		if(this->h.empty)
 		{
-			o << L" />";
+			O << L" />";
 		}
 		else
 		{
-			o << L">" << L"</" << this->h.name << L">";
+			O << L">";
+			if(this->part0)
+			{
+				O << *this->part0;
+			}
+			for(
+				list_t::const_iterator i = this->list.begin(); 
+				i != this->list.end(); 
+				++i)
+			{
+				O << **i;
+			}
+			O << L"</" << this->h.name << L">";
 		}
 	}
 
@@ -58,19 +91,41 @@ protected:
 	{
 	}
 
+		/*
+	element(element const &Part0, node const &N): h(Part0.h), part0(Part0)
+	{
+		this->list.push_back(N);
+	}
+	*/
+
 private:
+
+	void write_children(::std::wostream &O)
+	{
+		if(this->part0)
+		{
+			this->part0->write_children(O);
+		}
+		for(
+			list_t::const_iterator i = this->list.begin(); 
+			i != this->list.end(); 
+			++i)
+		{
+			(*i)->write(O, false);
+		}
+	}
 
 	header const h;
 
 	element &operator=(element const &);
 
-};
+	::boost::shared_ptr<element> part0;
 
-inline ::std::wostream &operator<<(::std::wostream &o, element const &e)
-{
-	e.write(o);
-	return o;
-}
+	typedef ::std::vector< ::boost::shared_ptr<node>> list_t;
+
+	list_t list;
+
+};
 
 // generated code:
 
@@ -96,9 +151,15 @@ namespace xhtml
 			class _0;
 			class _1;
 
-			class _0
+			class _0: public element
 			{
 			public:
+
+				_0(): element(header(
+					false, L"http://www.w3.org/1999/xhtml", L"html"))
+				{
+				}
+
 				_1 operator[](head head)
 				{
 					return _1();

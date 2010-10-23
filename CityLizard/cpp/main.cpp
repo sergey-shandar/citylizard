@@ -21,11 +21,12 @@ public:
 	{
 	public:
 
-		::std::wstring const namespace_;
-		::std::wstring const name;
+		bool empty;
+		wchar_t const *namespace_;
+		wchar_t const *name;
 
-		header(::std::wstring const &Namespace, ::std::wstring const &Name):
-			namespace_(Namespace), name(Name)
+		header(bool Empty, wchar_t const *Namespace, wchar_t const *Name):
+			empty(Empty), namespace_(Namespace), name(Name)
 		{
 		}
 
@@ -33,19 +34,21 @@ public:
 		header &operator=(header const &);
 	};
 
-	void write(::std::wostream &o, ::std::wstring const &ParentNamespace) const
+	void write(::std::wostream &o, bool xmlns = true) const
 	{
 		o << L"<" << this->h.name;
-		if(this->h.namespace_ != ParentNamespace)
+		if(xmlns)
 		{
 			o << L"xmlns=\"" << this->h.namespace_ << L"\"";
 		}
-		o << L">" << L"</" << this->h.name << L">";
-	}
-
-	void write(::std::wostream &o) const
-	{
-		this->write(o, default_());
+		if(this->h.empty)
+		{
+			o << L" />";
+		}
+		else
+		{
+			o << L">" << L"</" << this->h.name << L">";
+		}
 	}
 
 protected:
@@ -56,8 +59,11 @@ protected:
 	}
 
 private:
+
 	header const h;
+
 	element &operator=(element const &);
+
 };
 
 inline ::std::wostream &operator<<(::std::wostream &o, element const &e)
@@ -83,7 +89,7 @@ namespace xhtml
 		public:
 
 			html(): element(header(
-				L"http://www.w3.org/1999/xhtml", L"html"))
+				false, L"http://www.w3.org/1999/xhtml", L"html"))
 			{
 			}
 
@@ -113,7 +119,7 @@ namespace xhtml
 		{
 		public:
 			head(): element(header(
-				L"http://www.w3.org/1999/xhtml", L"head"))
+				false, L"http://www.w3.org/1999/xhtml", L"head"))
 			{
 			}
 		};
@@ -122,7 +128,7 @@ namespace xhtml
 		{
 		public:
 			body(): element(header(
-				L"http://www.w3.org/1999/xhtml", L"body"))
+				false, L"http://www.w3.org/1999/xhtml", L"body"))
 			{
 			}
 		};

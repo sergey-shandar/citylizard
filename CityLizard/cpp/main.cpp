@@ -2,7 +2,7 @@
 #include <iostream>
 #include <vector>
 
-#include <boost/shared_ptr.hpp>
+#include <boost/intrusive_ptr.hpp>
 
 // library
 
@@ -22,14 +22,35 @@ class node
 {
 public:
 
-	virtual void write(::std::wostream &O, bool Xmlns = true) const = 0;
+	void write(::std::wostream &O, bool Xmlns) const
+	{
+		this->p->write(O, Xmlns);
+	}
+
+	class struct_
+	{
+	public:		
+		virtual ~struct_() {}
+		virtual void write(::std::wostream &O, bool Xmlns) const = 0;
+		int i;
+	};
+
+protected:
+
+	node() {}
+
+	node(struct_ *P): p(P) {}
+
+private:
+
+	::boost::intrusive_ptr<struct_> p;
 
 };
 
-inline ::std::wostream &operator<<(::std::wostream &o, node const &e)
+inline ::std::wostream &operator<<(::std::wostream &O, node const &E)
 {
-	e.write(o);
-	return o;
+	E.write(O, true);
+	return O;
 }
 
 class element: public node
@@ -40,9 +61,9 @@ public:
 	{
 	public:
 
-		bool empty;
-		wchar_t const *namespace_;
-		wchar_t const *name;
+		bool const empty;
+		wchar_t const *const namespace_;
+		wchar_t const *const name;
 
 		header(bool Empty, wchar_t const *Namespace, wchar_t const *Name):
 			empty(Empty), namespace_(Namespace), name(Name)
@@ -55,77 +76,84 @@ public:
 
 	};
 
-	void write(::std::wostream &O, bool Xmlns = true) const override
+protected:
+
+	element(header const &H): node(new struct_(H))
 	{
-		O << L"<" << this->h.name;
-		if(Xmlns)
+	}
+
+private:
+
+	class struct_: public node::struct_
+	{
+	public:
+
+		struct_(header const &H): h(H)
 		{
-			O << L"xmlns=\"" << this->h.namespace_ << L"\"";
 		}
-		if(this->h.empty)
+
+		void write(::std::wostream &O, bool Xmlns = true) const override
 		{
-			O << L" />";
+			O << L"<" << this->h.name;
+			if(Xmlns)
+			{
+				O << L"xmlns=\"" << this->h.namespace_ << L"\"";
+			}
+			if(this->h.empty)
+			{
+				O << L" />";
+			}
+			else
+			{
+				O << L">";
+				this->write_content(O);
+				O << L"</" << this->h.name << L">";
+			}
 		}
-		else
+
+	private:
+
+		void write_content(::std::wostream &O) const
 		{
-			O << L">";
 			if(this->part0)
 			{
-				O << *this->part0;
+				this->part0->write_content(O);
 			}
 			for(
 				list_t::const_iterator i = this->list.begin(); 
 				i != this->list.end(); 
 				++i)
 			{
-				O << **i;
+				i->write(O, false);
 			}
-			O << L"</" << this->h.name << L">";
 		}
-	}
 
-protected:
+		header const h;
 
-	element(header H):
-		h(H)
-	{
-	}
+		::boost::intrusive_ptr<struct_> part0;
 
-		/*
-	element(element const &Part0, node const &N): h(Part0.h), part0(Part0)
-	{
-		this->list.push_back(N);
-	}
-	*/
+		typedef ::std::vector<node> list_t;
 
-private:
+		list_t list;
 
-	void write_children(::std::wostream &O)
-	{
-		if(this->part0)
-		{
-			this->part0->write_children(O);
-		}
-		for(
-			list_t::const_iterator i = this->list.begin(); 
-			i != this->list.end(); 
-			++i)
-		{
-			(*i)->write(O, false);
-		}
-	}
+	};
 
-	header const h;
-
-	element &operator=(element const &);
-
-	::boost::shared_ptr<element> part0;
-
-	typedef ::std::vector< ::boost::shared_ptr<node>> list_t;
-
-	list_t list;
+	element() {}
 
 };
+
+inline void intrusive_ptr_add_ref(node::struct_ *p)
+{
+	++(p->i);
+}
+
+inline void intrusive_ptr_release(node::struct_ *p)
+{
+	if(--(p->i) == 0)
+	{
+		delete p;
+	}
+}
 
 // generated code:
 

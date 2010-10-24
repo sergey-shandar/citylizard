@@ -41,8 +41,6 @@ protected:
 
 	node(struct_ *P): p(P) {}
 
-private:
-
 	::boost::intrusive_ptr<struct_> p;
 
 };
@@ -78,7 +76,11 @@ public:
 
 protected:
 
-	element(header const &H): node(new struct_(H))
+	explicit element(header const &H): node(new struct_(H))
+	{
+	}
+
+	element(element const &Part0, node const &N): node(new struct_(Part0, N))
 	{
 	}
 
@@ -88,8 +90,15 @@ private:
 	{
 	public:
 
-		struct_(header const &H): h(H)
+		explicit struct_(header const &H): h(H)
 		{
+		}
+
+		struct_(element const &Part0, node const &N): 
+			h(Part0.get().h),
+			part0(Part0)
+		{
+			this->list.push_back(N);
 		}
 
 		void write(::std::wostream &O, bool Xmlns = true) const override
@@ -97,7 +106,7 @@ private:
 			O << L"<" << this->h.name;
 			if(Xmlns)
 			{
-				O << L"xmlns=\"" << this->h.namespace_ << L"\"";
+				O << L" xmlns=\"" << this->h.namespace_ << L"\"";
 			}
 			if(this->h.empty)
 			{
@@ -138,6 +147,11 @@ private:
 
 	};
 
+	struct_ const &get() const
+	{
+		return *static_cast<struct_ *>(this->p.get());
+	}
+
 	element() {}
 
 };
@@ -171,8 +185,7 @@ namespace xhtml
 		{
 		public:
 
-			html(): element(header(
-				false, L"http://www.w3.org/1999/xhtml", L"html"))
+			html(element const &Part0, node const &N): element(Part0, N)
 			{
 			}
 
@@ -190,16 +203,21 @@ namespace xhtml
 
 				_1 operator[](head head)
 				{
-					return _1();
+					return _1(*this, head);
 				}
 			};
 
-			class _1
+			class _1: public element
 			{
 			public:
+
+				_1(element const &Part0, node const &N): element(Part0, N)
+				{
+				}
+
 				html operator[](body body)
 				{
-					return html();
+					return html(*this, body);
 				}
 			};
 		};

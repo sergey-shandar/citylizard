@@ -26,7 +26,7 @@ public:
 
 	void write(::std::wostream &O, bool Xmlns) const
 	{
-		this->p->write(O, Xmlns);
+		this->_p->write(O, Xmlns);
 	}
 
 	class struct_
@@ -38,9 +38,9 @@ public:
 
 protected:
 
-	node(struct_ *P): p(P) {}
+	node(struct_ *P): _p(P) {}
 
-	::boost::shared_ptr<struct_> p;
+	::boost::shared_ptr<struct_> _p;
 
 };
 
@@ -57,7 +57,7 @@ protected:
 
 	::boost::shared_ptr<T> cast() const
 	{
-		return ::boost::shared_static_cast<T>(this->p);
+		return ::boost::shared_static_cast<T>(this->_p);
 	}
 
 	node_of(node_of const &P): node(P) {}
@@ -190,7 +190,7 @@ public:
 		}
 	}
 
-	void add(text t)
+	void add(node t)
 	{
 		this->list.push_back(t);
 	}
@@ -247,6 +247,11 @@ protected:
 		this->cast()->add(text(t));
 	}
 
+	void add(element const &e)
+	{
+		this->cast()->add(e);
+	}
+
 private:
 
 	typedef node_of<detail::element_struct> base;
@@ -263,6 +268,8 @@ namespace xhtml
 		class html;
 		class head;
 		class body;
+		class div_;
+		class p;
 
 		class html: public element
 		{
@@ -284,7 +291,7 @@ namespace xhtml
 				{
 				}
 
-				_1 operator[](head head)
+				_1 operator()(head head)
 				{
 					return _1(*this, head);
 				}
@@ -298,7 +305,7 @@ namespace xhtml
 				{
 				}
 
-				html operator[](body body)
+				html operator()(body body)
 				{
 					return html(*this, body);
 				}
@@ -322,10 +329,40 @@ namespace xhtml
 			{
 			}
 
-			body &operator[](::std::wstring const &t)
+			body &operator()(::std::wstring const &t)
 			{
 				this->add(t);
 				return *this;
+			}
+
+			body &operator()(div_ div_)
+			{
+				this->add(div_);
+				return *this;
+			}
+
+			body &operator()(p p)
+			{
+				this->add(p);
+				return *this;
+			}
+		};
+
+		class div_: public element
+		{
+		public:
+			div_(): element(detail::element_header(
+				false, L"http://www.w3.org/1999/xhtml", L"div"))
+			{
+			}
+		};
+
+		class p: public element
+		{
+		public:
+			p(): element(detail::element_header(
+				false, L"http://www.w3.org/1999/xhtml", L"p"))
+			{
 			}
 		};
 	};
@@ -333,6 +370,8 @@ namespace xhtml
 	static T::html::_0 html;
 	static T::head head;
 	static T::body body;
+	static T::div_ div_;
+	static T::p p;
 }
 
 // user's code
@@ -346,7 +385,7 @@ public:
 	static T::html generate()
 	{
 		return
-			html[head][body[L"Hello world!<>\"&"]];
+			html(head)(body(L"Hell world!<>\"&")(p)(div_));
 	}
 };
 

@@ -60,7 +60,13 @@ protected:
 		return ::boost::shared_static_cast<T>(this->p);
 	}
 
-	explicit node_of(T *P): node(P) {}
+	node_of(node_of const &P): node(P) {}
+
+	template<class T0>
+	explicit node_of(T0 const &P0): node(new T(P0)) {}
+
+	template<class T0, class T1>
+	node_of(T0 const &P0, T1 const &P1): node(new T(P0, P1)) {}
 
 };
 
@@ -72,6 +78,10 @@ namespace detail
 class text_struct: public node::struct_
 {
 public:
+
+	text_struct(::std::wstring const &t): value(t)
+	{
+	}
 
 	void write(::std::wostream &O, bool Xmlns = true) const override
 	{
@@ -93,7 +103,7 @@ public:
 				O << L"&amp;";
 				break;
 			case L'"':
-				O << L"quot;";
+				O << L"&quot;";
 				break;
 			default:
 				O << c;
@@ -111,6 +121,12 @@ private:
 
 class text: public node_of<detail::text_struct>
 {
+private:
+	typedef node_of<detail::text_struct> base;
+public:
+	text(::std::wstring const &t): base(t)
+	{
+	}
 };
 
 // // element
@@ -174,6 +190,11 @@ public:
 		}
 	}
 
+	void add(text t)
+	{
+		this->list.push_back(t);
+	}
+
 private:
 
 	void write_content(::std::wostream &O) const
@@ -205,24 +226,30 @@ private:
 
 class element: public node_of<detail::element_struct>
 {
-public:
-
 protected:
 
 	explicit element(detail::element_header const &H): 
-		base(new detail::element_struct(H))
+		base(H)
 	{
 	}
 
 	element(element const &Part0, node const &N): 
-		base(new detail::element_struct(Part0.cast(), N))
+		base(Part0.cast(), N)
 	{
+	}
+
+	element(element const &P): base(static_cast<base const &>(P))
+	{
+	}
+
+	void add(::std::wstring const &t)
+	{
+		this->cast()->add(text(t));
 	}
 
 private:
 
 	typedef node_of<detail::element_struct> base;
-
 };
 
 // generated code:
@@ -294,6 +321,12 @@ namespace xhtml
 				false, L"http://www.w3.org/1999/xhtml", L"body"))
 			{
 			}
+
+			body &operator[](::std::wstring const &t)
+			{
+				this->add(t);
+				return *this;
+			}
 		};
 	};
 
@@ -313,7 +346,7 @@ public:
 	static T::html generate()
 	{
 		return
-			html[head][body];
+			html[head][body[L"Hello world!<>\"&"]];
 	}
 };
 

@@ -2,7 +2,7 @@
 #include <iostream>
 #include <vector>
 
-#include <boost/intrusive_ptr.hpp>
+#include <boost/shared_ptr.hpp>
 
 // library
 
@@ -32,7 +32,6 @@ public:
 	public:		
 		virtual ~struct_() {}
 		virtual void write(::std::wostream &O, bool Xmlns) const = 0;
-		int i;
 	};
 
 protected:
@@ -41,7 +40,7 @@ protected:
 
 	node(struct_ *P): p(P) {}
 
-	::boost::intrusive_ptr<struct_> p;
+	::boost::shared_ptr<struct_> p;
 
 };
 
@@ -95,8 +94,8 @@ private:
 		}
 
 		struct_(element const &Part0, node const &N): 
-			h(Part0.get().h),
-			part0(Part0)
+			h(Part0.cast()->h),
+			part0(Part0.cast())
 		{
 			this->list.push_back(N);
 		}
@@ -139,7 +138,7 @@ private:
 
 		header const h;
 
-		::boost::intrusive_ptr<struct_> part0;
+		::boost::shared_ptr<struct_> part0;
 
 		typedef ::std::vector<node> list_t;
 
@@ -147,27 +146,14 @@ private:
 
 	};
 
-	struct_ const &get() const
+	::boost::shared_ptr<struct_> cast() const
 	{
-		return *static_cast<struct_ *>(this->p.get());
+		return ::boost::shared_static_cast<struct_>(this->p);
 	}
 
 	element() {}
 
 };
-
-inline void intrusive_ptr_add_ref(node::struct_ *p)
-{
-	++(p->i);
-}
-
-inline void intrusive_ptr_release(node::struct_ *p)
-{
-	if(--(p->i) == 0)
-	{
-		delete p;
-	}
-}
 
 // generated code:
 

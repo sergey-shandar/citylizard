@@ -18,6 +18,8 @@ public:
 
 };
 
+// // node
+
 class node
 {
 public:
@@ -36,8 +38,6 @@ public:
 
 protected:
 
-	node() {}
-
 	node(struct_ *P): p(P) {}
 
 	::boost::shared_ptr<struct_> p;
@@ -50,108 +50,178 @@ inline ::std::wostream &operator<<(::std::wostream &O, node const &E)
 	return O;
 }
 
-class element: public node
+template<class T>
+class node_of: public node
+{
+protected:
+
+	::boost::shared_ptr<T> cast() const
+	{
+		return ::boost::shared_static_cast<T>(this->p);
+	}
+
+	explicit node_of(T *P): node(P) {}
+
+};
+
+// // text
+
+namespace detail
+{
+
+class text_struct: public node::struct_
 {
 public:
 
-	class header
+	void write(::std::wostream &O, bool Xmlns = true) const override
 	{
-	public:
-
-		bool const empty;
-		wchar_t const *const namespace_;
-		wchar_t const *const name;
-
-		header(bool Empty, wchar_t const *Namespace, wchar_t const *Name):
-			empty(Empty), namespace_(Namespace), name(Name)
+		for(
+			::std::wstring::const_iterator i = this->value.begin(); 
+			i != this->value.end(); 
+			++i)
 		{
+			wchar_t const c = *i;
+			switch(c)
+			{
+			case L'<':
+				O << L"&lt;";
+				break;
+			case L'>':
+				O << L"&gt;";
+				break;
+			case L'&':
+				O << L"&amp;";
+				break;
+			case L'"':
+				O << L"quot;";
+				break;
+			default:
+				O << c;
+			}
 		}
-
-	private:
-
-		header &operator=(header const &);
-
-	};
-
-protected:
-
-	explicit element(header const &H): node(new struct_(H))
-	{
 	}
 
-	element(element const &Part0, node const &N): node(new struct_(Part0, N))
+private:
+
+	::std::wstring const value;
+
+};
+
+}
+
+class text: public node_of<detail::text_struct>
+{
+};
+
+// // element
+
+class element;
+
+namespace detail
+{
+
+class element_header
+{
+public:
+
+	bool const empty;
+	wchar_t const *const namespace_;
+	wchar_t const *const name;
+
+	element_header(bool Empty, wchar_t const *Namespace, wchar_t const *Name):
+		empty(Empty), namespace_(Namespace), name(Name)
 	{
 	}
 
 private:
 
-	class struct_: public node::struct_
+	element_header &operator=(element_header const &);
+
+};
+
+class element_struct: public node::struct_
+{
+public:
+
+	explicit element_struct(element_header const &H): h(H)
 	{
-	public:
-
-		explicit struct_(header const &H): h(H)
-		{
-		}
-
-		struct_(element const &Part0, node const &N): 
-			h(Part0.cast()->h),
-			part0(Part0.cast())
-		{
-			this->list.push_back(N);
-		}
-
-		void write(::std::wostream &O, bool Xmlns = true) const override
-		{
-			O << L"<" << this->h.name;
-			if(Xmlns)
-			{
-				O << L" xmlns=\"" << this->h.namespace_ << L"\"";
-			}
-			if(this->h.empty)
-			{
-				O << L" />";
-			}
-			else
-			{
-				O << L">";
-				this->write_content(O);
-				O << L"</" << this->h.name << L">";
-			}
-		}
-
-	private:
-
-		void write_content(::std::wostream &O) const
-		{
-			if(this->part0)
-			{
-				this->part0->write_content(O);
-			}
-			for(
-				list_t::const_iterator i = this->list.begin(); 
-				i != this->list.end(); 
-				++i)
-			{
-				i->write(O, false);
-			}
-		}
-
-		header const h;
-
-		::boost::shared_ptr<struct_> part0;
-
-		typedef ::std::vector<node> list_t;
-
-		list_t list;
-
-	};
-
-	::boost::shared_ptr<struct_> cast() const
-	{
-		return ::boost::shared_static_cast<struct_>(this->p);
 	}
 
-	element() {}
+	element_struct(
+		::boost::shared_ptr<element_struct> const &Part0, node const &N):
+		h(Part0->h),
+		part0(Part0)
+	{
+		this->list.push_back(N);
+	}
+
+	void write(::std::wostream &O, bool Xmlns = true) const override
+	{
+		O << L"<" << this->h.name;
+		if(Xmlns)
+		{
+			O << L" xmlns=\"" << this->h.namespace_ << L"\"";
+		}
+		if(this->h.empty)
+		{
+			O << L" />";
+		}
+		else
+		{
+			O << L">";
+			this->write_content(O);
+			O << L"</" << this->h.name << L">";
+		}
+	}
+
+private:
+
+	void write_content(::std::wostream &O) const
+	{
+		if(this->part0)
+		{
+			this->part0->write_content(O);
+		}
+		for(
+			list_t::const_iterator i = this->list.begin(); 
+			i != this->list.end(); 
+			++i)
+		{
+			i->write(O, false);
+		}
+	}
+
+	element_header const h;
+
+	::boost::shared_ptr<element_struct> part0;
+
+	typedef ::std::vector<node> list_t;
+
+	list_t list;
+
+};
+
+}
+
+class element: public node_of<detail::element_struct>
+{
+public:
+
+protected:
+
+	explicit element(detail::element_header const &H): 
+		base(new detail::element_struct(H))
+	{
+	}
+
+	element(element const &Part0, node const &N): 
+		base(new detail::element_struct(Part0.cast(), N))
+	{
+	}
+
+private:
+
+	typedef node_of<detail::element_struct> base;
 
 };
 
@@ -182,7 +252,7 @@ namespace xhtml
 			{
 			public:
 
-				_0(): element(header(
+				_0(): element(detail::element_header(
 					false, L"http://www.w3.org/1999/xhtml", L"html"))
 				{
 				}
@@ -211,7 +281,7 @@ namespace xhtml
 		class head: public element
 		{
 		public:
-			head(): element(header(
+			head(): element(detail::element_header(
 				false, L"http://www.w3.org/1999/xhtml", L"head"))
 			{
 			}
@@ -220,7 +290,7 @@ namespace xhtml
 		class body: public element
 		{
 		public:
-			body(): element(header(
+			body(): element(detail::element_header(
 				false, L"http://www.w3.org/1999/xhtml", L"body"))
 			{
 			}

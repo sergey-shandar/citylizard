@@ -270,6 +270,7 @@ namespace xhtml
 		class body;
 		class div_;
 		class p;
+		class img;
 
 		class html: public element
 		{
@@ -346,6 +347,12 @@ namespace xhtml
 				this->add(p);
 				return *this;
 			}
+
+			body &operator()(img img)
+			{
+				this->add(img);
+				return *this;
+			}
 		};
 
 		class div_: public element
@@ -365,6 +372,15 @@ namespace xhtml
 			{
 			}
 		};
+
+		class img: public element
+		{
+		public:
+			img(): element(detail::element_header(
+				true, L"http://www.w3.org/1999/xhtml", L"img"))
+			{
+			}
+		};
 	};
 
 	static T::html::_0 html;
@@ -372,6 +388,7 @@ namespace xhtml
 	static T::body body;
 	static T::div_ div_;
 	static T::p p;
+	static T::img img;
 }
 
 // user's code
@@ -385,7 +402,7 @@ public:
 	static T::html generate()
 	{
 		return
-			html(head)(body(L"Hell world!<>\"&")(p)(div_));
+			html(head)(body(L"Hell world!<>\"&")(p)(div_)(img));
 	}
 };
 

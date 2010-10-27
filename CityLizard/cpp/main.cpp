@@ -522,66 +522,6 @@ namespace xhtml
 	static T::img img;
 }
 
-// attributes:
-// a
-// 1 {} 
-// 1 {a}
-// 2
-//
-//  ab
-// 1 {  } 
-// 2 { a} { b} 
-// 1 {ab}
-// 4
-// 
-// abc
-// 1 {   } 
-// 3 {  a} { b} { c} 
-// 3 { ab} {ac} {bc} 
-// 1 {abc}
-// 8
-//
-// abcd
-// 1 {    } 
-// 4 {   a} {  b} {  c} {  d} 
-// 6 {  ab} { ac} { ad} { bc} {bd} {cd}
-// 4 { abc} {abd} {acd} {bcd}
-// 1 {abcd}
-// 16
-//
-// abcde
-//  1 {     }
-//  5 {    a} {   b} {   c} {   d} {   e}
-// 10 {   ab} {  ac} {  ad} {  ae} {  bc} { bd} { be} { cd} { ce} { de}
-// 10 {  abc} { abd} { abe} { acd} { ace} {ade} {bcd} {bce} {bde} {cde}
-//  5 { abcd} {abce} {abde} {acde} {bcde}
-//  1 {abcde}
-// 32
-
-class div_base
-{
-};
-
-template<bool x>
-class id_t
-{
-public:
-	void id(::std::wstring const &v)
-	{
-	}
-};
-
-template<>
-class id_t<false>
-{
-};
-
-template<bool idx = true, bool class_ = true>
-class div_x: public div_base, public id_t<idx>
-{
-public:
-};
-
 // user's code
 
 using namespace xhtml;

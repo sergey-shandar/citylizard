@@ -535,7 +535,7 @@ public:
 		return
 			html.version(L"1.1").lang(L"en")
 				(head)
-				(body(L"Hell world!<>\"&")(p)(div_)(img));
+				(body(L"Hello world!<>\"&")(p)(div_)(img));
 	}
 };
 

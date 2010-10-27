@@ -3,6 +3,7 @@
 #include <vector>
 
 #include <boost/shared_ptr.hpp>
+#include <boost/utility/enable_if.hpp>
 
 // library
 
@@ -68,12 +69,42 @@ protected:
 	template<class T0, class T1>
 	node_of(T0 const &P0, T1 const &P1): node(new T(P0, P1)) {}
 
+	template<class T0, class T1, class T2>
+	node_of(T0 const &P0, T1 const &P1, T2 const &P2): node(new T(P0, P1, P2)) 
+	{
+	}
+
 };
 
 // // text
 
 namespace detail
 {
+
+inline void write_text(::std::wostream &O, ::std::wstring const &text)
+{
+	for(::std::wstring::const_iterator i = text.begin(); i != text.end(); ++i)
+	{
+		wchar_t const c = *i;
+		switch(c)
+		{
+		case L'<':
+			O << L"&lt;";
+			break;
+		case L'>':
+			O << L"&gt;";
+			break;
+		case L'&':
+			O << L"&amp;";
+			break;
+		case L'"':
+			O << L"&quot;";
+			break;
+		default:
+			O << c;
+		}
+	}
+}
 
 class text_struct: public node::struct_
 {
@@ -85,30 +116,7 @@ public:
 
 	void write(::std::wostream &O, bool Xmlns = true) const override
 	{
-		for(
-			::std::wstring::const_iterator i = this->value.begin(); 
-			i != this->value.end(); 
-			++i)
-		{
-			wchar_t const c = *i;
-			switch(c)
-			{
-			case L'<':
-				O << L"&lt;";
-				break;
-			case L'>':
-				O << L"&gt;";
-				break;
-			case L'&':
-				O << L"&amp;";
-				break;
-			case L'"':
-				O << L"&quot;";
-				break;
-			default:
-				O << c;
-			}
-		}
+		write_text(O, this->value);
 	}
 
 private:
@@ -155,6 +163,27 @@ private:
 
 };
 
+class attribute_struct
+{
+public:
+
+	wchar_t const *const name;
+
+	::std::wstring const value;
+
+	attribute_struct(wchar_t const *name_, ::std::wstring const &value_):
+		name(name_), value(value_)
+	{
+	}
+
+	void write(::std::wostream &O) const
+	{
+		O << L' ' << this->name << L"=\"";
+		write_text(O, this->value);
+		O << L'"';
+	}
+};
+
 class element_struct: public node::struct_
 {
 public:
@@ -171,6 +200,15 @@ public:
 		this->list.push_back(N);
 	}
 
+	element_struct(
+		::boost::shared_ptr<element_struct> const &Part0, 
+		wchar_t const *name, 
+		::std::wstring const &value): 
+		h(Part0->h),
+		attribute(new attribute_struct(name, value))
+	{
+	}
+
 	void write(::std::wostream &O, bool Xmlns = true) const override
 	{
 		O << L"<" << this->h.name;
@@ -178,6 +216,7 @@ public:
 		{
 			O << L" xmlns=\"" << this->h.namespace_ << L"\"";
 		}
+		this->write_attributes(O);
 		if(this->h.empty)
 		{
 			O << L" />";
@@ -197,6 +236,18 @@ public:
 
 private:
 
+	void write_attributes(::std::wostream &O) const
+	{
+		if(this->part0)
+		{
+			this->part0->write_attributes(O);
+		}
+		if(this->attribute)
+		{
+			this->attribute->write(O);
+		}
+	}
+
 	void write_content(::std::wostream &O) const
 	{
 		if(this->part0)
@@ -215,6 +266,8 @@ private:
 	element_header const h;
 
 	::boost::shared_ptr<element_struct> part0;
+
+	::boost::shared_ptr<attribute_struct> attribute;
 
 	typedef ::std::vector<node> list_t;
 
@@ -238,6 +291,12 @@ protected:
 	{
 	}
 
+	element(
+		element const &Part0, wchar_t const *Name, ::std::wstring const &Value):
+		base(Part0.cast(), Name, Value)
+	{
+	}
+
 	element(element const &P): base(static_cast<base const &>(P))
 	{
 	}
@@ -257,10 +316,38 @@ private:
 	typedef node_of<detail::element_struct> base;
 };
 
+template<class R, class T, class A>
+R add_attribute(
+	A const *a, wchar_t const *name, ::std::wstring const &value)
+{
+	return R(
+		static_cast<element const &>(*static_cast<T const *>(a)), name, value);
+}
+
 // generated code:
 
 namespace xhtml
 {
+	class A
+	{
+	public:
+
+		template<class T, class R, bool on> 
+		class version_t
+		{
+		};
+
+		template<class T, class R>
+		class version_t<T, R, true>
+		{
+		public:
+			R version(::std::wstring const &value)
+			{
+				return add_attribute<R, T>(this, L"version", value);
+			}
+		};
+	};
+
 	class T
 	{
 	public:
@@ -280,15 +367,40 @@ namespace xhtml
 			{
 			}
 
+			template<
+				bool version_on = true, 
+				bool lang_on = true, 
+				bool dir_on = true, 
+				bool id_on = true, 
+				bool space_on = true>
 			class _0;
 			class _1;
 
-			class _0: public element
+			template<
+				bool version_on, 
+				bool lang_on, 
+				bool dir_on, 
+				bool id_on, 
+				bool space_on>
+			class _0: 
+				public element, 
+				public A::version_t<
+					_0<true, lang_on, dir_on, id_on, space_on>,
+					_0<false, lang_on, dir_on, id_on, space_on>, 
+					version_on>
 			{
 			public:
 
 				_0(): element(detail::element_header(
 					false, L"http://www.w3.org/1999/xhtml", L"html"))
+				{
+				}
+
+				_0(
+					element const &Part0, 
+					wchar_t const *Name, 
+					::std::wstring const &Value):
+					element(Part0, Name, Value)
 				{
 				}
 
@@ -383,13 +495,73 @@ namespace xhtml
 		};
 	};
 
-	static T::html::_0 html;
+	static T::html::_0<> html;
 	static T::head head;
 	static T::body body;
 	static T::div_ div_;
 	static T::p p;
 	static T::img img;
 }
+
+// attributes:
+// a
+// 1 {} 
+// 1 {a}
+// 2
+//
+//  ab
+// 1 {  } 
+// 2 { a} { b} 
+// 1 {ab}
+// 4
+// 
+// abc
+// 1 {   } 
+// 3 {  a} { b} { c} 
+// 3 { ab} {ac} {bc} 
+// 1 {abc}
+// 8
+//
+// abcd
+// 1 {    } 
+// 4 {   a} {  b} {  c} {  d} 
+// 6 {  ab} { ac} { ad} { bc} {bd} {cd}
+// 4 { abc} {abd} {acd} {bcd}
+// 1 {abcd}
+// 16
+//
+// abcde
+//  1 {     }
+//  5 {    a} {   b} {   c} {   d} {   e}
+// 10 {   ab} {  ac} {  ad} {  ae} {  bc} { bd} { be} { cd} { ce} { de}
+// 10 {  abc} { abd} { abe} { acd} { ace} {ade} {bcd} {bce} {bde} {cde}
+//  5 { abcd} {abce} {abde} {acde} {bcde}
+//  1 {abcde}
+// 32
+
+class div_base
+{
+};
+
+template<bool x>
+class id_t
+{
+public:
+	void id(::std::wstring const &v)
+	{
+	}
+};
+
+template<>
+class id_t<false>
+{
+};
+
+template<bool idx = true, bool class_ = true>
+class div_x: public div_base, public id_t<idx>
+{
+public:
+};
 
 // user's code
 
@@ -402,7 +574,7 @@ public:
 	static T::html generate()
 	{
 		return
-			html(head)(body(L"Hell world!<>\"&")(p)(div_)(img));
+			html.version(L"1.1")(head)(body(L"Hell world!<>\"&")(p)(div_)(img));
 	}
 };
 
@@ -410,4 +582,13 @@ int main()
 {
 	T::html h = My::generate();
 	::std::wcout << h;
+	//
+	div_x<true, true> d;
+	d.id(L"XXX");
+	div_x<false, true> c;
+	// d.id(L"YYY");
+	div_x<true, false> x;
+	x.id(L"WWW");
+	div_x<false, false> r;
+	// r.id(L"SSS");
 }

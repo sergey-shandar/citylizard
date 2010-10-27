@@ -2,8 +2,9 @@
 #include <iostream>
 #include <vector>
 
-#include <boost/shared_ptr.hpp>
 #include <boost/utility/enable_if.hpp>
+#include <boost/shared_ptr.hpp>
+#include <boost/make_shared.hpp>
 
 // library
 
@@ -39,7 +40,7 @@ public:
 
 protected:
 
-	node(struct_ *P): _p(P) {}
+	node(::boost::shared_ptr<struct_> const &P): _p(P) {}
 
 	::boost::shared_ptr<struct_> _p;
 
@@ -64,13 +65,16 @@ protected:
 	node_of(node_of const &P): node(P) {}
 
 	template<class T0>
-	explicit node_of(T0 const &P0): node(new T(P0)) {}
+	explicit node_of(T0 const &P0): node(::boost::make_shared<T>(P0)) {}
 
 	template<class T0, class T1>
-	node_of(T0 const &P0, T1 const &P1): node(new T(P0, P1)) {}
+	node_of(T0 const &P0, T1 const &P1): node(::boost::make_shared<T>(P0, P1))
+	{
+	}
 
 	template<class T0, class T1, class T2>
-	node_of(T0 const &P0, T1 const &P1, T2 const &P2): node(new T(P0, P1, P2)) 
+	node_of(T0 const &P0, T1 const &P1, T2 const &P2): 
+		node(::boost::make_shared<T>(P0, P1, P2))
 	{
 	}
 
@@ -205,7 +209,8 @@ public:
 		wchar_t const *name, 
 		::std::wstring const &value): 
 		h(Part0->h),
-		attribute(new attribute_struct(name, value))
+		part0(Part0),
+		attribute(::boost::make_shared<attribute_struct>(name, value))
 	{
 	}
 

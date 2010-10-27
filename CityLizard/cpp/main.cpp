@@ -346,6 +346,21 @@ namespace xhtml
 				return add_attribute<R, T>(this, L"version", value);
 			}
 		};
+
+		template<class T, class R, bool on> 
+		class lang_t
+		{
+		};
+
+		template<class T, class R>
+		class lang_t<T, R, true>
+		{
+		public:
+			R lang(::std::wstring const &value)
+			{
+				return add_attribute<R, T>(this, L"lang", value);
+			}
+		};
 	};
 
 	class T
@@ -387,7 +402,11 @@ namespace xhtml
 				public A::version_t<
 					_0<true, lang_on, dir_on, id_on, space_on>,
 					_0<false, lang_on, dir_on, id_on, space_on>, 
-					version_on>
+					version_on>,
+				public A::lang_t<
+					_0<version_on, true, dir_on, id_on, space_on>,
+					_0<version_on, false, dir_on, id_on, space_on>, 
+					lang_on>
 			{
 			public:
 
@@ -574,7 +593,9 @@ public:
 	static T::html generate()
 	{
 		return
-			html.version(L"1.1")(head)(body(L"Hell world!<>\"&")(p)(div_)(img));
+			html.version(L"1.1").lang(L"en")
+				(head)
+				(body(L"Hell world!<>\"&")(p)(div_)(img));
 	}
 };
 
@@ -582,13 +603,4 @@ int main()
 {
 	T::html h = My::generate();
 	::std::wcout << h;
-	//
-	div_x<true, true> d;
-	d.id(L"XXX");
-	div_x<false, true> c;
-	// d.id(L"YYY");
-	div_x<true, false> x;
-	x.id(L"WWW");
-	div_x<false, false> r;
-	// r.id(L"SSS");
 }

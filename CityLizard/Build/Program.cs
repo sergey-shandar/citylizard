@@ -74,7 +74,10 @@
         static void Main(string[] args)
         {
             var s = Hg.Summary();
-            var version = s.Branch + "." + s.Parent.RevisionNumber;
+            var version = 
+                (s.Branch == "default" ? "0.0.0": s.Branch) + 
+                "." + 
+                s.Parent.RevisionNumber;
             var r = Hg.Manifest();
             foreach (var i in r.Where(x => x.EndsWith(".csproj")))
             {

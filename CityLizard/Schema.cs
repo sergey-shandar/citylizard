@@ -207,14 +207,6 @@
                 {
                     var returnType = new D.CodeTypeReference(
                         this.Declaration.Name);
-                    /*
-                    var method = new D.CodeMemberMethod()
-                    {
-                        Name = "C",
-                        ReturnType = returnType,
-                        Attributes = D.MemberAttributes.Public,
-                    };
-                     * */
                     var property = new D.CodeMemberProperty()
                     {
                         Name = "Item",

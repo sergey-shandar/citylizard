@@ -20,6 +20,8 @@
             return x.StandardOutput.ReadToEnd().Split('\n');
         }
 
+        const string Version = "1.1";
+
         static void Main(string[] args)
         {
             var r = Hg("manifest");

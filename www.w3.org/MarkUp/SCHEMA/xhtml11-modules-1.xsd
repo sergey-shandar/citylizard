@@ -3,7 +3,7 @@
            elementFormDefault="qualified" 
            xmlns:xh11d="http://www.w3.org/1999/xhtml/datatypes/" >
     <xs:import namespace="http://www.w3.org/1999/xhtml/datatypes/" 
-        schemaLocation="http://www.w3.org/MarkUp/SCHEMA/xhtml-datatypes-1.xsd" />
+        schemaLocation="xhtml-datatypes-1.xsd" />
 
     <xs:annotation>
         <xs:documentation>
@@ -45,7 +45,7 @@
 
     </xs:documentation>
     </xs:annotation>
-    <xs:include schemaLocation="http://www.w3.org/MarkUp/SCHEMA/xhtml-framework-1.xsd">
+    <xs:include schemaLocation="xhtml-framework-1.xsd">
         <xs:annotation>
             <xs:documentation>
         Schema Framework Component Modules:
@@ -57,7 +57,7 @@
             <xs:documentation source="http://www.w3.org/TR/xhtml-modularization/abstract_modules.html#s_commonatts"/>
         </xs:annotation>
     </xs:include>
-    <xs:include schemaLocation="http://www.w3.org/MarkUp/SCHEMA/xhtml-text-1.xsd">
+    <xs:include schemaLocation="xhtml-text-1.xsd">
         <xs:annotation>
             <xs:documentation>
         Text module
@@ -79,7 +79,7 @@
             <xs:documentation source="http://www.w3.org/TR/2001/REC-xhtml-modularization-20010410/abstract_modules.html#s_textmodule"/>
         </xs:annotation>
     </xs:include>
-    <xs:redefine schemaLocation="http://www.w3.org/MarkUp/SCHEMA/xhtml-hypertext-1.xsd">
+    <xs:redefine schemaLocation="xhtml-hypertext-1.xsd">
         <xs:annotation>
             <xs:documentation>
          Hypertext module
@@ -114,7 +114,7 @@
             </xs:attributeGroup>
         </xs:attributeGroup>
     </xs:redefine>
-    <xs:include schemaLocation="http://www.w3.org/MarkUp/SCHEMA/xhtml-list-1.xsd">
+    <xs:include schemaLocation="xhtml-list-1.xsd">
         <xs:annotation>
             <xs:documentation>
         Lists module
@@ -125,7 +125,7 @@
             <xs:documentation source="http://www.w3.org/TR/2001/REC-xhtml-modularization-20010410/abstract_modules.html#s_listmodule"/>
         </xs:annotation>
     </xs:include>
-    <xs:redefine schemaLocation="http://www.w3.org/MarkUp/SCHEMA/xhtml-struct-1.xsd">
+    <xs:redefine schemaLocation="xhtml-struct-1.xsd">
         <xs:annotation>
             <xs:documentation>
         Structural module
@@ -160,7 +160,7 @@
             </xs:attributeGroup>
         </xs:attributeGroup>
     </xs:redefine>
-    <xs:include schemaLocation="http://www.w3.org/MarkUp/SCHEMA/xhtml-edit-1.xsd">
+    <xs:include schemaLocation="xhtml-edit-1.xsd">
         <xs:annotation>
             <xs:documentation>
         Edit module
@@ -171,7 +171,7 @@
             <xs:documentation source="http://www.w3.org/TR/xhtml-modularization/abstract_modules.html#s_editmodule"/>
         </xs:annotation>
     </xs:include>
-    <xs:include schemaLocation="http://www.w3.org/MarkUp/SCHEMA/xhtml-bdo-1.xsd">
+    <xs:include schemaLocation="xhtml-bdo-1.xsd">
         <xs:annotation>
             <xs:documentation>
         Bidirectional element module
@@ -182,7 +182,7 @@
             <xs:documentation source="http://www.w3.org/TR/xhtml-modularization/abstract_modules.html#s_bdomodule"/>
         </xs:annotation>
     </xs:include>
-    <xs:include schemaLocation="http://www.w3.org/MarkUp/SCHEMA/xhtml-pres-1.xsd">
+    <xs:include schemaLocation="xhtml-pres-1.xsd">
         <xs:annotation>
             <xs:documentation>
         Presentational module
@@ -193,7 +193,7 @@
             <xs:documentation source="http://www.w3.org/TR/xhtml-modularization/abstract_modules.html#s_presentationmodule"/>
         </xs:annotation>
     </xs:include>
-    <xs:redefine schemaLocation="http://www.w3.org/MarkUp/SCHEMA/xhtml-link-1.xsd">
+    <xs:redefine schemaLocation="xhtml-link-1.xsd">
         <xs:annotation>
             <xs:documentation>
                 Link module
@@ -225,7 +225,7 @@
             </xs:attributeGroup>
         </xs:attributeGroup>
     </xs:redefine>
-    <xs:include schemaLocation="http://www.w3.org/MarkUp/SCHEMA/xhtml-meta-1.xsd">
+    <xs:include schemaLocation="xhtml-meta-1.xsd">
         <xs:annotation>
             <xs:documentation>
         Meta module
@@ -236,7 +236,7 @@
             <xs:documentation source="http://www.w3.org/TR/xhtml-modularization/abstract_modules.html#s_metamodule"/>
         </xs:annotation>
     </xs:include>
-    <xs:redefine schemaLocation="http://www.w3.org/MarkUp/SCHEMA/xhtml-base-1.xsd">
+    <xs:redefine schemaLocation="xhtml-base-1.xsd">
         <xs:annotation>
             <xs:documentation>
         Base module
@@ -268,7 +268,7 @@
             </xs:attributeGroup>
         </xs:attributeGroup>
     </xs:redefine>
-    <xs:include schemaLocation="http://www.w3.org/MarkUp/SCHEMA/xhtml-script-1.xsd">
+    <xs:include schemaLocation="xhtml-script-1.xsd">
         <xs:annotation>
             <xs:documentation>
         Scripting module
@@ -279,7 +279,7 @@
             <xs:documentation source="http://www.w3.org/TR/xhtml-modularization/abstract_modules.html#s_scriptmodule"/>
         </xs:annotation>
     </xs:include>
-    <xs:include schemaLocation="http://www.w3.org/MarkUp/SCHEMA/xhtml-style-1.xsd">
+    <xs:include schemaLocation="xhtml-style-1.xsd">
         <xs:annotation>
             <xs:documentation>
         Style module
@@ -290,7 +290,7 @@
             <xs:documentation source="http://www.w3.org/TR/xhtml-modularization/abstract_modules.html#s_stylemodule"/>
         </xs:annotation>
     </xs:include>
-    <xs:include schemaLocation="http://www.w3.org/MarkUp/SCHEMA/xhtml-inlstyle-1.xsd">
+    <xs:include schemaLocation="xhtml-inlstyle-1.xsd">
         <xs:annotation>
             <xs:documentation>
         Style attribute module
@@ -301,7 +301,7 @@
             <xs:documentation source="http://www.w3.org/TR/xhtml-modularization/abstract_modules.html#s_styleattributemodule"/>
         </xs:annotation>
     </xs:include>
-    <xs:redefine schemaLocation="http://www.w3.org/MarkUp/SCHEMA/xhtml-image-1.xsd">
+    <xs:redefine schemaLocation="xhtml-image-1.xsd">
         <xs:annotation>
             <xs:documentation>
         Image module
@@ -335,7 +335,7 @@
             </xs:attributeGroup>
         </xs:attributeGroup>
     </xs:redefine>
-    <xs:redefine schemaLocation="http://www.w3.org/MarkUp/SCHEMA/xhtml-csismap-1.xsd">
+    <xs:redefine schemaLocation="xhtml-csismap-1.xsd">
         <xs:annotation>
             <xs:documentation>
         Client-side mage maps module
@@ -369,7 +369,7 @@
             </xs:attributeGroup>
         </xs:attributeGroup>
     </xs:redefine>
-    <xs:include schemaLocation="http://www.w3.org/MarkUp/SCHEMA/xhtml-ssismap-1.xsd">
+    <xs:include schemaLocation="xhtml-ssismap-1.xsd">
         <xs:annotation>
             <xs:documentation>
        Server-side image maps module
@@ -380,7 +380,7 @@
             <xs:documentation source="http://www.w3.org/TR/xhtml-modularization/abstract_modules.html#s_servermapmodule"/>
         </xs:annotation>
     </xs:include>
-    <xs:redefine schemaLocation="http://www.w3.org/MarkUp/SCHEMA/xhtml-object-1.xsd">
+    <xs:redefine schemaLocation="xhtml-object-1.xsd">
         <xs:annotation>
             <xs:documentation>
         Object module
@@ -407,7 +407,7 @@
             </xs:attributeGroup>
         </xs:attributeGroup>
     </xs:redefine>
-    <xs:include schemaLocation="http://www.w3.org/MarkUp/SCHEMA/xhtml-param-1.xsd">
+    <xs:include schemaLocation="xhtml-param-1.xsd">
         <xs:annotation>
             <xs:documentation>
         Param module
@@ -417,7 +417,7 @@
       </xs:documentation>
         </xs:annotation>
     </xs:include>
-    <xs:include schemaLocation="http://www.w3.org/MarkUp/SCHEMA/xhtml-table-1.xsd">
+    <xs:include schemaLocation="xhtml-table-1.xsd">
         <xs:annotation>
             <xs:documentation>
         Tables module
@@ -428,7 +428,7 @@
             <xs:documentation source="http://www.w3.org/TR/xhtml-modularization/abstract_modules.html#s_tablemodule"/>
         </xs:annotation>
     </xs:include>
-    <xs:redefine schemaLocation="http://www.w3.org/MarkUp/SCHEMA/xhtml-form-1.xsd">
+    <xs:redefine schemaLocation="xhtml-form-1.xsd">
         <xs:annotation>
             <xs:documentation>
             Forms module
@@ -567,7 +567,7 @@
             </xs:attributeGroup>
         </xs:attributeGroup>
     </xs:redefine>
-    <xs:include schemaLocation="http://www.w3.org/MarkUp/SCHEMA/xhtml-ruby-1.xsd">
+    <xs:include schemaLocation="xhtml-ruby-1.xsd">
       <xs:annotation>
       <xs:documentation>
         Ruby module
@@ -580,7 +580,7 @@
       <xs:documentation source="http://www.w3.org/TR/2001/REC-ruby-20010531/#complex"/>
       </xs:annotation>
     </xs:include>
-    <xs:include schemaLocation="http://www.w3.org/MarkUp/SCHEMA/xhtml-events-1.xsd">
+    <xs:include schemaLocation="xhtml-events-1.xsd">
         <xs:annotation>
             <xs:documentation>
         XHTML Events Modules
@@ -591,7 +591,7 @@
             <xs:documentation source="http://www.w3.org/TR/xhtml-modularization/abstract_modules.html#s_intrinsiceventsmodule"/>
         </xs:annotation>
     </xs:include>
-    <xs:include schemaLocation="http://www.w3.org/MarkUp/SCHEMA/xhtml-target-1.xsd">
+    <xs:include schemaLocation="xhtml-target-1.xsd">
         <xs:annotation>
             <xs:documentation>
         XHTML Target Attribute Module

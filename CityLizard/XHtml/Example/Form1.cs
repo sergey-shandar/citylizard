@@ -31,7 +31,7 @@ namespace CityLizard.XHtml.Example
                                 http_equiv: "Content-Type")
                             ]
                             [link_(href: "css/style.css", rel: "stylesheet", type: "text/css")]
-                            // [script_(type: "text/javascript", src: "/JavaScript/jquery-1.4.2.min.js")]
+                            [script_(type: "text/javascript", src: "/JavaScript/jquery-1.4.2.min.js")]
                         ]
                         [body
                             [div

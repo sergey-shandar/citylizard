@@ -465,7 +465,8 @@
                                 new D.CodeParameterDeclarationExpression(
                                     new D.CodeTypeReference(csN),
                                     csN));
-                            var csNRef = new D.CodeVariableReferenceExpression(csN);
+                            var csNRef = new D.CodeVariableReferenceExpression(
+                                csN);
                             Type.Return(
                                 m.Statements,
                                 csName,

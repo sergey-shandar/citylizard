@@ -27,6 +27,12 @@
                 return Command("manifest");
             }
 
+            public class ChangeSet
+            {
+                public int RevisionNumber;
+                public string Id;
+            }
+
             public class SummaryType
             {
                 public string Parent;

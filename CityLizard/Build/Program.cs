@@ -1,6 +1,9 @@
 ﻿namespace CityLizard.Build
 {
     using D = System.Diagnostics;
+    using S = System;
+
+    using System.Linq;
 
     class Program
     {
@@ -20,6 +23,10 @@
         static void Main(string[] args)
         {
             var r = Hg("manifest");
+            foreach (var i in r.Where(x => x.EndsWith(".csproj")))
+            {
+                S.Console.WriteLine(i);
+            }
         }
     }
 }

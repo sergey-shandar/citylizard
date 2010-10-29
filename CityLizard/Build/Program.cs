@@ -31,11 +31,21 @@
             {
                 public int RevisionNumber;
                 public string Id;
+                public string Tags;
+                public ChangeSet(string v)
+                {
+                    var i = v.IndexOf(":");
+                    this.RevisionNumber = int.Parse(v.Substring(0, i));
+                    var s = v.IndexOf(" ");
+                    ++i;
+                    this.Id = v.Substring(i, s - i);
+                    this.Tags = v.Substring(s + 1);
+                }
             }
 
             public class SummaryType
             {
-                public string Parent;
+                public ChangeSet Parent;
                 public string Message;
                 public string Branch;
                 public string Commit;
@@ -52,7 +62,7 @@
                 var r = Command("summary");
                 return new SummaryType
                 {
-                    Parent = Get(r[0]),
+                    Parent = new ChangeSet(Get(r[0])),
                     Message = r[1],
                     Branch = Get(r[2]),
                     Commit = Get(r[3]),
@@ -64,6 +74,7 @@
         static void Main(string[] args)
         {
             var s = Hg.Summary();
+            var version = s.Branch + "." + s.Parent.RevisionNumber;
             var r = Hg.Manifest();
             foreach (var i in r.Where(x => x.EndsWith(".csproj")))
             {

@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Hg", "Hg\CityLiz
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Fsm", "Fsm\CityLizard.Fsm.csproj", "{E9C49FF2-73F9-44A4-AAE7-2F959B5D2916}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Xml.Schema", "Xml\Schema\CityLizard.Xml.Schema.csproj", "{B65374FF-0CC7-470B-A138-7968EE9B1187}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -109,6 +111,18 @@ Global
 		{E9C49FF2-73F9-44A4-AAE7-2F959B5D2916}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{E9C49FF2-73F9-44A4-AAE7-2F959B5D2916}.Release|x86.ActiveCfg = Release|x86
 		{E9C49FF2-73F9-44A4-AAE7-2F959B5D2916}.Release|x86.Build.0 = Release|x86
+		{B65374FF-0CC7-470B-A138-7968EE9B1187}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B65374FF-0CC7-470B-A138-7968EE9B1187}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B65374FF-0CC7-470B-A138-7968EE9B1187}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{B65374FF-0CC7-470B-A138-7968EE9B1187}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{B65374FF-0CC7-470B-A138-7968EE9B1187}.Debug|x86.ActiveCfg = Debug|x86
+		{B65374FF-0CC7-470B-A138-7968EE9B1187}.Debug|x86.Build.0 = Debug|x86
+		{B65374FF-0CC7-470B-A138-7968EE9B1187}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B65374FF-0CC7-470B-A138-7968EE9B1187}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B65374FF-0CC7-470B-A138-7968EE9B1187}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{B65374FF-0CC7-470B-A138-7968EE9B1187}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{B65374FF-0CC7-470B-A138-7968EE9B1187}.Release|x86.ActiveCfg = Release|x86
+		{B65374FF-0CC7-470B-A138-7968EE9B1187}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

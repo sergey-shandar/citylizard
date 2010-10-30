@@ -1,4 +1,4 @@
-﻿namespace CityLizard.Extension
+﻿namespace CityLizard.Xml.Schema.Extension
 {
     using C = System.Collections.Generic;
     using XS = System.Xml.Schema;
@@ -37,11 +37,9 @@
             return x.AttributeUses.Values.Cast<XS.XmlSchemaAttribute>();
         }
 
-        /*
         public static bool IsDigit(this char x)
         {
             return char.IsDigit(x);
         }
-         * */
     }
 }

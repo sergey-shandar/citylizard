@@ -4,6 +4,7 @@
     using D = System.CodeDom;
     using N = global::NUnit.Framework;
     using IO = System.IO;
+    using S = CityLizard.Xml.Schema;
 
     [N.TestFixture]
     public static class SchemaTest
@@ -11,7 +12,7 @@
         [N.Test]
         public static void Load()
         {
-            var u = Schema.Load(
+            var u = S.Schema.Load(
                 "../../../../www.w3.org/MarkUp/SCHEMA/xhtml11.xsd");
             //
             var t = new IO.StringWriter();

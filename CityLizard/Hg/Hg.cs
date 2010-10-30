@@ -22,6 +22,19 @@
             return Command("manifest");
         }
 
+        /// <summary>
+        /// Print files under Mercurial control in the working directory whose 
+        /// names match the given patterns.
+        /// </summary>
+        /// <param name="fullpath">
+        /// print complete paths from the filesystem root
+        /// </param>
+        /// <returns></returns>
+        public static string[] Locate(bool fullpath = false)
+        {
+            return Command("locate" + (fullpath ? " -f": ""));
+        }
+
         public class ChangeSet
         {
             public int RevisionNumber;

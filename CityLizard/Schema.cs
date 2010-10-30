@@ -9,6 +9,7 @@
     using CS = Microsoft.CSharp;
 
     using System.Linq;
+    using CodeDom.Extension;
     using Extension;
 
     /// <summary>

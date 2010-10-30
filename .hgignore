@@ -16,3 +16,4 @@ relre:.*\.opensdf
 relre:.*\.sdf
 relre:Debug
 relre:Release
+relre:AssemblyInfo.cs

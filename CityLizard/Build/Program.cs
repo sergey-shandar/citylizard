@@ -5,6 +5,7 @@
     using CD = System.CodeDom;
     using R = System.Reflection;
     using CS = Microsoft.CSharp;
+    using E = Microsoft.Build.BuildEngine;
 
     using System.Linq;
 
@@ -27,7 +28,7 @@
                 "." + 
                 s.Parent.RevisionNumber;
             var r = Hg.Locate(true);
-            foreach (var i in r.Where(x => x.EndsWith(".csproj")))
+            foreach (var i in r.Where(x => IO.Path.GetExtension(x) == ".csproj"))
             {
                 S.Console.WriteLine("Project: " + i);
                 var d = IO.Path.GetDirectoryName(i);
@@ -48,6 +49,19 @@
                 {
                     p.GenerateCodeFromCompileUnit(
                         u, w, new CD.Compiler.CodeGeneratorOptions());
+                }
+            }
+            var e = new E.Engine();
+            foreach (var i in 
+                r.Where(
+                    x => 
+                        IO.Path.GetExtension(x) == ".sln" && 
+                        IO.Path.GetFileNameWithoutExtension(x) != 
+                            "CityLizard.Build"))
+            {
+                if (!e.BuildProjectFile(i))
+                {
+                    throw new S.Exception("Build error. Project: " +i);
                 }
             }
         }

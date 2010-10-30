@@ -51,18 +51,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Hg.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CodeDom\CityLizard.CodeDom.csproj">
-      <Project>{ACF5201B-625E-4356-A515-9D11768881A3}</Project>
-      <Name>CityLizard.CodeDom</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Hg\CityLizard.Hg.csproj">
-      <Project>{5293C8F4-FB29-4F98-B604-569B20ECF34C}</Project>
-      <Name>CityLizard.Hg</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

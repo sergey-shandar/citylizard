@@ -8,8 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Reflection.AssemblyVersionAttribute("0.0.0.80")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("0.0.0.80")]
+[assembly: System.Reflection.AssemblyVersionAttribute("0.0.0.82")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("0.0.0.82")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CityLizard.NUnit")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("CityLizard")]
 [assembly: System.Reflection.AssemblyProductAttribute("CityLizard.NUnit")]

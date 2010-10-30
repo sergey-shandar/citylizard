@@ -41,8 +41,10 @@
                 Add<R.AssemblyCopyrightAttribute>(
                     u, "Copyright © CityLizard 2010");
                 var p = new CS.CSharpCodeProvider();
+                var dir = IO.Path.Combine(d, "Properties");
+                IO.Directory.CreateDirectory(dir);
                 using(var w = new IO.StreamWriter(IO.Path.Combine(
-                    d, "Properties\\AssemblyInfo.cs")))
+                    dir, "AssemblyInfo.cs")))
                 {
                     p.GenerateCodeFromCompileUnit(
                         u, w, new CD.Compiler.CodeGeneratorOptions());

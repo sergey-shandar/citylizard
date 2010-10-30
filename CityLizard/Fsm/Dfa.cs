@@ -1,10 +1,14 @@
-﻿namespace CityLizard
+﻿namespace CityLizard.Fsm
 {
     using C= System.Collections.Generic;
     using S = System;
 
     using System.Linq;
 
+    /// <summary>
+    /// Deterministic finite automaton.
+    /// </summary>
+    /// <typeparam name="Symbol">Symbol type.</typeparam>
     public class Dfa<Symbol>
     {
         static readonly C.IEqualityComparer<C.HashSet<int>> comparer =

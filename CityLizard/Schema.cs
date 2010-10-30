@@ -7,6 +7,7 @@
     using D = System.CodeDom;
     using C = System.Collections.Generic;
     using CS = Microsoft.CSharp;
+    using F = CityLizard.Fsm;
 
     using System.Linq;
     using CodeDom.Extension;
@@ -269,7 +270,7 @@
 
             public void SetState(
                 C.KeyValuePair<C.HashSet<int>, 
-                Dfa<X.XmlQualifiedName>.State> state,
+                F.Dfa<X.XmlQualifiedName>.State> state,
                 C.HashSet<int> self,
                 string selfName)
             {
@@ -398,8 +399,6 @@
 
             var self = default(C.HashSet<int>);
 
-            //bool empty = false;
-
             string suffix = "";
             var attributes =
                 D.MemberAttributes.Static | D.MemberAttributes.Public;
@@ -408,10 +407,10 @@
 
             if (complexType != null)
             {
-                var fsm = new Fsm<X.XmlQualifiedName>();
+                var fsm = new F.Fsm<X.XmlQualifiedName>();
                 var set = new C.HashSet<int> { 0 };
                 Apply(dictionary, fsm, set, complexType.Particle);
-                var dfa = new Dfa<X.XmlQualifiedName>(fsm, set);
+                var dfa = new F.Dfa<X.XmlQualifiedName>(fsm, set);
                 var empty =
                     !type.IsMixed &&
                     dfa.D[new C.HashSet<int> { 0 }].Count == 0;
@@ -518,7 +517,7 @@
 
         public static void ApplyOne(
             C.HashSet<XS.XmlSchemaElement> dictionary,
-            Fsm<X.XmlQualifiedName> fsm,
+            F.Fsm<X.XmlQualifiedName> fsm,
             C.ISet<int> list,
             XS.XmlSchemaParticle p)
         {
@@ -573,7 +572,7 @@
 
         public static void Apply(
             C.HashSet<XS.XmlSchemaElement> dictionary,
-            Fsm<X.XmlQualifiedName> fsm, 
+            F.Fsm<X.XmlQualifiedName> fsm, 
             C.ISet<int> list,
             XS.XmlSchemaParticle p)
         {

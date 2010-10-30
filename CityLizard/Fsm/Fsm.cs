@@ -1,10 +1,14 @@
-﻿namespace CityLizard
+﻿namespace CityLizard.Fsm
 {
     using C = System.Collections.Generic;
     using S = System;
 
     using System.Linq;
 
+    /// <summary>
+    /// Finite-state machine.
+    /// </summary>
+    /// <typeparam name="T">Symbol type.</typeparam>
     public class Fsm<T>
     {
         public struct Transition

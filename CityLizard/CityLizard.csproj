@@ -12,6 +12,7 @@
     <AssemblyName>CityLizard</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -49,9 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CSharp.cs" />
-    <Compile Include="Dfa.cs" />
     <Compile Include="Extension\XmlSchemaExtension.cs" />
-    <Compile Include="Fsm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Schema.cs" />
   </ItemGroup>
@@ -59,6 +58,10 @@
     <ProjectReference Include="CodeDom\CityLizard.CodeDom.csproj">
       <Project>{ACF5201B-625E-4356-A515-9D11768881A3}</Project>
       <Name>CityLizard.CodeDom</Name>
+    </ProjectReference>
+    <ProjectReference Include="Fsm\CityLizard.Fsm.csproj">
+      <Project>{E9C49FF2-73F9-44A4-AAE7-2F959B5D2916}</Project>
+      <Name>CityLizard.Fsm</Name>
     </ProjectReference>
     <ProjectReference Include="Xml\CityLizard.Xml.csproj">
       <Project>{270D7B7A-75BC-49BF-AE8E-ABB2FBC8D117}</Project>

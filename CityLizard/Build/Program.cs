@@ -45,7 +45,7 @@
                 var dir = IO.Path.Combine(d, "Properties");
                 IO.Directory.CreateDirectory(dir);
                 using(var w = new IO.StreamWriter(IO.Path.Combine(
-                    dir, "AssemblyInfo.cs")))
+                    dir, "_AssemblyInfo.cs")))
                 {
                     p.GenerateCodeFromCompileUnit(
                         u, w, new CD.Compiler.CodeGeneratorOptions());

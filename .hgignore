@@ -15,3 +15,4 @@ relre:.*\.ipch
 relre:.*\.opensdf
 relre:.*\.sdf
 relre:Debug
+relre:Release

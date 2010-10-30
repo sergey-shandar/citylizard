@@ -43,7 +43,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="nunit-gui-runner">
-      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\NUnit 2.5.7\bin\net-2.0\lib\nunit-gui-runner.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files\NUnit 2.5.8\bin\net-2.0\lib\nunit-gui-runner.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

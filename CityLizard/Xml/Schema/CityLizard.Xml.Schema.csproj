@@ -5,14 +5,13 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{ACF5201B-625E-4356-A515-9D11768881A3}</ProjectGuid>
+    <ProjectGuid>{B65374FF-0CC7-470B-A138-7968EE9B1187}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CityLizard.CodeDom</RootNamespace>
-    <AssemblyName>CityLizard.CodeDom</AssemblyName>
+    <RootNamespace>CityLizard.Xml.Schema</RootNamespace>
+    <AssemblyName>CityLizard.Xml.Schema</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -49,12 +48,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CSharp.cs" />
-    <Compile Include="Extension\AttributeDeclarationCollection.cs" />
-    <Compile Include="Extension\Extension.cs" />
-    <Compile Include="Extension\NamespaceCollectionExtension.cs" />
-    <Compile Include="Extension\StatementCollectionExtension.cs" />
+    <Compile Include="Extension\XmlSchemaExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Schema.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\CodeDom\CityLizard.CodeDom.csproj">
+      <Project>{ACF5201B-625E-4356-A515-9D11768881A3}</Project>
+      <Name>CityLizard.CodeDom</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Fsm\CityLizard.Fsm.csproj">
+      <Project>{E9C49FF2-73F9-44A4-AAE7-2F959B5D2916}</Project>
+      <Name>CityLizard.Fsm</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CityLizard.Xml.csproj">
+      <Project>{270D7B7A-75BC-49BF-AE8E-ABB2FBC8D117}</Project>
+      <Name>CityLizard.Xml</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

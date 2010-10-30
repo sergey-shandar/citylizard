@@ -1,4 +1,4 @@
-﻿namespace CityLizard
+﻿namespace CityLizard.CodeDom
 {
     using C = System.Collections.Generic;
 

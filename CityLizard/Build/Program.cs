@@ -7,39 +7,39 @@
     using CS = Microsoft.CSharp;
 
     using System.Linq;
-    using CodeDom.Extension;
 
     class Program
     {
+        static void Add<T>(CD.CodeCompileUnit u, string v)
+        {
+            var d = new CD.CodeAttributeDeclaration(
+                new CD.CodeTypeReference(typeof(T)), 
+                new CD.CodeAttributeArgument(
+                    new CD.CodePrimitiveExpression(v)));
+            u.AssemblyCustomAttributes.Add(d);
+        }
+
         static void Main(string[] args)
         {
-            var s = Hg.Hg.Summary();
+            var s = Hg.Summary();
             var version = 
                 (s.Branch == "default" ? "0.0.0": s.Branch) + 
                 "." + 
                 s.Parent.RevisionNumber;
-            var r = Hg.Hg.Locate(true);
+            var r = Hg.Locate(true);
             foreach (var i in r.Where(x => x.EndsWith(".csproj")))
             {
                 S.Console.WriteLine("Project: " + i);
                 var d = IO.Path.GetDirectoryName(i);
                 var f = IO.Path.GetFileNameWithoutExtension(i);
                 var u = new CD.CodeCompileUnit();
-                u.AssemblyCustomAttributes.
-                    AddDeclarationString<R.AssemblyVersionAttribute>(version);
-                u.AssemblyCustomAttributes.
-                    AddDeclarationString<R.AssemblyFileVersionAttribute>(
-                        version);
-                u.AssemblyCustomAttributes.
-                    AddDeclarationString<R.AssemblyTitleAttribute>(f);
-                u.AssemblyCustomAttributes.
-                    AddDeclarationString<R.AssemblyCompanyAttribute>(
-                        "CityLizard");
-                u.AssemblyCustomAttributes.
-                    AddDeclarationString<R.AssemblyProductAttribute>(f);
-                u.AssemblyCustomAttributes.
-                    AddDeclarationString<R.AssemblyCopyrightAttribute>(
-                        "Copyright © CityLizard 2010");
+                Add<R.AssemblyVersionAttribute>(u, version);
+                Add<R.AssemblyFileVersionAttribute>(u, version);
+                Add<R.AssemblyTitleAttribute>(u, f);
+                Add<R.AssemblyCompanyAttribute>(u, "CityLizard");
+                Add<R.AssemblyProductAttribute>(u, f);
+                Add<R.AssemblyCopyrightAttribute>(
+                    u, "Copyright © CityLizard 2010");
                 var p = new CS.CSharpCodeProvider();
                 using(var w = new IO.StreamWriter(IO.Path.Combine(
                     d, "Properties\\AssemblyInfo.cs")))

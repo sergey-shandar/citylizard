@@ -124,6 +124,8 @@
                 zip +
                 "\" \"" +
                 IO.Path.Combine(xhtmlDir, "bin", "Debug", "*.dll") +
+                "\" \"" +
+                IO.Path.Combine(root, "CityLizard", "license.txt") +
                 "\"");
         }
     }

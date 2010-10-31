@@ -17,3 +17,4 @@ relre:.*\.sdf
 relre:Debug
 relre:Release
 relre:AssemblyInfo.cs
+relre:.*\.zip

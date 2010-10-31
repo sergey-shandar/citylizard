@@ -5,7 +5,9 @@
     using CD = System.CodeDom;
     using R = System.Reflection;
     using CS = Microsoft.CSharp;
-    using E = Microsoft.Build.BuildEngine;
+    using E = Microsoft.Build.Evaluation;
+    using Ex = Microsoft.Build.Execution;
+    using G = System.Collections.Generic;
 
     using System.Linq;
 
@@ -51,19 +53,26 @@
                         u, w, new CD.Compiler.CodeGeneratorOptions());
                 }
             }
-            var e = new E.Engine();
-            foreach (var i in 
-                r.Where(
-                    x => 
-                        IO.Path.GetExtension(x) == ".sln" && 
-                        IO.Path.GetFileNameWithoutExtension(x) != 
-                            "CityLizard.Build"))
+            // var e = new E.Engine();
+            var sln = r.First(x =>  IO.Path.GetFileName(x) == "CityLizard.sln");
+            var c = new E.ProjectCollection();
+
+            var pc = new E.ProjectCollection();
+            var GlobalProperty = new G.Dictionary<string, string>
             {
-                if (!e.BuildProjectFile(i))
-                {
-                    throw new S.Exception("Build error. Project: " +i);
-                }
-            }
+                { "Configuration", "Debug" },
+                { "Platform", "x86" },
+            };
+
+            var BuidlRequest = new Ex.BuildRequestData(
+                sln, 
+                GlobalProperty, 
+                null, 
+                new string[] { "Build" }, 
+                null);
+
+            var buildResult = Ex.BuildManager.DefaultBuildManager.Build(
+                new Ex.BuildParameters(pc), BuidlRequest);
         }
     }
 }

@@ -22,6 +22,12 @@
             u.AssemblyCustomAttributes.Add(d);
         }
 
+        static readonly string[] ConfigurationList =
+        {
+            "Debug", 
+            "Release",
+        };
+
         static readonly G.Dictionary<string, string> GlobalProperty = 
             new G.Dictionary<string, string>
             {
@@ -31,7 +37,10 @@
 
         static void BuildSolution(string path)
         {
+            S.Console.WriteLine("solution: " + path);
+
             var pc = new E.ProjectCollection();
+            var bp = new Ex.BuildParameters(pc);
 
             var BuidlRequest = new Ex.BuildRequestData(
                 path,
@@ -41,7 +50,7 @@
                 null);
 
             var buildResult = Ex.BuildManager.DefaultBuildManager.Build(
-                new Ex.BuildParameters(pc), BuidlRequest);
+                bp, BuidlRequest);
         }
 
         static void Main(string[] args)
@@ -75,10 +84,13 @@
                         u, w, new CD.Compiler.CodeGeneratorOptions());
                 }
             }
+            
             // build CityLizard.sln.
             var sln = r.First(x =>  IO.Path.GetFileName(x) == "CityLizard.sln");
             BuildSolution(sln);
-            //
+
+            // xhtml11.xsd.cs
+            S.Console.WriteLine("XHTML");
             var console = r.First(x => 
                 IO.Path.GetFileName(x) == 
                     "CityLizard.Xml.Schema.Console.csproj");
@@ -90,18 +102,29 @@
             var source = r.First(x => IO.Path.GetFileName(x) == "xhtml11.xsd");
             var xhtmlSln = r.First(x => 
                 IO.Path.GetFileName(x) == "CityLizard.XHtml.sln");
-
+            var xhtmlDir = IO.Path.GetDirectoryName(xhtmlSln);
             Process.Start(
                 console, 
                 '"' + 
                 source + 
                 "\" \"" +
-                IO.Path.Combine(
-                    IO.Path.GetDirectoryName(xhtmlSln), "xhtml11.xsd.cs") +
+                IO.Path.Combine(xhtmlDir, "xhtml11.xsd.cs") +
                 '"');
 
             // build CityLizard.XHtml.sln.
             BuildSolution(xhtmlSln);
+
+            var root = Hg.Root();
+            //
+            var zip = IO.Path.Combine(
+                root, "CityLizard.XHtml." + version + ".zip"); 
+            var l = Process.Start(
+                "C:\\Program Files\\7-Zip\\7z.exe",
+                "a \"" +
+                zip +
+                "\" \"" +
+                IO.Path.Combine(xhtmlDir, "bin", "Debug", "*.dll") +
+                "\"");
         }
     }
 }

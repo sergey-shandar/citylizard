@@ -1,20 +1,10 @@
 ﻿namespace CityLizard.Build
 {
-    using D = System.Diagnostics;
-
     internal static class Hg
     {
-        public static string[] Command(string arguments)
+       public static string[] Command(string arguments)
         {
-            var p = new D.ProcessStartInfo
-            {
-                FileName = "hg",
-                Arguments = arguments,
-                UseShellExecute = false,
-                RedirectStandardOutput = true,
-            };
-            var x = D.Process.Start(p);
-            return x.StandardOutput.ReadToEnd().Split('\n');
+            return Process.Start("hg", arguments);
         }
 
         public static string[] Locate(bool fullpath = false)
@@ -63,6 +53,11 @@
                 Commit = Get(r[3]),
                 Update = Get(r[4]),
             };
+        }
+
+        public static string Root()
+        {
+            return Command("root")[0];
         }
     }
 }

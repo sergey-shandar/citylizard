@@ -77,5 +77,10 @@
                 Update = Get(r[4]),
             };
         }
+
+        public static string Root()
+        {
+            return Command("root")[0];
+        }
     }
 }

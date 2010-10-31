@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Hg.cs" />
+    <Compile Include="Process.cs" />
     <Compile Include="Program.cs" />
   </ItemGroup>
   <ItemGroup>

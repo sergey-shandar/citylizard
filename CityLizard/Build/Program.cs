@@ -22,6 +22,28 @@
             u.AssemblyCustomAttributes.Add(d);
         }
 
+        static readonly G.Dictionary<string, string> GlobalProperty = 
+            new G.Dictionary<string, string>
+            {
+                { "Configuration", "Debug" },
+                { "Platform", "Any CPU" },
+            };
+
+        static void BuildSolution(string path)
+        {
+            var pc = new E.ProjectCollection();
+
+            var BuidlRequest = new Ex.BuildRequestData(
+                path,
+                GlobalProperty,
+                null,
+                new string[] { "Build" },
+                null);
+
+            var buildResult = Ex.BuildManager.DefaultBuildManager.Build(
+                new Ex.BuildParameters(pc), BuidlRequest);
+        }
+
         static void Main(string[] args)
         {
             var s = Hg.Summary();
@@ -53,26 +75,33 @@
                         u, w, new CD.Compiler.CodeGeneratorOptions());
                 }
             }
-            // var e = new E.Engine();
+            // build CityLizard.sln.
             var sln = r.First(x =>  IO.Path.GetFileName(x) == "CityLizard.sln");
-            var c = new E.ProjectCollection();
+            BuildSolution(sln);
+            //
+            var console = r.First(x => 
+                IO.Path.GetFileName(x) == 
+                    "CityLizard.Xml.Schema.Console.csproj");
+            console = IO.Path.Combine(
+                IO.Path.GetDirectoryName(console),
+                "bin",
+                "Debug",
+                "CityLizard.Xml.Schema.Console.exe");
+            var source = r.First(x => IO.Path.GetFileName(x) == "xhtml11.xsd");
+            var xhtmlSln = r.First(x => 
+                IO.Path.GetFileName(x) == "CityLizard.XHtml.sln");
 
-            var pc = new E.ProjectCollection();
-            var GlobalProperty = new G.Dictionary<string, string>
-            {
-                { "Configuration", "Debug" },
-                { "Platform", "x86" },
-            };
+            Process.Start(
+                console, 
+                '"' + 
+                source + 
+                "\" \"" +
+                IO.Path.Combine(
+                    IO.Path.GetDirectoryName(xhtmlSln), "xhtml11.xsd.cs") +
+                '"');
 
-            var BuidlRequest = new Ex.BuildRequestData(
-                sln, 
-                GlobalProperty, 
-                null, 
-                new string[] { "Build" }, 
-                null);
-
-            var buildResult = Ex.BuildManager.DefaultBuildManager.Build(
-                new Ex.BuildParameters(pc), BuidlRequest);
+            // build CityLizard.XHtml.sln.
+            BuildSolution(xhtmlSln);
         }
     }
 }

@@ -25,7 +25,8 @@ $params =
     Path =
         "CodeDom\Extension\AttributeDeclarationCollection.cs",
         "CodeDom\Extension\NamespaceCollectionExtension.cs",
-        "Hg\Hg.cs"
+        "Hg\Hg.cs",
+        "Build\Build.cs"
     ReferencedAssemblies = 
         "System.Core", "Microsoft.Build"
 }
@@ -43,7 +44,7 @@ $root = [CityLizard.Hg.Hg]::Root()
 #
 ""
 $summary = [CityLizard.Hg.Hg]::Summary()
-$version = $summary.Version()
+$version = [CityLizard.Build.Build]::Version($summary)
 "Version: " + $version
 
 #
@@ -57,7 +58,7 @@ foreach($f in [CityLizard.Hg.Hg]::Locate())
     {
         "    " + [IO.Path]::GetFileNameWithoutExtension($f)
         $path = Join-Path $root $f
-        $summary.CreateAssemblyInfo($company, $path)
+        [CityLizard.Build.Build]::CreateAssemblyInfo($summary, $company, $path)
     }
 }
 
@@ -71,7 +72,7 @@ foreach($f in [CityLizard.Hg.Hg]::Locate())
     if([IO.Path]::GetFileName($f) -eq "CityLizard.sln")
     {
         $path = Join-Path $root $f
-        [CityLizard.Hg.Hg]::BuildSolution($path)
+        [CityLizard.Build.Build]::BuildSolution($path)
         break;
     }
 }
@@ -87,7 +88,7 @@ foreach($f in [CityLizard.Hg.Hg]::Locate())
     if([IO.Path]::GetFileName($f) -eq "CityLizard.XHtml.sln")
     {
         $xhtml = Join-Path $root $f
-        [CityLizard.Hg.Hg]::BuildSolution($path)
+        [CityLizard.Build.Build]::BuildSolution($path)
         break;
     }
 }

@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Xml.Schema", "Xm
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Xml.Schema.Console", "Xml\Schema\Console\CityLizard.Xml.Schema.Console.csproj", "{0D04D144-4F53-4C26-9E5E-AC87CB84DEFC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Build", "Build\CityLizard.Build.csproj", "{E7CF094A-3F92-456F-BB48-E3FD07C01D21}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -123,6 +125,18 @@ Global
 		{0D04D144-4F53-4C26-9E5E-AC87CB84DEFC}.Release|Mixed Platforms.Build.0 = Release|x86
 		{0D04D144-4F53-4C26-9E5E-AC87CB84DEFC}.Release|x86.ActiveCfg = Release|x86
 		{0D04D144-4F53-4C26-9E5E-AC87CB84DEFC}.Release|x86.Build.0 = Release|x86
+		{E7CF094A-3F92-456F-BB48-E3FD07C01D21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7CF094A-3F92-456F-BB48-E3FD07C01D21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7CF094A-3F92-456F-BB48-E3FD07C01D21}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{E7CF094A-3F92-456F-BB48-E3FD07C01D21}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{E7CF094A-3F92-456F-BB48-E3FD07C01D21}.Debug|x86.ActiveCfg = Debug|x86
+		{E7CF094A-3F92-456F-BB48-E3FD07C01D21}.Debug|x86.Build.0 = Debug|x86
+		{E7CF094A-3F92-456F-BB48-E3FD07C01D21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7CF094A-3F92-456F-BB48-E3FD07C01D21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7CF094A-3F92-456F-BB48-E3FD07C01D21}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{E7CF094A-3F92-456F-BB48-E3FD07C01D21}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{E7CF094A-3F92-456F-BB48-E3FD07C01D21}.Release|x86.ActiveCfg = Release|x86
+		{E7CF094A-3F92-456F-BB48-E3FD07C01D21}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -39,7 +39,8 @@ $root = [CityLizard.Hg.Hg]::Root()
 #
 ""
 $summary = [CityLizard.Hg.Hg]::Summary()
-"Version: " + $summary.Version()
+$version = $summary.Version()
+"Version: " + $version
 
 #
 # Generating AssemblyInfo.cs files for all C# projects.
@@ -55,3 +56,48 @@ foreach($f in [CityLizard.Hg.Hg]::Locate())
         $summary.CreateAssemblyInfo($company, $path)
     }
 }
+
+#
+# Building CityLizard.sln
+#
+""
+"Solution: CityLizard"
+foreach($f in [CityLizard.Hg.Hg]::Locate())
+{
+    if([IO.Path]::GetFileName($f) -eq "CityLizard.sln")
+    {
+        $path = Join-Path $root $f
+        [CityLizard.Hg.Hg]::BuildSolution($path)
+        break;
+    }
+}
+
+#
+# Building CityLizard.XHtml.sln
+#
+""
+"Solution: CityLizard.XHtml"
+$xhtml = ""
+foreach($f in [CityLizard.Hg.Hg]::Locate())
+{
+    if([IO.Path]::GetFileName($f) -eq "CityLizard.XHtml.sln")
+    {
+        $xhtml = Join-Path $root $f
+        [CityLizard.Hg.Hg]::BuildSolution($path)
+        break;
+    }
+}
+$xhtmlDir = Split-Path -parent $xhtml
+
+#
+# Zipping
+#
+""
+"Zip:"
+$zipName = "CityLizard.XHtml." + $version + ".zip"
+$zip = Join-Path $root $zipName
+$dll = Join-Path $xhtmlDir "bin\Debug\*.dll"
+$license = Join-Path $root "CityLizard\license.txt"
+&"C:\Program Files\7-Zip\7z.exe" "a" $zip $dll $license
+
+

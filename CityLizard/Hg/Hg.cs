@@ -154,7 +154,7 @@
         /// Temporary here. Will be removed in future.
         /// </summary>
         /// <param name="path"></param>
-        static void BuildSolution(string path)
+        public static void BuildSolution(string path)
         {
             var pc = new E.ProjectCollection();
             var bp = new Ex.BuildParameters(pc);

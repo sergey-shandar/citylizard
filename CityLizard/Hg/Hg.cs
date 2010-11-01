@@ -58,6 +58,13 @@
             public string Branch;
             public string Commit;
             public string Update;
+
+            public string Version()
+            {
+                return (this.Branch == "default" ? "0.0.0" : this.Branch) +
+                    "." +
+                    this.Parent.RevisionNumber;
+            }
         }
 
         private static string Get(string v)

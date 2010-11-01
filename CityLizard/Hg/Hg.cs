@@ -6,7 +6,7 @@
     {
         public static string[] Command(string arguments)
         {
-            D.ProcessStartInfo p = new D.ProcessStartInfo();
+            var p = new D.ProcessStartInfo();
             p.FileName = "hg";
             p.Arguments = arguments;
             p.UseShellExecute = false;

@@ -5,18 +5,40 @@
 #  2. Copy powershell_ise.exe.config C:\Windows\System32\WindowsPowerShell\v1.0\
 #
 
+$company = "CityLizard"
+
 $dir = Split-Path -parent $MyInvocation.MyCommand.Definition
-$path = Join-Path $dir Hg\Hg.cs
+"dir: " + $dir
+[IO.Directory]::SetCurrentDirectory($dir)
 
-"path: " + $path
+$params = 
+@{
+    Path =
+        "CodeDom\Extension\AttributeDeclarationCollection.cs",
+        "CodeDom\Extension\NamespaceCollectionExtension.cs",
+        "Hg\Hg.cs"
+    ReferencedAssemblies = "System.Core"
+}
 
-[System.IO.Directory]::SetCurrentDirectory($dir)
+Add-Type @params
 
-Add-Type -Path $path
+$root = [CityLizard.Hg.Hg]::Root()
+"root: " + $root
 
-"root: " + [CityLizard.Hg.Hg]::Root()
+$summary = [CityLizard.Hg.Hg]::Summary()
+"version: " + $summary.Version()
 
-$version = [CityLizard.Hg.Hg]::Summary()
-"version: " + $version
-$locate = [CityLizard.Hg.Hg]::Locate()
-$locate
+""
+"projects:"
+foreach($f in [CityLizard.Hg.Hg]::Locate())
+{
+    if([IO.Path]::GetExtension($f) -eq ".csproj")
+    {
+        "    " + $f
+        $path = Join-Path $root $f
+        $summary.CreateAssemblyInfo($company, $path)
+    }
+}
+
+# $locate = [CityLizard.Hg.Hg]::Locate()
+# $locate

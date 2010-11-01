@@ -5,6 +5,9 @@
     using CD = System.CodeDom;
     using R = System.Reflection;
     using CS = Microsoft.CSharp;
+    using E = Microsoft.Build.Evaluation;
+    using Ex = Microsoft.Build.Execution;
+    using G = System.Collections.Generic;
 
     using CityLizard.CodeDom.Extension;
 
@@ -65,6 +68,10 @@
             public string Commit;
             public string Update;
 
+            /// <summary>
+            /// Temporary here. Will be removed in future.
+            /// </summary>
+            /// <returns></returns>
             public string Version()
             {
                 return (this.Branch == "default" ? "0.0.0" : this.Branch) +
@@ -72,18 +79,28 @@
                     this.Parent.RevisionNumber;
             }
 
+            /// <summary>
+            /// Temporary here. Will be removed in future.
+            /// </summary>
+            /// <typeparam name="T"></typeparam>
+            /// <param name="u"></param>
+            /// <param name="v"></param>
             private static void Add<T>(CD.CodeCompileUnit u, string v)
             {
                 u.AssemblyCustomAttributes.AddDeclarationString<T>(v);
             }
 
+            /// <summary>
+            /// Temporary here. Will be removed in future.
+            /// </summary>
+            /// <param name="company"></param>
+            /// <param name="i"></param>
             public void CreateAssemblyInfo(string company, string i)
             {
                 var d = IO.Path.GetDirectoryName(i);
                 var f = IO.Path.GetFileNameWithoutExtension(i);
                 var u = new CD.CodeCompileUnit();
                 var version = this.Version();
-                Add<R.AssemblyVersionAttribute>(u, version);
                 Add<R.AssemblyVersionAttribute>(u, version);
                 Add<R.AssemblyFileVersionAttribute>(u, version);
                 Add<R.AssemblyTitleAttribute>(u, f);
@@ -124,6 +141,33 @@
         public static string Root()
         {
             return Command("root")[0];
+        }
+
+        static readonly G.Dictionary<string, string> GlobalProperty =
+            new G.Dictionary<string, string>
+            {
+                { "Configuration", "Debug" },
+                { "Platform", "Any CPU" },
+            };
+
+        /// <summary>
+        /// Temporary here. Will be removed in future.
+        /// </summary>
+        /// <param name="path"></param>
+        static void BuildSolution(string path)
+        {
+            var pc = new E.ProjectCollection();
+            var bp = new Ex.BuildParameters(pc);
+
+            var BuidlRequest = new Ex.BuildRequestData(
+                path,
+                GlobalProperty,
+                null,
+                new string[] { "Build" },
+                null);
+
+            var buildResult = Ex.BuildManager.DefaultBuildManager.Build(
+                bp, BuidlRequest);
         }
     }
 }

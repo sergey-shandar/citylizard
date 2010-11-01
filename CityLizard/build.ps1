@@ -22,7 +22,8 @@ $params =
         "CodeDom\Extension\AttributeDeclarationCollection.cs",
         "CodeDom\Extension\NamespaceCollectionExtension.cs",
         "Hg\Hg.cs"
-    ReferencedAssemblies = "System.Core"
+    ReferencedAssemblies = 
+        "System.Core"
 }
 Add-Type @params
 

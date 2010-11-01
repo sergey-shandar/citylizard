@@ -5,7 +5,11 @@
 #  2. Copy powershell_ise.exe.config C:\Windows\System32\WindowsPowerShell\v1.0\
 #
 
+#
+# Settings
+#
 $company = "CityLizard"
+$_7z = "C:\Program Files\7-Zip\7z.exe"
 
 #
 # Directory of this script.
@@ -98,6 +102,6 @@ $zipName = "CityLizard.XHtml." + $version + ".zip"
 $zip = Join-Path $root $zipName
 $dll = Join-Path $xhtmlDir "bin\Debug\*.dll"
 $license = Join-Path $root "CityLizard\license.txt"
-&"C:\Program Files\7-Zip\7z.exe" "a" $zip $dll $license
+&$_7z "a" $zip $dll $license
 
 

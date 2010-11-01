@@ -34,7 +34,7 @@ $root = [CityLizard.Hg.Hg]::Root()
 "HG root: " + $root
 
 #
-# Mercurial summary.
+# HG summary.
 #
 ""
 $summary = [CityLizard.Hg.Hg]::Summary()

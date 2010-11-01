@@ -1,15 +1,6 @@
 ﻿namespace CityLizard.Hg
 {
     using D = System.Diagnostics;
-    using IO = System.IO;
-    using CD = System.CodeDom;
-    using R = System.Reflection;
-    using CS = Microsoft.CSharp;
-    using E = Microsoft.Build.Evaluation;
-    using Ex = Microsoft.Build.Execution;
-    using G = System.Collections.Generic;
-
-    using CityLizard.CodeDom.Extension;
 
     public static class Hg
     {
@@ -67,57 +58,6 @@
             public string Branch;
             public string Commit;
             public string Update;
-
-            /// <summary>
-            /// Temporary here. Will be removed in future.
-            /// </summary>
-            /// <returns></returns>
-            public string Version()
-            {
-                return (this.Branch == "default" ? "0.0.0" : this.Branch) +
-                    "." +
-                    this.Parent.RevisionNumber;
-            }
-
-            /// <summary>
-            /// Temporary here. Will be removed in future.
-            /// </summary>
-            /// <typeparam name="T"></typeparam>
-            /// <param name="u"></param>
-            /// <param name="v"></param>
-            private static void Add<T>(CD.CodeCompileUnit u, string v)
-            {
-                u.AssemblyCustomAttributes.AddDeclarationString<T>(v);
-            }
-
-            /// <summary>
-            /// Temporary here. Will be removed in future.
-            /// </summary>
-            /// <param name="company"></param>
-            /// <param name="i"></param>
-            public void CreateAssemblyInfo(string company, string i)
-            {
-                var d = IO.Path.GetDirectoryName(i);
-                var f = IO.Path.GetFileNameWithoutExtension(i);
-                var u = new CD.CodeCompileUnit();
-                var version = this.Version();
-                Add<R.AssemblyVersionAttribute>(u, version);
-                Add<R.AssemblyFileVersionAttribute>(u, version);
-                Add<R.AssemblyTitleAttribute>(u, f);
-                Add<R.AssemblyCompanyAttribute>(u, company);
-                Add<R.AssemblyProductAttribute>(u, f);
-                Add<R.AssemblyCopyrightAttribute>(
-                    u, "Copyright © " + company + " 2010");
-                var p = new CS.CSharpCodeProvider();
-                var dir = IO.Path.Combine(d, "Properties");
-                IO.Directory.CreateDirectory(dir);
-                var a = IO.Path.Combine(dir, "AssemblyInfo.cs");
-                using (var w = new IO.StreamWriter(a))
-                {
-                    p.GenerateCodeFromCompileUnit(
-                        u, w, new CD.Compiler.CodeGeneratorOptions());
-                }
-            }
         }
 
         private static string Get(string v)
@@ -141,33 +81,6 @@
         public static string Root()
         {
             return Command("root")[0];
-        }
-
-        static readonly G.Dictionary<string, string> GlobalProperty =
-            new G.Dictionary<string, string>
-            {
-                { "Configuration", "Debug" },
-                { "Platform", "Any CPU" },
-            };
-
-        /// <summary>
-        /// Temporary here. Will be removed in future.
-        /// </summary>
-        /// <param name="path"></param>
-        public static void BuildSolution(string path)
-        {
-            var pc = new E.ProjectCollection();
-            var bp = new Ex.BuildParameters(pc);
-
-            var BuidlRequest = new Ex.BuildRequestData(
-                path,
-                GlobalProperty,
-                null,
-                new string[] { "Build" },
-                null);
-
-            var buildResult = Ex.BuildManager.DefaultBuildManager.Build(
-                bp, BuidlRequest);
         }
     }
 }

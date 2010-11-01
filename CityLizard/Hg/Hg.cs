@@ -6,12 +6,14 @@
     {
         public static string[] Command(string arguments)
         {
-            var p = new D.ProcessStartInfo();
-            p.FileName = "hg";
-            p.Arguments = arguments;
-            p.UseShellExecute = false;
-            p.RedirectStandardOutput = true;
-            D.Process x = D.Process.Start(p);
+            var p = new D.ProcessStartInfo
+            {
+                FileName = "hg",
+                Arguments = arguments,
+                UseShellExecute = false,
+                RedirectStandardOutput = true,
+            };
+            var x = D.Process.Start(p);
             return x.StandardOutput.ReadToEnd().Split('\n');
         }
 
@@ -28,7 +30,7 @@
         /// print complete paths from the filesystem root
         /// </param>
         /// <returns></returns>
-        public static string[] Locate(bool fullpath/* = false*/)
+        public static string[] Locate(bool fullpath = false)
         {
             return Command("locate" + (fullpath ? " -f": ""));
         }
@@ -40,9 +42,9 @@
             public string Tags;
             public ChangeSet(string v)
             {
-                int i = v.IndexOf(":");
+                var i = v.IndexOf(":");
                 this.RevisionNumber = int.Parse(v.Substring(0, i));
-                int s = v.IndexOf(" ");
+                var s = v.IndexOf(" ");
                 ++i;
                 this.Id = v.Substring(i, s - i);
                 this.Tags = v.Substring(s + 1);
@@ -65,14 +67,15 @@
 
         public static SummaryType Summary()
         {
-            string[] r = Command("summary");
-            SummaryType x = new SummaryType();
-            x.Parent = new ChangeSet(Get(r[0]));
-            x.Message = r[1];
-            x.Branch = Get(r[2]);
-            x.Commit = Get(r[3]);
-            x.Update = Get(r[4]);
-            return x;
+            var r = Command("summary");
+            return new SummaryType
+            {
+                Parent = new ChangeSet(Get(r[0])),
+                Message = r[1],
+                Branch = Get(r[2]),
+                Commit = Get(r[3]),
+                Update = Get(r[4]),
+            };
         }
 
         public static string Root()

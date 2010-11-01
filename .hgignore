@@ -1,5 +1,5 @@
 relre:.*\.suo
-relre:.*\.exe
+relre:.*\.exe$
 relre:.*\.pdb
 relre:.*\.dll
 relre:.*\.cache
@@ -18,3 +18,4 @@ relre:Debug
 relre:Release
 relre:AssemblyInfo.cs
 relre:.*\.zip
+relre:.*\.orig$

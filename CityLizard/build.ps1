@@ -11,7 +11,6 @@ $company = "CityLizard"
 # Directory of this script.
 #
 $dir = Split-Path -parent $MyInvocation.MyCommand.Definition
-"dir: " + $dir
 [IO.Directory]::SetCurrentDirectory($dir)
 
 #
@@ -28,27 +27,29 @@ $params =
 Add-Type @params
 
 #
-# Mercurial root.
+# HG root.
 #
+""
 $root = [CityLizard.Hg.Hg]::Root()
-"root: " + $root
+"HG root: " + $root
 
 #
 # Mercurial summary.
 #
+""
 $summary = [CityLizard.Hg.Hg]::Summary()
-"version: " + $summary.Version()
+"Version: " + $summary.Version()
 
 #
 # Generating AssemblyInfo.cs files for all C# projects.
 #
 ""
-"projects:"
+"C# projects:"
 foreach($f in [CityLizard.Hg.Hg]::Locate())
 {
     if([IO.Path]::GetExtension($f) -eq ".csproj")
     {
-        "    " + $f
+        "    " + [IO.Path]::GetFileNameWithoutExtension($f)
         $path = Join-Path $root $f
         $summary.CreateAssemblyInfo($company, $path)
     }

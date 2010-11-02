@@ -1,17 +1,20 @@
 ﻿namespace CityLizard.CodeDom.Extension
 {
     using D = System.CodeDom;
+    using C = Code;
 
     using System.Linq;
 
-    public static class AttributeDeclarationCollection
+    /// <summary>
+    /// Attribute declaration collection extension.
+    /// </summary>
+    public static class AttributeDeclarationCollectionExtension
     {
         public static D.CodeAttributeDeclaration AddDeclaration<T>(
             this D.CodeAttributeDeclarationCollection dC,
             params D.CodeAttributeArgument[] aP)
         {
-            var d = new D.CodeAttributeDeclaration(
-                new D.CodeTypeReference(typeof(T)), aP);
+            var d = C.AttributeDeclaration<T>(aP);
             dC.Add(d);
             return d;
         }
@@ -23,8 +26,7 @@
             return dC.AddDeclaration<T>(
                 aP.
                     Select(
-                        x => new D.CodeAttributeArgument(
-                            new D.CodePrimitiveExpression(x))).
+                        x => C.AttributeArgument(C.PrimitiveExpression(x))).
                     ToArray());
         }
     }

@@ -5,7 +5,7 @@
 
     using System.Linq;
 
-    public static class Extension
+    public static class ParameterDeclarationExpressionCollectionExtension
     {
         public static D.CodeParameterDeclarationExpression Add<T>(
             this D.CodeParameterDeclarationExpressionCollection this_,
@@ -16,15 +16,6 @@
                 name);
             this_.Add(r);
             return r;
-        }
-
-        public static void AddBaseParameter<T>(
-            this D.CodeConstructor c, string name)
-        {
-            c.Parameters.Add(
-                new D.CodeParameterDeclarationExpression(typeof(T), name));
-            c.BaseConstructorArgs.Add(
-                new D.CodeVariableReferenceExpression(name));
         }
     }
 }

@@ -2,10 +2,18 @@
 {
     using D = System.CodeDom;
 
+    /// <summary>
+    /// CodeDom utility.
+    /// </summary>
     public static class Code
     {
         #region AttributeArgument
 
+        /// <summary>
+        /// Create an attribute argument.
+        /// </summary>
+        /// <param name="e">Expression.</param>
+        /// <returns>Created an attribute argument.</returns>
         public static D.CodeAttributeArgument AttributeArgument(
             D.CodeExpression e)
         {
@@ -16,6 +24,15 @@
 
         #region AttributeDeclaration
 
+        /// <summary>
+        /// Create an attribute declaration.
+        /// <code>
+        /// [MyAttribute("parameter")]
+        /// </code>
+        /// </summary>
+        /// <typeparam name="T">Attribute type.</typeparam>
+        /// <param name="aP">Attribute parameters.</param>
+        /// <returns>Created attribute declaration.</returns>
         public static D.CodeAttributeDeclaration AttributeDeclaration<T>(
             params D.CodeAttributeArgument[] aP)
         {
@@ -26,6 +43,16 @@
 
         #region MethodInvokeExpression
 
+        /// <summary>
+        /// Create a method invokation.
+        /// <code>
+        /// this.Method("parameter0", "parameter1");
+        /// </code>
+        /// </summary>
+        /// <param name="e">Target.</param>
+        /// <param name="name">Method name.</param>
+        /// <param name="eP">Method parameters.</param>
+        /// <returns>Created method invokation.</returns>
         public static D.CodeMethodInvokeExpression MethodInvokeExpression(
             D.CodeExpression e, string name, params D.CodeExpression[] eP)
         {
@@ -36,6 +63,11 @@
 
         #region Namespace
 
+        /// <summary>
+        /// Create a namespace.
+        /// </summary>
+        /// <param name="name">Namespace name.</param>
+        /// <returns>Created namespace.</returns>
         public static D.CodeNamespace Namespace(string name)
         {
             return new D.CodeNamespace(name);
@@ -45,6 +77,12 @@
 
         #region ObjectCreateExpression
 
+        /// <summary>
+        /// Create an object creation.
+        /// </summary>
+        /// <typeparam name="T">Object type.</typeparam>
+        /// <param name="eP">Constructor parameters.</param>
+        /// <returns>Created object creation.</returns>
         public static D.CodeObjectCreateExpression ObjectCreateExpression<T>(
             params D.CodeExpression[] eP)
         {
@@ -55,6 +93,12 @@
 
         #region ParameterDeclarationExpression
 
+        /// <summary>
+        /// Parameter declaration.
+        /// </summary>
+        /// <typeparam name="T">Parameter type.</typeparam>
+        /// <param name="name">Parameter name.</param>
+        /// <returns>Created parameter declaration.</returns>
         public static D.CodeParameterDeclarationExpression
             ParameterDeclarationExpression<T>(string name)
         {
@@ -65,6 +109,12 @@
 
         #region PrimitiveExpression
 
+        /// <summary>
+        /// Create a constant.
+        /// </summary>
+        /// <typeparam name="T">Type of the constant.</typeparam>
+        /// <param name="v">Value.</param>
+        /// <returns>Created constant.</returns>
         public static D.CodePrimitiveExpression PrimitiveExpression<T>(T v)
         {
             return new D.CodePrimitiveExpression(v);
@@ -74,6 +124,11 @@
 
         #region TypeReference
 
+        /// <summary>
+        /// Create a type reference.
+        /// </summary>
+        /// <typeparam name="T">Type.</typeparam>
+        /// <returns>Created type reference.</returns>
         public static D.CodeTypeReference TypeReference<T>()
         {
             return new D.CodeTypeReference(typeof(T));
@@ -83,6 +138,13 @@
 
         #region VariableDeclarationStatement
 
+        /// <summary>
+        /// Create a variable declararion.
+        /// </summary>
+        /// <typeparam name="T">Type of the variable.</typeparam>
+        /// <param name="name">Name of the variable.</param>
+        /// <param name="eP">Constructor parameters.</param>
+        /// <returns>Created varable declaration.</returns>
         public static D.CodeVariableDeclarationStatement
             VariableDeclarationStatement<T>(
                 string name, params D.CodeExpression[] eP)

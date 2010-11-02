@@ -10,7 +10,9 @@
 # Settings
 #
 $company = "CityLizard"
+
 $_7z = "C:\Program Files\7-Zip\7z.exe"
+$sandcastle = "C:\Program Files (x86)\Sandcastle\ProductionTools\ChmBuilder.exe"
 
 #
 # Directory of this script.
@@ -69,6 +71,7 @@ foreach($f in [CityLizard.Hg.Hg]::Locate())
 #
 ""
 "Solution: CityLizard"
+$path = ""
 foreach($f in [CityLizard.Hg.Hg]::Locate())
 {
     if([IO.Path]::GetFileName($f) -eq "CityLizard.sln")
@@ -95,6 +98,14 @@ foreach($f in [CityLizard.Hg.Hg]::Locate())
     }
 }
 $xhtmlDir = Split-Path -parent $xhtml
+
+#
+# Sandcastle
+#
+""
+"Sandcastle"
+$html = Join-Path $root "html"
+&$sandcastle "/html:" $html "/project:" $path
 
 #
 # Zipping

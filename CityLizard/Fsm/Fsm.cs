@@ -11,26 +11,53 @@
     /// <typeparam name="T">Symbol type.</typeparam>
     public class Fsm<T>
     {
+        /// <summary>
+        /// Transition.
+        /// </summary>
         public struct Transition
         {
+            /// <summary>
+            /// Transition symbol.
+            /// </summary>
             public T Symbol;
+
+            /// <summary>
+            /// Transition to this state.
+            /// </summary>
             public int State;
         }
 
+        /// <summary>
+        /// List of states.
+        /// </summary>
         public readonly C.List<C.HashSet<Transition>> StateList = 
             new C.List<C.HashSet<Transition>>();
 
+        /// <summary>
+        /// The constructor adds a start state.
+        /// </summary>
         public Fsm()
         {
             this.AddState();
         }
 
+        /// <summary>
+        /// Add a new state.
+        /// </summary>
+        /// <returns>State id.</returns>
         private int AddState()
         {
             this.StateList.Add(new C.HashSet<Transition>());
             return this.StateList.Count - 1;
         }
 
+        /// <summary>
+        /// Add a new transition.
+        /// </summary>
+        /// <param name="state">From.</param>
+        /// <param name="symbol">Transition symbol.</param>
+        /// <param name="to">To.</param>
+        /// <returns>To.</returns>
         private int Add(int state, T symbol, int to)
         {
             this.StateList[state].Add(
@@ -38,6 +65,13 @@
             return to;
         }
 
+        /// <summary>
+        /// Add a new transition from multiple states.
+        /// </summary>
+        /// <param name="set">Set of states.</param>
+        /// <param name="symbol">Transition symbol.</param>
+        /// <param name="to">To.</param>
+        /// <returns>To.</returns>
         private int Add(C.ISet<int> set, T symbol, int to)
         {
             foreach (var state in set)
@@ -47,14 +81,26 @@
             return to;
         }
 
+        /// <summary>
+        /// Add a new transition from multiple states to a new state.
+        /// </summary>
+        /// <param name="set">Set of 'from' states.</param>
+        /// <param name="symbol">Transition symbol.</param>
+        /// <returns>To.</returns>
         public int AddNew(C.ISet<int> set, T symbol)
         {
             return this.Add(set, symbol, this.AddState());
         }
 
-        public delegate void Transform(C.ISet<int> stateSet);
-
-        public void Loop(C.ISet<int> set, Transform transform, int min, int max)
+        /// <summary>
+        /// Add a loop.
+        /// </summary>
+        /// <param name="set">Set of 'from' states.</param>
+        /// <param name="transform">Transition symbol.</param>
+        /// <param name="min">Minimum number of transitions (0..).</param>
+        /// <param name="max">Maximum number of transitions. No limit if int.MaxValue.</param>
+        public void Loop(
+            C.ISet<int> set, S.Action<C.ISet<int>> transform, int min, int max)
         {
             // min
             for (var i = 0; i < min; ++i)

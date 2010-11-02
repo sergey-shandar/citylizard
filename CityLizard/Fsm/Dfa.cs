@@ -7,27 +7,38 @@
 
     /// <summary>
     /// Deterministic finite automaton.
+    /// <see cref="http://en.wikipedia.org/wiki/Deterministic_finite_automaton"
+    /// />
     /// </summary>
     /// <typeparam name="Symbol">Symbol type.</typeparam>
     public class Dfa<Symbol>
     {
-        static readonly C.IEqualityComparer<C.HashSet<int>> comparer =
+        private static readonly C.IEqualityComparer<C.HashSet<int>> comparer =
             C.HashSet<int>.CreateSetComparer();
 
+        /// <summary>
+        /// State.
+        /// </summary>
         public class State : 
             C.Dictionary<Symbol, C.HashSet<int>>, S.IEquatable<State>
         {
-            public readonly bool Last = false;
+            /// <summary>
+            /// true if this state is accept state.
+            /// <see cref=
+            /// "http://en.wikipedia.org/wiki/Finite-state_machine#Accept_state"
+            /// />
+            /// </summary>
+            public readonly bool Accept = false;
 
             public State(
-                Fsm<Symbol> fsm, C.HashSet<int> last, C.HashSet<int> key)
+                Fsm<Symbol> fsm, C.HashSet<int> accept, C.HashSet<int> key)
             {
                 // copy all FSM transitions.
                 foreach (var fsmState in key)
                 {
-                    if (!this.Last)
+                    if (!this.Accept)
                     {
-                        this.Last = last.Contains(fsmState);
+                        this.Accept = accept.Contains(fsmState);
                     }
                     foreach (var transition in fsm.StateList[fsmState])
                     {
@@ -45,7 +56,7 @@
 
             public bool Equals(State other)
             {
-                if (this.Last != other.Last || this.Count != other.Count)
+                if (this.Accept != other.Accept || this.Count != other.Count)
                 {
                     return false;
                 }
@@ -65,6 +76,9 @@
             }
         }
 
+        /// <summary>
+        /// Dictionary of states by state id.
+        /// </summary>
         public class Dictionary : C.Dictionary<C.HashSet<int>, State>
         {
             public Dictionary(): base(comparer)
@@ -72,9 +86,17 @@
             }
         }
 
+        /// <summary>
+        /// Instance of the dictionary.
+        /// </summary>
         public Dictionary D = new Dictionary();
 
-        public Dfa(Fsm<Symbol> fsm, C.HashSet<int> last)
+        /// <summary>
+        /// The constructor builds DFA.
+        /// </summary>
+        /// <param name="fsm">Finite-state machine.</param>
+        /// <param name="accept">Accept state.</param>
+        public Dfa(Fsm<Symbol> fsm, C.HashSet<int> accept)
         {
             var startKey = new C.HashSet<int> { 0 };
             {
@@ -87,7 +109,7 @@
                     {
                         if (!this.D.ContainsKey(key))
                         {
-                            var state = new State(fsm, last, key);
+                            var state = new State(fsm, accept, key);
                             //
                             this.D.Add(key, state);
                             // add to the newToDo set.

@@ -420,7 +420,7 @@
                 //
                 foreach (var p in dfa.D)
                 {
-                    if (p.Value.Last)
+                    if (p.Value.Accept)
                     {
                         self = p.Key;
                         break;
@@ -444,7 +444,7 @@
                         ttt.SetState(p, self, csName);
                         ttt.Comment(empty);
                         //
-                        if (v.Last)
+                        if (v.Accept)
                         {
                             var m = new D.CodeMemberMethod()
                             {

@@ -7,6 +7,7 @@
 
     /// <summary>
     /// Finite-state machine.
+    /// <see cref="http://en.wikipedia.org/wiki/Finite-state_machine"/>
     /// </summary>
     /// <typeparam name="T">Symbol type.</typeparam>
     public class Fsm<T>
@@ -35,6 +36,8 @@
 
         /// <summary>
         /// The constructor adds a start state.
+        /// <see cref=
+        /// "http://en.wikipedia.org/wiki/Finite-state_machine#Start_state"/>
         /// </summary>
         public Fsm()
         {

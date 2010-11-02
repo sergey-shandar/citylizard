@@ -10,9 +10,15 @@
 
     using CityLizard.CodeDom.Extension;
 
+    /// <summary>
+    /// Build utilities.
+    /// </summary>
     public static class Build
     {
-        static readonly G.Dictionary<string, string> GlobalProperty =
+        /// <summary>
+        /// Build configuration.
+        /// </summary>
+        private static readonly G.Dictionary<string, string> GlobalProperty =
             new G.Dictionary<string, string>
             {
                 { "Configuration", "Debug" },
@@ -22,7 +28,7 @@
         /// <summary>
         /// Build the solution.
         /// </summary>
-        /// <param name="path"></param>
+        /// <param name="path">A path to the solution.</param>
         public static void BuildSolution(string path)
         {
             var pc = new E.ProjectCollection();
@@ -40,20 +46,21 @@
         }
 
         /// <summary>
-        /// Add declaration.
+        /// Add attribute declaration.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="u"></param>
-        /// <param name="v"></param>
+        /// <typeparam name="T">Attribute.</typeparam>
+        /// <param name="u">Compilation unit.</param>
+        /// <param name="v">Value.</param>
         private static void Add<T>(CD.CodeCompileUnit u, string v)
         {
             u.AssemblyCustomAttributes.AddDeclarationString<T>(v);
         }
-
+       
         /// <summary>
-        /// Version.
+        /// Version. Format: Branch.RevisionNumber.
         /// </summary>
-        /// <returns></returns>
+        /// <param name="s">Mercurial summary.</param>
+        /// <returns>Version.</returns>
         public static string Version(Hg.Hg.SummaryType s)
         {
             return (s.Branch == "default" ? "0.0.0" : s.Branch) +
@@ -64,13 +71,13 @@
         /// <summary>
         /// Create AssemblyInfo.cs.
         /// </summary>
-        /// <param name="company"></param>
-        /// <param name="i"></param>
+        /// <param name="company">Company name.</param>
+        /// <param name="solution">Path to the solution.</param>
         public static void CreateAssemblyInfo(
-            Hg.Hg.SummaryType s, string company, string i)
+            Hg.Hg.SummaryType s, string company, string solution)
         {
-            var d = IO.Path.GetDirectoryName(i);
-            var f = IO.Path.GetFileNameWithoutExtension(i);
+            var d = IO.Path.GetDirectoryName(solution);
+            var f = IO.Path.GetFileNameWithoutExtension(solution);
             var u = new CD.CodeCompileUnit();
             var version = Version(s);
             Add<R.AssemblyVersionAttribute>(u, version);
@@ -90,5 +97,6 @@
                     u, w, new CD.Compiler.CodeGeneratorOptions());
             }
         }
+
     }
 }

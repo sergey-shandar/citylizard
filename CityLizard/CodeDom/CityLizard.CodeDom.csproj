@@ -49,9 +49,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Code.cs" />
     <Compile Include="CSharp.cs" />
-    <Compile Include="Extension\AttributeDeclarationCollection.cs" />
-    <Compile Include="Extension\Extension.cs" />
+    <Compile Include="Extension\AttributeDeclarationCollectionExtension.cs" />
+    <Compile Include="Extension\ConstructorExtension.cs" />
+    <Compile Include="Extension\ParameterDeclarationExpressionCollectionExtension.cs" />
     <Compile Include="Extension\NamespaceCollectionExtension.cs" />
     <Compile Include="Extension\StatementCollectionExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

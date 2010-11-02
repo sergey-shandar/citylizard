@@ -22,7 +22,7 @@
         }
 
         /// <summary>
-        /// Output the current revision of the project manifest.
+        /// The current revision of the project manifest.
         /// </summary>
         /// <returns>
         /// A list of version controlled files for the first parent of the 

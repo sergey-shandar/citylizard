@@ -10,6 +10,13 @@
     /// </summary>
     public static class AttributeDeclarationCollectionExtension
     {
+        /// <summary>
+        /// Add an attribute declaration.
+        /// </summary>
+        /// <typeparam name="T">Attribute type.</typeparam>
+        /// <param name="dC">Collection.</param>
+        /// <param name="aP">Arguments.</param>
+        /// <returns>Created attribute declaration.</returns>
         public static D.CodeAttributeDeclaration AddDeclaration<T>(
             this D.CodeAttributeDeclarationCollection dC,
             params D.CodeAttributeArgument[] aP)
@@ -19,6 +26,13 @@
             return d;
         }
 
+        /// <summary>
+        /// Add an attribute declaration initialized by strings.
+        /// </summary>
+        /// <typeparam name="T">Attribute type.</typeparam>
+        /// <param name="dC">Collection.</param>
+        /// <param name="aP">Arguments.</param>
+        /// <returns>Created attribute declaration.</returns>
         public static D.CodeAttributeDeclaration AddDeclarationString<T>(
             this D.CodeAttributeDeclarationCollection dC,
             params string[] aP)

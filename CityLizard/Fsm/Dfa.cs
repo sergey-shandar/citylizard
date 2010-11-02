@@ -7,8 +7,7 @@
 
     /// <summary>
     /// Deterministic finite automaton.
-    /// <see cref="http://en.wikipedia.org/wiki/Deterministic_finite_automaton"
-    /// />
+    /// http://en.wikipedia.org/wiki/Deterministic_finite_automaton
     /// </summary>
     /// <typeparam name="Symbol">Symbol type.</typeparam>
     public class Dfa<Symbol>
@@ -24,9 +23,7 @@
         {
             /// <summary>
             /// true if this state is accept state.
-            /// <see cref=
-            /// "http://en.wikipedia.org/wiki/Finite-state_machine#Accept_state"
-            /// />
+            /// http://en.wikipedia.org/wiki/Finite-state_machine#Accept_state
             /// </summary>
             public readonly bool Accept = false;
 
@@ -60,6 +57,11 @@
                 }
             }
 
+            /// <summary>
+            /// Equals.
+            /// </summary>
+            /// <param name="other"></param>
+            /// <returns></returns>
             public bool Equals(State other)
             {
                 if (this.Accept != other.Accept || this.Count != other.Count)
@@ -87,6 +89,9 @@
         /// </summary>
         public class Dictionary : C.Dictionary<C.HashSet<int>, State>
         {
+            /// <summary>
+            /// Default constructor.
+            /// </summary>
             public Dictionary(): base(comparer)
             {
             }

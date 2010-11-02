@@ -30,6 +30,12 @@
             /// </summary>
             public readonly bool Accept = false;
 
+            /// <summary>
+            /// Constructor.
+            /// </summary>
+            /// <param name="fsm">Finite-state machine.</param>
+            /// <param name="accept">FSM accept states.</param>
+            /// <param name="key">FSM states.</param>
             public State(
                 Fsm<Symbol> fsm, C.HashSet<int> accept, C.HashSet<int> key)
             {

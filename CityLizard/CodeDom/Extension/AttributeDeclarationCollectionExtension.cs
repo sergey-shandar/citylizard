@@ -24,9 +24,7 @@
             params string[] aP)
         {
             return dC.AddDeclaration<T>(
-                aP.
-                    Select(
-                        x => C.AttributeArgument(C.PrimitiveExpression(x))).
+                aP.Select(x => C.AttributeArgument(C.PrimitiveExpression(x))).
                     ToArray());
         }
     }

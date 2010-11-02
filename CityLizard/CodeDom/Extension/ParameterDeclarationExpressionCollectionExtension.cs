@@ -2,6 +2,7 @@
 {
     using D = System.CodeDom;
     using S = System;
+    using C = Code;
 
     using System.Linq;
 
@@ -11,9 +12,7 @@
             this D.CodeParameterDeclarationExpressionCollection this_,
             string name)
         {
-            var r = new D.CodeParameterDeclarationExpression(
-                new D.CodeTypeReference(typeof(T)),
-                name);
+            var r = C.ParameterDeclarationExpression<T>(name);
             this_.Add(r);
             return r;
         }

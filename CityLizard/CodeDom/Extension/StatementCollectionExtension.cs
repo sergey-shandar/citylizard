@@ -1,6 +1,7 @@
 ﻿namespace CityLizard.CodeDom.Extension
 {
     using D = System.CodeDom;
+    using C = Code;
 
     public static class StatementCollectionExtension
     {
@@ -23,12 +24,7 @@
             string name,
             params D.CodeExpression[] eP)
         {
-            var t = typeof(T);
-            return sC.AddStatement(
-                new D.CodeVariableDeclarationStatement(
-                    new D.CodeTypeReference(t),
-                    name,
-                    new D.CodeObjectCreateExpression(t, eP)));
+            return sC.AddStatement(C.VariableDeclarationStatement<T>(name, eP));
         }
 
         public static D.CodeMethodInvokeExpression AddMethodInvoke(
@@ -37,8 +33,7 @@
             string name,
             params D.CodeExpression[] eP)
         {
-            return sC.AddExpression(new D.CodeMethodInvokeExpression(
-                e, name, eP));
+            return sC.AddExpression(C.MethodInvokeExpression(e, name, eP));
         }
     }
 }

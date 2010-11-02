@@ -24,7 +24,8 @@ $dir = Split-Path -parent $MyInvocation.MyCommand.Definition
 $params = 
 @{
     Path =
-        "CodeDom\Extension\AttributeDeclarationCollection.cs",
+        "CodeDom\Code.cs",
+        "CodeDom\Extension\AttributeDeclarationCollectionExtension.cs",
         "CodeDom\Extension\NamespaceCollectionExtension.cs",
         "Hg\Hg.cs",
         "Build\Build.cs"

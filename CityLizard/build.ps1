@@ -106,5 +106,3 @@ $zip = Join-Path $root $zipName
 $dll = Join-Path $xhtmlDir "bin\Debug\*.dll"
 $license = Join-Path $root "CityLizard\license.txt"
 &$_7z "a" $zip $dll $license
-
-

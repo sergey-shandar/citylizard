@@ -100,7 +100,8 @@
         /// <param name="set">Set of 'from' states.</param>
         /// <param name="transform">Apply transitions.</param>
         /// <param name="min">Minimum number of transitions (0..).</param>
-        /// <param name="max">Maximum number of transitions. No limit if int.MaxValue.</param>
+        /// <param name="max">Maximum number of transitions. No limit if the 
+        /// value equal int.MaxValue.</param>
         public void Loop(
             C.ISet<int> set, S.Action<C.ISet<int>> transform, int min, int max)
         {

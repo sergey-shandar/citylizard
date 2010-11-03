@@ -20,8 +20,8 @@
     <DocumentationSources>
       <DocumentationSource sourceFile="CityLizard.sln" xmlns="" />
     </DocumentationSources>
-    <WorkingPath>..\..\..\..\..\temp\</WorkingPath>
-    <HelpFileFormat>HtmlHelp1, MSHelp2, MSHelpViewer, Website</HelpFileFormat>
+    <WorkingPath>..\..\..\..\..\temp\shfb\temp\</WorkingPath>
+    <HelpFileFormat>Website</HelpFileFormat>
   </PropertyGroup>
   <!-- There are no properties for these groups.  AnyCPU needs to appear in
        order for Visual Studio to perform the build.  The others are optional

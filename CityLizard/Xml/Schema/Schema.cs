@@ -483,6 +483,7 @@
                         Attributes = attributes,
                         ReturnType = tType,
                     };
+                    // method.Comments.Add(new D.CodeCommentStatement(
                     common.Members.Add(method);
                     attributeRequired = Create(
                         method.Parameters,

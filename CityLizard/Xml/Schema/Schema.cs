@@ -242,7 +242,7 @@
                     Type = returnType,
                     Attributes = D.MemberAttributes.Public,
                 };
-                var pName = CD.CSharp.Name(parameter);
+                var pName = CD.CSharp.Name.Cast(parameter);
                 property.Parameters.Add(
                     new D.CodeParameterDeclarationExpression(
                         new D.CodeTypeReference(parameter),
@@ -278,7 +278,8 @@
                 foreach (var t in state.Value)
                 {
                     var returnTypeName = CSName(self, selfName, t.Value);
-                    this.Property(returnTypeName, CD.CSharp.Name(t.Key.Name));
+                    this.Property(
+                        returnTypeName, CD.CSharp.Name.Cast(t.Key.Name));
                 }
             }
         }
@@ -313,7 +314,7 @@
                     required ? "AddRequiredAttribute" : "AddOptionalAttribute";
                 foreach (var a in this.List)
                 {
-                    var aName = CD.CSharp.Name(a.QualifiedName.Name);
+                    var aName = CD.CSharp.Name.Cast(a.QualifiedName.Name);
                     if (
                         required == (a.Use == XS.XmlSchemaUse.Required) &&
                         !this.PSet.Contains(aName))
@@ -365,7 +366,7 @@
             var q = element.QualifiedName;
             var type = element.ElementSchemaType;
 
-            var n = new D.CodeNamespace(CD.CSharp.Namespace(q.Namespace));
+            var n = new D.CodeNamespace(CD.CSharp.Namespace.Cast(q.Namespace));
             unit.Namespaces.Add(n);
 
             var common = new D.CodeTypeDeclaration("X")
@@ -377,7 +378,7 @@
             common.BaseTypes.Add(typeof(Xml.Static));
             n.Types.Add(common);
 
-            var csName = CD.CSharp.Name(q.Name);
+            var csName = CD.CSharp.Name.Cast(q.Name);
 
             var t = new D.CodeTypeDeclaration("T")
             {

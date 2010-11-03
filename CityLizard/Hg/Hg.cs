@@ -4,7 +4,7 @@
 
     /// <summary>
     /// Mercurial access.
-    /// <see cref="http://en.wikipedia.org/wiki/Mercurial"/>
+    /// See http://en.wikipedia.org/wiki/Mercurial.
     /// </summary>
     public static class Hg
     {

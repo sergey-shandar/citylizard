@@ -4,6 +4,7 @@
 #         powershell Set-ExecutionPolicy RemoteSigned
 #  2. Set .NET 4.0 runtime:
 #         copy powershell_ise.exe.config C:\Windows\System32\WindowsPowerShell\v1.0\
+#  3. Run the script in PowerShell ISE.
 #
 
 #
@@ -102,10 +103,10 @@ $xhtmlDir = Split-Path -parent $xhtml
 #
 # Sandcastle
 #
-""
-"Sandcastle"
-$html = Join-Path $root "html"
-&$sandcastle "/html:" $html "/project:" $path
+# ""
+# "Sandcastle"
+# $html = Join-Path $root "html"
+# &$sandcastle "/html:" $html "/project:" $path
 
 #
 # Zipping

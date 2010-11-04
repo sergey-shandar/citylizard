@@ -30,7 +30,7 @@
             get { return this.Name; }
         }
 
-        public override void ToStringBuilder(
+        public override void ToTextWriter(
             T.StringBuilder builder, string parentNamespace)
         {
             builder.AppendAttribute(this.Name, this.Value);

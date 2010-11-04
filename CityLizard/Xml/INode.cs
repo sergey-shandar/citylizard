@@ -8,6 +8,6 @@
 
     public interface INode
     {
-        void ToStringBuilder(T.StringBuilder builder, string parentNamespace);
+        void ToTextWriter(T.StringBuilder builder, string parentNamespace);
     }
 }

@@ -196,5 +196,20 @@
                 writer.Write('>');
             }
         }
+
+        public override void ToXmlWriter(
+            S.Xml.XmlWriter writer, string parentNamespace)
+        {
+            if (parentNamespace != this.H.Ns)
+            {
+                writer.WriteStartElement(this.H.Name, this.H.Ns);
+            }
+            else
+            {
+                writer.WriteStartElement(this.H.Name);
+            }
+            writer.WriteList(this.H.AttributeList, this.H.Ns);
+            // writer.
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿namespace CityLizard.Xml
 {
     using IO = System.IO;
+    using X = System.Xml;
     using S = System;
     using C = System.Collections.Generic;
 
@@ -21,6 +22,9 @@
         /// </param>
         public abstract void ToTextWriter(
             IO.TextWriter writer, string parentNamespace);
+
+        public abstract void ToXmlWriter(
+            X.XmlWriter writer, string parentNamespace);
 
         /// <summary>
         /// Returns a string that represents the current node.

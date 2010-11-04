@@ -1,6 +1,7 @@
 ﻿namespace CityLizard.Xml
 {
     using IO = System.IO;
+    using X = System.Xml;
     using S = System;
     using C = System.Collections.Generic;
 
@@ -19,5 +20,7 @@
         /// true to write without xmlns attribute; otherwise, false.
         /// </param>
         void ToTextWriter(IO.TextWriter writer, string parentNamespace);
+
+        void ToXmlWriter(X.XmlWriter writer, string parentNamespace);
     }
 }

@@ -155,10 +155,10 @@
         }
 
         /// <summary>
-        /// <see cref="http://www.w3.org/TR/xhtml1/#guidelines">C. HTML 
-        /// Compatibility Guidelines</see>.
+        /// http://www.w3.org/TR/xhtml1/#guidelines">. C. HTML 
+        /// Compatibility Guidelines.
         /// </summary>
-        /// <param name="builder"></param>
+        /// <param name="writer"></param>
         /// <param name="parentNamespace"></param>
         public override void ToTextWriter(
             IO.TextWriter writer, string parentNamespace)

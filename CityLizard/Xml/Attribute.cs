@@ -7,7 +7,7 @@
     using System.Linq;
     using Extension;
 
-    public sealed class Attribute : TextValue, IAttribute
+    public sealed class Attribute : CharacterData, IAttribute
     {
         private readonly string Ns;
 

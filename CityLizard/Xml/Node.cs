@@ -8,13 +8,24 @@
     using Extension;
 
     /// <summary>
-    /// The Node object represents a single node in the document tree.
+    /// The node object represents a single node in the XML document tree.
     /// </summary>
     public abstract class Node : INode
     {
+        /// <summary>
+        /// Writes the node to the text writer.
+        /// </summary>
+        /// <param name="writer">The text writer.</param>
+        /// <param name="parentNamespace">
+        /// true to write without xmlns attribute; otherwise, false.
+        /// </param>
         public abstract void ToTextWriter(
             IO.TextWriter writer, string parentNamespace);
 
+        /// <summary>
+        /// Returns a string that represents the current node.
+        /// </summary>
+        /// <returns>String that represents the current node.</returns>
         public override string ToString()
         {
             var w = new IO.StringWriter();

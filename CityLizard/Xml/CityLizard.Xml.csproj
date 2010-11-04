@@ -63,13 +63,13 @@
     <Compile Include="IName.cs" />
     <Compile Include="INode.cs" />
     <Compile Include="IText.cs" />
-    <Compile Include="ITextValue.cs" />
+    <Compile Include="ICharacterData.cs" />
     <Compile Include="Node.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Extension\TextWriterExtension.cs" />
     <Compile Include="Static.cs" />
     <Compile Include="Text.cs" />
-    <Compile Include="TextValue.cs" />
+    <Compile Include="CharacterData.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

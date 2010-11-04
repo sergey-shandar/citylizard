@@ -6,7 +6,10 @@
 
     using System.Linq;
 
-    public interface IText : ITextValue
+    /// <summary>
+    /// Represents the text content of an element.
+    /// </summary>
+    public interface IText : ICharacterData
     {
     }
 }

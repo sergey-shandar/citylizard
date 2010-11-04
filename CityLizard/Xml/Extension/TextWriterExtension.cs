@@ -6,12 +6,12 @@
 
     using System.Linq;
 
-    public static class StringBuilderExtension
+    public static class TextWriterExtension
     {
         public static void AppendNode(
             this T.StringBuilder t, INode o, string parentNamespace)
         {
-            o.ToStringBuilder(t, parentNamespace);
+            o.ToTextWriter(t, parentNamespace);
         }
 
         public static void AppendAttribute(

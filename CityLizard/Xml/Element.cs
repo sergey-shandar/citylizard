@@ -160,7 +160,7 @@
         /// </summary>
         /// <param name="builder"></param>
         /// <param name="parentNamespace"></param>
-        public override void ToStringBuilder(
+        public override void ToTextWriter(
             T.StringBuilder builder, string parentNamespace)
         {
             builder.Append('<');

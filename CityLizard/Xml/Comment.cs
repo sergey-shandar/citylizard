@@ -14,7 +14,7 @@
         {
         }
 
-        public override void ToStringBuilder(
+        public override void ToTextWriter(
             T.StringBuilder builder, string parentNamespace)
         {
             builder.Append("<!--");

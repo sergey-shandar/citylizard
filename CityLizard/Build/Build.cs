@@ -67,10 +67,11 @@
                 "." +
                 s.Parent.RevisionNumber;
         }
-
+       
         /// <summary>
-        /// Create AssemblyInfo.cs.
+        /// Creates AssemblyInfo.cs.
         /// </summary>
+        /// <param name="s">Summary.</param>
         /// <param name="company">Company name.</param>
         /// <param name="solution">Path to the solution.</param>
         public static void CreateAssemblyInfo(

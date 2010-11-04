@@ -144,7 +144,7 @@
         /// <typeparam name="T">Type of the variable.</typeparam>
         /// <param name="name">Name of the variable.</param>
         /// <param name="eP">Constructor parameters.</param>
-        /// <returns>Created varable declaration.</returns>
+        /// <returns>Created declaration.</returns>
         public static D.CodeVariableDeclarationStatement
             VariableDeclarationStatement<T>(
                 string name, params D.CodeExpression[] eP)
@@ -157,6 +157,11 @@
 
         #region VariableReferenceExpression
 
+        /// <summary>
+        /// Creates a reference on variable.
+        /// </summary>
+        /// <param name="name">Name of the variable.</param>
+        /// <returns>Created reference.</returns>
         public static D.CodeVariableReferenceExpression
             VariableReferenceExpression(string name)
         {

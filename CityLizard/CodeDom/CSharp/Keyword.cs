@@ -12,6 +12,9 @@ namespace CityLizard.CodeDom.CSharp
     /// </summary>
     public static class Keyword
     {
+        /// <summary>
+        /// Set of C# keywords.
+        /// </summary>
         public static C.HashSet<string> Set = new C.HashSet<string>
         {
             "abstract", 

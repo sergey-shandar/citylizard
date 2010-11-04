@@ -7,9 +7,12 @@
     using System.Linq;
     using Extension;
 
+    /// <summary>
+    /// The Node object represents a single node in the document tree.
+    /// </summary>
     public abstract class Node : INode
     {
-        public abstract void ToStringBuilder(
+        public abstract void ToTextWriter(
             T.StringBuilder builder, string parentNamespace);
 
         public override string ToString()

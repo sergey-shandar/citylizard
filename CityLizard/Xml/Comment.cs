@@ -1,6 +1,7 @@
 ﻿namespace CityLizard.Xml
 {
     using IO = System.IO;
+    using X = System.Xml;
     using S = System;
     using C = System.Collections.Generic;
 
@@ -34,6 +35,12 @@
             writer.Write("<!--");
             writer.WriteText(this.Value);
             writer.Write("-->");
+        }
+
+        public override void ToXmlWriter(
+            X.XmlWriter writer, string parentNamespace)
+        {
+            writer.WriteComment(this.Value);
         }
     }
 }

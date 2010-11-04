@@ -521,7 +521,7 @@
                         [head[title]]
                         [body];
 
-                ///
+                //
                 var x =
                     html
                         [head

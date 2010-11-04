@@ -17,7 +17,7 @@
         /// <param name="this_">The current writer instance.</param>
         /// <param name="node">The node to writes from.</param>
         /// <param name="parentNamespace">
-        /// True to write without xmlns attribute; otherwise, false.
+        /// true to write without xmlns attribute; otherwise, false.
         /// </param>
         public static void WriteNode(
             this IO.TextWriter this_, INode node, string parentNamespace)
@@ -48,7 +48,7 @@
         /// <param name="this_">The current writer instance.</param>
         /// <param name="list">The list of nodes.</param>
         /// <param name="parentNamespace">
-        /// True to write without xmlns attribute; otherwise, false.
+        /// true to write without xmlns attribute; otherwise, false.
         /// </param>
         public static void WriteList<I>(
             this IO.TextWriter this_, 

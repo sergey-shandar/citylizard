@@ -6,7 +6,7 @@
 
     using System.Linq;
 
-    public interface IAttribute : ITextValue, IName
+    public interface IAttribute : ICharacterData, IName
     {
     }
 }

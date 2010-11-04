@@ -7,13 +7,27 @@
     using System.Linq;
     using Extension;
 
-    public sealed class Comment : TextValue, IComment
+    /// <summary>
+    /// Represents the content of an XML comment.
+    /// </summary>
+    public sealed class Comment : CharacterData, IComment
     {
+        /// <summary>
+        /// Initializes a new instance of the Comment class.
+        /// </summary>
+        /// <param name="value">
+        /// The content of the comment.
+        /// </param>
         public Comment(string value)
             : base(value)
         {
         }
 
+        /// <summary>
+        /// Writes the comment to the text writer.
+        /// </summary>
+        /// <param name="writer">The text writer.</param>
+        /// <param name="parentNamespace">Ignored.</param>
         public override void ToTextWriter(
             IO.TextWriter writer, string parentNamespace)
         {

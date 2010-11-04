@@ -6,7 +6,10 @@
 
     using System.Linq;
 
-    public interface IComment : ITextValue
+    /// <summary>
+    /// Represents the content of an XML comment.
+    /// </summary>
+    public interface IComment : ICharacterData
     {
     }
 }

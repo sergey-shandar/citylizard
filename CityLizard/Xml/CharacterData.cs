@@ -12,11 +12,6 @@
     public abstract class CharacterData : Node, ICharacterData
     {
         /// <summary>
-        /// The text.
-        /// </summary>
-        public readonly string Value;
-
-        /// <summary>
         /// Initializes the text.
         /// </summary>
         /// <param name="value">The text.</param>
@@ -28,9 +23,6 @@
         /// <summary>
         /// The text.
         /// </summary>
-        string ICharacterData.Value
-        {
-            get { return this.Value; }
-        }
+        public string Value { get; private set; }
     }
 }

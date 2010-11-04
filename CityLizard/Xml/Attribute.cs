@@ -9,26 +9,16 @@
 
     public sealed class Attribute : CharacterData, IAttribute
     {
-        private readonly string Ns;
-
-        private readonly string Name;
-
-        public Attribute(string ns, string name, string value)
+        public Attribute(string namespace_, string name, string value)
             : base(value)
         {
-            this.Ns = ns;
+            this.Namespace = namespace_;
             this.Name = name;
         }
 
-        string IName.Namespace
-        {
-            get { return this.Ns; }
-        }
+        public string Namespace { get; private set; }
 
-        string IName.Name
-        {
-            get { return this.Name; }
-        }
+        public string Name { get; private set; }
 
         public override void ToTextWriter(
             IO.TextWriter writer, string parentNamespace)

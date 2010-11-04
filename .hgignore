@@ -19,3 +19,4 @@ relre:/Release/
 relre:AssemblyInfo.cs$
 relre:.*\.zip$
 relre:.*\.orig$
+relre:.*\.log$

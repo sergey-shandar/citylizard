@@ -1,6 +1,6 @@
 ﻿namespace CityLizard.Xml.Extension
 {
-    using T = System.Text;
+    using IO = System.IO;
     using S = System;
     using C = System.Collections.Generic;
 
@@ -8,81 +8,81 @@
 
     public static class TextWriterExtension
     {
-        public static void AppendNode(
-            this T.StringBuilder t, INode o, string parentNamespace)
+        public static void WriteNode(
+            this IO.TextWriter this_, INode o, string parentNamespace)
         {
-            o.ToTextWriter(t, parentNamespace);
+            o.ToTextWriter(this_, parentNamespace);
         }
 
-        public static void AppendAttribute(
-            this T.StringBuilder t, string name, string value)
+        public static void WriteAttribute(
+            this IO.TextWriter this_, string name, string value)
         {
-            t.Append(' ');
-            t.Append(name);
-            t.Append("=\"");
-            t.Append(value);
-            t.Append('"');
+            this_.Write(' ');
+            this_.Write(name);
+            this_.Write("=\"");
+            this_.Write(value);
+            this_.Write('"');
         }
 
-        public static void AppendList<I>(
-            this T.StringBuilder t, 
+        public static void WriteList<I>(
+            this IO.TextWriter this_, 
             C.IEnumerable<I> list, 
             string parentNamespace)
             where I: INode
         {
             foreach (var i in list)
             {
-                t.AppendNode(i, parentNamespace);
+                this_.WriteNode(i, parentNamespace);
             }
         }
 
         private struct Range
         {
-            public T.StringBuilder Builder;
+            public IO.TextWriter Writer;
             public string Text;
             public int Begin;
             public int End;
             
-            public Range(T.StringBuilder builder, string text)
+            public Range(IO.TextWriter writer, string text)
             {
-                this.Builder = builder;
+                this.Writer = writer;
                 this.Text = text;
                 this.Begin = 0;
                 this.End = 0;
             }
 
-            public void Append(string c)
+            public void Write(string c)
             {
                 this.Flush();
-                this.Builder.Append(c);
+                this.Writer.Write(c);
             }
 
             public void Flush()
             {
-                this.Builder.Append(
+                this.Writer.Write(
                     this.Text, this.Begin, this.End - this.Begin);
                 this.Begin = this.End + 1;
             }
         }
 
-        public static void AppendText(this T.StringBuilder builder, string text)
+        public static void WriteText(this IO.TextWriter writer, string text)
         {
-            var r = new Range(builder, text);
+            var r = new Range(writer, text);
             for(; r.End < text.Length; ++r.End)
             {
                 switch (text[r.End])
                 {
                     case '&':
-                        r.Append("&amp;");
+                        r.Write("&amp;");
                         break;
                     case '<':
-                        r.Append("&lt;");
+                        r.Write("&lt;");
                         break;
                     case '>':
-                        r.Append("&gt;");
+                        r.Write("&gt;");
                         break;
                     case '"':
-                        r.Append("&quot;");
+                        r.Write("&quot;");
                         break;
                 }
             }

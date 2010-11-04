@@ -1,6 +1,6 @@
 ﻿namespace CityLizard.Xml
 {
-    using T = System.Text;
+    using IO = System.IO;
     using S = System;
     using C = System.Collections.Generic;
 
@@ -161,15 +161,15 @@
         /// <param name="builder"></param>
         /// <param name="parentNamespace"></param>
         public override void ToTextWriter(
-            T.StringBuilder builder, string parentNamespace)
+            IO.TextWriter writer, string parentNamespace)
         {
-            builder.Append('<');
-            builder.Append(this.H.Name);
+            writer.Write('<');
+            writer.Write(this.H.Name);
             if (parentNamespace != this.H.Ns)
             {
-                builder.AppendAttribute("xmlns", this.H.Ns);
+                writer.WriteAttribute("xmlns", this.H.Ns);
             }
-            builder.AppendList(this.H.AttributeList, this.H.Ns);
+            writer.WriteList(this.H.AttributeList, this.H.Ns);
             if (this.H.IsEmpty)
             {
                 // C.2. Empty Elements
@@ -180,7 +180,7 @@
                 // elements, e.g. <br />, as the alternative syntax <br></br> 
                 // allowed by XML gives uncertain results in many existing user 
                 // agents.
-                builder.Append(" />");
+                writer.Write(" />");
             }
             else
             {
@@ -189,11 +189,11 @@
                 // Given an empty instance of an element whose content model is 
                 // not EMPTY (for example, an empty title or paragraph) do not 
                 // use the minimized form (e.g. use <p> </p> and not <p />).
-                builder.Append('>');
-                builder.AppendList(this.ContentList, this.H.Ns);
-                builder.Append("</");
-                builder.Append(this.H.Name);
-                builder.Append('>');
+                writer.Write('>');
+                writer.WriteList(this.ContentList, this.H.Ns);
+                writer.Write("</");
+                writer.Write(this.H.Name);
+                writer.Write('>');
             }
         }
     }

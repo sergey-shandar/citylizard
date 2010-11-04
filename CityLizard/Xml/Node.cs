@@ -1,6 +1,6 @@
 ﻿namespace CityLizard.Xml
 {
-    using T = System.Text;
+    using IO = System.IO;
     using S = System;
     using C = System.Collections.Generic;
 
@@ -13,13 +13,13 @@
     public abstract class Node : INode
     {
         public abstract void ToTextWriter(
-            T.StringBuilder builder, string parentNamespace);
+            IO.TextWriter writer, string parentNamespace);
 
         public override string ToString()
         {
-            var builder = new T.StringBuilder();
-            builder.AppendNode(this, null);
-            return builder.ToString();
+            var w = new IO.StringWriter();
+            w.WriteNode(this, null);
+            return w.ToString();
         }
     }
 }

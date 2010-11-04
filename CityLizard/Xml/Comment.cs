@@ -1,6 +1,6 @@
 ﻿namespace CityLizard.Xml
 {
-    using T = System.Text;
+    using IO = System.IO;
     using S = System;
     using C = System.Collections.Generic;
 
@@ -15,11 +15,11 @@
         }
 
         public override void ToTextWriter(
-            T.StringBuilder builder, string parentNamespace)
+            IO.TextWriter writer, string parentNamespace)
         {
-            builder.Append("<!--");
-            builder.AppendText(this.Value);
-            builder.Append("-->");
+            writer.Write("<!--");
+            writer.WriteText(this.Value);
+            writer.Write("-->");
         }
     }
 }

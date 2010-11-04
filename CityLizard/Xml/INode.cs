@@ -1,6 +1,6 @@
 ﻿namespace CityLizard.Xml
 {
-    using T = System.Text;
+    using IO = System.IO;
     using S = System;
     using C = System.Collections.Generic;
 
@@ -8,6 +8,6 @@
 
     public interface INode
     {
-        void ToTextWriter(T.StringBuilder builder, string parentNamespace);
+        void ToTextWriter(IO.TextWriter writer, string parentNamespace);
     }
 }

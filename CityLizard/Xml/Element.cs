@@ -197,6 +197,12 @@
             }
         }
 
+        /// <summary>
+        /// C. HTML Compatibility Guidelines.
+        /// (http://www.w3.org/TR/xhtml1/#guidelines).
+        /// </summary>
+        /// <param name="writer"></param>
+        /// <param name="parentNamespace"></param>
         public override void ToXmlWriter(
             S.Xml.XmlWriter writer, string parentNamespace)
         {

@@ -86,7 +86,7 @@
             public void Flush()
             {
                 this.Writer.Write(
-                    this.Text, this.Begin, this.End - this.Begin);
+                    this.Text.Substring(this.Begin, this.End - this.Begin));
                 this.Begin = this.End + 1;
             }
         }

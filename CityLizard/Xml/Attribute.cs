@@ -3,6 +3,7 @@
     using IO = System.IO;
     using S = System;
     using C = System.Collections.Generic;
+    using X = System.Xml;
 
     using System.Linq;
     using Extension;
@@ -25,5 +26,12 @@
         {
             writer.WriteAttribute(this.Name, this.Value);
         }
+
+        public override void ToXmlWriter(
+            X.XmlWriter writer, string parentNamespace)
+        {
+            writer.WriteAttributeString(this.Name, this.Value);
+        }
+
     }
 }

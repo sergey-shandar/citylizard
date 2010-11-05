@@ -210,6 +210,28 @@
             }
             writer.WriteList(this.H.AttributeList, this.H.Ns);
             // writer.
+            if (this.H.IsEmpty)
+            {
+                // C.2. Empty Elements
+                // 
+                // Include a space before the trailing / and > of empty 
+                // elements, e.g. <br />, <hr /> and <img src="karen.jpg" 
+                // alt="Karen" />. Also, use the minimized tag syntax for empty 
+                // elements, e.g. <br />, as the alternative syntax <br></br> 
+                // allowed by XML gives uncertain results in many existing user 
+                // agents.
+                writer.WriteEndElement();
+            }
+            else
+            {
+                // C.3. Element Minimization and Empty Element Content
+                //
+                // Given an empty instance of an element whose content model is 
+                // not EMPTY (for example, an empty title or paragraph) do not 
+                // use the minimized form (e.g. use <p> </p> and not <p />).
+                writer.WriteList(this.ContentList, this.H.Ns);
+                writer.WriteFullEndElement();
+            }
         }
     }
 }

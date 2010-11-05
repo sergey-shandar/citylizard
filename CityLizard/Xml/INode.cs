@@ -21,6 +21,13 @@
         /// </param>
         void ToTextWriter(IO.TextWriter writer, string parentNamespace);
 
+        /// <summary>
+        /// Writes the node to the XML writer.
+        /// </summary>
+        /// <param name="writer">The XML writer.</param>
+        /// <param name="parentNamespace">
+        /// true to write without xmlns attribute; otherwise, false.
+        /// </param>
         void ToXmlWriter(X.XmlWriter writer, string parentNamespace);
     }
 }

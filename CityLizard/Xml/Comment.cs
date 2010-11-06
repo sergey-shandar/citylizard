@@ -71,21 +71,11 @@
         { 
         }
 
-        /*
         /// <summary>
-        /// Writes the comment to the text writer.
+        /// Writes the comment to the XML writer.
         /// </summary>
-        /// <param name="writer">The text writer.</param>
-        /// <param name="parentNamespace">Ignored.</param>
-        public override void ToTextWriter(
-            IO.TextWriter writer, string parentNamespace)
-        {
-            writer.Write("<!--");
-            writer.WriteText(this.Value);
-            writer.Write("-->");
-        }
-         * */
-
+        /// <param name="writer">The XML writer.</param>
+        /// <param name="parentNamespace">Ignotred.</param>
         public override void ToXmlWriter(
             X.XmlWriter writer, string parentNamespace)
         {

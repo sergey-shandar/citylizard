@@ -21,14 +21,6 @@
 
         public string Name { get; private set; }
 
-        /*
-        public override void ToTextWriter(
-            IO.TextWriter writer, string parentNamespace)
-        {
-            writer.WriteAttribute(this.Name, this.Value);
-        }
-         * */
-
         public override void ToXmlWriter(
             X.XmlWriter writer, string parentNamespace)
         {

@@ -24,21 +24,11 @@
         {
         }
 
-        /*
         /// <summary>
-        /// Writes the node to the text writer.
+        /// Writes the node to the XML writer.
         /// </summary>
-        /// <param name="writer">The text writer.</param>
-        /// <param name="parentNamespace">
-        /// true to write without xmlns attribute; otherwise, false.
-        /// </param>
-        public override void ToTextWriter(
-            IO.TextWriter writer, string parentNamespace)
-        {
-            writer.WriteText(this.Value);
-        }
-         * */
-
+        /// <param name="writer">The XML writer.</param>
+        /// <param name="parentNamespace">Parent namespace.</param>
         public override void ToXmlWriter(
             X.XmlWriter writer, string parentNamespace)
         {

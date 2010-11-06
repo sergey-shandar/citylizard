@@ -104,7 +104,7 @@ foreach($f in [CityLizard.Hg.Hg]::Locate())
     if([IO.Path]::GetFileName($f) -eq "CityLizard.XHtml.sln")
     {
         $xhtml = Join-Path $root $f
-        [CityLizard.Build.Build]::BuildSolution($path)
+        [CityLizard.Build.Build]::BuildSolution($xhtml)
         break;
     }
 }

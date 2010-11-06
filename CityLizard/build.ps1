@@ -84,6 +84,16 @@ foreach($f in [CityLizard.Hg.Hg]::Locate())
 }
 
 #
+# Building XHTML 1.1
+#
+""
+"Building xhtml11.xsd.cs"
+$console = Join-Path $root "CityLizard\Xml\Schema\Console\bin\Debug\CityLizard.Xml.Schema.Console.exe"
+$xhtml11_xsd = Join-Path $root "www.w3.org\MarkUp\SCHEMA\xhtml11.xsd"
+$xhtml11_xsd_cs = Join-Path $root "CityLizard\XHtml\xhtml11.xsd.cs"
+&$console $xhtml11_xsd $xhtml11_xsd_cs
+
+#
 # Building CityLizard.XHtml.sln
 #
 ""

@@ -9,45 +9,16 @@
 
     public class Element : Node, IElement
     {
-        public class Header
+        public class Header: ElementBase.Header
         {
-            public readonly string Ns;
-            public readonly string Name;
             public readonly bool IsEmpty;
-
-            public readonly C.IList<IAttribute> RequiredAttributeList =
-                new C.List<IAttribute>();
-
-            public void AddRequiredAttribute(string name, string value)
-            {
-                this.RequiredAttributeList.Add(name, value);
-            }
-
-            public readonly C.IList<IAttribute> OptionalAttributeList =
-                new C.List<IAttribute>();
-
-            public void AddOptionalAttribute(string name, string value)
-            {
-                this.OptionalAttributeList.Add(name, value);
-            }
-
-            public C.IEnumerable<IAttribute> AttributeList
-            {
-                get
-                {
-                    return this.RequiredAttributeList.Concat(
-                        this.OptionalAttributeList.Where(a => a.Value != null));
-                }
-            }
 
             public Header(
                 string ns, 
                 string name, 
-                bool isEmpty)
+                bool isEmpty):
+                base(ns, name)
             {
-                this.Ns = ns;
-                this.Name = name;
-                this.Name = name;
                 this.IsEmpty = isEmpty;
             }
         }
@@ -110,7 +81,7 @@
 
         public string Namespace
         {
-            get { return this.H.Ns; }
+            get { return this.H.Namespace; }
         }
 
         public string Name
@@ -163,15 +134,15 @@
         public override void ToXmlWriter(
             S.Xml.XmlWriter writer, string parentNamespace)
         {
-            if (parentNamespace != this.H.Ns)
+            if (parentNamespace != this.H.Namespace)
             {
-                writer.WriteStartElement(this.H.Name, this.H.Ns);
+                writer.WriteStartElement(this.H.Name, this.H.Namespace);
             }
             else
             {
                 writer.WriteStartElement(this.H.Name);
             }
-            writer.WriteList(this.H.AttributeList, this.H.Ns);
+            writer.WriteList(this.H.AttributeList, this.H.Namespace);
             // writer.
             if (this.H.IsEmpty)
             {
@@ -192,7 +163,7 @@
                 // Given an empty instance of an element whose content model is 
                 // not EMPTY (for example, an empty title or paragraph) do not 
                 // use the minimized form (e.g. use <p> </p> and not <p />).
-                writer.WriteList(this.ContentList, this.H.Ns);
+                writer.WriteList(this.ContentList, this.H.Namespace);
                 writer.WriteFullEndElement();
             }
         }

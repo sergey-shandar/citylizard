@@ -6,6 +6,9 @@
 
     using System.Linq;
 
+    /// <summary>
+    /// Represents an XML attribute.
+    /// </summary>
     public interface IAttribute : ICharacterData, IName
     {
     }

@@ -56,12 +56,14 @@
     <Compile Include="Attribute.cs" />
     <Compile Include="Comment.cs" />
     <Compile Include="Element.cs" />
+    <Compile Include="ElementBase.cs" />
     <Compile Include="Extension\AttributeListExtension.cs" />
     <Compile Include="Extension\INodeExtension.cs" />
     <Compile Include="Extension\XmlWriterExtension.cs" />
     <Compile Include="IAttribute.cs" />
     <Compile Include="IComment.cs" />
     <Compile Include="IElement.cs" />
+    <Compile Include="IElementBase.cs" />
     <Compile Include="IName.cs" />
     <Compile Include="INode.cs" />
     <Compile Include="IText.cs" />

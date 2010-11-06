@@ -209,7 +209,7 @@
             {
                 T.html h = html()[head()[Comment("RRR<>")]][body()];
                 N.Assert.AreEqual(
-                    "<html xmlns=\"http://example.org/\"><head><!--RRR&lt;&gt;--></head><body></body></html>",
+                    "<html xmlns=\"http://example.org/\"><head><!--RRR<>--></head><body></body></html>",
                     h.ToString());
             }
         }
@@ -218,6 +218,38 @@
         public static void Comment()
         {
             X.Comment();
+        }
+
+        public class X2 : Xml.Static
+        {
+            public static void Comment()
+            {
+                T.html h = html()[head()[Comment("RRR--aaa")]][body()];
+                N.Assert.AreEqual(
+                    "<html xmlns=\"http://example.org/\"><head><!--RRR- -aaa--></head><body></body></html>",
+                    h.ToString());
+
+                T.html h2 = html()[head()[Comment("RRR--aaa-")]][body()];
+                N.Assert.AreEqual(
+                    "<html xmlns=\"http://example.org/\"><head><!--RRR- -aaa- --></head><body></body></html>",
+                    h2.ToString());
+
+                T.html h3 = html()[head()[Comment("-RRR--aaa-")]][body()];
+                N.Assert.AreEqual(
+                    "<html xmlns=\"http://example.org/\"><head><!---RRR- -aaa- --></head><body></body></html>",
+                    h3.ToString());
+
+                T.html h4 = html()[head()[Comment("--RRR--aaa-")]][body()];
+                N.Assert.AreEqual(
+                    "<html xmlns=\"http://example.org/\"><head><!--- -RRR- -aaa- --></head><body></body></html>",
+                    h4.ToString());
+            }
+        }
+
+        [N.Test]
+        public static void Comment2()
+        {
+            X2.Comment();
         }
     }
 }

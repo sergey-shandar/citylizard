@@ -13,6 +13,7 @@
     /// </summary>
     public abstract class Node : INode
     {
+        /*
         /// <summary>
         /// Writes the node to the text writer.
         /// </summary>
@@ -22,7 +23,15 @@
         /// </param>
         public abstract void ToTextWriter(
             IO.TextWriter writer, string parentNamespace);
+         * */
 
+        /// <summary>
+        /// Writes the node to the text writer.
+        /// </summary>
+        /// <param name="writer">The text writer.</param>
+        /// <param name="parentNamespace">
+        /// true to write without xmlns attribute; otherwise, false.
+        /// </param>
         public abstract void ToXmlWriter(
             X.XmlWriter writer, string parentNamespace);
 
@@ -32,9 +41,17 @@
         /// <returns>String that represents the current node.</returns>
         public override string ToString()
         {
+            var stringWriter = new IO.StringWriter();
+            using (var xmlWriter = new X.XmlTextWriter(stringWriter))
+            {
+                xmlWriter.WriteNode(this, null);
+            }
+            return stringWriter.ToString();
+            /*
             var w = new IO.StringWriter();
             w.WriteNode(this, null);
             return w.ToString();
+             * */
         }
     }
 }

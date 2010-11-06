@@ -154,6 +154,7 @@
             }
         }
 
+        /*
         /// <summary>
         /// http://www.w3.org/TR/xhtml1/#guidelines">. C. HTML 
         /// Compatibility Guidelines.
@@ -196,6 +197,7 @@
                 writer.Write('>');
             }
         }
+         * */
 
         /// <summary>
         /// C. HTML Compatibility Guidelines.

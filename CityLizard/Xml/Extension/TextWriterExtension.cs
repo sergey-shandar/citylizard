@@ -11,6 +11,7 @@
     /// </summary>
     public static class TextWriterExtension
     {
+        /*
         /// <summary>
         /// Writes the node to the current writer instance.
         /// </summary>
@@ -24,6 +25,7 @@
         {
             node.ToTextWriter(this_, parentNamespace);
         }
+         * */
 
         /// <summary>
         /// Writes the attribute to the current writer instance.
@@ -41,6 +43,7 @@
             this_.Write('"');
         }
 
+        /*
         /// <summary>
         /// Writes the list of nodes to the current writer instance.
         /// </summary>
@@ -61,6 +64,7 @@
                 this_.WriteNode(i, parentNamespace);
             }
         }
+         * */
 
         private struct Range
         {

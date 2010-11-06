@@ -12,6 +12,7 @@
     /// </summary>
     public interface INode
     {
+        /*
         /// <summary>
         /// Writes the node to the text writer.
         /// </summary>
@@ -20,6 +21,7 @@
         /// true to write without xmlns attribute; otherwise, false.
         /// </param>
         void ToTextWriter(IO.TextWriter writer, string parentNamespace);
+        */
 
         /// <summary>
         /// Writes the node to the XML writer.

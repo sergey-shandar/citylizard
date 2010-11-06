@@ -24,6 +24,7 @@
         {
         }
 
+        /*
         /// <summary>
         /// Writes the node to the text writer.
         /// </summary>
@@ -36,6 +37,7 @@
         {
             writer.WriteText(this.Value);
         }
+         * */
 
         public override void ToXmlWriter(
             X.XmlWriter writer, string parentNamespace)

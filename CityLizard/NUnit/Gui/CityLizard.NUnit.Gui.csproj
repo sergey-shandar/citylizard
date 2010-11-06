@@ -46,8 +46,9 @@
     <DocumentationFile>bin\Release\CityLizard.NUnit.Gui.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="nunit-gui-runner">
-      <HintPath>..\..\..\..\..\..\..\Program Files\NUnit 2.5.8\bin\net-2.0\lib\nunit-gui-runner.dll</HintPath>
+    <Reference Include="nunit-gui-runner, Version=2.5.8.10295, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\NUnit 2.5.8\bin\net-2.0\lib\nunit-gui-runner.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

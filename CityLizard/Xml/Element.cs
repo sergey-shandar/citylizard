@@ -28,15 +28,22 @@
         protected readonly C.IList<INode> Part1 =
             new C.List<INode>();
 
-        private readonly Header H;
+        // private readonly Header H;
 
-        public Element(Header h): base(h)
+        private readonly bool IsEmpty;
+
+        public Element(ElementBase.Header h, bool isEmpty)
+            : base(h)
         {
-            this.H = h;
+            this.IsEmpty = isEmpty;
+        }
+
+        public Element(Header h): this(h, h.IsEmpty)
+        {
         }
 
         public Element(Element part0)
-            : this(part0.H)
+            : this(part0.H, part0.IsEmpty)
         {
             this.Part0 = part0;
         }
@@ -146,7 +153,7 @@
             }
             writer.WriteList(this.H.AttributeList, this.H.Namespace);
             // writer.
-            if (this.H.IsEmpty)
+            if (this.IsEmpty)
             {
                 // C.2. Empty Elements
                 // 

@@ -44,7 +44,7 @@
             }
         }
 
-        Header H;
+        protected Header H;
 
         public string Namespace
         {

@@ -1,6 +1,7 @@
 ﻿namespace CityLizard.Xml
 {
     using C = System.Collections.Generic;
+    using X = System.Xml;
 
     using Extension;
     using System.Linq;
@@ -59,6 +60,19 @@
         protected ElementBase(Header h)
         {
             this.H = h;
+        }
+
+        protected void WriteStart(X.XmlWriter writer, string parentNamespace)
+        {
+            if (parentNamespace != this.H.Namespace)
+            {
+                writer.WriteStartElement(this.H.Name, this.H.Namespace);
+            }
+            else
+            {
+                writer.WriteStartElement(this.H.Name);
+            }
+            writer.WriteList(this.H.AttributeList, this.H.Namespace);
         }
 
         #region IElementBase

@@ -9,22 +9,6 @@
 
     public class Element : ElementBase, IElement
     {
-        /*
-        public class Header: ElementBase.Header
-        {
-            public readonly bool IsEmpty;
-
-            public Header(
-                string ns, 
-                string name, 
-                bool isEmpty):
-                base(ns, name)
-            {
-                this.IsEmpty = isEmpty;
-            }
-        }
-         * */
-
         private readonly Element Part0 = null;
 
         protected readonly C.IList<INode> Part1 =
@@ -32,25 +16,20 @@
 
         private readonly bool IsEmpty;
 
-        public Element(ElementBase.Header h, bool isEmpty)
+        protected Element(ElementBase.Header h, bool isEmpty)
             : base(h)
         {
             this.IsEmpty = isEmpty;
         }
 
-        /*
-        public Element(Header h): this(h, h.IsEmpty)
-        {
-        }
-         * */
-
-        public Element(Element part0)
+        protected Element(Element part0)
             : this(part0.H, part0.IsEmpty)
         {
             this.Part0 = part0;
         }
 
-        public Element(Element part0, Element child): this(part0)
+        protected Element(Element part0, Element child)
+            : this(part0)
         {
             this.AddElement(child);
         }

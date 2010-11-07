@@ -9,6 +9,7 @@
     using CS = Microsoft.CSharp;
     using F = CityLizard.Fsm;
     using CD = CityLizard.CodeDom;
+    using CC = CityLizard.CodeDom.Code;
 
     using System.Linq;
     using CodeDom.Extension;
@@ -126,6 +127,7 @@
                 D.CodeTypeDeclaration declaration, 
                 string stateName, 
                 XS.XmlSchemaElement element,
+                bool isEmpty,
                 string ns = null)
             {
                 this.Element = element;
@@ -136,6 +138,7 @@
                 {
                     var c = this.AddConstructor();
                     c.AddBaseParameter<Xml.Element.Header>("H");
+                    c.BaseConstructorArgs.Add(CC.PrimitiveExpression(isEmpty));
                 }
                 // ctor(Xml.Element Part0, Xml.Element Child): 
                 //   base(Part0, Child) {}
@@ -341,10 +344,10 @@
         {
             var q = e.QualifiedName;
             s.AddVariable<Xml.Element.Header>(
-                Attributes.H, 
-                new D.CodePrimitiveExpression(q.Namespace), 
-                new D.CodePrimitiveExpression(q.Name),
-                new D.CodePrimitiveExpression(empty));
+                Attributes.H,                 
+                CC.PrimitiveExpression(q.Namespace), 
+                CC.PrimitiveExpression(q.Name),
+                CC.PrimitiveExpression(empty));
             var r = false;
             if (p != null)
             {
@@ -394,12 +397,6 @@
             // only complex types are acceptable.
             var complexType = (XS.XmlSchemaComplexType)type;
 
-            var tt = new Type(
-                c, 
-                csName, 
-                element,
-                isRoot ? element.QualifiedName.Namespace: null);
-
             var self = default(C.HashSet<int>);
 
             string suffix = "";
@@ -415,6 +412,13 @@
             var empty =
                 !type.IsMixed &&
                 dfa.D[new C.HashSet<int> { 0 }].Count == 0;
+
+            var tt = new Type(
+                c,
+                csName,
+                element,
+                empty,
+                isRoot ? element.QualifiedName.Namespace : null);
             tt.Comment(empty);
             //
             //
@@ -440,7 +444,7 @@
                     var s = new D.CodeTypeDeclaration(csN);
                     c.Members.Add(s);
 
-                    var ttt = new Type(s, csN, element);
+                    var ttt = new Type(s, csN, element, empty);
                     ttt.SetState(p, self, csName);
                     ttt.Comment(empty);
                     //

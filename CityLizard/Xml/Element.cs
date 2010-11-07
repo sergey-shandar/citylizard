@@ -28,8 +28,6 @@
         protected readonly C.IList<INode> Part1 =
             new C.List<INode>();
 
-        // private readonly Header H;
-
         private readonly bool IsEmpty;
 
         public Element(ElementBase.Header h, bool isEmpty)
@@ -85,29 +83,6 @@
         {
             this.AddComment(new Comment(value));
         }
-
-        /*
-        public string Namespace
-        {
-            get { return this.H.Namespace; }
-        }
-
-        public string Name
-        {
-            get { return this.H.Name; }
-        }
-
-        /// <summary>
-        /// {attribute}
-        /// </summary>
-        public C.IEnumerable<IAttribute> AttributeList
-        {
-            get
-            {
-                return this.H.AttributeList;
-            }
-        }
-         * */
 
         /// <summary>
         /// {element|text|comment}

@@ -391,7 +391,8 @@
 
             var mixed = type.IsMixed;
 
-            var complexType = type as XS.XmlSchemaComplexType;
+            // only complex types are acceptable.
+            var complexType = (XS.XmlSchemaComplexType)type;
 
             var tt = new Type(
                 c, 
@@ -407,114 +408,107 @@
 
             bool attributeRequired = false;
 
-            if (complexType != null)
+            var fsm = new F.Fsm<X.XmlQualifiedName>();
+            var set = new C.HashSet<int> { 0 };
+            Apply(dictionary, fsm, set, complexType.Particle);
+            var dfa = new F.Dfa<X.XmlQualifiedName>(fsm, set);
+            var empty =
+                !type.IsMixed &&
+                dfa.D[new C.HashSet<int> { 0 }].Count == 0;
+            tt.Comment(empty);
+            //
+            //
+            foreach (var p in dfa.D)
             {
-                var fsm = new F.Fsm<X.XmlQualifiedName>();
-                var set = new C.HashSet<int> { 0 };
-                Apply(dictionary, fsm, set, complexType.Particle);
-                var dfa = new F.Dfa<X.XmlQualifiedName>(fsm, set);
-                var empty =
-                    !type.IsMixed &&
-                    dfa.D[new C.HashSet<int> { 0 }].Count == 0;
-                tt.Comment(empty);
-                //
-                //
-                foreach (var p in dfa.D)
+                if (p.Value.Accept)
                 {
-                    if (p.Value.Accept)
-                    {
-                        self = p.Key;
-                        break;
-                    }
-                }
-                //
-                foreach (var p in dfa.D)
-                {
-                    var v = p.Value;
-                    if (comparer.Equals(p.Key, self))
-                    {
-                        tt.SetState(p, self, csName);
-                    }
-                    else
-                    {
-                        var csN = Name(p.Key);
-                        var s = new D.CodeTypeDeclaration(csN);
-                        c.Members.Add(s);
-
-                        var ttt = new Type(s, csN, element);
-                        ttt.SetState(p, self, csName);
-                        ttt.Comment(empty);
-                        //
-                        if (v.Accept)
-                        {
-                            var m = new D.CodeMemberMethod()
-                            {
-                                Attributes =
-                                    D.MemberAttributes.Public |
-                                    D.MemberAttributes.Static,
-                                Name = "implicit operator " + csName,
-                                ReturnType = new D.CodeTypeReference(" "),
-                            };
-                            m.Parameters.Add(
-                                new D.CodeParameterDeclarationExpression(
-                                    new D.CodeTypeReference(csN),
-                                    csN));
-                            var csNRef = new D.CodeVariableReferenceExpression(
-                                csN);
-                            Type.Return(
-                                m.Statements,
-                                csName,
-                                csNRef);
-                            s.Members.Add(m);
-                        }
-                    }
-                }
-                if (!comparer.Equals(self, new C.HashSet<int> { 0 }))
-                {
-                    suffix = "._0";
-                }
-                var tTypeName = "T." + csName + suffix;
-                var tType = new D.CodeTypeReference(tTypeName);
-
-                {
-                    var method = new D.CodeMemberMethod()
-                    {
-                        Name = csName + "_",
-                        Attributes = attributes,
-                        ReturnType = tType,
-                    };
-                    // method.Comments.Add(new D.CodeCommentStatement(
-                    common.Members.Add(method);
-                    attributeRequired = Create(
-                        method.Parameters,
-                        method.Statements,
-                        tTypeName,
-                        complexType.AttributeUsesTyped(),
-                        element,
-                        empty);
-                }
-
-                if (!attributeRequired)
-                {
-                    var p = new D.CodeMemberProperty()
-                    {
-                        Name = csName,
-                        Attributes = attributes,
-                        Type = tType,
-                    };
-                    Create(
-                        null,
-                        p.GetStatements,
-                        tTypeName,
-                        complexType.AttributeUsesTyped(),
-                        element,
-                        empty);
-                    common.Members.Add(p);
+                    self = p.Key;
+                    break;
                 }
             }
-            else
+            //
+            foreach (var p in dfa.D)
             {
-                throw new S.Exception("simple type");
+                var v = p.Value;
+                if (comparer.Equals(p.Key, self))
+                {
+                    tt.SetState(p, self, csName);
+                }
+                else
+                {
+                    var csN = Name(p.Key);
+                    var s = new D.CodeTypeDeclaration(csN);
+                    c.Members.Add(s);
+
+                    var ttt = new Type(s, csN, element);
+                    ttt.SetState(p, self, csName);
+                    ttt.Comment(empty);
+                    //
+                    if (v.Accept)
+                    {
+                        var m = new D.CodeMemberMethod()
+                        {
+                            Attributes =
+                                D.MemberAttributes.Public |
+                                D.MemberAttributes.Static,
+                            Name = "implicit operator " + csName,
+                            ReturnType = new D.CodeTypeReference(" "),
+                        };
+                        m.Parameters.Add(
+                            new D.CodeParameterDeclarationExpression(
+                                new D.CodeTypeReference(csN),
+                                csN));
+                        var csNRef = new D.CodeVariableReferenceExpression(
+                            csN);
+                        Type.Return(
+                            m.Statements,
+                            csName,
+                            csNRef);
+                        s.Members.Add(m);
+                    }
+                }
+            }
+            if (!comparer.Equals(self, new C.HashSet<int> { 0 }))
+            {
+                suffix = "._0";
+            }
+            var tTypeName = "T." + csName + suffix;
+            var tType = new D.CodeTypeReference(tTypeName);
+
+            {
+                var method = new D.CodeMemberMethod()
+                {
+                    Name = csName + "_",
+                    Attributes = attributes,
+                    ReturnType = tType,
+                };
+                // method.Comments.Add(new D.CodeCommentStatement(
+                common.Members.Add(method);
+                attributeRequired = Create(
+                    method.Parameters,
+                    method.Statements,
+                    tTypeName,
+                    complexType.AttributeUsesTyped(),
+                    element,
+                    empty);
+            }
+
+            if (!attributeRequired)
+            {
+                var p = new D.CodeMemberProperty()
+                {
+                    Name = csName,
+                    Attributes = attributes,
+                    Type = tType,
+                };
+                Create(
+                    null,
+                    p.GetStatements,
+                    tTypeName,
+                    complexType.AttributeUsesTyped(),
+                    element,
+                    empty);
+                common.Members.Add(p);
             }
         }
 

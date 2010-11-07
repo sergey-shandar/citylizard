@@ -4,6 +4,9 @@
 
     public interface IElementBase: IName
     {
+        /// <summary>
+        /// {attribute}
+        /// </summary>
         C.IEnumerable<IAttribute> AttributeList { get; }
     }
 }

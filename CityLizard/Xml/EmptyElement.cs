@@ -1,6 +1,7 @@
 ﻿namespace CityLizard.Xml
 {
     using X = System.Xml;
+    using C = System.Collections.Generic;
 
     public class EmptyElement: ElementBase
     {
@@ -29,6 +30,11 @@
         {
             base.WriteStart(writer, parentNamespace);
             writer.WriteEndElement();
+        }
+
+        public override C.IEnumerable<INode> ContentList
+        {
+            get { return new INode[0]; }
         }
     }
 }

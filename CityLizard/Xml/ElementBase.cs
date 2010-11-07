@@ -82,6 +82,8 @@
             get { return this.H.AttributeList; }
         }
 
+        public abstract C.IEnumerable<INode> ContentList { get; }
+
         #endregion
     }
 }

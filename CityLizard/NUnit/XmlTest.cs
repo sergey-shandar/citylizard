@@ -7,23 +7,30 @@
     [N.TestFixture]
     public static class XmlTest
     {
-        public static void Element(
+        class Element : Xml.Element
+        {
+            public Element(Xml.ElementBase.Header h, bool isEmpty):
+                base(h, isEmpty)
+            {
+            }
+        }
+
+        public static void ElementTest(
             string ns, string name, bool isEmpty, string result)
         {
-            var e = new Xml.Element(
-                new Xml.Element.Header(ns, name, isEmpty));
+            var e = new Element(new Xml.ElementBase.Header(ns, name), isEmpty);
             N.Assert.AreEqual(result, e.ToString());
         }
 
         [N.Test]
-        public static void Element()
+        public static void ElementTest()
         {
-            Element(
+            ElementTest(
                 "http://example.com/", 
                 "main", 
                 true, 
                 "<main xmlns=\"http://example.com/\" />");
-            Element(
+            ElementTest(
                 "http://example.com/",
                 "main",
                 false,
@@ -32,27 +39,27 @@
 
         public static T.html._0 html()
         {
-            return new T.html._0(new Xml.Element.Header(
-                "http://example.org/", "html", false));
+            return new T.html._0(new Xml.ElementBase.Header(
+                "http://example.org/", "html"));
         }
 
         public static T.head._0 head(string id = null)
         {
-            var H = new Xml.Element.Header("http://example.org/", "head", false);
+            var H = new Xml.ElementBase.Header("http://example.org/", "head");
             H.AddOptionalAttribute("id", id);
             return new T.head._0(H);
         }
 
         public static T.body body()
         {
-            return new T.body(new Xml.Element.Header(
-                "http://example.org/", "body", false));
+            return new T.body(new Xml.ElementBase.Header(
+                "http://example.org/", "body"));
         }
 
         public static T.title title()
         {
-            return new T.title(new Xml.Element.Header(
-                "http://example.org/", "title", true));
+            return new T.title(new Xml.ElementBase.Header(
+                "http://example.org/", "title"));
         }
 
         public class T
@@ -66,7 +73,7 @@
 
                 public class _0 : Xml.Element
                 {
-                    internal _0(Xml.Element.Header h): base(h)
+                    internal _0(Xml.ElementBase.Header h): base(h, false)
                     {
                     }
 
@@ -113,7 +120,7 @@
                 public class _0 : Xml.Element
                 {
                     internal _0(Xml.Element.Header h) :
-                        base(h)
+                        base(h, false)
                     {
                     }
 
@@ -145,16 +152,16 @@
 
             public class body : Xml.Element
             {
-                internal body(Xml.Element.Header h) :
-                    base(h)
+                internal body(Xml.ElementBase.Header h) :
+                    base(h, false)
                 {
                 }
             }
 
             public class title: Xml.Element
             {
-                internal title(Xml.Element.Header h):
-                    base(h)
+                internal title(Xml.ElementBase.Header h):
+                    base(h, true)
                 {
                 }
             }

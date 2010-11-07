@@ -9,6 +9,7 @@
 
     public class Element : ElementBase, IElement
     {
+        /*
         public class Header: ElementBase.Header
         {
             public readonly bool IsEmpty;
@@ -22,6 +23,7 @@
                 this.IsEmpty = isEmpty;
             }
         }
+         * */
 
         private readonly Element Part0 = null;
 
@@ -36,9 +38,11 @@
             this.IsEmpty = isEmpty;
         }
 
+        /*
         public Element(Header h): this(h, h.IsEmpty)
         {
         }
+         * */
 
         public Element(Element part0)
             : this(part0.H, part0.IsEmpty)

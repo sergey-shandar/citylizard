@@ -137,7 +137,7 @@
                 // ctor(Xml.Element.Header H): base(H) {}
                 {
                     var c = this.AddConstructor();
-                    c.AddBaseParameter<Xml.Element.Header>("H");
+                    c.AddBaseParameter<Xml.ElementBase.Header>("H");
                     c.BaseConstructorArgs.Add(CC.PrimitiveExpression(isEmpty));
                 }
                 // ctor(Xml.Element Part0, Xml.Element Child): 
@@ -339,15 +339,13 @@
             D.CodeStatementCollection s, 
             string t, 
             C.IEnumerable<XS.XmlSchemaAttribute> attributeList,
-            XS.XmlSchemaElement e,
-            bool empty)
+            XS.XmlSchemaElement e)
         {
             var q = e.QualifiedName;
-            s.AddVariable<Xml.Element.Header>(
+            s.AddVariable<Xml.ElementBase.Header>(
                 Attributes.H,                 
                 CC.PrimitiveExpression(q.Namespace), 
-                CC.PrimitiveExpression(q.Name),
-                CC.PrimitiveExpression(empty));
+                CC.PrimitiveExpression(q.Name));
             var r = false;
             if (p != null)
             {
@@ -493,8 +491,7 @@
                     method.Statements,
                     tTypeName,
                     complexType.AttributeUsesTyped(),
-                    element,
-                    empty);
+                    element);
             }
 
             if (!attributeRequired)
@@ -510,8 +507,7 @@
                     p.GetStatements,
                     tTypeName,
                     complexType.AttributeUsesTyped(),
-                    element,
-                    empty);
+                    element);
                 common.Members.Add(p);
             }
         }

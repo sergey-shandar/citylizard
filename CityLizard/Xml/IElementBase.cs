@@ -8,5 +8,10 @@
         /// {attribute}
         /// </summary>
         C.IEnumerable<IAttribute> AttributeList { get; }
+
+        /// <summary>
+        /// {element|text|comment}
+        /// </summary>
+        C.IEnumerable<INode> ContentList { get; }
     }
 }

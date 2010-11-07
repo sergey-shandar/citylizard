@@ -70,7 +70,7 @@
         /// <summary>
         /// {element|text|comment}
         /// </summary>
-        public C.IEnumerable<INode> ContentList
+        public override C.IEnumerable<INode> ContentList
         {
             get
             {

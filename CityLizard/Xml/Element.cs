@@ -101,15 +101,7 @@
         public override void ToXmlWriter(
             S.Xml.XmlWriter writer, string parentNamespace)
         {
-            if (parentNamespace != this.H.Namespace)
-            {
-                writer.WriteStartElement(this.H.Name, this.H.Namespace);
-            }
-            else
-            {
-                writer.WriteStartElement(this.H.Name);
-            }
-            writer.WriteList(this.H.AttributeList, this.H.Namespace);
+            base.WriteStart(writer, parentNamespace);
             // writer.
             if (this.IsEmpty)
             {

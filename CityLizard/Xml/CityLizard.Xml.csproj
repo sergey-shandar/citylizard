@@ -57,6 +57,7 @@
     <Compile Include="Comment.cs" />
     <Compile Include="Element.cs" />
     <Compile Include="ElementBase.cs" />
+    <Compile Include="EmptyElement.cs" />
     <Compile Include="Extension\AttributeListExtension.cs" />
     <Compile Include="Extension\INodeExtension.cs" />
     <Compile Include="Extension\XmlWriterExtension.cs" />

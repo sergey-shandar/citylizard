@@ -7,7 +7,7 @@
     using System.Linq;
     using Extension;
 
-    public class Element : Node, IElement
+    public class Element : ElementBase, IElement
     {
         public class Header: ElementBase.Header
         {
@@ -30,7 +30,7 @@
 
         private readonly Header H;
 
-        public Element(Header h)
+        public Element(Header h): base(h)
         {
             this.H = h;
         }
@@ -79,6 +79,7 @@
             this.AddComment(new Comment(value));
         }
 
+        /*
         public string Namespace
         {
             get { return this.H.Namespace; }
@@ -99,6 +100,7 @@
                 return this.H.AttributeList;
             }
         }
+         * */
 
         /// <summary>
         /// {element|text|comment}

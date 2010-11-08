@@ -26,7 +26,7 @@
   </xs:annotation>
 
 <xs:import namespace="http://www.w3.org/1999/xlink" 
-           schemaLocation="http://graphml.graphdrawing.org/xmlns/1.1/xlink.xsd">
+           schemaLocation="../../../www.w3.org/XML/2008/06/xlink.xsd">
   <xs:annotation>
     <xs:documentation 
         source="???"

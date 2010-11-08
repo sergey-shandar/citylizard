@@ -18,14 +18,349 @@
         <y:ProxyAutoBoundsNode>
           <y:Realizers active="0">
             <y:GroupNode>
-              <y:Geometry height="758.8549113775252" width="513.5611111111111" x="-513.8884920634921" y="-743.8549113775252"/>
+              <y:Geometry height="1069.0626620622584" width="1352.111507936508" x="-1352.4388888888889" y="-1278.7035030732873"/>
+              <y:Fill color="#F5F5F5" transparent="false"/>
+              <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
+              <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="22.37646484375" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="1352.111507936508" x="0.0" y="0.0">CityLizard.Xml</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+              <y:State closed="false" innerGraphDisplayEnabled="false"/>
+              <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
+              <y:BorderInsets bottom="0" bottomF="0.0" left="1" leftF="1.0" right="1" rightF="0.9999999999997726" top="0" topF="0.0"/>
+            </y:GroupNode>
+            <y:GroupNode>
+              <y:Geometry height="50.0" width="50.0" x="-2035.0" y="-1165.1139798259799"/>
+              <y:Fill color="#F5F5F5" transparent="false"/>
+              <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
+              <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="22.37646484375" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="50.0" x="0.0" y="0.0">1</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+              <y:State closed="false" innerGraphDisplayEnabled="false"/>
+              <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
+              <y:BorderInsets bottom="0" bottomF="0.0" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
+            </y:GroupNode>
+          </y:Realizers>
+        </y:ProxyAutoBoundsNode>
+      </data>
+      <graph edgedefault="directed" id="n0:">
+        <node id="n0::n0" yfiles.foldertype="group">
+          <data key="d1"/>
+          <data key="d3">
+            <y:ProxyAutoBoundsNode>
+              <y:Realizers active="0">
+                <y:GroupNode>
+                  <y:Geometry height="913.1861972185083" width="955.6115079365079" x="-971.9388888888888" y="-1137.8270382295373"/>
+                  <y:Fill color="#F5F5F5" transparent="false"/>
+                  <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
+                  <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="22.37646484375" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="955.6115079365079" x="0.0" y="0.0">Content</y:NodeLabel>
+                  <y:Shape type="roundrectangle"/>
+                  <y:State closed="false" innerGraphDisplayEnabled="false"/>
+                  <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
+                  <y:BorderInsets bottom="0" bottomF="0.0" left="1" leftF="0.9999999999998863" right="1" rightF="1.0003414698749111" top="0" topF="0.0"/>
+                </y:GroupNode>
+                <y:GroupNode>
+                  <y:Geometry height="50.0" width="50.0" x="-819.1119047619047" y="-13.887303851640354"/>
+                  <y:Fill color="#F5F5F5" transparent="false"/>
+                  <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
+                  <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="22.37646484375" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="50.0" x="0.0" y="0.0">1</y:NodeLabel>
+                  <y:Shape type="roundrectangle"/>
+                  <y:State closed="false" innerGraphDisplayEnabled="false"/>
+                  <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
+                  <y:BorderInsets bottom="0" bottomF="0.0" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
+                </y:GroupNode>
+              </y:Realizers>
+            </y:ProxyAutoBoundsNode>
+          </data>
+          <graph edgedefault="directed" id="n0::n0:">
+            <node id="n0::n0::n0" yfiles.foldertype="group">
+              <data key="d1"/>
+              <data key="d3">
+                <y:ProxyAutoBoundsNode>
+                  <y:Realizers active="0">
+                    <y:GroupNode>
+                      <y:Geometry height="682.3097323747584" width="509.652380952381" x="-955.9388888888889" y="-921.9505733857874"/>
+                      <y:Fill color="#F5F5F5" transparent="false"/>
+                      <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
+                      <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="22.37646484375" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="509.652380952381" x="0.0" y="0.0">Element</y:NodeLabel>
+                      <y:Shape type="roundrectangle"/>
+                      <y:State closed="false" innerGraphDisplayEnabled="false"/>
+                      <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
+                      <y:BorderInsets bottom="0" bottomF="0.0" left="1" leftF="1.000103684606188" right="1" rightF="1.0001467540703288" top="0" topF="1.1368683772161603E-13"/>
+                    </y:GroupNode>
+                    <y:GroupNode>
+                      <y:Geometry height="50.0" width="50.0" x="-1065.6776034236802" y="-706.3031383737518"/>
+                      <y:Fill color="#F5F5F5" transparent="false"/>
+                      <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
+                      <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="22.37646484375" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="50.0" x="0.0" y="0.0">1</y:NodeLabel>
+                      <y:Shape type="roundrectangle"/>
+                      <y:State closed="false" innerGraphDisplayEnabled="false"/>
+                      <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
+                      <y:BorderInsets bottom="0" bottomF="0.0" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
+                    </y:GroupNode>
+                  </y:Realizers>
+                </y:ProxyAutoBoundsNode>
+              </data>
+              <graph edgedefault="directed" id="n0::n0::n0:">
+                <node id="n0::n0::n0::n0">
+                  <data key="d1"/>
+                  <data key="d2"><![CDATA[UMLClass]]></data>
+                  <data key="d3">
+                    <y:UMLClassNode>
+                      <y:Geometry height="102.69054046156577" width="177.4934434244385" x="-939.9387852042827" y="-543.7879060722095"/>
+                      <y:Fill color="#00CCFF" transparent="false"/>
+                      <y:BorderStyle color="#000000" type="line" width="1.0"/>
+                      <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="79.87353515625" x="48.809954134094255" y="3.0">class Empty</y:NodeLabel>
+                      <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
+                        <y:AttributeLabel/>
+                        <y:MethodLabel>void ToWriter(XmlWriter writer);
+QName QName { get; }
+Attribute[] AttributeList { get; }</y:MethodLabel>
+                      </y:UML>
+                    </y:UMLClassNode>
+                  </data>
+                </node>
+                <node id="n0::n0::n0::n1">
+                  <data key="d1"/>
+                  <data key="d2"><![CDATA[UMLClass]]></data>
+                  <data key="d3">
+                    <y:UMLClassNode>
+                      <y:Geometry height="135.6173493418827" width="223.82589696805007" x="-686.1125516586283" y="-390.2581903529117"/>
+                      <y:Fill color="#00CCFF" transparent="false"/>
+                      <y:BorderStyle color="#000000" type="line" width="1.0"/>
+                      <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="76.9853515625" x="73.42027270277504" y="3.0">class Mixed</y:NodeLabel>
+                      <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
+                        <y:AttributeLabel/>
+                        <y:MethodLabel>void ToWriter(XmlWriter writer);
+QName QName { get; }
+Attribute[] AttributeList { get; }
+ContentNode[] ContentNodeList { get; }
+void Append(Comment comment);
+void Appent(Text text);</y:MethodLabel>
+                      </y:UML>
+                    </y:UMLClassNode>
+                  </data>
+                </node>
+                <node id="n0::n0::n0::n2">
+                  <data key="d1"/>
+                  <data key="d2"><![CDATA[UMLClass]]></data>
+                  <data key="d3">
+                    <y:UMLClassNode>
+                      <y:Geometry height="135.6173493418827" width="223.82589696804996" x="-939.9387421348188" y="-390.2581903529117"/>
+                      <y:Fill color="#00CCFF" transparent="false"/>
+                      <y:BorderStyle color="#000000" type="line" width="1.0"/>
+                      <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="98.6435546875" x="62.59117114027498" y="3.0">class NotMixed</y:NodeLabel>
+                      <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
+                        <y:AttributeLabel/>
+                        <y:MethodLabel>void ToWriter(XmlWriter writer);
+QName QName { get; }
+Attribute[] AttributeList { get; }
+ContentNode[] ContentNodeList { get; }
+void Append(Comment comment);</y:MethodLabel>
+                      </y:UML>
+                    </y:UMLClassNode>
+                  </data>
+                </node>
+                <node id="n0::n0::n0::n3">
+                  <data key="d1"/>
+                  <data key="d2"><![CDATA[UMLClass]]></data>
+                  <data key="d3">
+                    <y:UMLClassNode>
+                      <y:Geometry height="95.71919716451214" width="103.66397138504078" x="-721.9605571210918" y="-884.5741085420373"/>
+                      <y:Fill color="#FF6600" transparent="false"/>
+                      <y:BorderStyle color="#000000" type="line" width="1.0"/>
+                      <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="90.71533203125" x="6.474319676895391" y="3.0">class Element</y:NodeLabel>
+                      <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
+                        <y:AttributeLabel/>
+                        <y:MethodLabel> </y:MethodLabel>
+                      </y:UML>
+                    </y:UMLClassNode>
+                  </data>
+                </node>
+                <node id="n0::n0::n0::n4">
+                  <data key="d1"/>
+                  <data key="d2"><![CDATA[UMLClass]]></data>
+                  <data key="d3">
+                    <y:UMLClassNode>
+                      <y:Geometry height="102.69054046156577" width="223.82594073467635" x="-732.445113224481" y="-543.7879060722095"/>
+                      <y:Fill color="#FF6600" transparent="false"/>
+                      <y:BorderStyle color="#000000" type="line" width="1.0"/>
+                      <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="101.53173828125" x="61.147101226713175" y="3.0">class NotEmpty</y:NodeLabel>
+                      <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
+                        <y:AttributeLabel/>
+                        <y:MethodLabel>ContentNode[] ContentNodeList { get; }
+void Append(Comment comment);</y:MethodLabel>
+                      </y:UML>
+                    </y:UMLClassNode>
+                  </data>
+                </node>
+                <node id="n0::n0::n0::n5">
+                  <data key="d1"/>
+                  <data key="d2"><![CDATA[UMLClass]]></data>
+                  <data key="d3">
+                    <y:UMLClassNode>
+                      <y:Geometry height="102.69054046156577" width="176.46519007612346" x="-732.4452934507602" y="-706.4784465337752"/>
+                      <y:Fill color="#FF6600" transparent="false"/>
+                      <y:BorderStyle color="#000000" type="line" width="1.0"/>
+                      <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="95.04443359375" x="40.71037824118673" y="3.0">class Complex</y:NodeLabel>
+                      <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
+                        <y:AttributeLabel/>
+                        <y:MethodLabel>Attribute[] AttributeList { get; }</y:MethodLabel>
+                      </y:UML>
+                    </y:UMLClassNode>
+                  </data>
+                </node>
+                <node id="n0::n0::n0::n6">
+                  <data key="d1"/>
+                  <data key="d2"><![CDATA[UMLClass]]></data>
+                  <data key="d3">
+                    <y:UMLClassNode>
+                      <y:Geometry height="102.69054046156577" width="177.4934434244385" x="-939.9387852042827" y="-706.4784465337752"/>
+                      <y:Fill color="#00CCFF" transparent="false"/>
+                      <y:BorderStyle color="#000000" type="line" width="1.0"/>
+                      <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="82.76806640625" x="47.362688509094255" y="3.0">class Simple</y:NodeLabel>
+                      <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
+                        <y:AttributeLabel/>
+                        <y:MethodLabel>void ToWriter(XmlWriter writer);
+QName QName { get; }
+string Value { get; }</y:MethodLabel>
+                      </y:UML>
+                    </y:UMLClassNode>
+                  </data>
+                </node>
+              </graph>
+            </node>
+            <node id="n0::n0::n1">
+              <data key="d1"/>
+              <data key="d2"><![CDATA[UMLClass]]></data>
+              <data key="d3">
+                <y:UMLClassNode>
+                  <y:Geometry height="95.71919716451214" width="176.46519007612346" x="-208.79291249837922" y="-884.5741085420373"/>
+                  <y:Fill color="#99CC00" transparent="false"/>
+                  <y:BorderStyle color="#000000" type="line" width="1.0"/>
+                  <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="144.17529296875" x="16.14494855368673" y="3.0">sealed class Comment</y:NodeLabel>
+                  <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
+                    <y:AttributeLabel/>
+                    <y:MethodLabel>void ToWriter(XmlWriter writer);
+string Value { get; }</y:MethodLabel>
+                  </y:UML>
+                </y:UMLClassNode>
+              </data>
+            </node>
+            <node id="n0::n0::n2">
+              <data key="d1"/>
+              <data key="d2"><![CDATA[UMLClass]]></data>
+              <data key="d3">
+                <y:UMLClassNode>
+                  <y:Geometry height="95.71919716451214" width="177.4934434244385" x="-416.2864042519017" y="-884.5741085420373"/>
+                  <y:Fill color="#99CC00" transparent="false"/>
+                  <y:BorderStyle color="#000000" type="line" width="1.0"/>
+                  <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="110.9580078125" x="33.267717805969255" y="3.0">sealed class Text</y:NodeLabel>
+                  <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
+                    <y:AttributeLabel/>
+                    <y:MethodLabel>void ToWriter(XmlWriter writer);
+string Value { get; }</y:MethodLabel>
+                  </y:UML>
+                </y:UMLClassNode>
+              </data>
+            </node>
+            <node id="n0::n0::n3">
+              <data key="d1"/>
+              <data key="d2"><![CDATA[UMLClass]]></data>
+              <data key="d3">
+                <y:UMLClassNode>
+                  <y:Geometry height="58.5" width="132.9343794579172" x="-666.3683802051492" y="-1100.4505733857873"/>
+                  <y:Fill color="#FF6600" transparent="false"/>
+                  <y:BorderStyle color="#000000" type="line" width="1.0"/>
+                  <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="121.74267578125" x="5.595851838333601" y="3.0">class ContentNode</y:NodeLabel>
+                  <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
+                    <y:AttributeLabel/>
+                    <y:MethodLabel> </y:MethodLabel>
+                  </y:UML>
+                </y:UMLClassNode>
+              </data>
+            </node>
+          </graph>
+        </node>
+        <node id="n0::n1">
+          <data key="d1"/>
+          <data key="d2"><![CDATA[UMLClass]]></data>
+          <data key="d3">
+            <y:UMLClassNode>
+              <y:Geometry height="58.5" width="176.46519007612358" x="-1171.6714839269507" y="-1241.3270382295373"/>
+              <y:Fill color="#FFCC00" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="1.0"/>
+              <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="97.91357421875" x="39.27580792868679" y="3.0">interface INode</y:NodeLabel>
+              <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
+                <y:AttributeLabel/>
+                <y:MethodLabel>void ToWriter(XmlWriter writer);</y:MethodLabel>
+              </y:UML>
+            </y:UMLClassNode>
+          </data>
+        </node>
+        <node id="n0::n2">
+          <data key="d1"/>
+          <data key="d2"><![CDATA[UMLClass]]></data>
+          <data key="d3">
+            <y:UMLClassNode>
+              <y:Geometry height="58.5" width="141.5" x="-1336.4388888888889" y="-1100.4505733857873"/>
+              <y:Fill color="#FFCC00" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="1.0"/>
+              <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="110.9326171875" x="15.28369140625" y="3.0">interface IQName</y:NodeLabel>
+              <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
+                <y:AttributeLabel/>
+                <y:MethodLabel>QName QName { get; }</y:MethodLabel>
+              </y:UML>
+            </y:UMLClassNode>
+          </data>
+        </node>
+        <node id="n0::n3">
+          <data key="d1"/>
+          <data key="d2"><![CDATA[UMLClass]]></data>
+          <data key="d3">
+            <y:UMLClassNode>
+              <y:Geometry height="95.71919716451214" width="176.46519007612358" x="-1336.4385474190142" y="-884.5741085420373"/>
+              <y:Fill color="#00CCFF" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="1.0"/>
+              <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="94.3017578125" x="41.08171613181179" y="3.0">class Attribute</y:NodeLabel>
+              <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
+                <y:AttributeLabel/>
+                <y:MethodLabel>void ToWriter(XmlWriter writer);
+QName QName { get; }
+string Value { get; }</y:MethodLabel>
+              </y:UML>
+            </y:UMLClassNode>
+          </data>
+        </node>
+        <node id="n0::n4">
+          <data key="d1"/>
+          <data key="d2"><![CDATA[UMLClass]]></data>
+          <data key="d3">
+            <y:UMLClassNode>
+              <y:Geometry height="58.5" width="163.0" x="-1164.9388888888889" y="-1100.4505733857873"/>
+              <y:Fill color="#FFCC00" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="1.0"/>
+              <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="154.287109375" x="4.3564453125" y="3.0">interface ICharacterData</y:NodeLabel>
+              <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
+                <y:AttributeLabel/>
+                <y:MethodLabel>string Value { get; }</y:MethodLabel>
+              </y:UML>
+            </y:UMLClassNode>
+          </data>
+        </node>
+      </graph>
+    </node>
+    <node id="n1" yfiles.foldertype="group">
+      <data key="d1"/>
+      <data key="d3">
+        <y:ProxyAutoBoundsNode>
+          <y:Realizers active="0">
+            <y:GroupNode>
+              <y:Geometry height="758.8549113775252" width="513.5611111111111" x="-1896.0" y="-743.8549113775252"/>
               <y:Fill color="#CAECFF84" transparent="false"/>
               <y:BorderStyle color="#666699" type="dotted" width="1.0"/>
               <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#99CCFF" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="22.37646484375" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="513.5611111111111" x="0.0" y="0.0">Generated</y:NodeLabel>
               <y:Shape type="roundrectangle"/>
               <y:State closed="false" innerGraphDisplayEnabled="false"/>
               <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
-              <y:BorderInsets bottom="0" bottomF="0.0" left="1" leftF="1.0" right="1" rightF="1.0002570670833393" top="0" topF="0.0"/>
+              <y:BorderInsets bottom="0" bottomF="0.0" left="1" leftF="1.0002570670833393" right="1" rightF="1.0" top="0" topF="0.0"/>
             </y:GroupNode>
             <y:GroupNode>
               <y:Geometry height="50.0" width="50.0" x="-1945.0" y="185.0"/>
@@ -40,13 +375,13 @@
           </y:Realizers>
         </y:ProxyAutoBoundsNode>
       </data>
-      <graph edgedefault="directed" id="n0:">
-        <node id="n0::n0">
+      <graph edgedefault="directed" id="n1:">
+        <node id="n1::n0">
           <data key="d1"/>
           <data key="d2"><![CDATA[UMLClass]]></data>
           <data key="d3">
             <y:UMLClassNode>
-              <y:Geometry height="102.69054046156577" width="157.51309523809505" x="-497.88829365079346" y="-706.4784465337752"/>
+              <y:Geometry height="102.69054046156577" width="157.51309523809505" x="-1555.9521825396823" y="-706.4784465337752"/>
               <y:Fill color="#99CC00" transparent="false"/>
               <y:BorderStyle color="#000000" type="line" width="1.0"/>
               <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="136.22802734375" x="10.642533947172524" y="3.0">sealed class attribute</y:NodeLabel>
@@ -57,12 +392,12 @@
             </y:UMLClassNode>
           </data>
         </node>
-        <node id="n0::n1">
+        <node id="n1::n1">
           <data key="d1"/>
           <data key="d2"><![CDATA[UMLClass]]></data>
           <data key="d3">
             <y:UMLClassNode>
-              <y:Geometry height="147.29569985734668" width="141.5" x="-497.8884920634921" y="-396.0973656106437"/>
+              <y:Geometry height="147.29569985734668" width="141.5" x="-1539.9388888888889" y="-396.0973656106437"/>
               <y:Fill color="#99CC00" transparent="false"/>
               <y:BorderStyle color="#000000" type="line" width="1.0"/>
               <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="122.51708984375" x="9.491455078125" y="3.0">sealed class empty</y:NodeLabel>
@@ -73,12 +408,12 @@
             </y:UMLClassNode>
           </data>
         </node>
-        <node id="n0::n2">
+        <node id="n1::n2">
           <data key="d1"/>
           <data key="d2"><![CDATA[UMLClass]]></data>
           <data key="d3">
             <y:UMLClassNode>
-              <y:Geometry height="149.640841011029" width="215.3506910815213" x="-497.88844077885597" y="-149.640841011029"/>
+              <y:Geometry height="149.640841011029" width="215.3506910815213" x="-1613.7896312550463" y="-149.640841011029"/>
               <y:Fill color="#99CC00" transparent="false"/>
               <y:BorderStyle color="#000000" type="line" width="1.0"/>
               <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="121.7998046875" x="46.775443197010645" y="3.0">sealed class mixed</y:NodeLabel>
@@ -95,12 +430,12 @@ mixed this[string text] { get; }</y:MethodLabel>
             </y:UMLClassNode>
           </data>
         </node>
-        <node id="n0::n3">
+        <node id="n1::n3">
           <data key="d1"/>
           <data key="d2"><![CDATA[UMLClass]]></data>
           <data key="d3">
             <y:UMLClassNode>
-              <y:Geometry height="149.640841011029" width="236.2098033261509" x="-252.5374413456152" y="-149.640841011029"/>
+              <y:Geometry height="149.640841011029" width="236.2098033261509" x="-1879.9997429329167" y="-149.640841011029"/>
               <y:Fill color="#99CC00" transparent="false"/>
               <y:BorderStyle color="#000000" type="line" width="1.0"/>
               <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="149.24072265625" x="43.48454033495045" y="3.0">sealed class not_mixed</y:NodeLabel>
@@ -116,12 +451,12 @@ not_mixed this[Comment comment] { get; }</y:MethodLabel>
             </y:UMLClassNode>
           </data>
         </node>
-        <node id="n0::n4">
+        <node id="n1::n4">
           <data key="d1"/>
           <data key="d2"><![CDATA[UMLClass]]></data>
           <data key="d3">
             <y:UMLClassNode>
-              <y:Geometry height="102.69054046156577" width="141.5" x="-497.8884920634921" y="-543.7879060722095"/>
+              <y:Geometry height="102.69054046156577" width="141.5" x="-1539.9388888888889" y="-543.7879060722095"/>
               <y:Fill color="#99CC00" transparent="false"/>
               <y:BorderStyle color="#000000" type="line" width="1.0"/>
               <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="125.41162109375" x="8.044189453125" y="3.0">sealed class simple</y:NodeLabel>
@@ -134,358 +469,23 @@ not_mixed this[Comment comment] { get; }</y:MethodLabel>
         </node>
       </graph>
     </node>
-    <node id="n1" yfiles.foldertype="group">
-      <data key="d1"/>
-      <data key="d3">
-        <y:ProxyAutoBoundsNode>
-          <y:Realizers active="0">
-            <y:GroupNode>
-              <y:Geometry height="1069.0626620622584" width="1352.111507936508" x="-1896.0" y="-1278.7035030732873"/>
-              <y:Fill color="#F5F5F5" transparent="false"/>
-              <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
-              <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="22.37646484375" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="1352.111507936508" x="0.0" y="0.0">CityLizard.Xml</y:NodeLabel>
-              <y:Shape type="roundrectangle"/>
-              <y:State closed="false" innerGraphDisplayEnabled="false"/>
-              <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
-              <y:BorderInsets bottom="0" bottomF="0.0" left="1" leftF="1.0" right="1" rightF="1.0" top="0" topF="0.0"/>
-            </y:GroupNode>
-            <y:GroupNode>
-              <y:Geometry height="50.0" width="50.0" x="-2035.0" y="-1165.1139798259799"/>
-              <y:Fill color="#F5F5F5" transparent="false"/>
-              <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
-              <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="22.37646484375" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="50.0" x="0.0" y="0.0">1</y:NodeLabel>
-              <y:Shape type="roundrectangle"/>
-              <y:State closed="false" innerGraphDisplayEnabled="false"/>
-              <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
-              <y:BorderInsets bottom="0" bottomF="0.0" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
-            </y:GroupNode>
-          </y:Realizers>
-        </y:ProxyAutoBoundsNode>
-      </data>
-      <graph edgedefault="directed" id="n1:">
-        <node id="n1::n0" yfiles.foldertype="group">
-          <data key="d1"/>
-          <data key="d3">
-            <y:ProxyAutoBoundsNode>
-              <y:Realizers active="0">
-                <y:GroupNode>
-                  <y:Geometry height="913.1861972185083" width="955.6115079365079" x="-1880.0" y="-1137.8270382295373"/>
-                  <y:Fill color="#F5F5F5" transparent="false"/>
-                  <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
-                  <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="22.37646484375" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="955.6115079365079" x="0.0" y="0.0">Content</y:NodeLabel>
-                  <y:Shape type="roundrectangle"/>
-                  <y:State closed="false" innerGraphDisplayEnabled="false"/>
-                  <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
-                  <y:BorderInsets bottom="0" bottomF="0.0" left="1" leftF="1.0003414698749111" right="1" rightF="1.0000000000001137" top="0" topF="0.0"/>
-                </y:GroupNode>
-                <y:GroupNode>
-                  <y:Geometry height="50.0" width="50.0" x="-819.1119047619047" y="-13.887303851640354"/>
-                  <y:Fill color="#F5F5F5" transparent="false"/>
-                  <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
-                  <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="22.37646484375" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="50.0" x="0.0" y="0.0">1</y:NodeLabel>
-                  <y:Shape type="roundrectangle"/>
-                  <y:State closed="false" innerGraphDisplayEnabled="false"/>
-                  <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
-                  <y:BorderInsets bottom="0" bottomF="0.0" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
-                </y:GroupNode>
-              </y:Realizers>
-            </y:ProxyAutoBoundsNode>
-          </data>
-          <graph edgedefault="directed" id="n1::n0:">
-            <node id="n1::n0::n0" yfiles.foldertype="group">
-              <data key="d1"/>
-              <data key="d3">
-                <y:ProxyAutoBoundsNode>
-                  <y:Realizers active="0">
-                    <y:GroupNode>
-                      <y:Geometry height="682.3097323747584" width="509.6523809523809" x="-1450.040873015873" y="-921.9505733857874"/>
-                      <y:Fill color="#F5F5F5" transparent="false"/>
-                      <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
-                      <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="22.37646484375" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="509.6523809523809" x="0.0" y="0.0">Element</y:NodeLabel>
-                      <y:Shape type="roundrectangle"/>
-                      <y:State closed="false" innerGraphDisplayEnabled="false"/>
-                      <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
-                      <y:BorderInsets bottom="0" bottomF="0.0" left="1" leftF="1.0001467540703288" right="1" rightF="1.0001036846059606" top="0" topF="1.1368683772161603E-13"/>
-                    </y:GroupNode>
-                    <y:GroupNode>
-                      <y:Geometry height="50.0" width="50.0" x="-1065.6776034236802" y="-706.3031383737518"/>
-                      <y:Fill color="#F5F5F5" transparent="false"/>
-                      <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
-                      <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="22.37646484375" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="50.0" x="0.0" y="0.0">1</y:NodeLabel>
-                      <y:Shape type="roundrectangle"/>
-                      <y:State closed="false" innerGraphDisplayEnabled="false"/>
-                      <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
-                      <y:BorderInsets bottom="0" bottomF="0.0" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
-                    </y:GroupNode>
-                  </y:Realizers>
-                </y:ProxyAutoBoundsNode>
-              </data>
-              <graph edgedefault="directed" id="n1::n0::n0:">
-                <node id="n1::n0::n0::n0">
-                  <data key="d1"/>
-                  <data key="d2"><![CDATA[UMLClass]]></data>
-                  <data key="d3">
-                    <y:UMLClassNode>
-                      <y:Geometry height="102.69054046156577" width="177.4934434244385" x="-1133.8820391725367" y="-543.7879060722095"/>
-                      <y:Fill color="#00CCFF" transparent="false"/>
-                      <y:BorderStyle color="#000000" type="line" width="1.0"/>
-                      <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="79.87353515625" x="48.809954134094255" y="3.0">class Empty</y:NodeLabel>
-                      <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-                        <y:AttributeLabel/>
-                        <y:MethodLabel>void ToWriter(XmlWriter writer);
-QName QName { get; }
-Attribute[] AttributeList { get; }</y:MethodLabel>
-                      </y:UML>
-                    </y:UMLClassNode>
-                  </data>
-                </node>
-                <node id="n1::n0::n0::n1">
-                  <data key="d1"/>
-                  <data key="d2"><![CDATA[UMLClass]]></data>
-                  <data key="d3">
-                    <y:UMLClassNode>
-                      <y:Geometry height="135.6173493418827" width="223.82589696805007" x="-1434.0407262618028" y="-390.2581903529117"/>
-                      <y:Fill color="#00CCFF" transparent="false"/>
-                      <y:BorderStyle color="#000000" type="line" width="1.0"/>
-                      <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="76.9853515625" x="73.42027270277504" y="3.0">class Mixed</y:NodeLabel>
-                      <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-                        <y:AttributeLabel/>
-                        <y:MethodLabel>void ToWriter(XmlWriter writer);
-QName QName { get; }
-Attribute[] AttributeList { get; }
-IContentNode[] ContentNodeList { get; }
-void Append(Comment comment);
-void Appent(Text text);</y:MethodLabel>
-                      </y:UML>
-                    </y:UMLClassNode>
-                  </data>
-                </node>
-                <node id="n1::n0::n0::n2">
-                  <data key="d1"/>
-                  <data key="d2"><![CDATA[UMLClass]]></data>
-                  <data key="d3">
-                    <y:UMLClassNode>
-                      <y:Geometry height="135.6173493418827" width="223.82589696804996" x="-1180.2145357856123" y="-390.2581903529117"/>
-                      <y:Fill color="#00CCFF" transparent="false"/>
-                      <y:BorderStyle color="#000000" type="line" width="1.0"/>
-                      <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="98.6435546875" x="62.59117114027498" y="3.0">class NotMixed</y:NodeLabel>
-                      <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-                        <y:AttributeLabel/>
-                        <y:MethodLabel>void ToWriter(XmlWriter writer);
-QName QName { get; }
-Attribute[] AttributeList { get; }
-IContentNode[] ContentNodeList { get; }
-void Append(Comment comment);</y:MethodLabel>
-                      </y:UML>
-                    </y:UMLClassNode>
-                  </data>
-                </node>
-                <node id="n1::n0::n0::n3">
-                  <data key="d1"/>
-                  <data key="d2"><![CDATA[UMLClass]]></data>
-                  <data key="d3">
-                    <y:UMLClassNode>
-                      <y:Geometry height="95.71919716451214" width="247.05601405599953" x="-1313.8788006787934" y="-884.5741085420373"/>
-                      <y:Fill color="#FFCC00" transparent="false"/>
-                      <y:BorderStyle color="#000000" type="line" width="1.0"/>
-                      <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="115.9853515625" x="65.53533124674976" y="3.0">interface IElement</y:NodeLabel>
-                      <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-                        <y:AttributeLabel/>
-                        <y:MethodLabel> </y:MethodLabel>
-                      </y:UML>
-                    </y:UMLClassNode>
-                  </data>
-                </node>
-                <node id="n1::n0::n0::n4">
-                  <data key="d1"/>
-                  <data key="d2"><![CDATA[UMLClass]]></data>
-                  <data key="d3">
-                    <y:UMLClassNode>
-                      <y:Geometry height="102.69054046156577" width="223.82594073467635" x="-1387.7082084625763" y="-543.7879060722095"/>
-                      <y:Fill color="#FFCC00" transparent="false"/>
-                      <y:BorderStyle color="#000000" type="line" width="1.0"/>
-                      <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="126.8017578125" x="48.512091461088175" y="3.0">interface INotEmpty</y:NodeLabel>
-                      <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-                        <y:AttributeLabel/>
-                        <y:MethodLabel>IContentNode[] ContentNodeList { get; }
-void Append(Comment comment);</y:MethodLabel>
-                      </y:UML>
-                    </y:UMLClassNode>
-                  </data>
-                </node>
-                <node id="n1::n0::n0::n5">
-                  <data key="d1"/>
-                  <data key="d2"><![CDATA[UMLClass]]></data>
-                  <data key="d3">
-                    <y:UMLClassNode>
-                      <y:Geometry height="102.69054046156577" width="176.46519007612346" x="-1340.3472775777445" y="-706.4784465337752"/>
-                      <y:Fill color="#FFCC00" transparent="false"/>
-                      <y:BorderStyle color="#000000" type="line" width="1.0"/>
-                      <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="120.314453125" x="28.07536847556173" y="3.0">interface IComplex</y:NodeLabel>
-                      <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-                        <y:AttributeLabel/>
-                        <y:MethodLabel>Attribute[] AttributeList { get; }</y:MethodLabel>
-                      </y:UML>
-                    </y:UMLClassNode>
-                  </data>
-                </node>
-                <node id="n1::n0::n0::n6">
-                  <data key="d1"/>
-                  <data key="d2"><![CDATA[UMLClass]]></data>
-                  <data key="d3">
-                    <y:UMLClassNode>
-                      <y:Geometry height="102.69054046156577" width="177.4934434244385" x="-1133.8820391725367" y="-706.4784465337752"/>
-                      <y:Fill color="#00CCFF" transparent="false"/>
-                      <y:BorderStyle color="#000000" type="line" width="1.0"/>
-                      <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="82.76806640625" x="47.362688509094255" y="3.0">class Simple</y:NodeLabel>
-                      <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-                        <y:AttributeLabel/>
-                        <y:MethodLabel>void ToWriter(XmlWriter writer);
-QName QName { get; }
-string Value { get; }</y:MethodLabel>
-                      </y:UML>
-                    </y:UMLClassNode>
-                  </data>
-                </node>
-              </graph>
-            </node>
-            <node id="n1::n0::n1">
-              <data key="d1"/>
-              <data key="d2"><![CDATA[UMLClass]]></data>
-              <data key="d3">
-                <y:UMLClassNode>
-                  <y:Geometry height="95.71919716451214" width="176.46519007612346" x="-1863.999658530125" y="-884.5741085420373"/>
-                  <y:Fill color="#99CC00" transparent="false"/>
-                  <y:BorderStyle color="#000000" type="line" width="1.0"/>
-                  <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="144.17529296875" x="16.14494855368673" y="3.0">sealed class Comment</y:NodeLabel>
-                  <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-                    <y:AttributeLabel/>
-                    <y:MethodLabel>void ToWriter(XmlWriter writer);
-string Value { get; }</y:MethodLabel>
-                  </y:UML>
-                </y:UMLClassNode>
-              </data>
-            </node>
-            <node id="n1::n0::n2">
-              <data key="d1"/>
-              <data key="d2"><![CDATA[UMLClass]]></data>
-              <data key="d3">
-                <y:UMLClassNode>
-                  <y:Geometry height="95.71919716451214" width="177.4934434244385" x="-1657.5344201249177" y="-884.5741085420373"/>
-                  <y:Fill color="#99CC00" transparent="false"/>
-                  <y:BorderStyle color="#000000" type="line" width="1.0"/>
-                  <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="110.9580078125" x="33.267717805969255" y="3.0">sealed class Text</y:NodeLabel>
-                  <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-                    <y:AttributeLabel/>
-                    <y:MethodLabel>void ToWriter(XmlWriter writer);
-string Value { get; }</y:MethodLabel>
-                  </y:UML>
-                </y:UMLClassNode>
-              </data>
-            </node>
-            <node id="n1::n0::n3">
-              <data key="d1"/>
-              <data key="d2"><![CDATA[UMLClass]]></data>
-              <data key="d3">
-                <y:UMLClassNode>
-                  <y:Geometry height="58.5" width="163.0" x="-1387.9480158730157" y="-1100.4505733857873"/>
-                  <y:Fill color="#FFCC00" transparent="false"/>
-                  <y:BorderStyle color="#000000" type="line" width="1.0"/>
-                  <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="147.0126953125" x="7.99365234375" y="3.0">interface IContentNode</y:NodeLabel>
-                  <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-                    <y:AttributeLabel/>
-                    <y:MethodLabel> </y:MethodLabel>
-                  </y:UML>
-                </y:UMLClassNode>
-              </data>
-            </node>
-          </graph>
-        </node>
-        <node id="n1::n1">
-          <data key="d1"/>
-          <data key="d2"><![CDATA[UMLClass]]></data>
-          <data key="d3">
-            <y:UMLClassNode>
-              <y:Geometry height="58.5" width="176.46519007612358" x="-901.1210871015539" y="-1241.3270382295373"/>
-              <y:Fill color="#FFCC00" transparent="false"/>
-              <y:BorderStyle color="#000000" type="line" width="1.0"/>
-              <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="97.91357421875" x="39.27580792868679" y="3.0">interface INode</y:NodeLabel>
-              <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-                <y:AttributeLabel/>
-                <y:MethodLabel>void ToWriter(XmlWriter writer);</y:MethodLabel>
-              </y:UML>
-            </y:UMLClassNode>
-          </data>
-        </node>
-        <node id="n1::n2">
-          <data key="d1"/>
-          <data key="d2"><![CDATA[UMLClass]]></data>
-          <data key="d3">
-            <y:UMLClassNode>
-              <y:Geometry height="58.5" width="141.5" x="-701.3884920634921" y="-1100.4505733857873"/>
-              <y:Fill color="#FFCC00" transparent="false"/>
-              <y:BorderStyle color="#000000" type="line" width="1.0"/>
-              <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="110.9326171875" x="15.28369140625" y="3.0">interface IQName</y:NodeLabel>
-              <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-                <y:AttributeLabel/>
-                <y:MethodLabel>QName QName { get; }</y:MethodLabel>
-              </y:UML>
-            </y:UMLClassNode>
-          </data>
-        </node>
-        <node id="n1::n3">
-          <data key="d1"/>
-          <data key="d2"><![CDATA[UMLClass]]></data>
-          <data key="d3">
-            <y:UMLClassNode>
-              <y:Geometry height="95.71919716451214" width="176.46519007612358" x="-736.3540236094905" y="-884.5741085420373"/>
-              <y:Fill color="#00CCFF" transparent="false"/>
-              <y:BorderStyle color="#000000" type="line" width="1.0"/>
-              <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="94.3017578125" x="41.08171613181179" y="3.0">class Attribute</y:NodeLabel>
-              <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-                <y:AttributeLabel/>
-                <y:MethodLabel>void ToWriter(XmlWriter writer);
-QName QName { get; }
-string Value { get; }</y:MethodLabel>
-              </y:UML>
-            </y:UMLClassNode>
-          </data>
-        </node>
-        <node id="n1::n4">
-          <data key="d1"/>
-          <data key="d2"><![CDATA[UMLClass]]></data>
-          <data key="d3">
-            <y:UMLClassNode>
-              <y:Geometry height="58.5" width="163.0" x="-894.3884920634921" y="-1100.4505733857873"/>
-              <y:Fill color="#FFCC00" transparent="false"/>
-              <y:BorderStyle color="#000000" type="line" width="1.0"/>
-              <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="154.287109375" x="4.3564453125" y="3.0">interface ICharacterData</y:NodeLabel>
-              <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-                <y:AttributeLabel/>
-                <y:MethodLabel>string Value { get; }</y:MethodLabel>
-              </y:UML>
-            </y:UMLClassNode>
-          </data>
-        </node>
-      </graph>
-    </node>
-    <edge id="n1::e0" source="n1::n2" target="n1::n1">
+    <edge id="n0::e0" source="n0::n2" target="n0::n1">
       <data key="d5"/>
       <data key="d6"><![CDATA[UMLinherits]]></data>
       <data key="d7">
         <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="-29.25" tx="58.82173002537451" ty="29.25">
-            <y:Point x="-630.6384920634921" y="-1115.4505733857873"/>
-            <y:Point x="-754.0667620381175" y="-1115.4505733857873"/>
+          <y:Path sx="0.0" sy="-29.25" tx="-58.82173002537452" ty="29.25">
+            <y:Point x="-1265.6888888888889" y="-1115.4505733857873"/>
+            <y:Point x="-1142.2606189142634" y="-1115.4505733857873"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="white_delta"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="-63.71413828127356" y="-12.970714987349766"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="59.71408887186135" y="-12.970714987349766"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n1::e1" source="n1::n4" target="n1::n1">
+    <edge id="n0::e1" source="n0::n4" target="n0::n1">
       <data key="d5"/>
       <data key="d6"><![CDATA[UMLinherits]]></data>
       <data key="d7">
@@ -493,337 +493,337 @@ string Value { get; }</y:MethodLabel>
           <y:Path sx="0.0" sy="-29.25" tx="0.0" ty="29.25"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="white_delta"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="1.9999967060391555" y="-43.147961081099766"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="1.9999538845486313" y="-43.147961081099766"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n1::e2" source="n1::n0::n0::n3" target="n1::n2">
+    <edge id="n0::e2" source="n0::n0::n0::n3" target="n0::n2">
       <data key="d5"/>
       <data key="d6"><![CDATA[UMLinherits]]></data>
       <data key="d7">
         <y:PolyLineEdge>
-          <y:Path sx="61.76400351399988" sy="-47.85959858225607" tx="-35.375" ty="29.25">
-            <y:Point x="-1128.5867901367938" y="-951.9505733857874"/>
-            <y:Point x="-666.0134920634921" y="-951.9505733857874"/>
+          <y:Path sx="-25.915992846260195" sy="-47.85959858225607" tx="35.375" ty="29.25">
+            <y:Point x="-696.0445642748316" y="-951.9505733857874"/>
+            <y:Point x="-1230.3138888888889" y="-951.9505733857874"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="white_delta"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="229.28665089204458" y="-65.34357875688113"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="-269.13467091779773" y="-65.34357875688113"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n1::e3" source="n1::n0::n3" target="n1::n1">
+    <edge id="n0::e3" source="n0::n0::n3" target="n0::n1">
       <data key="d5"/>
       <data key="d6"><![CDATA[UMLinherits]]></data>
       <data key="d7">
         <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="-29.25" tx="-58.82173002537452" ty="29.25">
-            <y:Point x="-1306.4480158730157" y="-1152.8270382295373"/>
-            <y:Point x="-871.7102220888667" y="-1152.8270382295373"/>
+          <y:Path sx="0.0" sy="-29.25" tx="58.82173002537451" ty="29.25">
+            <y:Point x="-599.9011904761905" y="-1152.8270382295373"/>
+            <y:Point x="-1024.6171588635143" y="-1152.8270382295373"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="white_delta"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="215.36887906593392" y="-50.350841940474766"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="-214.35799058782118" y="-50.350841940474766"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n1::n0::e0" source="n1::n0::n0::n3" target="n1::n0::n3">
+    <edge id="n0::n0::e0" source="n0::n0::n0::n3" target="n0::n0::n3">
       <data key="d5"/>
       <data key="d6"><![CDATA[UMLinherits]]></data>
       <data key="d7">
         <y:PolyLineEdge>
-          <y:Path sx="-61.76400351399988" sy="-47.85959858225607" tx="54.333333333333314" ty="29.25"/>
+          <y:Path sx="25.915992846260195" sy="-47.85959858225607" tx="-44.31145981930574" ty="29.25"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="white_delta"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="2.0000076982116752" y="-80.64979213578727"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="1.9999719216734775" y="-80.64979213578727"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e0" source="n0::n0" target="n1::n3">
+    <edge id="e0" source="n1::n0" target="n0::n3">
       <data key="d5"/>
       <data key="d6"><![CDATA[UMLinherits]]></data>
       <data key="d7">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="-51.34527023078289" tx="0.0" ty="47.85959858225607">
-            <y:Point x="-419.13174603174593" y="-758.8549113775252"/>
-            <y:Point x="-648.1214285714286" y="-758.8549113775252"/>
+            <y:Point x="-1477.1956349206348" y="-758.8549113775252"/>
+            <y:Point x="-1248.2059523809523" y="-758.8549113775252"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="white_delta"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="-116.49484291682165" y="-50.35088305721274"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="112.49488506014404" y="-50.35088305721274"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e1" source="n0::n1" target="n1::n0::n0::n0">
+    <edge id="e1" source="n1::n1" target="n0::n0::n0::n0">
       <data key="d5"/>
       <data key="d6"><![CDATA[UMLinherits]]></data>
       <data key="d7">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="-73.64784992867334" tx="0.0" ty="51.34527023078289">
-            <y:Point x="-427.1384920634921" y="-411.0973656106437"/>
-            <y:Point x="-1045.1353174603173" y="-411.0973656106437"/>
+            <y:Point x="-1469.1888888888889" y="-411.0973656106437"/>
+            <y:Point x="-851.1920634920634" y="-411.0973656106437"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="white_delta"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="-310.99841599237345" y="-12.970717661424942"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="306.99836658296135" y="-12.970717661424942"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e2" source="n0::n2" target="n1::n0::n0::n1">
+    <edge id="e2" source="n1::n2" target="n0::n0::n0::n1">
       <data key="d5"/>
       <data key="d6"><![CDATA[UMLinherits]]></data>
       <data key="d7">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="-74.8204205055145" tx="0.0" ty="67.80867467094134">
-            <y:Point x="-390.2130952380953" y="-164.640841011029"/>
-            <y:Point x="-1322.1277777777777" y="-164.640841011029"/>
+            <y:Point x="-1506.1142857142856" y="-164.640841011029"/>
+            <y:Point x="-574.1996031746032" y="-164.640841011029"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="white_delta"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="-467.95733225988965" y="-12.970705512982136"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="463.95731336805557" y="-12.970705512982136"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e3" source="n0::n3" target="n1::n0::n0::n2">
+    <edge id="e3" source="n1::n3" target="n0::n0::n0::n2">
       <data key="d5"/>
       <data key="d6"><![CDATA[UMLinherits]]></data>
       <data key="d7">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="-74.8204205055145" tx="0.0" ty="67.80867467094134">
-            <y:Point x="-134.43253968253975" y="-179.640841011029"/>
-            <y:Point x="-1068.3015873015872" y="-179.640841011029"/>
+            <y:Point x="-1761.8948412698412" y="-179.640841011029"/>
+            <y:Point x="-828.0257936507937" y="-179.640841011029"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="white_delta"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="-468.9345225985088" y="-27.970705512982136"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="464.9345800006199" y="-27.970705512982136"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n1::n0::n0::e0" source="n1::n0::n0::n4" target="n1::n0::n0::n5">
-      <data key="d5"/>
-      <data key="d6"><![CDATA[UMLinherits]]></data>
-      <data key="d7">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="-51.34527023078289" tx="-44.116297519030866" ty="51.34527023078289">
-            <y:Point x="-1275.7952380952381" y="-558.7879060722095"/>
-            <y:Point x="-1296.2309800587134" y="-558.7879060722095"/>
-          </y:Path>
-          <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="none" target="white_delta"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="-18.435691972775885" y="-34.908206365178216"/>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="n1::n0::n0::e1" source="n1::n0::n0::n5" target="n1::n0::n0::n3">
-      <data key="d5"/>
-      <data key="d6"><![CDATA[UMLinherits]]></data>
-      <data key="d7">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="-51.34527023078289" tx="-61.76400351399988" ty="47.85959858225607"/>
-          <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="none" target="white_delta"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="1.9998869541573185" y="-43.14800219783774"/>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="e4" source="n0::n4" target="n1::n0::n0::n6">
-      <data key="d5"/>
-      <data key="d6"><![CDATA[UMLinherits]]></data>
-      <data key="d7">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="-51.34527023078289" tx="0.0" ty="51.34527023078289">
-            <y:Point x="-427.1384920634921" y="-573.7879060722095"/>
-            <y:Point x="-1045.1353174603173" y="-573.7879060722095"/>
-          </y:Path>
-          <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="none" target="white_delta"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="-310.99841599237345" y="-27.970706365178216"/>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="n1::e4" source="n1::n3" target="n1::n4">
-      <data key="d5"/>
-      <data key="d6"><![CDATA[UMLinherits]]></data>
-      <data key="d7">
-        <y:PolyLineEdge>
-          <y:Path sx="-44.116297519030894" sy="-47.85959858225607" tx="61.125" ty="29.25">
-            <y:Point x="-692.2377260904595" y="-899.5741085420374"/>
-            <y:Point x="-751.7634920634921" y="-899.5741085420374"/>
-          </y:Path>
-          <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="none" target="white_delta"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="-57.525760129898345" y="-83.59644740922477"/>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="n1::e5" source="n1::n3" target="n1::n2">
-      <data key="d5"/>
-      <data key="d6"><![CDATA[UMLinherits]]></data>
-      <data key="d7">
-        <y:PolyLineEdge>
-          <y:Path sx="44.116297519030894" sy="-47.85959858225607" tx="35.375" ty="29.25">
-            <y:Point x="-604.0051310523977" y="-899.5741085420374"/>
-            <y:Point x="-595.2634920634921" y="-899.5741085420374"/>
-          </y:Path>
-          <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="none" target="white_delta"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="10.741634889632905" y="-83.59644740922477"/>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="n1::n0::n0::e2" source="n1::n0::n0::n6" target="n1::n0::n0::n3">
-      <data key="d5"/>
-      <data key="d6"><![CDATA[UMLinherits]]></data>
-      <data key="d7">
-        <y:PolyLineEdge>
-          <y:Path sx="-44.37336085610963" sy="-51.34527023078289" tx="61.76400351399988" ty="47.85959858225607">
-            <y:Point x="-1089.508678316427" y="-721.4784465337752"/>
-            <y:Point x="-1128.5867901367938" y="-721.4784465337752"/>
-          </y:Path>
-          <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="none" target="white_delta"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="-37.07812314460625" y="-46.09642749080649"/>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="n1::e6" source="n1::n0::n0::n6" target="n1::n4">
-      <data key="d5"/>
-      <data key="d6"><![CDATA[UMLinherits]]></data>
-      <data key="d7">
-        <y:PolyLineEdge>
-          <y:Path sx="44.37336085610957" sy="-51.345270230782944" tx="20.375" ty="29.25">
-            <y:Point x="-1000.7619047619048" y="-936.9505733857874"/>
-            <y:Point x="-792.5134920634921" y="-936.9505733857874"/>
-          </y:Path>
-          <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="none" target="white_delta"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="2.0000336837347277" y="-121.77041816290625"/>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="n1::n0::n0::e3" source="n1::n0::n0::n0" target="n1::n0::n0::n5">
+    <edge id="n0::n0::n0::e0" source="n0::n0::n0::n4" target="n0::n0::n0::n5">
       <data key="d5"/>
       <data key="d6"><![CDATA[UMLinherits]]></data>
       <data key="d7">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="-51.34527023078289" tx="44.116297519030866" ty="51.34527023078289">
-            <y:Point x="-1045.1353174603173" y="-558.7879060722095"/>
-            <y:Point x="-1207.9983850206518" y="-558.7879060722095"/>
+            <y:Point x="-620.5321428571428" y="-558.7879060722095"/>
+            <y:Point x="-600.0964008936676" y="-558.7879060722095"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="white_delta"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="-83.43147526392204" y="-12.970706365178216"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="22.435764633676172" y="-34.908206365178216"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n1::n0::n0::e4" source="n1::n0::n0::n2" target="n1::n0::n0::n4">
+    <edge id="n0::n0::n0::e1" source="n0::n0::n0::n5" target="n0::n0::n0::n3">
       <data key="d5"/>
       <data key="d6"><![CDATA[UMLinherits]]></data>
       <data key="d7">
         <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="-67.80867467094134" tx="55.95648518366909" ty="51.34527023078289">
-            <y:Point x="-1068.3015873015872" y="-405.2581903529117"/>
-            <y:Point x="-1219.838752911569" y="-405.2581903529117"/>
-          </y:Path>
+          <y:Path sx="0.0" sy="-51.34527023078289" tx="25.915992846260195" ty="47.85959858225607"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="white_delta"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="-77.76853436439069" y="-12.970714766974197"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="2.0000719313619584" y="-43.14800219783774"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n1::n0::n0::e5" source="n1::n0::n0::n1" target="n1::n0::n0::n4">
+    <edge id="e4" source="n1::n4" target="n0::n0::n0::n6">
+      <data key="d5"/>
+      <data key="d6"><![CDATA[UMLinherits]]></data>
+      <data key="d7">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="-51.34527023078289" tx="0.0" ty="51.34527023078289">
+            <y:Point x="-1469.1888888888889" y="-573.7879060722095"/>
+            <y:Point x="-851.1920634920634" y="-573.7879060722095"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="white_delta"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="306.99836658296135" y="-27.970706365178216"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="n0::e4" source="n0::n3" target="n0::n4">
+      <data key="d5"/>
+      <data key="d6"><![CDATA[UMLinherits]]></data>
+      <data key="d7">
+        <y:PolyLineEdge>
+          <y:Path sx="44.116297519030894" sy="-47.85959858225607" tx="-61.125" ty="29.25">
+            <y:Point x="-1204.0896548619214" y="-899.5741085420374"/>
+            <y:Point x="-1144.5638888888889" y="-899.5741085420374"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="white_delta"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="61.52571072048613" y="-83.59644740922477"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="n0::e5" source="n0::n3" target="n0::n2">
+      <data key="d5"/>
+      <data key="d6"><![CDATA[UMLinherits]]></data>
+      <data key="d7">
+        <y:PolyLineEdge>
+          <y:Path sx="-44.116297519030894" sy="-47.85959858225607" tx="-35.375" ty="29.25">
+            <y:Point x="-1292.3222498999833" y="-899.5741085420374"/>
+            <y:Point x="-1301.0638888888889" y="-899.5741085420374"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="white_delta"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="-6.741623263888869" y="-83.59644740922477"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="n0::n0::n0::e2" source="n0::n0::n0::n6" target="n0::n0::n0::n3">
+      <data key="d5"/>
+      <data key="d6"><![CDATA[UMLinherits]]></data>
+      <data key="d7">
+        <y:PolyLineEdge>
+          <y:Path sx="44.37336085610963" sy="-51.34527023078289" tx="-25.915992846260195" ty="47.85959858225607">
+            <y:Point x="-806.8187026359537" y="-721.4784465337752"/>
+            <y:Point x="-696.0445642748316" y="-721.4784465337752"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="white_delta"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="53.38709213054483" y="-12.97069506893149"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="n0::e6" source="n0::n0::n0::n6" target="n0::n4">
+      <data key="d5"/>
+      <data key="d6"><![CDATA[UMLinherits]]></data>
+      <data key="d7">
+        <y:PolyLineEdge>
+          <y:Path sx="-44.373360856109684" sy="-51.345270230782944" tx="-20.375" ty="29.25">
+            <y:Point x="-895.5654761904761" y="-936.9505733857874"/>
+            <y:Point x="-1103.8138888888889" y="-936.9505733857874"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="white_delta"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="1.9999788417676427" y="-121.77041816290625"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="n0::n0::n0::e3" source="n0::n0::n0::n0" target="n0::n0::n0::n5">
+      <data key="d5"/>
+      <data key="d6"><![CDATA[UMLinherits]]></data>
+      <data key="d7">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="-51.34527023078289" tx="-44.116297519030866" ty="51.34527023078289">
+            <y:Point x="-851.1920634920634" y="-558.7879060722095"/>
+            <y:Point x="-688.3289959317294" y="-558.7879060722095"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="white_delta"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="79.43154792482233" y="-12.970706365178216"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="n0::n0::n0::e4" source="n0::n0::n0::n2" target="n0::n0::n0::n4">
       <data key="d5"/>
       <data key="d6"><![CDATA[UMLinherits]]></data>
       <data key="d7">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="-67.80867467094134" tx="-55.95648518366909" ty="51.34527023078289">
-            <y:Point x="-1322.1277777777777" y="-405.2581903529117"/>
-            <y:Point x="-1331.7517232789073" y="-405.2581903529117"/>
+            <y:Point x="-828.0257936507937" y="-405.2581903529117"/>
+            <y:Point x="-676.4886280408118" y="-405.2581903529117"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="white_delta"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="-7.623915661719593" y="-30.327802395840195"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="73.76860702529098" y="-12.970714766974197"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n1::n0::e1" source="n1::n0::n1" target="n1::n0::n3">
+    <edge id="n0::n0::n0::e5" source="n0::n0::n0::n1" target="n0::n0::n0::n4">
       <data key="d5"/>
       <data key="d6"><![CDATA[UMLinherits]]></data>
       <data key="d7">
         <y:PolyLineEdge>
-          <y:Path sx="-44.116297519030866" sy="-47.85959858225607" tx="-54.33333333333333" ty="29.25">
-            <y:Point x="-1819.8833610110944" y="-1011.9505733857874"/>
-            <y:Point x="-1360.7813492063492" y="-1011.9505733857874"/>
+          <y:Path sx="0.0" sy="-67.80867467094134" tx="55.95648518366909" ty="51.34527023078289">
+            <y:Point x="-574.1996031746032" y="-405.2581903529117"/>
+            <y:Point x="-564.5756576734739" y="-405.2581903529117"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="white_delta"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="227.5509456725281" y="-125.34534877641238"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="11.623927287463744" y="-30.327802395840195"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n1::e7" source="n1::n0::n1" target="n1::n4">
+    <edge id="n0::n0::e1" source="n0::n0::n1" target="n0::n0::n3">
       <data key="d5"/>
       <data key="d6"><![CDATA[UMLinherits]]></data>
       <data key="d7">
         <y:PolyLineEdge>
-          <y:Path sx="44.116297519030866" sy="-47.85959858225607" tx="-61.125" ty="29.25">
-            <y:Point x="-1731.6507659730325" y="-996.9505733857874"/>
-            <y:Point x="-874.0134920634921" y="-996.9505733857874"/>
+          <y:Path sx="44.116297519030866" sy="-47.85959858225607" tx="44.31145981930574" ty="29.25">
+            <y:Point x="-76.44401994128657" y="-1011.9505733857874"/>
+            <y:Point x="-555.5897306568847" y="-1011.9505733857874"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="white_delta"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="426.8186278176752" y="-110.34901088578738"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="-241.57285216676144" y="-125.34534877641238"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n1::n0::e2" source="n1::n0::n2" target="n1::n0::n3">
+    <edge id="n0::e7" source="n0::n0::n1" target="n0::n4">
       <data key="d5"/>
       <data key="d6"><![CDATA[UMLinherits]]></data>
       <data key="d7">
         <y:PolyLineEdge>
-          <y:Path sx="-44.37336085610963" sy="-47.85959858225607" tx="0.0" ty="29.25">
-            <y:Point x="-1613.161059268808" y="-981.9505733857874"/>
-            <y:Point x="-1306.4480158730157" y="-981.9505733857874"/>
+          <y:Path sx="-44.116297519030866" sy="-47.85959858225607" tx="61.125" ty="29.25">
+            <y:Point x="-164.67661497934841" y="-996.9505733857874"/>
+            <y:Point x="-1022.3138888888889" y="-996.9505733857874"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="white_delta"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="151.35647317127564" y="-95.32893031938113"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="-430.8186314507202" y="-110.34901088578738"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n1::e8" source="n1::n0::n2" target="n1::n4">
+    <edge id="n0::n0::e2" source="n0::n0::n2" target="n0::n0::n3">
       <data key="d5"/>
       <data key="d6"><![CDATA[UMLinherits]]></data>
       <data key="d7">
         <y:PolyLineEdge>
-          <y:Path sx="44.37336085610963" sy="-47.85959858225607" tx="-20.375" ty="29.25">
-            <y:Point x="-1524.4143375565889" y="-966.9505733857874"/>
-            <y:Point x="-833.2634920634921" y="-966.9505733857874"/>
+          <y:Path sx="44.37336085610963" sy="-47.85959858225607" tx="0.0" ty="29.25">
+            <y:Point x="-283.16632168357273" y="-981.9505733857874"/>
+            <y:Point x="-599.9011904761905" y="-981.9505733857874"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="white_delta"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="343.5753918305845" y="-80.33625453813113"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="-160.3674352791004" y="-95.32893031938113"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="n0::e8" source="n0::n0::n2" target="n0::n4">
+      <data key="d5"/>
+      <data key="d6"><![CDATA[UMLinherits]]></data>
+      <data key="d7">
+        <y:PolyLineEdge>
+          <y:Path sx="-44.37336085610963" sy="-47.85959858225607" tx="20.375" ty="29.25">
+            <y:Point x="-371.9130433957921" y="-966.9505733857874"/>
+            <y:Point x="-1063.0638888888889" y="-966.9505733857874"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="white_delta"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="-347.5754107224186" y="-80.33625453813113"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>

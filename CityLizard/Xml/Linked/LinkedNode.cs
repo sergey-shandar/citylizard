@@ -1,4 +1,4 @@
-﻿namespace CityLizard.Xml.PoC.Linked
+﻿namespace CityLizard.Xml.Linked
 {
     /// <summary>
     /// The linked XML node includes elements, comments, text. It does not 

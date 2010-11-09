@@ -1,37 +1,92 @@
 ﻿namespace CityLizard.Xml
 {
-    using IO = System.IO;
     using X = System.Xml;
-    using S = System;
+    using IO = System.IO;
     using C = System.Collections.Generic;
-
-    using System.Linq;
-    using Extension;
+    using S = System;
 
     /// <summary>
-    /// The node object represents a single node in the XML document tree.
+    /// Represents a single node in the XML document.
     /// </summary>
-    public abstract class Node : INode
+    public abstract class Node
     {
         /// <summary>
-        /// Writes the node to the XML writer.
+        /// Initialaze.
         /// </summary>
-        /// <param name="writer">The XML writer.</param>
-        /// <param name="parentNamespace">
-        /// Parent namespace.
-        /// </param>
-        public abstract void ToXmlWriter(
-            X.XmlWriter writer, string parentNamespace);
+        protected Node()
+        {
+            this.ErrorHandler = (n, e) => { throw e; };
+        }
 
         /// <summary>
-        /// Returns a string that represents the current node.
+        /// The replaceable error handler.
         /// </summary>
-        /// <returns>String that represents the current node.</returns>
+        public S.Action<Node, S.Exception> ErrorHandler { get; set; }
+
+        /// <summary>
+        /// Handles the new error.
+        /// </summary>
+        /// <param name="e">The new error.</param>
+        protected void HandleError(S.Exception e)
+        {
+            this.ErrorHandler(this, e);
+        }
+
+        /// <summary>
+        /// The parent element.
+        /// </summary>
+        public Linked.Element.Element Parent 
+        { 
+            get; 
+            protected set; 
+        }
+        
+        /// <summary>
+        /// Initializes the child node.
+        /// </summary>
+        /// <typeparam name="T">The child type.</typeparam>
+        /// <param name="child">The child.</param>
+        /// <returns>The child.</returns>
+        protected T InitChild<T>(T child)
+            where T: Node
+        {
+            child.ErrorHandler = this.ErrorHandler;
+            child.Parent = this.Parent;
+            return child;
+        }
+
+        /// <summary>
+        /// When overridden in a derived class, saves the current node to the 
+        /// specified System.Xml.XmlWriter.
+        /// </summary>
+        /// <param name="writer">
+        /// The System.Xml.XmlWriter to which you want to save.
+        /// </param>
+        public abstract void WriteTo(X.XmlWriter writer);
+
+        /// <summary>
+        /// Saves the current node to the specified System.IO.TextWriter.
+        /// </summary>
+        /// <param name="writer">
+        /// The System.IO.TextWriter to which you want to save.
+        /// </param>
+        public void WriteTo(IO.TextWriter writer)
+        {
+            using (var xmlWriter = new X.XmlTextWriter(writer))
+            {
+                this.WriteTo(xmlWriter);
+            }
+        }
+
+        /// <summary>
+        /// Returns a System.String that represents the current node. 
+        /// </summary>
+        /// <returns>A System.String that represents the current node.</returns>
         public override string ToString()
         {
-            var stringWriter = new IO.StringWriter();
-            this.ToTextWriter(stringWriter, null);
-            return stringWriter.ToString();
+            var writer = new IO.StringWriter();
+            this.WriteTo(writer);
+            return writer.ToString();
         }
     }
 }

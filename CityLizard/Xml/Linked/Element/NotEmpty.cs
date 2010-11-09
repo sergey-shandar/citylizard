@@ -1,6 +1,8 @@
-﻿namespace CityLizard.Xml.PoC.Linked.Element
+﻿namespace CityLizard.Xml.Linked.Element
 {
     using C = System.Collections.Generic;
+
+    using System.Linq;
 
     /// <summary>
     /// The not empty XML element.
@@ -8,9 +10,14 @@
     public abstract class NotEmpty: Complex
     {
         /// <summary>
-        /// The list of linked nodes.
+        /// The list of linked nodes, part 0.
         /// </summary>
-        private readonly C.List<LinkedNode> N = new C.List<LinkedNode>();
+        protected C.List<LinkedNode> Part0;
+
+        /// <summary>
+        /// The list of linked nodes, part 1.
+        /// </summary>
+        private readonly C.List<LinkedNode> Part1 = new C.List<LinkedNode>();
 
         /// <summary>
         /// Adds the linked node.
@@ -18,13 +25,20 @@
         /// <param name="n">The linked node.</param>
         protected void AddLinkedNode(LinkedNode n)
         {
-            this.N.Add(this.InitChild(n));
+            this.Part1.Add(this.InitChild(n));
         }
 
         /// <summary>
         /// The linked nodes.
         /// </summary>
-        public C.IEnumerable<LinkedNode> LinkedNodes { get { return this.N; } }
+        public C.IEnumerable<LinkedNode> LinkedNodes 
+        { 
+            get 
+            { 
+                return 
+                    this.Part0 == null ? this.Part1: this.Part0.Concat(this.Part1);
+            } 
+        }
 
         /// <summary>
         /// Adds the comment node.

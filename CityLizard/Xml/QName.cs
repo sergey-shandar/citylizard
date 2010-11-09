@@ -1,4 +1,4 @@
-﻿namespace CityLizard.Xml.PoC
+﻿namespace CityLizard.Xml
 {
     /// <summary>
     /// The XML QName (qualified name) defines a valid identifier for elements 

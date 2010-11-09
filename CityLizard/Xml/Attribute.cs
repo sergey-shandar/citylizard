@@ -1,45 +1,37 @@
 ﻿namespace CityLizard.Xml
 {
-    using IO = System.IO;
-    using S = System;
-    using C = System.Collections.Generic;
-    using X = System.Xml;
-
-    using System.Linq;
-    using Extension;
-
     /// <summary>
     /// Represents an XML attribute.
     /// </summary>
-    public sealed class Attribute : CharacterData, IAttribute
+    public abstract class Attribute: Node, IQName, ICharacterData
     {
-        internal Attribute(string namespace_, string name, string value)
-            : base(value)
+        /// <summary>
+        /// Saves the current attribute the specified System.Xml.XmlWriter.
+        /// </summary>
+        /// <param name="writer">
+        /// The System.Xml.XmlWriter to which you want to save.
+        /// </param>
+        public override void WriteTo(System.Xml.XmlWriter writer)
         {
-            this.Namespace = namespace_;
-            this.Name = name;
+            writer.WriteAttributeString(this.QName.LocalName, this.Value);
         }
 
         /// <summary>
-        /// The namespace.
+        /// The QName of the attribute.
         /// </summary>
-        public string Namespace { get; private set; }
-
-        /// <summary>
-        /// The name.
-        /// </summary>
-        public string Name { get; private set; }
-
-        /// <summary>
-        /// Writes the attribute to the XML writer.
-        /// </summary>
-        /// <param name="writer">The XML writer.</param>
-        /// <param name="parentNamespace">Ignored.</param>
-        public override void ToXmlWriter(
-            X.XmlWriter writer, string parentNamespace)
+        public QName QName
         {
-            writer.WriteAttributeString(this.Name, this.Value);
+            get;
+            protected set;
         }
 
+        /// <summary>
+        /// The value of the attribute.
+        /// </summary>
+        public string Value
+        {
+            get;
+            set;
+        }
     }
 }

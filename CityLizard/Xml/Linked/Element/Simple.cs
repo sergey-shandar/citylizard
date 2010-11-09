@@ -1,4 +1,4 @@
-﻿namespace CityLizard.Xml.PoC.Linked.Element
+﻿namespace CityLizard.Xml.Linked.Element
 {
     /// <summary>
     /// The simple XML element.

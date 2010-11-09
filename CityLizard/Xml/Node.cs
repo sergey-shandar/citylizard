@@ -26,17 +26,9 @@
         }
 
         /// <summary>
-        /// Initialaze.
-        /// </summary>
-        protected Node()
-        {
-            this.ErrorHandler = (n, e) => { throw e; };
-        }
-
-        /// <summary>
         /// The replaceable error handler.
         /// </summary>
-        public S.Action<Node, Error> ErrorHandler { get; set; }
+        public Implementation Implementation { get; set; }
 
         /// <summary>
         /// Handles the new error.
@@ -44,7 +36,7 @@
         /// <param name="e">The new error.</param>
         protected void HandleError(Error e)
         {
-            this.ErrorHandler(this, e);
+            this.Implementation.ErrorHandler(this, e);
         }
 
         /// <summary>
@@ -65,7 +57,6 @@
         protected T InitChild<T>(T child)
             where T: Node
         {
-            child.ErrorHandler = this.ErrorHandler;
             child.Parent = this.Parent;
             return child;
         }

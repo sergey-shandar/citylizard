@@ -1,4 +1,4 @@
-﻿namespace CityLizard.XmlSchema.Console
+﻿namespace CityLizard.Xml.Schema.Console
 {
     using IO = System.IO;
     using CS = Microsoft.CSharp;

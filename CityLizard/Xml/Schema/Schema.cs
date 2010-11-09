@@ -1,4 +1,4 @@
-﻿namespace CityLizard.XmlSchema
+﻿namespace CityLizard.Xml.Schema
 {
     using S = System;
     using T = System.Text;

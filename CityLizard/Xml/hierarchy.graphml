@@ -18,6 +18,128 @@
         <y:ProxyAutoBoundsNode>
           <y:Realizers active="0">
             <y:GroupNode>
+              <y:Geometry height="758.8549113775252" width="513.5611111111111" x="-1911.0" y="-743.8549113775252"/>
+              <y:Fill color="#CAECFF84" transparent="false"/>
+              <y:BorderStyle color="#666699" type="dotted" width="1.0"/>
+              <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#99CCFF" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="22.37646484375" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="513.5611111111111" x="0.0" y="0.0">Generated</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+              <y:State closed="false" innerGraphDisplayEnabled="false"/>
+              <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
+              <y:BorderInsets bottom="0" bottomF="0.0" left="1" leftF="1.0002570670833393" right="1" rightF="1.0" top="0" topF="0.0"/>
+            </y:GroupNode>
+            <y:GroupNode>
+              <y:Geometry height="50.0" width="50.0" x="-1945.0" y="185.0"/>
+              <y:Fill color="#CAECFF84" transparent="false"/>
+              <y:BorderStyle color="#666699" type="dotted" width="1.0"/>
+              <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#99CCFF" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="22.37646484375" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="50.0" x="0.0" y="0.0">2</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+              <y:State closed="false" innerGraphDisplayEnabled="false"/>
+              <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
+              <y:BorderInsets bottom="0" bottomF="0.0" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
+            </y:GroupNode>
+          </y:Realizers>
+        </y:ProxyAutoBoundsNode>
+      </data>
+      <graph edgedefault="directed" id="n0:">
+        <node id="n0::n0">
+          <data key="d1"/>
+          <data key="d2"><![CDATA[UMLClass]]></data>
+          <data key="d3">
+            <y:UMLClassNode>
+              <y:Geometry height="102.69054046156577" width="157.51309523809505" x="-1570.9521825396823" y="-706.4784465337752"/>
+              <y:Fill color="#99CC00" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="1.0"/>
+              <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="136.22802734375" x="10.642533947172524" y="3.0">sealed class attribute</y:NodeLabel>
+              <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
+                <y:AttributeLabel/>
+                <y:MethodLabel> </y:MethodLabel>
+              </y:UML>
+            </y:UMLClassNode>
+          </data>
+        </node>
+        <node id="n0::n1">
+          <data key="d1"/>
+          <data key="d2"><![CDATA[UMLClass]]></data>
+          <data key="d3">
+            <y:UMLClassNode>
+              <y:Geometry height="147.29569985734668" width="141.5" x="-1554.9388888888889" y="-396.0973656106437"/>
+              <y:Fill color="#99CC00" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="1.0"/>
+              <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="122.51708984375" x="9.491455078125" y="3.0">sealed class empty</y:NodeLabel>
+              <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
+                <y:AttributeLabel/>
+                <y:MethodLabel>string attribute { set; get; }</y:MethodLabel>
+              </y:UML>
+            </y:UMLClassNode>
+          </data>
+        </node>
+        <node id="n0::n2">
+          <data key="d1"/>
+          <data key="d2"><![CDATA[UMLClass]]></data>
+          <data key="d3">
+            <y:UMLClassNode>
+              <y:Geometry height="149.640841011029" width="215.3506910815213" x="-1628.7896312550463" y="-149.640841011029"/>
+              <y:Fill color="#99CC00" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="1.0"/>
+              <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="121.7998046875" x="46.775443197010645" y="3.0">sealed class mixed</y:NodeLabel>
+              <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
+                <y:AttributeLabel/>
+                <y:MethodLabel>string attribute { set; get; }
+element element { get; }
+element[] elementList { get; }
+mixed Append(element element);
+mixed Append(element[] elementList);
+mixed this[Comment comment] { get; }
+mixed this[string text] { get; }</y:MethodLabel>
+              </y:UML>
+            </y:UMLClassNode>
+          </data>
+        </node>
+        <node id="n0::n3">
+          <data key="d1"/>
+          <data key="d2"><![CDATA[UMLClass]]></data>
+          <data key="d3">
+            <y:UMLClassNode>
+              <y:Geometry height="149.640841011029" width="236.2098033261509" x="-1894.9997429329167" y="-149.640841011029"/>
+              <y:Fill color="#99CC00" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="1.0"/>
+              <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="149.24072265625" x="43.48454033495045" y="3.0">sealed class not_mixed</y:NodeLabel>
+              <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
+                <y:AttributeLabel/>
+                <y:MethodLabel>string attribute { set; get; }
+element element { get; }
+element[] elementList { get; }
+not_mixed Append(element element);
+not_mixed Append(element[] element);
+not_mixed this[Comment comment] { get; }</y:MethodLabel>
+              </y:UML>
+            </y:UMLClassNode>
+          </data>
+        </node>
+        <node id="n0::n4">
+          <data key="d1"/>
+          <data key="d2"><![CDATA[UMLClass]]></data>
+          <data key="d3">
+            <y:UMLClassNode>
+              <y:Geometry height="102.69054046156577" width="141.5" x="-1554.9388888888889" y="-543.7879060722095"/>
+              <y:Fill color="#99CC00" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="1.0"/>
+              <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="125.41162109375" x="8.044189453125" y="3.0">sealed class simple</y:NodeLabel>
+              <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
+                <y:AttributeLabel/>
+                <y:MethodLabel> </y:MethodLabel>
+              </y:UML>
+            </y:UMLClassNode>
+          </data>
+        </node>
+      </graph>
+    </node>
+    <node id="n1" yfiles.foldertype="group">
+      <data key="d1"/>
+      <data key="d3">
+        <y:ProxyAutoBoundsNode>
+          <y:Realizers active="0">
+            <y:GroupNode>
               <y:Geometry height="1069.0626620622584" width="1367.111507936508" x="-1367.4388888888889" y="-1278.7035030732873"/>
               <y:Fill color="#F5F5F5" transparent="false"/>
               <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
@@ -40,8 +162,8 @@
           </y:Realizers>
         </y:ProxyAutoBoundsNode>
       </data>
-      <graph edgedefault="directed" id="n0:">
-        <node id="n0::n0" yfiles.foldertype="group">
+      <graph edgedefault="directed" id="n1:">
+        <node id="n1::n0" yfiles.foldertype="group">
           <data key="d1"/>
           <data key="d3">
             <y:ProxyAutoBoundsNode>
@@ -50,7 +172,7 @@
                   <y:Geometry height="913.1861972185083" width="955.6115079365079" x="-971.9388888888888" y="-1137.8270382295373"/>
                   <y:Fill color="#F5F5F5" transparent="false"/>
                   <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
-                  <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="22.37646484375" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="955.6115079365079" x="0.0" y="0.0">Content</y:NodeLabel>
+                  <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="22.37646484375" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="955.6115079365079" x="0.0" y="0.0">Linked</y:NodeLabel>
                   <y:Shape type="roundrectangle"/>
                   <y:State closed="false" innerGraphDisplayEnabled="false"/>
                   <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
@@ -69,8 +191,8 @@
               </y:Realizers>
             </y:ProxyAutoBoundsNode>
           </data>
-          <graph edgedefault="directed" id="n0::n0:">
-            <node id="n0::n0::n0" yfiles.foldertype="group">
+          <graph edgedefault="directed" id="n1::n0:">
+            <node id="n1::n0::n0" yfiles.foldertype="group">
               <data key="d1"/>
               <data key="d3">
                 <y:ProxyAutoBoundsNode>
@@ -98,8 +220,8 @@
                   </y:Realizers>
                 </y:ProxyAutoBoundsNode>
               </data>
-              <graph edgedefault="directed" id="n0::n0::n0:">
-                <node id="n0::n0::n0::n0">
+              <graph edgedefault="directed" id="n1::n0::n0:">
+                <node id="n1::n0::n0::n0">
                   <data key="d1"/>
                   <data key="d2"><![CDATA[UMLClass]]></data>
                   <data key="d3">
@@ -117,7 +239,7 @@ Attribute[] AttributeList { get; }</y:MethodLabel>
                     </y:UMLClassNode>
                   </data>
                 </node>
-                <node id="n0::n0::n0::n1">
+                <node id="n1::n0::n0::n1">
                   <data key="d1"/>
                   <data key="d2"><![CDATA[UMLClass]]></data>
                   <data key="d3">
@@ -138,7 +260,7 @@ void Appent(Text text);</y:MethodLabel>
                     </y:UMLClassNode>
                   </data>
                 </node>
-                <node id="n0::n0::n0::n2">
+                <node id="n1::n0::n0::n2">
                   <data key="d1"/>
                   <data key="d2"><![CDATA[UMLClass]]></data>
                   <data key="d3">
@@ -158,7 +280,7 @@ void Append(Comment comment);</y:MethodLabel>
                     </y:UMLClassNode>
                   </data>
                 </node>
-                <node id="n0::n0::n0::n3">
+                <node id="n1::n0::n0::n3">
                   <data key="d1"/>
                   <data key="d2"><![CDATA[UMLClass]]></data>
                   <data key="d3">
@@ -174,7 +296,7 @@ void Append(Comment comment);</y:MethodLabel>
                     </y:UMLClassNode>
                   </data>
                 </node>
-                <node id="n0::n0::n0::n4">
+                <node id="n1::n0::n0::n4">
                   <data key="d1"/>
                   <data key="d2"><![CDATA[UMLClass]]></data>
                   <data key="d3">
@@ -191,7 +313,7 @@ void Append(Comment comment);</y:MethodLabel>
                     </y:UMLClassNode>
                   </data>
                 </node>
-                <node id="n0::n0::n0::n5">
+                <node id="n1::n0::n0::n5">
                   <data key="d1"/>
                   <data key="d2"><![CDATA[UMLClass]]></data>
                   <data key="d3">
@@ -207,7 +329,7 @@ void Append(Comment comment);</y:MethodLabel>
                     </y:UMLClassNode>
                   </data>
                 </node>
-                <node id="n0::n0::n0::n6">
+                <node id="n1::n0::n0::n6">
                   <data key="d1"/>
                   <data key="d2"><![CDATA[UMLClass]]></data>
                   <data key="d3">
@@ -227,7 +349,7 @@ string Value { get; }</y:MethodLabel>
                 </node>
               </graph>
             </node>
-            <node id="n0::n0::n1">
+            <node id="n1::n0::n1">
               <data key="d1"/>
               <data key="d2"><![CDATA[UMLClass]]></data>
               <data key="d3">
@@ -244,7 +366,7 @@ string Value { get; }</y:MethodLabel>
                 </y:UMLClassNode>
               </data>
             </node>
-            <node id="n0::n0::n2">
+            <node id="n1::n0::n2">
               <data key="d1"/>
               <data key="d2"><![CDATA[UMLClass]]></data>
               <data key="d3">
@@ -261,7 +383,7 @@ string Value { get; }</y:MethodLabel>
                 </y:UMLClassNode>
               </data>
             </node>
-            <node id="n0::n0::n3">
+            <node id="n1::n0::n3">
               <data key="d1"/>
               <data key="d2"><![CDATA[UMLClass]]></data>
               <data key="d3">
@@ -269,7 +391,7 @@ string Value { get; }</y:MethodLabel>
                   <y:Geometry height="58.5" width="132.9343794579172" x="-666.3683802051492" y="-1100.4505733857873"/>
                   <y:Fill color="#FF6600" transparent="false"/>
                   <y:BorderStyle color="#000000" type="line" width="1.0"/>
-                  <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="121.74267578125" x="5.595851838333601" y="3.0">class ContentNode</y:NodeLabel>
+                  <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="114.5380859375" x="9.198146760208601" y="3.0">class LinkedNode</y:NodeLabel>
                   <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
                     <y:AttributeLabel/>
                     <y:MethodLabel> </y:MethodLabel>
@@ -279,7 +401,7 @@ string Value { get; }</y:MethodLabel>
             </node>
           </graph>
         </node>
-        <node id="n0::n1">
+        <node id="n1::n1">
           <data key="d1"/>
           <data key="d2"><![CDATA[UMLClass]]></data>
           <data key="d3">
@@ -295,7 +417,7 @@ string Value { get; }</y:MethodLabel>
             </y:UMLClassNode>
           </data>
         </node>
-        <node id="n0::n2">
+        <node id="n1::n2">
           <data key="d1"/>
           <data key="d2"><![CDATA[UMLClass]]></data>
           <data key="d3">
@@ -311,7 +433,7 @@ string Value { get; }</y:MethodLabel>
             </y:UMLClassNode>
           </data>
         </node>
-        <node id="n0::n3">
+        <node id="n1::n3">
           <data key="d1"/>
           <data key="d2"><![CDATA[UMLClass]]></data>
           <data key="d3">
@@ -329,7 +451,7 @@ string Value { get; }</y:MethodLabel>
             </y:UMLClassNode>
           </data>
         </node>
-        <node id="n0::n4">
+        <node id="n1::n4">
           <data key="d1"/>
           <data key="d2"><![CDATA[UMLClass]]></data>
           <data key="d3">
@@ -347,129 +469,7 @@ string Value { get; }</y:MethodLabel>
         </node>
       </graph>
     </node>
-    <node id="n1" yfiles.foldertype="group">
-      <data key="d1"/>
-      <data key="d3">
-        <y:ProxyAutoBoundsNode>
-          <y:Realizers active="0">
-            <y:GroupNode>
-              <y:Geometry height="758.8549113775252" width="513.5611111111111" x="-1911.0" y="-743.8549113775252"/>
-              <y:Fill color="#CAECFF84" transparent="false"/>
-              <y:BorderStyle color="#666699" type="dotted" width="1.0"/>
-              <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#99CCFF" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="22.37646484375" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="513.5611111111111" x="0.0" y="0.0">Generated</y:NodeLabel>
-              <y:Shape type="roundrectangle"/>
-              <y:State closed="false" innerGraphDisplayEnabled="false"/>
-              <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
-              <y:BorderInsets bottom="0" bottomF="0.0" left="1" leftF="1.0002570670833393" right="1" rightF="1.0" top="0" topF="0.0"/>
-            </y:GroupNode>
-            <y:GroupNode>
-              <y:Geometry height="50.0" width="50.0" x="-1945.0" y="185.0"/>
-              <y:Fill color="#CAECFF84" transparent="false"/>
-              <y:BorderStyle color="#666699" type="dotted" width="1.0"/>
-              <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#99CCFF" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="22.37646484375" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="50.0" x="0.0" y="0.0">2</y:NodeLabel>
-              <y:Shape type="roundrectangle"/>
-              <y:State closed="false" innerGraphDisplayEnabled="false"/>
-              <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
-              <y:BorderInsets bottom="0" bottomF="0.0" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
-            </y:GroupNode>
-          </y:Realizers>
-        </y:ProxyAutoBoundsNode>
-      </data>
-      <graph edgedefault="directed" id="n1:">
-        <node id="n1::n0">
-          <data key="d1"/>
-          <data key="d2"><![CDATA[UMLClass]]></data>
-          <data key="d3">
-            <y:UMLClassNode>
-              <y:Geometry height="102.69054046156577" width="157.51309523809505" x="-1570.9521825396823" y="-706.4784465337752"/>
-              <y:Fill color="#99CC00" transparent="false"/>
-              <y:BorderStyle color="#000000" type="line" width="1.0"/>
-              <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="136.22802734375" x="10.642533947172524" y="3.0">sealed class attribute</y:NodeLabel>
-              <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-                <y:AttributeLabel/>
-                <y:MethodLabel> </y:MethodLabel>
-              </y:UML>
-            </y:UMLClassNode>
-          </data>
-        </node>
-        <node id="n1::n1">
-          <data key="d1"/>
-          <data key="d2"><![CDATA[UMLClass]]></data>
-          <data key="d3">
-            <y:UMLClassNode>
-              <y:Geometry height="147.29569985734668" width="141.5" x="-1554.9388888888889" y="-396.0973656106437"/>
-              <y:Fill color="#99CC00" transparent="false"/>
-              <y:BorderStyle color="#000000" type="line" width="1.0"/>
-              <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="122.51708984375" x="9.491455078125" y="3.0">sealed class empty</y:NodeLabel>
-              <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-                <y:AttributeLabel/>
-                <y:MethodLabel>string attribute { set; get; }</y:MethodLabel>
-              </y:UML>
-            </y:UMLClassNode>
-          </data>
-        </node>
-        <node id="n1::n2">
-          <data key="d1"/>
-          <data key="d2"><![CDATA[UMLClass]]></data>
-          <data key="d3">
-            <y:UMLClassNode>
-              <y:Geometry height="149.640841011029" width="215.3506910815213" x="-1628.7896312550463" y="-149.640841011029"/>
-              <y:Fill color="#99CC00" transparent="false"/>
-              <y:BorderStyle color="#000000" type="line" width="1.0"/>
-              <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="121.7998046875" x="46.775443197010645" y="3.0">sealed class mixed</y:NodeLabel>
-              <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-                <y:AttributeLabel/>
-                <y:MethodLabel>string attribute { set; get; }
-element element { get; }
-element[] elementList { get; }
-mixed Append(element element);
-mixed Append(element[] elementList);
-mixed this[Comment comment] { get; }
-mixed this[string text] { get; }</y:MethodLabel>
-              </y:UML>
-            </y:UMLClassNode>
-          </data>
-        </node>
-        <node id="n1::n3">
-          <data key="d1"/>
-          <data key="d2"><![CDATA[UMLClass]]></data>
-          <data key="d3">
-            <y:UMLClassNode>
-              <y:Geometry height="149.640841011029" width="236.2098033261509" x="-1894.9997429329167" y="-149.640841011029"/>
-              <y:Fill color="#99CC00" transparent="false"/>
-              <y:BorderStyle color="#000000" type="line" width="1.0"/>
-              <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="149.24072265625" x="43.48454033495045" y="3.0">sealed class not_mixed</y:NodeLabel>
-              <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-                <y:AttributeLabel/>
-                <y:MethodLabel>string attribute { set; get; }
-element element { get; }
-element[] elementList { get; }
-not_mixed Append(element element);
-not_mixed Append(element[] element);
-not_mixed this[Comment comment] { get; }</y:MethodLabel>
-              </y:UML>
-            </y:UMLClassNode>
-          </data>
-        </node>
-        <node id="n1::n4">
-          <data key="d1"/>
-          <data key="d2"><![CDATA[UMLClass]]></data>
-          <data key="d3">
-            <y:UMLClassNode>
-              <y:Geometry height="102.69054046156577" width="141.5" x="-1554.9388888888889" y="-543.7879060722095"/>
-              <y:Fill color="#99CC00" transparent="false"/>
-              <y:BorderStyle color="#000000" type="line" width="1.0"/>
-              <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="125.41162109375" x="8.044189453125" y="3.0">sealed class simple</y:NodeLabel>
-              <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-                <y:AttributeLabel/>
-                <y:MethodLabel> </y:MethodLabel>
-              </y:UML>
-            </y:UMLClassNode>
-          </data>
-        </node>
-      </graph>
-    </node>
-    <edge id="n0::e0" source="n0::n0::n3" target="n0::n1">
+    <edge id="n1::e0" source="n1::n0::n3" target="n1::n1">
       <data key="d5"/>
       <data key="d6"><![CDATA[UMLinherits]]></data>
       <data key="d7">
@@ -485,7 +485,7 @@ not_mixed this[Comment comment] { get; }</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n0::n0::e0" source="n0::n0::n0::n3" target="n0::n0::n3">
+    <edge id="n1::n0::e0" source="n1::n0::n0::n3" target="n1::n0::n3">
       <data key="d5"/>
       <data key="d6"><![CDATA[UMLinherits]]></data>
       <data key="d7">
@@ -498,7 +498,7 @@ not_mixed this[Comment comment] { get; }</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e0" source="n1::n0" target="n0::n3">
+    <edge id="e0" source="n0::n0" target="n1::n3">
       <data key="d5"/>
       <data key="d6"><![CDATA[UMLinherits]]></data>
       <data key="d7">
@@ -514,7 +514,7 @@ not_mixed this[Comment comment] { get; }</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e1" source="n1::n1" target="n0::n0::n0::n0">
+    <edge id="e1" source="n0::n1" target="n1::n0::n0::n0">
       <data key="d5"/>
       <data key="d6"><![CDATA[UMLinherits]]></data>
       <data key="d7">
@@ -530,7 +530,7 @@ not_mixed this[Comment comment] { get; }</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e2" source="n1::n2" target="n0::n0::n0::n1">
+    <edge id="e2" source="n0::n2" target="n1::n0::n0::n1">
       <data key="d5"/>
       <data key="d6"><![CDATA[UMLinherits]]></data>
       <data key="d7">
@@ -546,7 +546,7 @@ not_mixed this[Comment comment] { get; }</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e3" source="n1::n3" target="n0::n0::n0::n2">
+    <edge id="e3" source="n0::n3" target="n1::n0::n0::n2">
       <data key="d5"/>
       <data key="d6"><![CDATA[UMLinherits]]></data>
       <data key="d7">
@@ -562,7 +562,7 @@ not_mixed this[Comment comment] { get; }</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n0::n0::n0::e0" source="n0::n0::n0::n4" target="n0::n0::n0::n5">
+    <edge id="n1::n0::n0::e0" source="n1::n0::n0::n4" target="n1::n0::n0::n5">
       <data key="d5"/>
       <data key="d6"><![CDATA[UMLinherits]]></data>
       <data key="d7">
@@ -578,7 +578,7 @@ not_mixed this[Comment comment] { get; }</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n0::n0::n0::e1" source="n0::n0::n0::n5" target="n0::n0::n0::n3">
+    <edge id="n1::n0::n0::e1" source="n1::n0::n0::n5" target="n1::n0::n0::n3">
       <data key="d5"/>
       <data key="d6"><![CDATA[UMLinherits]]></data>
       <data key="d7">
@@ -591,7 +591,7 @@ not_mixed this[Comment comment] { get; }</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e4" source="n1::n4" target="n0::n0::n0::n6">
+    <edge id="e4" source="n0::n4" target="n1::n0::n0::n6">
       <data key="d5"/>
       <data key="d6"><![CDATA[UMLinherits]]></data>
       <data key="d7">
@@ -607,7 +607,7 @@ not_mixed this[Comment comment] { get; }</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n0::n0::n0::e2" source="n0::n0::n0::n6" target="n0::n0::n0::n3">
+    <edge id="n1::n0::n0::e2" source="n1::n0::n0::n6" target="n1::n0::n0::n3">
       <data key="d5"/>
       <data key="d6"><![CDATA[UMLinherits]]></data>
       <data key="d7">
@@ -623,7 +623,7 @@ not_mixed this[Comment comment] { get; }</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n0::n0::n0::e3" source="n0::n0::n0::n0" target="n0::n0::n0::n5">
+    <edge id="n1::n0::n0::e3" source="n1::n0::n0::n0" target="n1::n0::n0::n5">
       <data key="d5"/>
       <data key="d6"><![CDATA[UMLinherits]]></data>
       <data key="d7">
@@ -639,7 +639,7 @@ not_mixed this[Comment comment] { get; }</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n0::n0::n0::e4" source="n0::n0::n0::n2" target="n0::n0::n0::n4">
+    <edge id="n1::n0::n0::e4" source="n1::n0::n0::n2" target="n1::n0::n0::n4">
       <data key="d5"/>
       <data key="d6"><![CDATA[UMLinherits]]></data>
       <data key="d7">
@@ -655,7 +655,7 @@ not_mixed this[Comment comment] { get; }</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n0::n0::n0::e5" source="n0::n0::n0::n1" target="n0::n0::n0::n4">
+    <edge id="n1::n0::n0::e5" source="n1::n0::n0::n1" target="n1::n0::n0::n4">
       <data key="d5"/>
       <data key="d6"><![CDATA[UMLinherits]]></data>
       <data key="d7">
@@ -671,7 +671,7 @@ not_mixed this[Comment comment] { get; }</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n0::n0::e1" source="n0::n0::n1" target="n0::n0::n3">
+    <edge id="n1::n0::e1" source="n1::n0::n1" target="n1::n0::n3">
       <data key="d5"/>
       <data key="d6"><![CDATA[UMLinherits]]></data>
       <data key="d7">
@@ -687,7 +687,7 @@ not_mixed this[Comment comment] { get; }</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n0::n0::e2" source="n0::n0::n2" target="n0::n0::n3">
+    <edge id="n1::n0::e2" source="n1::n0::n2" target="n1::n0::n3">
       <data key="d5"/>
       <data key="d6"><![CDATA[UMLinherits]]></data>
       <data key="d7">
@@ -703,7 +703,7 @@ not_mixed this[Comment comment] { get; }</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n0::e1" source="n0::n3" target="n0::n1">
+    <edge id="n1::e1" source="n1::n3" target="n1::n1">
       <data key="d5"/>
       <data key="d6"><![CDATA[UMLinherits]]></data>
       <data key="d7">
@@ -721,7 +721,7 @@ not_mixed this[Comment comment] { get; }</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n0::e2" source="n0::n3" target="n0::n2">
+    <edge id="n1::e2" source="n1::n3" target="n1::n2">
       <data key="d5"/>
       <data key="d6"><![CDATA[UMLimplements]]></data>
       <data key="d7">
@@ -737,7 +737,7 @@ not_mixed this[Comment comment] { get; }</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n0::e3" source="n0::n3" target="n0::n4">
+    <edge id="n1::e3" source="n1::n3" target="n1::n4">
       <data key="d5"/>
       <data key="d6"><![CDATA[UMLimplements]]></data>
       <data key="d7">
@@ -753,7 +753,7 @@ not_mixed this[Comment comment] { get; }</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n0::e4" source="n0::n0::n0::n6" target="n0::n4">
+    <edge id="n1::e4" source="n1::n0::n0::n6" target="n1::n4">
       <data key="d5"/>
       <data key="d6"><![CDATA[UMLimplements]]></data>
       <data key="d7">
@@ -769,7 +769,7 @@ not_mixed this[Comment comment] { get; }</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n0::e5" source="n0::n0::n0::n3" target="n0::n2">
+    <edge id="n1::e5" source="n1::n0::n0::n3" target="n1::n2">
       <data key="d5"/>
       <data key="d6"><![CDATA[UMLimplements]]></data>
       <data key="d7">
@@ -785,7 +785,7 @@ not_mixed this[Comment comment] { get; }</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n0::e6" source="n0::n0::n1" target="n0::n4">
+    <edge id="n1::e6" source="n1::n0::n1" target="n1::n4">
       <data key="d5"/>
       <data key="d6"><![CDATA[UMLimplements]]></data>
       <data key="d7">
@@ -801,7 +801,7 @@ not_mixed this[Comment comment] { get; }</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n0::e7" source="n0::n0::n2" target="n0::n4">
+    <edge id="n1::e7" source="n1::n0::n2" target="n1::n4">
       <data key="d5"/>
       <data key="d6"><![CDATA[UMLimplements]]></data>
       <data key="d7">

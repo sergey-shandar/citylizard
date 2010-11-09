@@ -62,6 +62,11 @@
             this.H = h;
         }
 
+        /// <summary>
+        /// Writes the start of the element.
+        /// </summary>
+        /// <param name="writer"></param>
+        /// <param name="parentNamespace"></param>
         protected void WriteStart(X.XmlWriter writer, string parentNamespace)
         {
             if (parentNamespace != this.H.Namespace)

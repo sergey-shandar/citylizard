@@ -54,7 +54,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attribute.cs" />
+    <Compile Include="Extension\NotEmptyExtension.cs" />
     <Compile Include="ICharacterData.cs" />
+    <Compile Include="Implementation.cs" />
     <Compile Include="IQName.cs" />
     <Compile Include="Linked\Comment.cs" />
     <Compile Include="Linked\Element\Complex.cs" />

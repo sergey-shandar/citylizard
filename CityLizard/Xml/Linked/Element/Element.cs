@@ -8,6 +8,17 @@
     public abstract class Element: LinkedNode, IQName
     {
         /// <summary>
+        /// Sets up the implementation and QName.
+        /// </summary>
+        /// <param name="implementation">The implementation.</param>
+        /// <param name="qName">The QName.</param>
+        protected void SetUp(Implementation implementation, QName qName)
+        {
+            this.Implementation = implementation;
+            this.QName = qName;
+        }
+
+        /// <summary>
         /// The QName of the element.
         /// </summary>
         public QName QName { get; protected set; }

@@ -40,22 +40,19 @@
         [N.Test]
         public static void ElementTest()
         {
-            ElementTest(
+            EmptyTest(
                 "http://example.com/", 
                 "main", 
-                true, 
                 "<main xmlns=\"http://example.com/\" />");
-            ElementTest(
+            NotEmptyTest(
                 "http://example.com/",
                 "main",
-                false,
                 "<main xmlns=\"http://example.com/\"></main>");
         }
 
-        public static T.html._0 html()
+        public T.html._0 html()
         {
-            return new T.html._0(new Xml.ElementBase.Header(
-                "http://example.org/", "html"));
+            return new T.html._0(this);
         }
 
         public static T.head._0 head(string id = null)
@@ -79,17 +76,20 @@
 
         public class T
         {
-            public class html: Xml.Linked.Element.Mixed
+            public class html : Xml.Linked.Element.NotMixed
             {
                 internal html(_1 part0, body child)
                 {
-                    this.SetPart0(part0, child);
+                    this.SetUp(part0, child);
                 }
 
-                public class _0 : Xml.Linked.Element.Mixed
+                public class _0 : Xml.Linked.Element.NotMixed
                 {
-                    internal _0(Xml.ElementBase.Header h): base(h, false)
+                    internal _0(Xml.Implementation implementation)
                     {
+                        this.Implementation = implementation;
+                        this.QName = new Xml.QName(
+                            "http://example.org/", "html");
                     }
 
                     public _1 this[head head]
@@ -101,11 +101,11 @@
                     }
                 }
 
-                public class _1 : Xml.Linked.Element.Mixed
+                public class _1 : Xml.Linked.Element.NotMixed
                 {
-                    internal _1(Xml.Element part0, Xml.Element child):
-                        base(part0, child)
+                    internal _1(_0 part0, head head)
                     {
+                        this.SetUp(part0, head);
                     }
 
                     public html this[body body]
@@ -119,23 +119,25 @@
                 }
             }
 
-            public class head : Xml.Element
+            public class head : Xml.Linked.Element.NotMixed
             {
-                internal head(Xml.Element part0, Xml.Element child):
-                    base(part0, child)
+                internal head(_0 part0, Xml.Linked.Element.Element child)
                 {
+                    this.SetUp(part0, child);
                 }
 
-                internal head(Xml.Element part0):
-                    base(part0)
+                internal head(_0 part0)
                 {
+                    this.SetUp(part0);
                 }
 
-                public class _0 : Xml.Element
+                public class _0 : Xml.Linked.Element.NotMixed
                 {
-                    internal _0(Xml.Element.Header h) :
-                        base(h, false)
+                    internal _0(Xml.Implementation implementation)
                     {
+                        this.SetUp(
+                            implementation, 
+                            new Xml.QName("http://example.org/", "head"));
                     }
 
                     public head this[title title]
@@ -147,7 +149,7 @@
                         }
                     }
 
-                    public _0 this[Xml.Comment comment]
+                    public _0 this[Xml.Linked.Comment comment]
                     {
                         get
                         {
@@ -164,19 +166,23 @@
                 }
             }
 
-            public class body : Xml.Element
+            public class body : Xml.Linked.Element.Mixed
             {
-                internal body(Xml.ElementBase.Header h) :
-                    base(h, false)
+                internal body(Xml.Implementation implementation)
                 {
+                    this.SetUp(
+                        implementation, 
+                        new Xml.QName("http://example.org/", "body"));
                 }
             }
 
-            public class title: Xml.Element
+            public class title: Xml.Linked.Element.Mixed
             {
-                internal title(Xml.ElementBase.Header h):
-                    base(h, true)
+                internal title(Xml.Implementation implementation)
                 {
+                    this.SetUp(
+                        implementation,
+                        new Xml.QName("http://example.org/", "title"));
                 }
             }
         }
@@ -224,7 +230,7 @@
                 () => { T.head he = h; });
         }
 
-        public class X : Xml.Static
+        public class X : Xml.Implementation
         {
             public static void Comment()
             {
@@ -241,7 +247,7 @@
             X.Comment();
         }
 
-        public class X2 : Xml.Static
+        public class X2 : Xml.Implementation
         {
             public static void Comment()
             {

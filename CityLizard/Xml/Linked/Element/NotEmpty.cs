@@ -40,9 +40,13 @@
         /// <param name="part0">The part 0.</param>
         protected void SetUp(NotEmpty part0)
         {
-            this.QName = part0.QName;
+            this.SetUp(part0.Implementation, part0.QName);
             this.A = part0.A;
             this.Part0 = part0.LinkedNodes;
+            foreach (var i in this.Part0)
+            {
+                this.InitChild(i);
+            }
         }
         
         /// <summary>

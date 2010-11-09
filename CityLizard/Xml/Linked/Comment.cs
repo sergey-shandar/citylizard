@@ -12,13 +12,13 @@
         /// <summary>
         /// The general comment error.
         /// </summary>
-        public abstract class Error : S.Exception
+        public abstract class CommentError : Error
         {
             /// <summary>
             /// Initialize the error.
             /// </summary>
             /// <param name="message">The error message.</param>
-            protected Error(string message)
+            protected CommentError(string message)
                 : base(message)
             {
             }
@@ -28,7 +28,7 @@
         /// Error: for compatibility, the string " -- " (double-hyphen) 
         /// must not occur within comments.
         /// </summary>
-        public sealed class DoubleHyphenError : Error
+        public sealed class DoubleHyphenError : CommentError
         {
             /// <summary>
             /// Initialize the error.
@@ -43,7 +43,7 @@
         /// <summary>
         /// Error: the XML grammar does not allow a comment ending in --->
         /// </summary>
-        public sealed class InvalidEndingError: Error
+        public sealed class InvalidEndingError : CommentError
         {
             /// <summary>
             /// Initialize the error.

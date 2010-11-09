@@ -11,7 +11,7 @@
         /// <param name="text">The text node.</param>
         public void Add(Text text)
         {
-            this.Add(text);
+            this.AddLinkedNodeOptional(text);
         }
 
         /// <summary>

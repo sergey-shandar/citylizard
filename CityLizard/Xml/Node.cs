@@ -11,6 +11,21 @@
     public abstract class Node
     {
         /// <summary>
+        /// The general node error.
+        /// </summary>
+        public abstract class Error : S.Exception
+        {
+            /// <summary>
+            /// Initialize the error.
+            /// </summary>
+            /// <param name="message">The error message.</param>
+            protected Error(string message)
+                : base(message)
+            {
+            }
+        }
+
+        /// <summary>
         /// Initialaze.
         /// </summary>
         protected Node()
@@ -21,13 +36,13 @@
         /// <summary>
         /// The replaceable error handler.
         /// </summary>
-        public S.Action<Node, S.Exception> ErrorHandler { get; set; }
+        public S.Action<Node, Error> ErrorHandler { get; set; }
 
         /// <summary>
         /// Handles the new error.
         /// </summary>
         /// <param name="e">The new error.</param>
-        protected void HandleError(S.Exception e)
+        protected void HandleError(Error e)
         {
             this.ErrorHandler(this, e);
         }

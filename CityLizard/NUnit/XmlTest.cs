@@ -7,18 +7,33 @@
     [N.TestFixture]
     public static class XmlTest
     {
-        class Element : Xml.Linked.Element.Element
+        class NotEmpty: Xml.Linked.Element.NotEmpty
         {
-            public Element(Xml.ElementBase.Header h, bool isEmpty):
-                base(h, isEmpty)
+            public NotEmpty(Xml.QName h)
             {
+                this.QName = h;
             }
         }
 
-        public static void ElementTest(
-            string ns, string name, bool isEmpty, string result)
+        class Empty : Xml.Linked.Element.Empty
         {
-            var e = new Element(new Xml.ElementBase.Header(ns, name), isEmpty);
+            public Empty(Xml.QName h)
+            {
+                this.QName = h;
+            }
+        }
+
+        public static void NotEmptyTest(
+            string ns, string name, string result)
+        {
+            var e = new NotEmpty(new Xml.QName(ns, name));
+            N.Assert.AreEqual(result, e.ToString());
+        }
+
+        public static void EmptyTest(
+            string ns, string name, string result)
+        {
+            var e = new Empty(new Xml.QName(ns, name));
             N.Assert.AreEqual(result, e.ToString());
         }
 
@@ -64,14 +79,14 @@
 
         public class T
         {
-            public class html: Xml.Element
+            public class html: Xml.Linked.Element.Mixed
             {
-                internal html(Xml.Element part0, Xml.Element child):
-                    base(part0, child)
+                internal html(_1 part0, body child)
                 {
+                    this.SetPart0(part0, child);
                 }
 
-                public class _0 : Xml.Element
+                public class _0 : Xml.Linked.Element.Mixed
                 {
                     internal _0(Xml.ElementBase.Header h): base(h, false)
                     {
@@ -81,13 +96,12 @@
                     {
                         get
                         {
-                            head.NotNull();
                             return new _1(this, head);
                         }
                     }
                 }
 
-                public class _1 : Xml.Element
+                public class _1 : Xml.Linked.Element.Mixed
                 {
                     internal _1(Xml.Element part0, Xml.Element child):
                         base(part0, child)

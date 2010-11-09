@@ -1,4 +1,4 @@
-﻿namespace CityLizard.Xml.Schema.Extension
+﻿namespace CityLizard.XmlSchema.Extension
 {
     using C = System.Collections.Generic;
     using XS = System.Xml.Schema;

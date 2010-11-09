@@ -1,4 +1,4 @@
-﻿namespace CityLizard.Xml.PoC.Linked
+﻿namespace CityLizard.Xml.Linked
 {
     using S = System;
 

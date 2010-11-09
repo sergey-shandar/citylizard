@@ -1,18 +1,12 @@
 ﻿namespace CityLizard.Xml
 {
-    using T = System.Text;
-    using S = System;
-    using C = System.Collections.Generic;
-
-    using System.Linq;
-
     /// <summary>
-    /// Provides text manipulation methods that are used by several classes.
+    /// The XML character data is all text that is not markup.
     /// </summary>
-    public interface ICharacterData : INode
+    public interface ICharacterData
     {
         /// <summary>
-        /// The text.
+        /// The value of the node.
         /// </summary>
         string Value { get; }
     }

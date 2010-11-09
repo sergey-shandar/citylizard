@@ -1,4 +1,4 @@
-﻿namespace CityLizard.Xml.Schema
+﻿namespace CityLizard.XmlSchema
 {
     using S = System;
     using T = System.Text;
@@ -133,24 +133,24 @@
                 this.Element = element;
                 this.Ns = ns;
                 this.Declaration = declaration;
-                this.Declaration.BaseTypes.Add(typeof(Xml.Element));
+                this.Declaration.BaseTypes.Add(typeof(Xml.Linked.Element.Element));
                 // ctor(Xml.Element.Header H): base(H) {}
                 {
                     var c = this.AddConstructor();
-                    c.AddBaseParameter<Xml.ElementBase.Header>("H");
+                    c.AddBaseParameter<Xml.Linked.Element.Element>("H");
                     c.BaseConstructorArgs.Add(CC.PrimitiveExpression(isEmpty));
                 }
                 // ctor(Xml.Element Part0, Xml.Element Child): 
                 //   base(Part0, Child) {}
                 {
                     var c = this.AddConstructor();
-                    c.AddBaseParameter<Xml.Element>("Part0");
-                    c.AddBaseParameter<Xml.Element>("Child");
+                    c.AddBaseParameter<Xml.Linked.Element.Element>("Part0");
+                    c.AddBaseParameter<Xml.Linked.Element.Element>("Child");
                 }
                 // ctor(Xml.Element Part0): base(Part0) {}
                 {
                     var c = this.AddConstructor();
-                    c.AddBaseParameter<Xml.Element>("Part0");
+                    c.AddBaseParameter<Xml.Linked.Element.Element>("Part0");
                 }
                 //
                 if (this.Element.ElementSchemaType.IsMixed)
@@ -223,7 +223,7 @@
                     var s = property.GetStatements;
                     property.Parameters.Add(
                         new D.CodeParameterDeclarationExpression(
-                            typeof(Xml.IComment),
+                            typeof(Xml.Linked.Comment),
                             pName));
                     s.Add(
                         new D.CodeMethodInvokeExpression(
@@ -342,7 +342,7 @@
             XS.XmlSchemaElement e)
         {
             var q = e.QualifiedName;
-            s.AddVariable<Xml.ElementBase.Header>(
+            s.AddVariable<Xml.Linked.Element.Element>(
                 Attributes.H,                 
                 CC.PrimitiveExpression(q.Namespace), 
                 CC.PrimitiveExpression(q.Name));
@@ -376,7 +376,7 @@
                 Attributes = 
                     D.MemberAttributes.Static | D.MemberAttributes.Public,
             };
-            common.BaseTypes.Add(typeof(Xml.Static));
+            // common.BaseTypes.Add(typeof(Xml.Static));
             n.Types.Add(common);
 
             var csName = CD.CSharp.Name.Cast(q.Name);

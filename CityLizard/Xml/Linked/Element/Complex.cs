@@ -1,4 +1,4 @@
-﻿namespace CityLizard.Xml.PoC.Linked.Element
+﻿namespace CityLizard.Xml.Linked.Element
 {
     using C = System.Collections.Generic;
     using X = System.Xml;
@@ -11,7 +11,7 @@
         /// <summary>
         /// The list of attributes.
         /// </summary>
-        protected readonly C.List<Attribute> A = new C.List<Attribute>();
+        protected C.List<Attribute> A;
 
         /// <summary>
         /// The XML attributes.

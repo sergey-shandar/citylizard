@@ -2,12 +2,12 @@
 {
     using N = global::NUnit.Framework;
 
-    using Xml.Extension;
+    // using Xml.Extension;
 
     [N.TestFixture]
     public static class XmlTest
     {
-        class Element : Xml.Element
+        class Element : Xml.Linked.Element.Element
         {
             public Element(Xml.ElementBase.Header h, bool isEmpty):
                 base(h, isEmpty)

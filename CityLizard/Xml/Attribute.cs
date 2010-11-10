@@ -3,7 +3,7 @@
     /// <summary>
     /// Represents an XML attribute.
     /// </summary>
-    public abstract class Attribute: Node, IQName, ICharacterData
+    public class Attribute: Node, IQName, ICharacterData
     {
         /// <summary>
         /// Saves the current attribute the specified System.Xml.XmlWriter.
@@ -32,6 +32,17 @@
         {
             get;
             set;
+        }
+
+        /// <summary>
+        /// The constructor.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="value">The value.</param>
+        public Attribute(string name, string value)
+        {
+            this.QName = new QName(null, name);
+            this.Value = value;
         }
     }
 }

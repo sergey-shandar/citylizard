@@ -19,6 +19,18 @@
         }
 
         /// <summary>
+        /// Sets up the implementation and QName.
+        /// </summary>
+        /// <param name="implementation">The implementation.</param>
+        /// <param name="namespace">The QName namespace.</param>
+        /// <param name="name">The QName name.</param>
+        protected virtual void SetUpNew(
+            Implementation implementation, string @namespace, string name)
+        {
+            this.SetUp(implementation, new QName(@namespace, name));
+        }
+
+        /// <summary>
         /// The QName of the element.
         /// </summary>
         public QName QName { get; protected set; }

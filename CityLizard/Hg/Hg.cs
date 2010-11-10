@@ -8,6 +8,11 @@
     /// </summary>
     public static class Hg
     {
+        /// <summary>
+        /// The HG command.
+        /// </summary>
+        /// <param name="arguments">The command arguments.</param>
+        /// <returns>Output.</returns>
         public static string[] Command(string arguments)
         {
             var p = new D.ProcessStartInfo

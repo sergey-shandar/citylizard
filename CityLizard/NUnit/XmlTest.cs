@@ -9,17 +9,17 @@
     {
         class NotEmpty: Xml.Linked.Element.NotEmpty
         {
-            public NotEmpty(Xml.QName h)
+            public NotEmpty(Xml.QName q)
             {
-                this.QName = h;
+                this.SetUpNew(null, q.Namespace, q.LocalName);
             }
         }
 
         class Empty : Xml.Linked.Element.Empty
         {
-            public Empty(Xml.QName h)
+            public Empty(Xml.QName q)
             {
-                this.QName = h;
+                this.SetUpNew(null, q.Namespace, q.LocalName);
             }
         }
 
@@ -50,139 +50,135 @@
                 "<main xmlns=\"http://example.com/\"></main>");
         }
 
-        public T.html._0 html()
+        public class X: Xml.Implementation
         {
-            return new T.html._0(this);
-        }
 
-        public static T.head._0 head(string id = null)
-        {
-            var H = new Xml.ElementBase.Header("http://example.org/", "head");
-            H.AddOptionalAttribute("id", id);
-            return new T.head._0(H);
-        }
-
-        public static T.body body()
-        {
-            return new T.body(new Xml.ElementBase.Header(
-                "http://example.org/", "body"));
-        }
-
-        public static T.title title()
-        {
-            return new T.title(new Xml.ElementBase.Header(
-                "http://example.org/", "title"));
-        }
-
-        public class T
-        {
-            public class html : Xml.Linked.Element.NotMixed
+            public T.html._0 html()
             {
-                internal html(_1 part0, body child)
-                {
-                    this.SetUp(part0, child);
-                }
-
-                public class _0 : Xml.Linked.Element.NotMixed
-                {
-                    internal _0(Xml.Implementation implementation)
-                    {
-                        this.Implementation = implementation;
-                        this.QName = new Xml.QName(
-                            "http://example.org/", "html");
-                    }
-
-                    public _1 this[head head]
-                    {
-                        get
-                        {
-                            return new _1(this, head);
-                        }
-                    }
-                }
-
-                public class _1 : Xml.Linked.Element.NotMixed
-                {
-                    internal _1(_0 part0, head head)
-                    {
-                        this.SetUp(part0, head);
-                    }
-
-                    public html this[body body]
-                    {
-                        get
-                        {
-                            body.NotNull();
-                            return new html(this, body);
-                        }
-                    }
-                }
+                return new T.html._0(this);
             }
 
-            public class head : Xml.Linked.Element.NotMixed
+            public T.head._0 head(string id = null)
             {
-                internal head(_0 part0, Xml.Linked.Element.Element child)
-                {
-                    this.SetUp(part0, child);
-                }
+                return new T.head._0(this, id);
+            }
 
-                internal head(_0 part0)
-                {
-                    this.SetUp(part0);
-                }
+            public T.body body()
+            {
+                return new T.body(this);
+            }
 
-                public class _0 : Xml.Linked.Element.NotMixed
+            public T.title title()
+            {
+                return new T.title(this);
+            }
+
+            public class T
+            {
+                public class html : Xml.Linked.Element.NotMixed
                 {
-                    internal _0(Xml.Implementation implementation)
+                    internal html(_1 part0, body child)
                     {
-                        this.SetUp(
-                            implementation, 
-                            new Xml.QName("http://example.org/", "head"));
+                        this.SetUp(part0, child);
                     }
 
-                    public head this[title title]
+                    public class _0 : Xml.Linked.Element.NotMixed
                     {
-                        get
+                        internal _0(Xml.Implementation implementation)
                         {
-                            title.NotNull();
-                            return new head(this, title);
+                            this.SetUpNew(
+                                implementation, "http://example.org/", "html");
+                        }
+
+                        public _1 this[head head]
+                        {
+                            get
+                            {
+                                return new _1(this, head);
+                            }
                         }
                     }
 
-                    public _0 this[Xml.Linked.Comment comment]
+                    public class _1 : Xml.Linked.Element.NotMixed
                     {
-                        get
+                        internal _1(_0 part0, head head)
                         {
-                            this.AddComment(comment.Value);
-                            return this;
+                            this.SetUp(part0, head);
+                        }
+
+                        public html this[body body]
+                        {
+                            get
+                            {
+                                return new html(this, body);
+                            }
                         }
                     }
+                }
 
-                    public static implicit operator head(_0 _0)
+                public class head : Xml.Linked.Element.NotMixed
+                {
+                    internal head(_0 part0, Xml.Linked.Element.Element child)
                     {
-                        _0.NotNull();
-                        return new head(_0);
+                        this.SetUp(part0, child);
+                    }
+
+                    internal head(_0 part0)
+                    {
+                        this.SetUp(part0);
+                    }
+
+                    public class _0 : Xml.Linked.Element.NotMixed
+                    {
+                        internal _0(
+                            Xml.Implementation implementation,
+                            string id = null)
+                        {
+                            this.SetUpNew(
+                                implementation, "http://example.org/", "head");
+                            this.AddOptionalAttribute("id", id);
+                        }
+
+                        public head this[title title]
+                        {
+                            get
+                            {
+                                return new head(this, title);
+                            }
+                        }
+
+                        public _0 this[Xml.Linked.Comment comment]
+                        {
+                            get
+                            {
+                                this.AddComment(comment.Value);
+                                return this;
+                            }
+                        }
+
+                        public static implicit operator head(_0 _0)
+                        {
+                            return new head(_0);
+                        }
                     }
                 }
-            }
 
-            public class body : Xml.Linked.Element.Mixed
-            {
-                internal body(Xml.Implementation implementation)
+                public class body : Xml.Linked.Element.Mixed
                 {
-                    this.SetUp(
-                        implementation, 
-                        new Xml.QName("http://example.org/", "body"));
+                    internal body(Xml.Implementation implementation)
+                    {
+                        this.SetUpNew(
+                            implementation, "http://example.org/", "body");
+                    }
                 }
-            }
 
-            public class title: Xml.Linked.Element.Mixed
-            {
-                internal title(Xml.Implementation implementation)
+                public class title : Xml.Linked.Element.Empty
                 {
-                    this.SetUp(
-                        implementation,
-                        new Xml.QName("http://example.org/", "title"));
+                    internal title(Xml.Implementation implementation)
+                    {
+                        this.SetUpNew(
+                            implementation, "http://example.org/", "title");
+                    }
                 }
             }
         }
@@ -190,7 +186,8 @@
         [N.Test]
         public static void IdeaTest()
         {
-            T.html h = html()[head()[title()]][body()];
+            var x = new X();
+            X.T.html h = x.html()[x.head()[x.title()]][x.body()];
             N.Assert.AreEqual(
                 "<html xmlns=\"http://example.org/\"><head><title /></head><body></body></html>",
                 h.ToString());
@@ -199,7 +196,8 @@
         [N.Test]
         public static void IdeaTest1()
         {
-            T.html h = html()[head("xxx")[title()]][body()];
+            var x = new X();
+            X.T.html h = x.html()[x.head("xxx")[x.title()]][x.body()];
             N.Assert.AreEqual(
                 "<html xmlns=\"http://example.org/\"><head id=\"xxx\"><title /></head><body></body></html>",
                 h.ToString());
@@ -208,7 +206,8 @@
         [N.Test]
         public static void IdeaTest2()
         {
-            T.html h = html()[head("yyy")][body()];
+            var x = new X();
+            X.T.html h = x.html()[x.head("yyy")][x.body()];
             N.Assert.AreEqual(
                 "<html xmlns=\"http://example.org/\"><head id=\"yyy\"></head><body></body></html>",
                 h.ToString());
@@ -217,24 +216,27 @@
         [N.Test]
         public static void NullRef()
         {
-            T.html._0 h = null;
+            var x = new X();
+            X.T.html._0 h = null;
             N.Assert.Throws<System.NullReferenceException>(
-                () => { var he = h[head()]; });
+                () => { var he = h[x.head()]; });
         }
 
         [N.Test]
         public static void NullRef2()
         {
-            T.head._0 h = null;
+            var x = new X();
+            X.T.head._0 h = null;
             N.Assert.Throws<System.NullReferenceException>(
-                () => { T.head he = h; });
+                () => { X.T.head he = h; });
         }
 
-        public class X : Xml.Implementation
+        public class XX : Xml.Implementation
         {
             public static void Comment()
             {
-                T.html h = html()[head()[Comment("RRR<>")]][body()];
+                var x = new X();
+                X.T.html h = x.html()[x.head()[x.Comment("RRR<>")]][x.body()];
                 N.Assert.AreEqual(
                     "<html xmlns=\"http://example.org/\"><head><!--RRR<>--></head><body></body></html>",
                     h.ToString());
@@ -244,29 +246,30 @@
         [N.Test]
         public static void Comment()
         {
-            X.Comment();
+            XX.Comment();
         }
 
         public class X2 : Xml.Implementation
         {
             public static void Comment()
             {
-                T.html h = html()[head()[Comment("RRR--aaa")]][body()];
+                var x = new X();
+                X.T.html h = x.html()[x.head()[x.Comment("RRR--aaa")]][x.body()];
                 N.Assert.AreEqual(
                     "<html xmlns=\"http://example.org/\"><head><!--RRR- -aaa--></head><body></body></html>",
                     h.ToString());
 
-                T.html h2 = html()[head()[Comment("RRR--aaa-")]][body()];
+                X.T.html h2 = x.html()[x.head()[x.Comment("RRR--aaa-")]][x.body()];
                 N.Assert.AreEqual(
                     "<html xmlns=\"http://example.org/\"><head><!--RRR- -aaa- --></head><body></body></html>",
                     h2.ToString());
 
-                T.html h3 = html()[head()[Comment("-RRR--aaa-")]][body()];
+                X.T.html h3 = x.html()[x.head()[x.Comment("-RRR--aaa-")]][x.body()];
                 N.Assert.AreEqual(
                     "<html xmlns=\"http://example.org/\"><head><!---RRR- -aaa- --></head><body></body></html>",
                     h3.ToString());
 
-                T.html h4 = html()[head()[Comment("--RRR--aaa-")]][body()];
+                X.T.html h4 = x.html()[x.head()[x.Comment("--RRR--aaa-")]][x.body()];
                 N.Assert.AreEqual(
                     "<html xmlns=\"http://example.org/\"><head><!--- -RRR- -aaa- --></head><body></body></html>",
                     h4.ToString());

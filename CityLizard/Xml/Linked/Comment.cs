@@ -74,7 +74,7 @@
                 var i = value.IndexOf('-');
                 if (i == -1)
                 {
-                    result += Value;
+                    result += value;
                     break;
                 }
                 else if (i == value.Length - 1)

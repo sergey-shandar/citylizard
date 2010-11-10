@@ -17,7 +17,15 @@
         /// </summary>
         public Implementation()
         {
-            this.ErrorHandler = (n, e) => { throw e; };
+            this.ErrorHandler = (n, e) => { /*throw e;*/ };
+        }
+
+        public Linked.Comment Comment(string value)
+        {
+            var result = new Linked.Comment();
+            result.Implementation = this;
+            result.Value = value;
+            return result;
         }
     }
 }

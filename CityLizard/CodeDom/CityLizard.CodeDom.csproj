@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Code.cs" />
+    <Compile Include="CodeDom.cs" />
     <Compile Include="CSharp\Keyword.cs" />
     <Compile Include="CSharp\Name.cs" />
     <Compile Include="CSharp\Namespace.cs" />

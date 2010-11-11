@@ -47,14 +47,33 @@
             }
         }
 
+        private static bool Implement(
+            D.CodeCompileUnit u, 
+            ElementSet done, 
+            ref C.IEnumerable<XS.XmlSchemaElement> toDo)
+        {
+            var newToDo = new ElementSet();
+            foreach (var x in toDo)
+            {
+                done.Add(x);
+                SetType(newToDo, u, x);
+            }
+            newToDo.ExceptWith(done);
+            toDo = newToDo;
+            return newToDo.Count != 0;
+        }
+
         public static D.CodeCompileUnit Load(X.XmlReader reader)
         {
             var s = new XS.XmlSchemaSet();
             s.Add(null, reader);
             s.Compile();
             var u = new D.CodeCompileUnit();
-            var d = new ElementSet();
+
+            var toDo = s.GlobalElementsTyped();
             var done = new ElementSet();
+            while (Implement(u, done, ref toDo)) { }
+            /*
             foreach (var e in s.GlobalElementsTyped())
             {
                 done.Add(e);
@@ -76,6 +95,7 @@
                 }
                 d = newD;
             }
+             * */
             var t = new System.IO.StringWriter();
             new CS.CSharpCodeProvider().GenerateCodeFromCompileUnit(
                 u, t, new D.Compiler.CodeGeneratorOptions());

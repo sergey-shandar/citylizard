@@ -26,6 +26,7 @@
             return Load(new X.XmlTextReader(fileName));
         }
 
+        /*
         public class ElementSet : C.HashSet<XS.XmlSchemaElement>
         {
             public class Equality: C.EqualityComparer<XS.XmlSchemaElement>
@@ -46,6 +47,7 @@
             {
             }
         }
+         * */
 
         private static bool Implement(
             D.CodeCompileUnit u, 
@@ -69,33 +71,9 @@
             s.Add(null, reader);
             s.Compile();
             var u = new D.CodeCompileUnit();
-
             var toDo = s.GlobalElementsTyped();
             var done = new ElementSet();
             while (Implement(u, done, ref toDo)) { }
-            /*
-            foreach (var e in s.GlobalElementsTyped())
-            {
-                done.Add(e);
-                SetType(d, u, e, true);
-            }
-            d.ExceptWith(done);
-            while(true)
-            {
-                var newD = new ElementSet();
-                foreach (var x in d)
-                {
-                    done.Add(x);
-                    SetType(newD, u, x);
-                }
-                newD.ExceptWith(done);
-                if (d.Count == 0)
-                {
-                    break;
-                }
-                d = newD;
-            }
-             * */
             var t = new System.IO.StringWriter();
             new CS.CSharpCodeProvider().GenerateCodeFromCompileUnit(
                 u, t, new D.Compiler.CodeGeneratorOptions());
@@ -378,7 +356,7 @@
             return r;
         }
 
-        public static void SetType(
+        internal static void SetType(
             ElementSet dictionary,
             D.CodeCompileUnit unit,
             XS.XmlSchemaElement element,

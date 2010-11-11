@@ -41,6 +41,12 @@
         /// </summary>
         protected AttributeList A;
 
+        /// <summary>
+        /// Sets up the implementation, QName and attributes.
+        /// </summary>
+        /// <param name="implementation">The implementation.</param>
+        /// <param name="namespace">The namespace.</param>
+        /// <param name="name">The local name.</param>
         protected override void SetUpNew(
             Implementation implementation, string @namespace, string name)
         {

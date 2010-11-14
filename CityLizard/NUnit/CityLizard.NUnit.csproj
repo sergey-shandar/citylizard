@@ -57,12 +57,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompilerTest.cs" />
     <Compile Include="IdeaTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SchemaTest.cs" />
     <Compile Include="XmlTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CodeDom\CityLizard.CodeDom.csproj">
+      <Project>{ACF5201B-625E-4356-A515-9D11768881A3}</Project>
+      <Name>CityLizard.CodeDom</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Xml\CityLizard.Xml.csproj">
       <Project>{270D7B7A-75BC-49BF-AE8E-ABB2FBC8D117}</Project>
       <Name>CityLizard.Xml</Name>

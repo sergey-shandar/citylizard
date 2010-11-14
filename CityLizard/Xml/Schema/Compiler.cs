@@ -3,8 +3,11 @@
     using X = System.Xml;
     using XS = System.Xml.Schema;
     using C = System.Collections.Generic;
+    using CD = System.CodeDom;
 
+    using CS = CodeDom.CSharp;
     using D = CodeDom.CodeDom;
+    using E = Xml.Linked.Element;
 
     using Extension;
 
@@ -14,13 +17,48 @@
         ElementSet Done;
         C.IEnumerable<XS.XmlSchemaElement> ToDo;
 
+        private void SetType(
+            ElementSet newToDo,
+            XS.XmlSchemaElement element,
+            bool isRoot = false)
+        {
+            var qName = element.QualifiedName;
+            var type = element.ElementSchemaType;
+            var complexType = type as XS.XmlSchemaComplexType;
+            var baseTypeRef =
+                complexType == null ?
+                    TypeRef<E.Simple>() :
+                complexType.IsMixed ?
+                    TypeRef<E.Mixed>() :
+                    TypeRef<E.NotMixed>();
+            this.U.Append(Namespace(CS.Namespace.Cast(qName.Namespace))
+                [Type(
+                    Name: "X", 
+                    IsPartial: true, 
+                    Attributes: CD.MemberAttributes.Public)
+                    [TypeRef<Xml.Implementation>()]
+                    [Type(
+                        Name: "T", 
+                        IsPartial: true, 
+                        Attributes: 
+                            CD.MemberAttributes.Static | 
+                            CD.MemberAttributes.Public)
+                        [Type(
+                            Name: CS.Name.Cast(qName.Name),
+                            Attributes: CD.MemberAttributes.Public)
+                            [baseTypeRef]
+                        ]
+                    ]
+                ]);
+        }
+
         private bool AddElementSet()
         {
             var newToDo = new ElementSet();
             foreach (var x in this.ToDo)
             {
                 this.Done.Add(x);
-                // SetType(newToDo, u, x);
+                this.SetType(newToDo, x);
             }
             newToDo.ExceptWith(this.Done);
             this.ToDo = newToDo;
@@ -33,11 +71,21 @@
             schema.Add(null, reader);
             schema.Compile();
             //
+            this.U = Unit();
+            //
             this.ToDo = schema.GlobalElementsTyped();
             this.Done = new ElementSet();
             while (AddElementSet()) { }
             //
             return this.U;
+        }
+
+        public T.Unit Load(string fileName)
+        {
+            using(var xmlReader = new X.XmlTextReader(fileName))
+            {
+                return this.Load(xmlReader);
+            }
         }
     }
 }

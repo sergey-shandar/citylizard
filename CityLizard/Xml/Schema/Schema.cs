@@ -26,29 +26,6 @@
             return Load(new X.XmlTextReader(fileName));
         }
 
-        /*
-        public class ElementSet : C.HashSet<XS.XmlSchemaElement>
-        {
-            public class Equality: C.EqualityComparer<XS.XmlSchemaElement>
-            {
-                public override bool Equals(
-                    XS.XmlSchemaElement x, XS.XmlSchemaElement y)
-                {
-                    return x.QualifiedName == y.QualifiedName;
-                }
-
-                public override int GetHashCode(XS.XmlSchemaElement obj)
-                {
-                    return obj.QualifiedName.GetHashCode();
-                }
-            }
-
-            public ElementSet(): base(new Equality())
-            {
-            }
-        }
-         * */
-
         private static bool Implement(
             D.CodeCompileUnit u, 
             ElementSet done, 

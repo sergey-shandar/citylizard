@@ -58,6 +58,7 @@
     <Compile Include="Extension\XmlSchemaExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Schema.cs" />
+    <Compile Include="TypeToDfa.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\CodeDom\CityLizard.CodeDom.csproj">

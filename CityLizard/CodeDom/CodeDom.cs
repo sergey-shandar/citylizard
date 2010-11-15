@@ -84,12 +84,43 @@
                         return this;
                     }
                 }
+
+                public void Append(Method Method)
+                {
+                    this.Members.Add(Method);
+                }
+
+                public Type this[Method Method]
+                {
+                    get
+                    {
+                        this.Append(Method);
+                        return this;
+                    }
+                }
             }
 
             public class TypeRef : D.CodeTypeReference
             {
                 public TypeRef(S.Type Type): base(Type)
                 {
+                }
+
+                public TypeRef(string Name): base(Name)
+                {
+                }
+            }
+
+            public class Method : D.CodeMemberMethod
+            {
+                public Method(
+                    string Name, 
+                    D.MemberAttributes Attributes = default(D.MemberAttributes),
+                    TypeRef Return = null)
+                {
+                    this.Name = Name;
+                    this.Attributes = Attributes;
+                    this.ReturnType = Return;
                 }
             }
         }
@@ -115,6 +146,19 @@
         public T.TypeRef TypeRef<S>()
         {
             return new T.TypeRef(typeof(S));
+        }
+
+        public T.TypeRef TypeRef(string Name)
+        {
+            return new T.TypeRef(Name);
+        }
+
+        public T.Method Method(
+            string Name, 
+            D.MemberAttributes Attributes = default(D.MemberAttributes),
+            T.TypeRef Return = null)
+        {
+            return new T.Method(Name, Attributes, Return);
         }
     }
 }

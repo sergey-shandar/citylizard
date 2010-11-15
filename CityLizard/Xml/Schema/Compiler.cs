@@ -8,6 +8,7 @@
     using CS = CodeDom.CSharp;
     using D = CodeDom.CodeDom;
     using E = Xml.Linked.Element;
+    using F = Fsm;
 
     using Extension;
 
@@ -17,6 +18,13 @@
         ElementSet Done;
         C.IEnumerable<XS.XmlSchemaElement> ToDo;
 
+        private static void ToDfa(XS.XmlSchemaComplexType type)
+        {
+            var fsm = new F.Fsm<X.XmlQualifiedName>();
+            var set = new C.HashSet<int> { 0 };
+            var dfa = new F.Dfa<X.XmlQualifiedName>(fsm, set);
+        }
+
         private void SetType(
             ElementSet newToDo,
             XS.XmlSchemaElement element,
@@ -25,12 +33,19 @@
             var qName = element.QualifiedName;
             var type = element.ElementSchemaType;
             var complexType = type as XS.XmlSchemaComplexType;
-            var baseTypeRef =
-                complexType == null ?
-                    TypeRef<E.Simple>() :
-                complexType.IsMixed ?
-                    TypeRef<E.Mixed>() :
-                    TypeRef<E.NotMixed>();
+            T.TypeRef baseTypeRef;
+            if(complexType == null)
+            {
+                baseTypeRef = TypeRef<E.Simple>();
+            }
+            else
+            {
+                ToDfa(complexType);
+                baseTypeRef = 
+                    complexType.IsMixed ? 
+                        TypeRef<E.Mixed>() : 
+                        TypeRef<E.NotMixed>();
+            }
             this.U.Append(Namespace(CS.Namespace.Cast(qName.Namespace))
                 [Type(
                     Name: "X", 

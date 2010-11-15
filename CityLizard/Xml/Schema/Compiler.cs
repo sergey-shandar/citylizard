@@ -34,7 +34,7 @@
             }
             else
             {
-                var dfa = new TypeToDfa(newToDo).Apply(complexType);
+                var dfa = new ComplexTypeToDfa(newToDo).Apply(complexType);
                 baseTypeRef = 
                     complexType.IsMixed ? 
                         TypeRef<E.Mixed>() : 

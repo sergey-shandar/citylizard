@@ -26,20 +26,31 @@
         {
             var qName = element.QualifiedName;
             var type = element.ElementSchemaType;
+
             var complexType = type as XS.XmlSchemaComplexType;
             T.TypeRef baseTypeRef;
+
+            // simple type
             if(complexType == null)
             {
                 baseTypeRef = TypeRef<E.Simple>();
             }
+            // complex type
             else
             {
                 var dfa = new ComplexTypeToDfa(newToDo).Apply(complexType);
+
                 baseTypeRef = 
                     complexType.IsMixed ? 
                         TypeRef<E.Mixed>() : 
+                    dfa.D[new C.HashSet<int> { 0 }].Count == 0 ?
+                        TypeRef<E.Empty>() :
+                    // else
                         TypeRef<E.NotMixed>();
             }
+
+            //
+            var name = CS.Name.Cast(qName.Name);
             this.U.Append(Namespace(CS.Namespace.Cast(qName.Namespace))
                 [Type(
                     Name: "X", 
@@ -53,11 +64,15 @@
                             CD.MemberAttributes.Static | 
                             CD.MemberAttributes.Public)
                         [Type(
-                            Name: CS.Name.Cast(qName.Name),
+                            Name: name,
                             Attributes: CD.MemberAttributes.Public)
                             [baseTypeRef]
                         ]
                     ]
+                    [Method(
+                        Name: name + "_", 
+                        Attributes: CD.MemberAttributes.Public,
+                        Return: TypeRef("T." + name))]
                 ]);
         }
 

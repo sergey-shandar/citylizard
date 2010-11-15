@@ -9,14 +9,14 @@
 
     using Extension;
 
-    internal class TypeToDfa
+    internal class ComplexTypeToDfa
     {
         private readonly F.Fsm<X.XmlQualifiedName> Fsm =
             new F.Fsm<X.XmlQualifiedName>();
 
         private readonly ElementSet ToDo;
 
-        public TypeToDfa(ElementSet toDo)
+        public ComplexTypeToDfa(ElementSet toDo)
         {
             this.ToDo = toDo;
         }

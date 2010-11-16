@@ -2,6 +2,7 @@
 {
     using S = System;
     using D = System.CodeDom;
+    using C = System.Collections.Generic;
 
     public partial class CodeDom
     {
@@ -50,7 +51,8 @@
                 public Type(
                     string Name,
                     bool IsPartial = false,
-                    D.MemberAttributes Attributes = default(D.MemberAttributes)): 
+                    D.MemberAttributes Attributes = 
+                        default(D.MemberAttributes)):
                     base(Name)
                 {
                     this.IsPartial = IsPartial;
@@ -98,6 +100,20 @@
                         return this;
                     }
                 }
+
+                public void Append(Constructor Constructor)
+                {
+                    this.Members.Add(Constructor);
+                }
+
+                public Type this[Constructor Constructor]
+                {
+                    get
+                    {
+                        this.Append(Constructor);
+                        return this;
+                    }
+                }
             }
 
             public class TypeRef : D.CodeTypeReference
@@ -121,6 +137,212 @@
                     this.Name = Name;
                     this.Attributes = Attributes;
                     this.ReturnType = Return;
+                }
+
+                public void Append(Parameter Parameter)
+                {
+                    this.Parameters.Add(Parameter);
+                }
+
+                public Method this[Parameter Parameter]
+                {
+                    get
+                    {
+                        this.Append(Parameter);
+                        return this;
+                    }
+                }
+
+                public void Append(C.IEnumerable<Parameter> ParameterList)
+                {
+                    foreach (var p in ParameterList)
+                    {
+                        this.Append(p);
+                    }
+                }
+
+                public Method this[C.IEnumerable<Parameter> ParameterList]
+                {
+                    get
+                    {
+                        this.Append(ParameterList);
+                        return this;
+                    }
+                }
+
+                public void Append(Return Return)
+                {
+                    this.Statements.Add(Return);
+                }
+
+                public Method this[Return Return]
+                {
+                    get
+                    {
+                        this.Append(Return);
+                        return this;
+                    }
+                }
+            }
+
+            public class Constructor : D.CodeConstructor
+            {
+                public Constructor(
+                    D.MemberAttributes Attributes = default(D.MemberAttributes))
+                {
+                    this.Attributes = Attributes;
+                }
+
+                public void Append(Parameter Parameter)
+                {
+                    this.Parameters.Add(Parameter);
+                }
+
+                public Constructor this[Parameter Parameter]
+                {
+                    get
+                    {
+                        this.Append(Parameter);
+                        return this;
+                    }
+                }
+
+                public void Append(C.IEnumerable<Parameter> ParameterList)
+                {
+                    foreach (var p in ParameterList)
+                    {
+                        this.Parameters.Add(p);
+                    }
+                }
+
+                public Constructor this[C.IEnumerable<Parameter> ParameterList]
+                {
+                    get
+                    {
+                        this.Append(ParameterList);
+                        return this;
+                    }
+                }
+
+                public void Append(VariableRef VariableRef)
+                {
+                    this.BaseConstructorArgs.Add(VariableRef);
+                }
+
+                public Constructor this[VariableRef VariableRef]
+                {
+                    get
+                    {
+                        this.Append(VariableRef);
+                        return this;
+                    }
+                }
+            }
+
+            public class Parameter : D.CodeParameterDeclarationExpression
+            {
+                private new string Name;
+
+                private static string ToName(string Name, Primitive Value)
+                {
+                    return
+                        Name +
+                            (Value == null ?
+                                "" :
+                                " = " +
+                                (Value.Value == null ?
+                                    "null" : Value.Value.ToString()));
+                }
+
+                public Parameter(S.Type Type, string Name, Primitive Value = null):
+                    base(Type, ToName(Name, Value))
+                {
+                    this.Name = Name;
+                }
+
+                public VariableRef Ref()
+                {
+                    return new VariableRef(this.Name);
+                }
+            }
+
+            public class VariableRef : D.CodeVariableReferenceExpression
+            {
+                public VariableRef(string Name): base(Name)
+                {
+                }
+            }
+
+            public class Return : D.CodeMethodReturnStatement
+            {
+                public Return(New New): base(New)
+                {
+                }
+            }
+
+            public class New : D.CodeObjectCreateExpression
+            {
+                public New(TypeRef TypeRef): base(TypeRef)
+                {
+                }
+
+                public void Append(VariableRef VariableRef)
+                {
+                    this.Parameters.Add(VariableRef);
+                }
+
+                public New this[VariableRef VariableRef]
+                {
+                    get
+                    {
+                        this.Append(VariableRef);
+                        return this;
+                    }
+                }
+
+                public void Append(This This)
+                {
+                    this.Parameters.Add(This);
+                }
+
+                public New this[This This]
+                {
+                    get
+                    {
+                        this.Append(This);
+                        return this;
+                    }
+                }
+
+                public void Append(C.IEnumerable<VariableRef> VariableRefList)
+                {
+                    foreach (var r in VariableRefList)
+                    {
+                        this.Parameters.Add(r);
+                    }
+                }
+
+                public New this[C.IEnumerable<VariableRef> VariableRefList]
+                {
+                    get
+                    {
+                        this.Append(VariableRefList);
+                        return this;
+                    }
+                }
+            }
+
+            public class This : D.CodeThisReferenceExpression
+            {
+                public This()
+                {
+                }
+            }
+
+            public class Primitive : D.CodePrimitiveExpression
+            {
+                public Primitive(object Value): base(Value)
+                {
                 }
             }
         }
@@ -154,11 +376,47 @@
         }
 
         public T.Method Method(
-            string Name, 
+            string Name,
             D.MemberAttributes Attributes = default(D.MemberAttributes),
             T.TypeRef Return = null)
         {
             return new T.Method(Name, Attributes, Return);
+        }
+
+        public T.Constructor Constructor(
+            D.MemberAttributes Attributes = default(D.MemberAttributes))
+        {
+            return new T.Constructor(Attributes);
+        }
+
+        public T.Parameter Parameter<U>(string Name, T.Primitive Value = null)
+        {
+            return new T.Parameter(typeof(U), Name, Value);
+        }
+
+        public T.VariableRef VariableRef(string Name)
+        {
+            return new T.VariableRef(Name);
+        }
+
+        public T.Return Return(T.New New)
+        {
+            return new T.Return(New);
+        }
+
+        public T.New New(T.TypeRef TypeRef)
+        {
+            return new T.New(TypeRef);
+        }
+
+        public T.This This()
+        {
+            return new T.This();
+        }
+
+        public T.Primitive Primitive(object Value)
+        {
+            return new T.Primitive(Value);
         }
     }
 }

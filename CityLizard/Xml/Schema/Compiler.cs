@@ -12,6 +12,7 @@
     using F = Fsm;
 
     using Extension;
+    using System.Linq;
 
     public class Compiler: D
     {
@@ -30,6 +31,8 @@
             var complexType = type as XS.XmlSchemaComplexType;
             T.TypeRef baseTypeRef;
 
+            var attributeList = new C.List<T.Parameter>();
+
             // simple type
             if(complexType == null)
             {
@@ -39,7 +42,21 @@
             else
             {
                 var dfa = new ComplexTypeToDfa(newToDo).Apply(complexType);
-
+                var attributes = complexType.AttributeUsesTyped();
+                foreach (
+                    var a in 
+                    attributes.Where(x => x.Use == XS.XmlSchemaUse.Required))
+                {
+                    attributeList.Add(Parameter<string>(CS.Name.Cast(a.QualifiedName.Name)));
+                }
+                foreach (
+                    var a in 
+                    attributes.Where(x => x.Use != XS.XmlSchemaUse.Optional))
+                {
+                    attributeList.Add(
+                        Parameter<string>(
+                            CS.Name.Cast(a.QualifiedName.Name), Primitive(null)));
+                }
                 baseTypeRef = 
                     complexType.IsMixed ? 
                         TypeRef<E.Mixed>() : 
@@ -51,28 +68,48 @@
 
             //
             var name = CS.Name.Cast(qName.Name);
+            var implementation = 
+                Parameter<Xml.Implementation>("Implementation");
+            var typeRef = TypeRef("T." + name);
             this.U.Append(Namespace(CS.Namespace.Cast(qName.Namespace))
-                [Type(
-                    Name: "X", 
-                    IsPartial: true, 
-                    Attributes: CD.MemberAttributes.Public)
-                    [TypeRef<Xml.Implementation>()]
-                    [Type(
-                        Name: "T", 
+                [Type
+                    (   Name: "X", 
                         IsPartial: true, 
-                        Attributes: 
-                            CD.MemberAttributes.Static | 
-                            CD.MemberAttributes.Public)
-                        [Type(
-                            Name: name,
-                            Attributes: CD.MemberAttributes.Public)
+                        Attributes: CD.MemberAttributes.Public
+                    )
+                    [TypeRef<Xml.Implementation>()]
+                    [Type
+                        (   Name: "T", 
+                            IsPartial: true, 
+                            Attributes: 
+                                CD.MemberAttributes.Static | 
+                                CD.MemberAttributes.Public
+                        )
+                        [Type
+                            (   Name: name,
+                                Attributes: CD.MemberAttributes.Public
+                            )
                             [baseTypeRef]
+                            [Constructor(Attributes: CD.MemberAttributes.Public)
+                                [implementation]
+                                [attributeList]
+                                [implementation.Ref()]
+                            ]
                         ]
                     ]
-                    [Method(
-                        Name: name + "_", 
-                        Attributes: CD.MemberAttributes.Public,
-                        Return: TypeRef("T." + name))]
+                    [Method
+                        (   Name: name + "_",
+                            Attributes: CD.MemberAttributes.Public,
+                            Return: typeRef
+                        )
+                        [attributeList]
+                        [Return
+                            (   New(typeRef)
+                                    [This()]
+                                    [attributeList.Select(x => x.Ref())]
+                            )
+                        ]
+                    ]
                 ]);
         }
 
@@ -99,7 +136,7 @@
             //
             this.ToDo = schema.GlobalElementsTyped();
             this.Done = new ElementSet();
-            while (AddElementSet()) { }
+            while (this.AddElementSet()) { }
             //
             return this.U;
         }

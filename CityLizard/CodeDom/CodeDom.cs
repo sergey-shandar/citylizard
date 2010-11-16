@@ -237,11 +237,44 @@
                         return this;
                     }
                 }
+
+                public void Append(Invoke Invoke)
+                {
+                    this.Statements.Add(Invoke);
+                }
+
+                public Constructor this[Invoke Invoke]
+                {
+                    get
+                    {
+                        this.Append(Invoke);
+                        return this;
+                    }
+                }
+
+                public void Append(C.IEnumerable<Invoke> InvokeList)
+                {
+                    foreach (var i in InvokeList)
+                    {
+                        this.Statements.Add(i);
+                    }
+                }
+
+                public Constructor this[C.IEnumerable<Invoke> InvokeList]
+                {
+                    get
+                    {
+                        this.Append(InvokeList);
+                        return this;
+                    }
+                }
             }
 
             public class Parameter : D.CodeParameterDeclarationExpression
             {
                 private new string Name;
+
+                public readonly Primitive Value;
 
                 private static string ToName(string Name, Primitive Value)
                 {
@@ -258,6 +291,7 @@
                     base(Type, ToName(Name, Value))
                 {
                     this.Name = Name;
+                    this.Value = Value;
                 }
 
                 public VariableRef Ref()
@@ -345,6 +379,27 @@
                 {
                 }
             }
+
+            public class Invoke : D.CodeMethodInvokeExpression
+            {
+                public Invoke(string Name): base(new T.This(), Name)
+                {
+                }
+
+                public void Append(VariableRef VariableRef)
+                {
+                    this.Parameters.Add(VariableRef);
+                }
+
+                public Invoke this[VariableRef VariableRef]
+                {
+                    get
+                    {
+                        this.Append(VariableRef);
+                        return this;
+                    }
+                }
+            }
         }
 
         public T.Unit Unit()
@@ -417,6 +472,11 @@
         public T.Primitive Primitive(object Value)
         {
             return new T.Primitive(Value);
+        }
+
+        public T.Invoke Invoke(string Name)
+        {
+            return new T.Invoke(Name);
         }
     }
 }

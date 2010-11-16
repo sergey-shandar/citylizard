@@ -5,6 +5,7 @@
     using C = System.Collections.Generic;
     using CD = System.CodeDom;
     using S = System;
+    using A = System.CodeDom.MemberAttributes;
 
     using CS = CodeDom.CSharp;
     using D = CodeDom.CodeDom;
@@ -20,6 +21,25 @@
         ElementSet Done;
         C.IEnumerable<XS.XmlSchemaElement> ToDo;
 
+        private class Attributes
+        {
+            public C.List<T.Parameter> Parameters = new C.List<T.Parameter>();
+            public C.IEnumerable<XS.XmlSchemaAttribute> A;
+        }
+
+        private void AddAttributes(Attributes attributes, bool required)
+        {
+            foreach (
+                var a in
+                attributes.A.Where(
+                    x => (x.Use == XS.XmlSchemaUse.Required) == required))
+            {
+                attributes.Parameters.Add(Parameter<string>(
+                    CS.Name.Cast(a.QualifiedName.Name),
+                    required ? null: Primitive(null)));
+            }
+        }
+
         private void SetType(
             ElementSet newToDo,
             XS.XmlSchemaElement element,
@@ -31,7 +51,7 @@
             var complexType = type as XS.XmlSchemaComplexType;
             T.TypeRef baseTypeRef;
 
-            var attributeList = new C.List<T.Parameter>();
+            var attributes = new Attributes();
 
             // simple type
             if(complexType == null)
@@ -42,21 +62,9 @@
             else
             {
                 var dfa = new ComplexTypeToDfa(newToDo).Apply(complexType);
-                var attributes = complexType.AttributeUsesTyped();
-                foreach (
-                    var a in 
-                    attributes.Where(x => x.Use == XS.XmlSchemaUse.Required))
-                {
-                    attributeList.Add(Parameter<string>(CS.Name.Cast(a.QualifiedName.Name)));
-                }
-                foreach (
-                    var a in 
-                    attributes.Where(x => x.Use != XS.XmlSchemaUse.Optional))
-                {
-                    attributeList.Add(
-                        Parameter<string>(
-                            CS.Name.Cast(a.QualifiedName.Name), Primitive(null)));
-                }
+                attributes.A = complexType.AttributeUsesTyped();
+                this.AddAttributes(attributes, true);
+                this.AddAttributes(attributes, false);
                 baseTypeRef = 
                     complexType.IsMixed ? 
                         TypeRef<E.Mixed>() : 
@@ -75,38 +83,41 @@
                 [Type
                     (   Name: "X", 
                         IsPartial: true, 
-                        Attributes: CD.MemberAttributes.Public
+                        Attributes: A.Public
                     )
                     [TypeRef<Xml.Implementation>()]
                     [Type
                         (   Name: "T", 
                             IsPartial: true, 
-                            Attributes: 
-                                CD.MemberAttributes.Static | 
-                                CD.MemberAttributes.Public
+                            Attributes: A.Static | A.Public
                         )
-                        [Type
-                            (   Name: name,
-                                Attributes: CD.MemberAttributes.Public
-                            )
+                        [Type(Name: name, Attributes: A.Public)
                             [baseTypeRef]
-                            [Constructor(Attributes: CD.MemberAttributes.Public)
+                            [Constructor(Attributes: A.Public)
                                 [implementation]
-                                [attributeList]
+                                [attributes.Parameters]
                                 [implementation.Ref()]
+                                [attributes.Parameters.Select(
+                                    x => 
+                                        Invoke(
+                                            x.Value == null ? 
+                                                "AddRequiredAttribute": 
+                                                "AddOptionalAttribute")
+                                            [x.Ref()])
+                                ]
                             ]
                         ]
                     ]
                     [Method
-                        (   Name: name + "_",
-                            Attributes: CD.MemberAttributes.Public,
+                        (   Name: name + "_", 
+                            Attributes: A.Public, 
                             Return: typeRef
                         )
-                        [attributeList]
+                        [attributes.Parameters]
                         [Return
                             (   New(typeRef)
                                     [This()]
-                                    [attributeList.Select(x => x.Ref())]
+                                    [attributes.Parameters.Select(x => x.Ref())]
                             )
                         ]
                     ]

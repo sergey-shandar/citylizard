@@ -23,7 +23,8 @@
 
         private class Attributes
         {
-            public C.List<T.Parameter> Parameters = new C.List<T.Parameter>();
+            public readonly C.List<T.Parameter> Parameters = new C.List<T.Parameter>();
+            public readonly C.List<T.Invoke> Invokes = new C.List<T.Invoke>();
             public C.IEnumerable<XS.XmlSchemaAttribute> A;
         }
 
@@ -34,9 +35,16 @@
                 attributes.A.Where(
                     x => (x.Use == XS.XmlSchemaUse.Required) == required))
             {
-                attributes.Parameters.Add(Parameter<string>(
-                    CS.Name.Cast(a.QualifiedName.Name),
-                    required ? null: Primitive(null)));
+                var name = a.QualifiedName.Name;
+                var p = Parameter<string>(
+                    CS.Name.Cast(name), required ? null : Primitive(null));
+                attributes.Parameters.Add(p);
+                attributes.Invokes.Add(
+                    Invoke(
+                        required ? 
+                            "AddRequiredAttribute" : "AddOptionalAttribute")
+                        [Primitive(name)]
+                        [p.Ref()]);
             }
         }
 
@@ -49,14 +57,23 @@
             var type = element.ElementSchemaType;
 
             var complexType = type as XS.XmlSchemaComplexType;
-            T.TypeRef baseTypeRef;
 
             var attributes = new Attributes();
+
+            var name = CS.Name.Cast(qName.Name);
+            var implementation =
+                Parameter<Xml.Implementation>("Implementation");
+
+            var ctor = Constructor(Attributes: A.Public)[implementation];
+            var csType = Type(Name: name, Attributes: A.Public)[ctor];
+            var typeRef = TypeRef("T." + name);
+            var method = Method(
+                Name: name + "_", Attributes: A.Public, Return: typeRef);
 
             // simple type
             if(complexType == null)
             {
-                baseTypeRef = TypeRef<E.Simple>();
+                csType.Append(TypeRef<E.Simple>());
             }
             // complex type
             else
@@ -65,62 +82,34 @@
                 attributes.A = complexType.AttributeUsesTyped();
                 this.AddAttributes(attributes, true);
                 this.AddAttributes(attributes, false);
-                baseTypeRef = 
+                csType.Append(
                     complexType.IsMixed ? 
                         TypeRef<E.Mixed>() : 
                     dfa.D[new C.HashSet<int> { 0 }].Count == 0 ?
                         TypeRef<E.Empty>() :
                     // else
-                        TypeRef<E.NotMixed>();
+                        TypeRef<E.NotMixed>());
+                ctor.Append(attributes.Parameters);
+                ctor.Append(implementation.Ref());
+                ctor.Append(attributes.Invokes);
             }
 
             //
-            var name = CS.Name.Cast(qName.Name);
-            var implementation = 
-                Parameter<Xml.Implementation>("Implementation");
-            var typeRef = TypeRef("T." + name);
             this.U.Append(Namespace(CS.Namespace.Cast(qName.Namespace))
                 [Type
-                    (   Name: "X", 
-                        IsPartial: true, 
+                    (   Name: "X",
+                        IsPartial: true,
                         Attributes: A.Public
                     )
                     [TypeRef<Xml.Implementation>()]
                     [Type
-                        (   Name: "T", 
-                            IsPartial: true, 
+                        (   Name: "T",
+                            IsPartial: true,
                             Attributes: A.Static | A.Public
                         )
-                        [Type(Name: name, Attributes: A.Public)
-                            [baseTypeRef]
-                            [Constructor(Attributes: A.Public)
-                                [implementation]
-                                [attributes.Parameters]
-                                [implementation.Ref()]
-                                [attributes.Parameters.Select(
-                                    x => 
-                                        Invoke(
-                                            x.Value == null ? 
-                                                "AddRequiredAttribute": 
-                                                "AddOptionalAttribute")
-                                            [x.Ref()])
-                                ]
-                            ]
-                        ]
+                        [csType]
                     ]
-                    [Method
-                        (   Name: name + "_", 
-                            Attributes: A.Public, 
-                            Return: typeRef
-                        )
-                        [attributes.Parameters]
-                        [Return
-                            (   New(typeRef)
-                                    [This()]
-                                    [attributes.Parameters.Select(x => x.Ref())]
-                            )
-                        ]
-                    ]
+                    [method]
                 ]);
         }
 

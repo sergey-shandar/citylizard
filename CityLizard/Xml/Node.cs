@@ -42,7 +42,7 @@
         /// <summary>
         /// The parent element.
         /// </summary>
-        public Linked.Element.Element Parent 
+        public Linked.Element.Complex Parent 
         { 
             get; 
             protected set; 

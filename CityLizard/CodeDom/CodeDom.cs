@@ -238,6 +238,20 @@
                     }
                 }
 
+                public void Append(Primitive Primitive)
+                {
+                    this.BaseConstructorArgs.Add(Primitive);
+                }
+
+                public Constructor this[Primitive Primitive]
+                {
+                    get
+                    {
+                        this.Append(Primitive);
+                        return this;
+                    }
+                }
+
                 public void Append(Invoke Invoke)
                 {
                     this.Statements.Add(Invoke);

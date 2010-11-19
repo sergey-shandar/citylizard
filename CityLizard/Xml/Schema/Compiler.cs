@@ -48,6 +48,9 @@
             }
         }
 
+        private static readonly C.IEqualityComparer<C.HashSet<int>> comparer =
+            C.HashSet<int>.CreateSetComparer();
+
         private void SetType(
             ElementSet newToDo,
             XS.XmlSchemaElement element,
@@ -64,7 +67,11 @@
             var implementation =
                 Parameter<Xml.Implementation>("Implementation");
 
-            var ctor = Constructor(Attributes: A.Public)[implementation];
+            var ctor = Constructor(Attributes: A.Public)
+                [implementation]
+                [implementation.Ref()]
+                [Primitive(qName.Namespace)]
+                [Primitive(qName.Name)];
             var csType = Type(Name: name, Attributes: A.Public)[ctor];
             var typeRef = TypeRef("T." + name);
             var new_ = New(typeRef)[This()];
@@ -84,6 +91,16 @@
                 //
                 var self = dfa.D.First(p => p.Value.Accept).Key;
                 //
+                foreach (var p in dfa.D)
+                {
+                    if (comparer.Equals(p.Key, self))
+                    {
+                    }
+                    else
+                    {
+                    }
+                }
+                //
                 attributes.A = complexType.AttributeUsesTyped();
                 this.AddAttributes(attributes, true);
                 this.AddAttributes(attributes, false);
@@ -95,7 +112,6 @@
                     // else
                         TypeRef<E.NotMixed>());
                 ctor.Append(attributes.Parameters);
-                ctor.Append(implementation.Ref());
                 ctor.Append(attributes.Invokes);
                 method.Append(attributes.Parameters);
                 new_.Append(attributes.Parameters.Select(x => x.Ref()));

@@ -67,8 +67,10 @@
             var ctor = Constructor(Attributes: A.Public)[implementation];
             var csType = Type(Name: name, Attributes: A.Public)[ctor];
             var typeRef = TypeRef("T." + name);
+            var new_ = New(typeRef)[This()];
             var method = Method(
-                Name: name + "_", Attributes: A.Public, Return: typeRef);
+                Name: name + "_", Attributes: A.Public, Return: typeRef)
+                [Return(new_)];
 
             // simple type
             if(complexType == null)
@@ -79,6 +81,9 @@
             else
             {
                 var dfa = new ComplexTypeToDfa(newToDo).Apply(complexType);
+                //
+                var self = dfa.D.First(p => p.Value.Accept).Key;
+                //
                 attributes.A = complexType.AttributeUsesTyped();
                 this.AddAttributes(attributes, true);
                 this.AddAttributes(attributes, false);
@@ -92,6 +97,8 @@
                 ctor.Append(attributes.Parameters);
                 ctor.Append(implementation.Ref());
                 ctor.Append(attributes.Invokes);
+                method.Append(attributes.Parameters);
+                new_.Append(attributes.Parameters.Select(x => x.Ref()));
             }
 
             //

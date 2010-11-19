@@ -272,7 +272,7 @@
 
             public class Parameter : D.CodeParameterDeclarationExpression
             {
-                private new string Name;
+                public readonly new string Name;
 
                 public readonly Primitive Value;
 
@@ -396,6 +396,20 @@
                     get
                     {
                         this.Append(VariableRef);
+                        return this;
+                    }
+                }
+
+                public void Append(Primitive Primitive)
+                {
+                    this.Parameters.Add(Primitive);
+                }
+
+                public Invoke this[Primitive Primitive]
+                {
+                    get
+                    {
+                        this.Append(Primitive);
                         return this;
                     }
                 }

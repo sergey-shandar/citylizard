@@ -60,7 +60,6 @@
     <Compile Include="CompilerTest.cs" />
     <Compile Include="IdeaTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SchemaTest.cs" />
     <Compile Include="XmlTest.cs" />
   </ItemGroup>
   <ItemGroup>

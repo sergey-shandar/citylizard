@@ -8,7 +8,7 @@
     {
         static void Main(string[] args)
         {
-            var u = Schema.Load(args[0]);
+            var u = new Compiler().Load(args[0]);
             //
             var t = new IO.StringWriter();
             new CS.CSharpCodeProvider().GenerateCodeFromCompileUnit(

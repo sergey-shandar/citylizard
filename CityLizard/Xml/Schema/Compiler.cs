@@ -118,22 +118,23 @@
             }
 
             //
-            this.U.Append(Namespace(CS.Namespace.Cast(qName.Namespace))
-                [Type
-                    (   Name: "X",
-                        IsPartial: true,
-                        Attributes: A.Public
-                    )
-                    [TypeRef<Xml.Implementation>()]
+            this.U.Append(
+                Namespace(CS.Namespace.Cast(qName.Namespace))
                     [Type
-                        (   Name: "T",
+                        (   Name: "X",
                             IsPartial: true,
-                            Attributes: A.Static | A.Public
+                            Attributes: A.Public
                         )
-                        [csType]
-                    ]
-                    [method]
-                ]);
+                        [TypeRef<Xml.Implementation>()]
+                        [Type
+                            (   Name: "T",
+                                IsPartial: true,
+                                Attributes: A.Static | A.Public
+                            )
+                            [csType]
+                        ]
+                        [method]
+                    ]);
         }
 
         private bool AddElementSet()

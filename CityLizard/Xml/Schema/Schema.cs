@@ -248,8 +248,9 @@
             }
 
             public void SetState(
-                C.KeyValuePair<C.HashSet<int>, 
-                F.Dfa<X.XmlQualifiedName>.State> state,
+                C.KeyValuePair<
+                    C.HashSet<int>, 
+                    F.Dfa<X.XmlQualifiedName>.State> state,
                 C.HashSet<int> self,
                 string selfName)
             {

@@ -23,7 +23,8 @@
 
         private class Attributes
         {
-            public readonly C.List<T.Parameter> Parameters = new C.List<T.Parameter>();
+            public readonly C.List<T.Parameter> Parameters = 
+                new C.List<T.Parameter>();
             public readonly C.List<T.Invoke> Invokes = new C.List<T.Invoke>();
             public C.IEnumerable<XS.XmlSchemaAttribute> A;
         }
@@ -51,6 +52,18 @@
         private static readonly C.IEqualityComparer<C.HashSet<int>> comparer =
             C.HashSet<int>.CreateSetComparer();
 
+        private void AddBase(
+            T.Type type, XS.XmlSchemaComplexType complexType, bool isEmpty)
+        {
+            type.Append(
+                complexType.IsMixed ?
+                    TypeRef<E.Mixed>() :
+                isEmpty ?
+                    TypeRef<E.Empty>() :
+                // else
+                    TypeRef<E.NotMixed>());
+        }
+
         private void SetType(
             ElementSet newToDo,
             XS.XmlSchemaElement element,
@@ -67,17 +80,30 @@
             var implementation =
                 Parameter<Xml.Implementation>("Implementation");
 
-            var ctor = Constructor(Attributes: A.Public)
-                [implementation]
-                [implementation.Ref()]
-                [Primitive(qName.Namespace)]
-                [Primitive(qName.Name)];
-            var csType = Type(Name: name, Attributes: A.Public)[ctor];
+            var csType = Type(Name: name, Attributes: A.Public);
+            /*
             var typeRef = TypeRef("T." + name);
             var new_ = New(typeRef)[This()];
             var method = Method(
                 Name: name + "_", Attributes: A.Public, Return: typeRef)
                 [Return(new_)];
+            */
+            //
+            var x = 
+                Type
+                    (Name: "X",
+                        IsPartial: true,
+                        Attributes: A.Public
+                    )
+                    [TypeRef<Xml.Implementation>()]
+                    [Type
+                        (Name: "T",
+                            IsPartial: true,
+                            Attributes: A.Static | A.Public
+                        )
+                        [csType]
+                    ];
+            this.U.Append(Namespace(CS.Namespace.Cast(qName.Namespace))[x]);
 
             // simple type
             if(complexType == null)
@@ -87,54 +113,68 @@
             // complex type
             else
             {
+                attributes.A = complexType.AttributeUsesTyped();
+                this.AddAttributes(attributes, true);
+                this.AddAttributes(attributes, false);
+                //
                 var dfa = new ComplexTypeToDfa(newToDo).Apply(complexType);
                 //
                 var self = dfa.D.First(p => p.Value.Accept).Key;
                 //
+                var isEmpty = dfa.D[new C.HashSet<int> { 0 }].Count == 0;
+                //
+                var i = 0;                
                 foreach (var p in dfa.D)
                 {
+                    T.Type pType;
+                    string pName;
+                    //
                     if (comparer.Equals(p.Key, self))
                     {
+                        pType = csType;
+                        pName = name;
                     }
                     else
                     {
+                        var local = "_" + i.ToString();
+                        pType = Type(
+                            Name: local, Attributes: A.Public);
+                        this.AddBase(pType, complexType, isEmpty);
+                        csType.Append(pType);
+                        pName = name + "." + local;
                     }
+                    //
+                    if (comparer.Equals(p.Key, new C.HashSet<int> { 0 }))
+                    {
+                        pType.Append(
+                            Constructor(Attributes: A.Assembly)
+                                [implementation]
+                                [attributes.Parameters]
+                                [Invoke("SetUpNew")
+                                    [implementation.Ref()]
+                                    [Primitive(qName.Namespace)]
+                                    [Primitive(qName.Name)]
+                                ]
+                                [attributes.Invokes]);
+                        var typeRef = TypeRef("T." + pName);
+                        x.Append(
+                            Method(Name: name, Attributes: A.Public, Return: typeRef)
+                                [attributes.Parameters]
+                                [Return
+                                    (New(typeRef)
+                                        [This()]
+                                        [attributes.Parameters.Select(y => y.Ref())]
+                                    )
+                                ]);
+                    }
+                    //
+                    ++i;
                 }
                 //
-                attributes.A = complexType.AttributeUsesTyped();
-                this.AddAttributes(attributes, true);
-                this.AddAttributes(attributes, false);
-                csType.Append(
-                    complexType.IsMixed ? 
-                        TypeRef<E.Mixed>() : 
-                    dfa.D[new C.HashSet<int> { 0 }].Count == 0 ?
-                        TypeRef<E.Empty>() :
-                    // else
-                        TypeRef<E.NotMixed>());
-                ctor.Append(attributes.Parameters);
-                ctor.Append(attributes.Invokes);
-                method.Append(attributes.Parameters);
-                new_.Append(attributes.Parameters.Select(x => x.Ref()));
+                this.AddBase(csType, complexType, isEmpty);
+                // method.Append(attributes.Parameters);
+                // new_.Append(attributes.Parameters.Select(x => x.Ref()));
             }
-
-            //
-            this.U.Append(
-                Namespace(CS.Namespace.Cast(qName.Namespace))
-                    [Type
-                        (   Name: "X",
-                            IsPartial: true,
-                            Attributes: A.Public
-                        )
-                        [TypeRef<Xml.Implementation>()]
-                        [Type
-                            (   Name: "T",
-                                IsPartial: true,
-                                Attributes: A.Static | A.Public
-                            )
-                            [csType]
-                        ]
-                        [method]
-                    ]);
         }
 
         private bool AddElementSet()

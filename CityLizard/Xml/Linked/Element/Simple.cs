@@ -6,6 +6,14 @@
     public abstract class Simple: Element, ICharacterData
     {
         /// <summary>
+        /// Returns Type.Simple.
+        /// </summary>
+        public override Type Type
+        {
+            get { return Type.Simple; }
+        }
+
+        /// <summary>
         /// Saves the simple element to the specified System.Xml.XmlWriter.
         /// </summary>
         /// <param name="writer">

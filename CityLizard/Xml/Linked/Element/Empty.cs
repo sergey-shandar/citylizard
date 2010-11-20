@@ -8,6 +8,14 @@
     public abstract class Empty: Complex
     {
         /// <summary>
+        /// Returns Type.Empty.
+        /// </summary>
+        public override Type Type
+        {
+            get { return Type.Empty; }
+        }
+
+        /// <summary>
         /// Saves the empty element to the specified System.Xml.XmlWriter.
         /// </summary>
         /// <param name="writer">

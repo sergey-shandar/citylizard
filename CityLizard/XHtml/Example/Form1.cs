@@ -20,7 +20,7 @@ namespace CityLizard.XHtml.Example
 
         public class Generator : H.X
         {
-            public static T.html Generate()
+            public T.html Generate()
             {
                 return
                     html
@@ -58,7 +58,7 @@ namespace CityLizard.XHtml.Example
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            var h = Generator.Generate();
+            var h = new Generator().Generate();
             var s = h.ToString();
             this.webBrowser1.DocumentText = s;
         }

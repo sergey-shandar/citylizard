@@ -47,10 +47,10 @@
         /// <param name="implementation">The implementation.</param>
         /// <param name="namespace">The namespace.</param>
         /// <param name="name">The local name.</param>
-        protected override void SetUpNew(
+        protected override void SetUp(
             Implementation implementation, string @namespace, string name)
         {
-            base.SetUpNew(implementation, @namespace, name);
+            base.SetUp(implementation, @namespace, name);
             this.A = new AttributeList();
         }
 

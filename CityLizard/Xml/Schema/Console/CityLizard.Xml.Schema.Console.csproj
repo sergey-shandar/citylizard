@@ -59,6 +59,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\CodeDom\CityLizard.CodeDom.csproj">
+      <Project>{ACF5201B-625E-4356-A515-9D11768881A3}</Project>
+      <Name>CityLizard.CodeDom</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CityLizard.Xml.Schema.csproj">
       <Project>{B65374FF-0CC7-470B-A138-7968EE9B1187}</Project>
       <Name>CityLizard.Xml.Schema</Name>

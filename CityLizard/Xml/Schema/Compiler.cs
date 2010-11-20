@@ -37,8 +37,10 @@
                     x => (x.Use == XS.XmlSchemaUse.Required) == required))
             {
                 var name = a.QualifiedName.Name;
-                var p = Parameter<string>(
-                    CS.Name.Cast(name), required ? null : Primitive(null));
+                var p = Parameter(
+                    TypeRef<string>(), 
+                    CS.Name.Cast(name), 
+                    required ? null : Primitive(null));
                 attributes.Parameters.Add(p);
                 attributes.Invokes.Add(
                     Invoke(
@@ -64,6 +66,24 @@
                     TypeRef<E.NotMixed>());
         }
 
+        private static C.HashSet<int> Start = new C.HashSet<int> { 0 };
+
+        private static string Name(C.HashSet<int> s)
+        {
+            var r = "";
+            foreach (var i in s)
+            {
+                r += "_" + i;
+            }
+            return r;
+        }
+
+        private static string Name(
+            C.HashSet<int> self, string selfName, C.HashSet<int> key)
+        {
+            return comparer.Equals(key, self) ? selfName : Name(key);
+        }
+
         private void SetType(
             ElementSet newToDo,
             XS.XmlSchemaElement element,
@@ -77,17 +97,10 @@
             var attributes = new Attributes();
 
             var name = CS.Name.Cast(qName.Name);
-            var implementation =
-                Parameter<Xml.Implementation>("Implementation");
+            var implementation = 
+                Parameter(TypeRef<Xml.Implementation>(), "Implementation");
 
             var csType = Type(Name: name, Attributes: A.Public);
-            /*
-            var typeRef = TypeRef("T." + name);
-            var new_ = New(typeRef)[This()];
-            var method = Method(
-                Name: name + "_", Attributes: A.Public, Return: typeRef)
-                [Return(new_)];
-            */
             //
             var x = 
                 Type
@@ -97,7 +110,7 @@
                     )
                     [TypeRef<Xml.Implementation>()]
                     [Type
-                        (Name: "T",
+                        (   Name: "T",
                             IsPartial: true,
                             Attributes: A.Static | A.Public
                         )
@@ -113,21 +126,30 @@
             // complex type
             else
             {
+                // Attributes.
                 attributes.A = complexType.AttributeUsesTyped();
                 this.AddAttributes(attributes, true);
                 this.AddAttributes(attributes, false);
-                //
+
+                // DFA
                 var dfa = new ComplexTypeToDfa(newToDo).Apply(complexType);
-                //
+
+                // At least one such element has to exsist.
                 var self = dfa.D.First(p => p.Value.Accept).Key;
+
+                // If no transitions from start then element is empty.
+                // Exactly one start exsist in DFA.
+                var isEmpty = dfa.D[Start].Count == 0;
+
                 //
-                var isEmpty = dfa.D[new C.HashSet<int> { 0 }].Count == 0;
+                this.AddBase(csType, complexType, isEmpty);
+
                 //
-                var i = 0;                
                 foreach (var p in dfa.D)
                 {
                     T.Type pType;
                     string pName;
+
                     //
                     if (comparer.Equals(p.Key, self))
                     {
@@ -136,16 +158,28 @@
                     }
                     else
                     {
-                        var local = "_" + i.ToString();
+                        var local = Name(p.Key);
                         pType = Type(
                             Name: local, Attributes: A.Public);
                         this.AddBase(pType, complexType, isEmpty);
                         csType.Append(pType);
                         pName = name + "." + local;
                     }
+
                     //
-                    if (comparer.Equals(p.Key, new C.HashSet<int> { 0 }))
+                    foreach (var s in p.Value)
+                    {                        
+                        var returnTypeRef = TypeRef(Name(self, name, s.Value));
+                        pType.Append(
+                            Property("Item", returnTypeRef, A.Public)
+                                );
+                    }
+
+                    // If start element.
+                    // Exactly one start exsists in DFA.
+                    if (comparer.Equals(p.Key, Start))
                     {
+                        // Constructor.
                         pType.Append(
                             Constructor(Attributes: A.Assembly)
                                 [implementation]
@@ -156,24 +190,28 @@
                                     [Primitive(qName.Name)]
                                 ]
                                 [attributes.Invokes]);
+
                         var typeRef = TypeRef("T." + pName);
+
+                        // Method.
                         x.Append(
-                            Method(Name: name, Attributes: A.Public, Return: typeRef)
+                            Method
+                                (   Name: name,
+                                    Attributes: A.Public,
+                                    Return: typeRef
+                                )
                                 [attributes.Parameters]
                                 [Return
                                     (New(typeRef)
                                         [This()]
-                                        [attributes.Parameters.Select(y => y.Ref())]
+                                        [attributes.Parameters.
+                                            Select(y => y.Ref())
+                                        ]
                                     )
                                 ]);
                     }
-                    //
-                    ++i;
                 }
                 //
-                this.AddBase(csType, complexType, isEmpty);
-                // method.Append(attributes.Parameters);
-                // new_.Append(attributes.Parameters.Select(x => x.Ref()));
             }
         }
 

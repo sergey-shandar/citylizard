@@ -114,6 +114,20 @@
                         return this;
                     }
                 }
+
+                public void Append(Property Property)
+                {
+                    this.Members.Add(Property);
+                }
+
+                public Type this[Property Property]
+                {
+                    get
+                    {
+                        this.Append(Property);
+                        return this;
+                    }
+                }
             }
 
             public class TypeRef : D.CodeTypeReference
@@ -284,6 +298,33 @@
                 }
             }
 
+            public class Property : D.CodeMemberProperty
+            {
+                public Property(
+                    string Name, 
+                    TypeRef Type,
+                    D.MemberAttributes Attributes = default(D.MemberAttributes))
+                {
+                    this.Name = Name;
+                    this.Type = Type;
+                    this.Attributes = Attributes;
+                }
+
+                public void Append(Parameter Parameter)
+                {
+                    this.Parameters.Add(Parameter);
+                }
+
+                public Property this[Parameter Parameter]
+                {
+                    get
+                    {
+                        this.Append(Parameter);
+                        return this;
+                    }
+                }
+            }
+
             public class Parameter : D.CodeParameterDeclarationExpression
             {
                 public readonly new string Name;
@@ -301,12 +342,21 @@
                                     "null" : Value.Value.ToString()));
                 }
 
+                public Parameter(TypeRef TypeRef, string Name, Primitive Value = null) :
+                    base(TypeRef, ToName(Name, Value))
+                {
+                    this.Name = Name;
+                    this.Value = Value;
+                }
+
+                /*
                 public Parameter(S.Type Type, string Name, Primitive Value = null):
                     base(Type, ToName(Name, Value))
                 {
                     this.Name = Name;
                     this.Value = Value;
                 }
+                 * */
 
                 public VariableRef Ref()
                 {
@@ -472,9 +522,18 @@
             return new T.Constructor(Attributes);
         }
 
-        public T.Parameter Parameter<U>(string Name, T.Primitive Value = null)
+        public T.Property Property(
+            string Name,
+            T.TypeRef Type,
+            D.MemberAttributes Attributes = default(D.MemberAttributes))
         {
-            return new T.Parameter(typeof(U), Name, Value);
+            return new T.Property(Name, Type, Attributes);
+        }
+
+        public T.Parameter Parameter(
+            T.TypeRef TypeRef, string Name, T.Primitive Value = null)
+        {
+            return new T.Parameter(TypeRef, Name, Value);
         }
 
         public T.VariableRef VariableRef(string Name)

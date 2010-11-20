@@ -7,11 +7,11 @@
     [N.TestFixture]
     public static class XmlTest
     {
-        class NotEmpty: Xml.Linked.Element.NotEmpty
+        class NotEmpty: Xml.Linked.Element.Mixed
         {
             public NotEmpty(Xml.QName q)
             {
-                this.SetUpNew(null, q.Namespace, q.LocalName);
+                this.SetUp(null, q.Namespace, q.LocalName);
             }
         }
 
@@ -19,7 +19,7 @@
         {
             public Empty(Xml.QName q)
             {
-                this.SetUpNew(null, q.Namespace, q.LocalName);
+                this.SetUp(null, q.Namespace, q.LocalName);
             }
         }
 
@@ -86,7 +86,7 @@
                     {
                         internal _0(Xml.Implementation implementation)
                         {
-                            this.SetUpNew(
+                            this.SetUp(
                                 implementation, "http://example.org/", "html");
                         }
 
@@ -134,7 +134,7 @@
                             Xml.Implementation implementation,
                             string id = null)
                         {
-                            this.SetUpNew(
+                            this.SetUp(
                                 implementation, "http://example.org/", "head");
                             this.AddOptionalAttribute("id", id);
                         }
@@ -167,7 +167,7 @@
                 {
                     internal body(Xml.Implementation implementation)
                     {
-                        this.SetUpNew(
+                        this.SetUp(
                             implementation, "http://example.org/", "body");
                     }
                 }
@@ -176,7 +176,7 @@
                 {
                     internal title(Xml.Implementation implementation)
                     {
-                        this.SetUpNew(
+                        this.SetUp(
                             implementation, "http://example.org/", "title");
                     }
                 }

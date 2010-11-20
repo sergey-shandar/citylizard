@@ -6,6 +6,14 @@
     public abstract class Mixed: NotEmpty
     {
         /// <summary>
+        /// Returns Type.Mixed.
+        /// </summary>
+        public override Type Type
+        {
+            get { return Type.Mixed; }
+        }
+
+        /// <summary>
         /// Adds the text node.
         /// </summary>
         /// <param name="text">The text node.</param>
@@ -18,7 +26,7 @@
         /// Adds the text.
         /// </summary>
         /// <param name="text">The text.</param>
-        public void AddText(string text)
+        public void Add(string text)
         {
             var t = new Text();
             this.Add(t);

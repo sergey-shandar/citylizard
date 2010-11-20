@@ -4,13 +4,15 @@
     using D = System.CodeDom;
     using C = System.Collections.Generic;
 
+    using System.Linq;
+
     public partial class CodeDom
     {
         public static class T
         {
             public class Unit : D.CodeCompileUnit
             {
-                public void Append(Namespace Namespace)
+                public void Add(Namespace Namespace)
                 {
                     this.Namespaces.Add(Namespace);
                 }
@@ -19,7 +21,7 @@
                 {
                     get
                     {
-                        this.Append(Namespace);
+                        this.Add(Namespace);
                         return this;
                     }
                 }
@@ -31,7 +33,7 @@
                 {
                 }
 
-                public void Append(Type Type)
+                public void Add(Type Type)
                 {
                     this.Types.Add(Type);
                 }
@@ -40,7 +42,7 @@
                 {
                     get
                     {
-                        this.Append(Type);
+                        this.Add(Type);
                         return this;
                     }
                 }
@@ -59,7 +61,7 @@
                     this.Attributes = Attributes;
                 }
 
-                public void Append(Type Type)
+                public void Add(Type Type)
                 {
                     this.Members.Add(Type);
                 }
@@ -68,12 +70,12 @@
                 {
                     get
                     {
-                        this.Append(Type);
+                        this.Add(Type);
                         return this;
                     }
                 }
 
-                public void Append(TypeRef TypeRef)
+                public void Add(TypeRef TypeRef)
                 {
                     this.BaseTypes.Add(TypeRef);
                 }
@@ -82,12 +84,12 @@
                 {
                     get
                     {
-                        this.Append(TypeRef);
+                        this.Add(TypeRef);
                         return this;
                     }
                 }
 
-                public void Append(Method Method)
+                public void Add(Method Method)
                 {
                     this.Members.Add(Method);
                 }
@@ -96,12 +98,12 @@
                 {
                     get
                     {
-                        this.Append(Method);
+                        this.Add(Method);
                         return this;
                     }
                 }
 
-                public void Append(Constructor Constructor)
+                public void Add(Constructor Constructor)
                 {
                     this.Members.Add(Constructor);
                 }
@@ -110,12 +112,12 @@
                 {
                     get
                     {
-                        this.Append(Constructor);
+                        this.Add(Constructor);
                         return this;
                     }
                 }
 
-                public void Append(Property Property)
+                public void Add(Property Property)
                 {
                     this.Members.Add(Property);
                 }
@@ -124,7 +126,7 @@
                 {
                     get
                     {
-                        this.Append(Property);
+                        this.Add(Property);
                         return this;
                     }
                 }
@@ -153,7 +155,16 @@
                     this.ReturnType = Return;
                 }
 
-                public void Append(Parameter Parameter)
+                public Method(
+                    TypeRef Return, 
+                    D.MemberAttributes Attributes = default(D.MemberAttributes))
+                {
+                    this.Name = "implicit operator " + Return.BaseType;
+                    this.Attributes = Attributes | D.MemberAttributes.Static;
+                    this.ReturnType = new D.CodeTypeReference(" ");
+                }
+
+                public void Add(Parameter Parameter)
                 {
                     this.Parameters.Add(Parameter);
                 }
@@ -162,16 +173,16 @@
                 {
                     get
                     {
-                        this.Append(Parameter);
+                        this.Add(Parameter);
                         return this;
                     }
                 }
 
-                public void Append(C.IEnumerable<Parameter> ParameterList)
+                public void Add(C.IEnumerable<Parameter> ParameterList)
                 {
                     foreach (var p in ParameterList)
                     {
-                        this.Append(p);
+                        this.Add(p);
                     }
                 }
 
@@ -179,12 +190,12 @@
                 {
                     get
                     {
-                        this.Append(ParameterList);
+                        this.Add(ParameterList);
                         return this;
                     }
                 }
 
-                public void Append(Return Return)
+                public void Add(Return Return)
                 {
                     this.Statements.Add(Return);
                 }
@@ -193,7 +204,21 @@
                 {
                     get
                     {
-                        this.Append(Return);
+                        this.Add(Return);
+                        return this;
+                    }
+                }
+
+                public void Add(Invoke Invoke)
+                {
+                    this.Statements.Add(Invoke);
+                }
+
+                public Method this[Invoke Invoke]
+                {
+                    get
+                    {
+                        this.Add(Invoke);
                         return this;
                     }
                 }
@@ -207,7 +232,7 @@
                     this.Attributes = Attributes;
                 }
 
-                public void Append(Parameter Parameter)
+                public void Add(Parameter Parameter)
                 {
                     this.Parameters.Add(Parameter);
                 }
@@ -216,12 +241,12 @@
                 {
                     get
                     {
-                        this.Append(Parameter);
+                        this.Add(Parameter);
                         return this;
                     }
                 }
 
-                public void Append(C.IEnumerable<Parameter> ParameterList)
+                public void Add(C.IEnumerable<Parameter> ParameterList)
                 {
                     foreach (var p in ParameterList)
                     {
@@ -233,12 +258,12 @@
                 {
                     get
                     {
-                        this.Append(ParameterList);
+                        this.Add(ParameterList);
                         return this;
                     }
                 }
 
-                public void Append(VariableRef VariableRef)
+                public void Add(VariableRef VariableRef)
                 {
                     this.BaseConstructorArgs.Add(VariableRef);
                 }
@@ -247,12 +272,12 @@
                 {
                     get
                     {
-                        this.Append(VariableRef);
+                        this.Add(VariableRef);
                         return this;
                     }
                 }
 
-                public void Append(Primitive Primitive)
+                public void Add(Primitive Primitive)
                 {
                     this.BaseConstructorArgs.Add(Primitive);
                 }
@@ -261,12 +286,12 @@
                 {
                     get
                     {
-                        this.Append(Primitive);
+                        this.Add(Primitive);
                         return this;
                     }
                 }
 
-                public void Append(Invoke Invoke)
+                public void Add(Invoke Invoke)
                 {
                     this.Statements.Add(Invoke);
                 }
@@ -275,12 +300,12 @@
                 {
                     get
                     {
-                        this.Append(Invoke);
+                        this.Add(Invoke);
                         return this;
                     }
                 }
 
-                public void Append(C.IEnumerable<Invoke> InvokeList)
+                public void Add(C.IEnumerable<Invoke> InvokeList)
                 {
                     foreach (var i in InvokeList)
                     {
@@ -292,7 +317,46 @@
                 {
                     get
                     {
-                        this.Append(InvokeList);
+                        this.Add(InvokeList);
+                        return this;
+                    }
+                }
+            }
+
+            public class Get: D.CodeStatementCollection
+            {
+                public C.IEnumerable<D.CodeStatement> Typed
+                {
+                    get
+                    {
+                        return this.Cast<D.CodeStatement>();
+                    }
+                }
+
+                public void Add(Return Return)
+                {
+                    base.Add(Return);
+                }
+
+                public Get this[Return Return]
+                {
+                    get
+                    {
+                        this.Add(Return);
+                        return this;
+                    }
+                }
+
+                public void Add(Invoke Invoke)
+                {
+                    base.Add(Invoke);
+                }
+
+                public Get this[Invoke Invoke]
+                {
+                    get
+                    {
+                        this.Add(Invoke);
                         return this;
                     }
                 }
@@ -310,7 +374,7 @@
                     this.Attributes = Attributes;
                 }
 
-                public void Append(Parameter Parameter)
+                public void Add(Parameter Parameter)
                 {
                     this.Parameters.Add(Parameter);
                 }
@@ -319,7 +383,25 @@
                 {
                     get
                     {
-                        this.Append(Parameter);
+                        this.Add(Parameter);
+                        return this;
+                    }
+                }
+
+                public void Add(Get Get)
+                {
+                    this.HasGet = true;
+                    foreach(var i in Get.Typed)
+                    {
+                        this.GetStatements.Add(i);
+                    }
+                }
+
+                public Property this[Get Get]
+                {
+                    get
+                    {
+                        this.Add(Get);
                         return this;
                     }
                 }
@@ -342,21 +424,13 @@
                                     "null" : Value.Value.ToString()));
                 }
 
-                public Parameter(TypeRef TypeRef, string Name, Primitive Value = null) :
+                public Parameter(
+                    TypeRef TypeRef, string Name, Primitive Value = null) :
                     base(TypeRef, ToName(Name, Value))
                 {
                     this.Name = Name;
                     this.Value = Value;
                 }
-
-                /*
-                public Parameter(S.Type Type, string Name, Primitive Value = null):
-                    base(Type, ToName(Name, Value))
-                {
-                    this.Name = Name;
-                    this.Value = Value;
-                }
-                 * */
 
                 public VariableRef Ref()
                 {
@@ -376,6 +450,10 @@
                 public Return(New New): base(New)
                 {
                 }
+
+                public Return(This This): base(This)
+                {
+                }
             }
 
             public class New : D.CodeObjectCreateExpression
@@ -384,7 +462,7 @@
                 {
                 }
 
-                public void Append(VariableRef VariableRef)
+                public void Add(VariableRef VariableRef)
                 {
                     this.Parameters.Add(VariableRef);
                 }
@@ -393,12 +471,12 @@
                 {
                     get
                     {
-                        this.Append(VariableRef);
+                        this.Add(VariableRef);
                         return this;
                     }
                 }
 
-                public void Append(This This)
+                public void Add(This This)
                 {
                     this.Parameters.Add(This);
                 }
@@ -407,12 +485,12 @@
                 {
                     get
                     {
-                        this.Append(This);
+                        this.Add(This);
                         return this;
                     }
                 }
 
-                public void Append(C.IEnumerable<VariableRef> VariableRefList)
+                public void Add(C.IEnumerable<VariableRef> VariableRefList)
                 {
                     foreach (var r in VariableRefList)
                     {
@@ -424,7 +502,7 @@
                 {
                     get
                     {
-                        this.Append(VariableRefList);
+                        this.Add(VariableRefList);
                         return this;
                     }
                 }
@@ -450,7 +528,7 @@
                 {
                 }
 
-                public void Append(VariableRef VariableRef)
+                public void Add(VariableRef VariableRef)
                 {
                     this.Parameters.Add(VariableRef);
                 }
@@ -459,12 +537,12 @@
                 {
                     get
                     {
-                        this.Append(VariableRef);
+                        this.Add(VariableRef);
                         return this;
                     }
                 }
 
-                public void Append(Primitive Primitive)
+                public void Add(Primitive Primitive)
                 {
                     this.Parameters.Add(Primitive);
                 }
@@ -473,7 +551,7 @@
                 {
                     get
                     {
-                        this.Append(Primitive);
+                        this.Add(Primitive);
                         return this;
                     }
                 }
@@ -516,10 +594,22 @@
             return new T.Method(Name, Attributes, Return);
         }
 
+        public T.Method Method(
+            T.TypeRef Return, 
+            D.MemberAttributes Attributes = default(D.MemberAttributes))
+        {
+            return new T.Method(Return, Attributes);
+        }
+
         public T.Constructor Constructor(
             D.MemberAttributes Attributes = default(D.MemberAttributes))
         {
             return new T.Constructor(Attributes);
+        }
+
+        public T.Get Get()
+        {
+            return new T.Get();
         }
 
         public T.Property Property(
@@ -544,6 +634,11 @@
         public T.Return Return(T.New New)
         {
             return new T.Return(New);
+        }
+
+        public T.Return Return(T.This This)
+        {
+            return new T.Return(This);
         }
 
         public T.New New(T.TypeRef TypeRef)

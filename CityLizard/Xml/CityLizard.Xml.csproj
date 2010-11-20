@@ -66,6 +66,7 @@
     <Compile Include="Linked\Element\NotEmpty.cs" />
     <Compile Include="Linked\Element\NotMixed.cs" />
     <Compile Include="Linked\Element\Simple.cs" />
+    <Compile Include="Linked\Element\Type.cs" />
     <Compile Include="Linked\LinkedNode.cs" />
     <Compile Include="Linked\Text.cs" />
     <Compile Include="Node.cs" />

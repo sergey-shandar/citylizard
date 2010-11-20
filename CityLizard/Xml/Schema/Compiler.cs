@@ -29,42 +29,35 @@
             public C.IEnumerable<XS.XmlSchemaAttribute> A;
         }
 
-        private void AddAttributes(Attributes attributes, bool required)
+        private bool AddAttributes(Attributes attributes, bool required)
         {
+            var result = false;
             foreach (
                 var a in
                 attributes.A.Where(
-                    x => (x.Use == XS.XmlSchemaUse.Required) == required))
+                    x =>
+                        x.QualifiedName.Namespace == "" &&
+                        (x.Use == XS.XmlSchemaUse.Required) == required))
             {
                 var name = a.QualifiedName.Name;
                 var p = Parameter(
-                    TypeRef<string>(), 
-                    CS.Name.Cast(name), 
+                    TypeRef<string>(),
+                    CS.Name.Cast(name),
                     required ? null : Primitive(null));
                 attributes.Parameters.Add(p);
                 attributes.Invokes.Add(
                     Invoke(
-                        required ? 
+                        required ?
                             "AddRequiredAttribute" : "AddOptionalAttribute")
                         [Primitive(name)]
                         [p.Ref()]);
+                result = true;
             }
+            return result;
         }
 
         private static readonly C.IEqualityComparer<C.HashSet<int>> comparer =
             C.HashSet<int>.CreateSetComparer();
-
-        private void AddBase(
-            T.Type type, XS.XmlSchemaComplexType complexType, bool isEmpty)
-        {
-            type.Append(
-                complexType.IsMixed ?
-                    TypeRef<E.Mixed>() :
-                isEmpty ?
-                    TypeRef<E.Empty>() :
-                // else
-                    TypeRef<E.NotMixed>());
-        }
 
         private static C.HashSet<int> Start = new C.HashSet<int> { 0 };
 
@@ -116,19 +109,19 @@
                         )
                         [csType]
                     ];
-            this.U.Append(Namespace(CS.Namespace.Cast(qName.Namespace))[x]);
+            this.U.Add(Namespace(CS.Namespace.Cast(qName.Namespace))[x]);
 
             // simple type
             if(complexType == null)
             {
-                csType.Append(TypeRef<E.Simple>());
+                csType.Add(TypeRef<E.Simple>());
             }
             // complex type
             else
             {
                 // Attributes.
                 attributes.A = complexType.AttributeUsesTyped();
-                this.AddAttributes(attributes, true);
+                var attributesRequired = this.AddAttributes(attributes, true);
                 this.AddAttributes(attributes, false);
 
                 // DFA
@@ -141,8 +134,25 @@
                 // Exactly one start exsist in DFA.
                 var isEmpty = dfa.D[Start].Count == 0;
 
+                var elementType =
+                    complexType.IsMixed ?
+                        E.Type.Mixed :
+                    isEmpty ?
+                        E.Type.Empty :
+                    // else
+                        E.Type.NotMixed;
+
+                // Base type. One of Mixed, Empty, NotMixed.
+                var baseTypeRef = 
+                    elementType == E.Type.Mixed ?
+                        TypeRef<E.Mixed>() :
+                    elementType == E.Type.Empty ?
+                        TypeRef<E.Empty>() :
+                    // else
+                        TypeRef<E.NotMixed>();
+
                 //
-                this.AddBase(csType, complexType, isEmpty);
+                csType.Add(baseTypeRef);
 
                 //
                 foreach (var p in dfa.D)
@@ -155,24 +165,117 @@
                     {
                         pType = csType;
                         pName = name;
+
+                        if (elementType != E.Type.Empty)
+                        {
+                            var part0 = Parameter(baseTypeRef, "Part0");
+                            pType.Add(
+                                Constructor(Attributes: A.Assembly)
+                                    [part0]
+                                    [Invoke("SetUp")[part0.Ref()]]);
+                        }
                     }
                     else
                     {
                         var local = Name(p.Key);
                         pType = Type(
                             Name: local, Attributes: A.Public);
-                        this.AddBase(pType, complexType, isEmpty);
-                        csType.Append(pType);
+                        pType.Add(baseTypeRef);
+                        csType.Add(pType);
                         pName = name + "." + local;
+
+                        // Implicit cast.
+                        if (p.Value.Accept)
+                        {
+                            var typeRef = TypeRef(name);
+                            var parameter = Parameter(TypeRef(local), local);
+                            pType.Add(
+                                Method(typeRef, A.Public)
+                                    [parameter]
+                                    [Return
+                                        (New(typeRef)[parameter.Ref()])
+                                    ]);
+                        }
                     }
 
                     //
                     foreach (var s in p.Value)
-                    {                        
-                        var returnTypeRef = TypeRef(Name(self, name, s.Value));
-                        pType.Append(
+                    {                
+                        var returnTypeName = Name(self, name, s.Value);
+                        var returnTypeRef = TypeRef(returnTypeName);
+                        var parameterName = CS.Name.Cast(s.Key.Name);
+                        var parameter = 
+                            Parameter(TypeRef(parameterName), parameterName);
+                        var parameterRef = parameter.Ref();
+                        var get = Get();
+
+                        //
+                        if (comparer.Equals(p.Key, s.Value))
+                        {
+                            pType.Add(
+                                Method("Add", A.Public)
+                                    [parameter]
+                                    [Invoke("AddLinkedNodeOptional")
+                                        [parameterRef]
+                                    ]);
+                            get.Add(Invoke("Add")[parameterRef]);
+                            get.Add(Return(This()));
+                        }
+                        else
+                        {
+                            get.Add(
+                                Return
+                                    (New(returnTypeRef)
+                                        [This()]
+                                        [parameterRef]
+                                    ));
+                        }
+                        pType.Add(
                             Property("Item", returnTypeRef, A.Public)
-                                );
+                                [parameter]
+                                [get]);
+                    }
+
+                    var ctor = Constructor(Attributes: A.Assembly);
+                    pType.Add(ctor);
+
+                    // Comments.
+                    if (elementType != E.Type.Empty)
+                    {
+                        var parameter = Parameter(TypeRef<Linked.Comment>(), "Comment");
+                        pType.Add(
+                            Property("Item", TypeRef(pName), A.Public)
+                                [parameter]
+                                [Get()
+                                    [Invoke("Add")[parameter.Ref()]]
+                                    [Return(This())]
+                                ]);
+                    }
+
+                    // Text.
+                    if (elementType == E.Type.Mixed)
+                    {
+                        {
+                            var parameter = Parameter(TypeRef<string>(), "Text");
+                            pType.Add(
+                                Property("Item", TypeRef(pName), A.Public)
+                                    [parameter]
+                                    [Get()
+                                        [Invoke("Add")[parameter.Ref()]]
+                                        [Return(This())]
+                                    ]);
+                        }
+                        //
+                        {
+                            var parameter = Parameter(TypeRef<Linked.Text>(), "Text");
+                            pType.Add(
+                                Property("Item", TypeRef(pName), A.Public)
+                                    [parameter]
+                                    [Get()
+                                        [Invoke("Add")[parameter.Ref()]]
+                                        [Return(This())]
+                                    ]);
+                        }
                     }
 
                     // If start element.
@@ -180,23 +283,22 @@
                     if (comparer.Equals(p.Key, Start))
                     {
                         // Constructor.
-                        pType.Append(
-                            Constructor(Attributes: A.Assembly)
-                                [implementation]
-                                [attributes.Parameters]
-                                [Invoke("SetUpNew")
-                                    [implementation.Ref()]
-                                    [Primitive(qName.Namespace)]
-                                    [Primitive(qName.Name)]
-                                ]
-                                [attributes.Invokes]);
+                        ctor.Add(implementation);
+                        ctor.Add(attributes.Parameters);
+                        // Constructor body.
+                        ctor.Add(
+                            Invoke("SetUp")
+                                [implementation.Ref()]
+                                [Primitive(qName.Namespace)]
+                                [Primitive(qName.Name)]);
+                        ctor.Add(attributes.Invokes);
 
                         var typeRef = TypeRef("T." + pName);
 
                         // Method.
-                        x.Append(
+                        x.Add(
                             Method
-                                (   Name: name,
+                                (   Name: name + "_",
                                     Attributes: A.Public,
                                     Return: typeRef
                                 )
@@ -209,6 +311,32 @@
                                         ]
                                     )
                                 ]);
+
+                        // Property
+                        if (!attributesRequired)
+                        {
+                            x.Add(
+                                Property
+                                    (   Name: name, 
+                                        Type: typeRef, 
+                                        Attributes: A.Public
+                                    )
+                                    [Get()
+                                        [Return(New(typeRef)[This()])]
+                                    ]);
+                        }
+                    }
+                    else
+                    {
+                        var part0 = Parameter(baseTypeRef, "Part0");
+                        var elementP = Parameter(
+                            TypeRef<Linked.Element.Element>(), "Element");
+                        // Constructor parameters.
+                        ctor.Add(part0);
+                        ctor.Add(elementP);
+                        // Constructor body.
+                        ctor.Add(
+                            Invoke("SetUp")[part0.Ref()][elementP.Ref()]);
                     }
                 }
                 //

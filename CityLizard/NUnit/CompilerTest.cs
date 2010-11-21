@@ -42,7 +42,7 @@
             //
             using (var w =
                 new IO.StreamWriter(
-                    "../../../XHtml/graphml.xsd.cs"))
+                    "../../../GraphML/graphml.xsd.cs"))
             {
                 w.Write(code);
             }

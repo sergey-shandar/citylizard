@@ -99,7 +99,7 @@ $xhtml11_xsd_cs = Join-Path $root "CityLizard\XHtml\xhtml11.xsd.cs"
 ""
 "Building graphml.xsd.cs"
 $graphml_xsd = Join-Path $root "graphml.graphdrawing.org\xmlns\1.1\graphml.xsd"
-$graphml_xsd_cs = Join-Path $root "CityLizard\XHtml\graphml.xsd.cs"
+$graphml_xsd_cs = Join-Path $root "CityLizard\GraphML\graphml.xsd.cs"
 &$console $graphml_xsd $graphml_xsd_cs
 
 #

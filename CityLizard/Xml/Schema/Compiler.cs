@@ -77,6 +77,34 @@
             return comparer.Equals(key, self) ? selfName : Name(key);
         }
 
+        private void AddProperty(
+            T.Type type,
+            T.TypeRef result,
+            T.Parameter parameter,
+            T.Get get)            
+        {
+            type.Add(
+                Property("Item", result, A.Public)
+                    [parameter]
+                    [get]);
+        }
+
+        private void AddProperty(
+            T.Type type, 
+            T.TypeRef result, 
+            T.TypeRef parameter, 
+            string parameterName)
+        {
+            var p = Parameter(parameter, parameterName);
+            this.AddProperty(
+                type,
+                result,
+                p,
+                Get()
+                    [Invoke("Add")[p.Ref()]]
+                    [Return(This())]);
+        }
+
         private void SetType(
             ElementSet newToDo,
             XS.XmlSchemaElement element,
@@ -207,7 +235,6 @@
                         var parameter = 
                             Parameter(TypeRef(parameterName), parameterName);
                         var parameterRef = parameter.Ref();
-                        var get = Get();
 
                         //
                         if (comparer.Equals(p.Key, s.Value))
@@ -218,22 +245,43 @@
                                     [Invoke("AddLinkedNodeOptional")
                                         [parameterRef]
                                     ]);
-                            get.Add(Invoke("Add")[parameterRef]);
-                            get.Add(Return(This()));
+                            this.AddProperty(
+                                pType,
+                                returnTypeRef,
+                                TypeRef(parameterName),
+                                parameterName);
+                            var listTypeRef = TypeRef(
+                                "System.Collections.Generic.IEnumerable<" + 
+                                parameterName + 
+                                ">");
+                            var listParameter = Parameter(
+                                listTypeRef, parameterName);
+                            pType.Add(
+                                Method("Add", A.Public)
+                                    [listParameter]
+                                    [Invoke("AddElementList")
+                                        [listParameter.Ref()]
+                                    ]);
+                            this.AddProperty(
+                                pType, 
+                                returnTypeRef, 
+                                listTypeRef, 
+                                parameterName);
                         }
                         else
                         {
-                            get.Add(
-                                Return
-                                    (New(returnTypeRef)
-                                        [This()]
-                                        [parameterRef]
-                                    ));
+                            this.AddProperty(
+                                pType,
+                                returnTypeRef,
+                                parameter,
+                                Get()
+                                    [Return
+                                            (New(returnTypeRef)
+                                                [This()]
+                                                [parameterRef]
+                                            )
+                                    ]);
                         }
-                        pType.Add(
-                            Property("Item", returnTypeRef, A.Public)
-                                [parameter]
-                                [get]);
                     }
 
                     var ctor = Constructor(Attributes: A.Assembly);
@@ -242,40 +290,23 @@
                     // Comments.
                     if (elementType != E.Type.Empty)
                     {
-                        var parameter = Parameter(TypeRef<Linked.Comment>(), "Comment");
-                        pType.Add(
-                            Property("Item", TypeRef(pName), A.Public)
-                                [parameter]
-                                [Get()
-                                    [Invoke("Add")[parameter.Ref()]]
-                                    [Return(This())]
-                                ]);
+                        this.AddProperty(
+                            pType, 
+                            TypeRef(pName), 
+                            TypeRef<Linked.Comment>(), 
+                            "Comment");
                     }
 
                     // Text.
                     if (elementType == E.Type.Mixed)
                     {
-                        {
-                            var parameter = Parameter(TypeRef<string>(), "Text");
-                            pType.Add(
-                                Property("Item", TypeRef(pName), A.Public)
-                                    [parameter]
-                                    [Get()
-                                        [Invoke("Add")[parameter.Ref()]]
-                                        [Return(This())]
-                                    ]);
-                        }
-                        //
-                        {
-                            var parameter = Parameter(TypeRef<Linked.Text>(), "Text");
-                            pType.Add(
-                                Property("Item", TypeRef(pName), A.Public)
-                                    [parameter]
-                                    [Get()
-                                        [Invoke("Add")[parameter.Ref()]]
-                                        [Return(This())]
-                                    ]);
-                        }
+                        this.AddProperty(
+                            pType, TypeRef(pName), TypeRef<string>(), "Text");
+                        this.AddProperty(
+                            pType, 
+                            TypeRef(pName), 
+                            TypeRef<Linked.Text>(), 
+                            "Text");
                     }
 
                     // If start element.

@@ -9,7 +9,6 @@ relre:.*\.resources$
 glob:CityLizard/NUnit/bin/Debug/nunit.framework.xml
 relre:.*\.VisualState\.xml$
 relre:TestResult\.xml$
-glob:CityLizard/XHtml/xhtml11.xsd.cs
 relre:.*\.user$
 relre:.*\.ipch$
 relre:.*\.opensdf$
@@ -20,3 +19,4 @@ relre:AssemblyInfo.cs$
 relre:.*\.zip$
 relre:.*\.orig$
 relre:.*\.log$
+relre:.*\.xsd\.cs

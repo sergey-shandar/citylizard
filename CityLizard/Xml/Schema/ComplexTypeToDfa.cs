@@ -67,6 +67,18 @@
                 }
             }
 
+            // any
+            {
+                var any = p as XS.XmlSchemaAny;
+                if (any != null)
+                {
+                    var i = this.Fsm.AddNew(set, new X.XmlQualifiedName());
+                    set.Clear();
+                    set.Add(i);
+                    return;
+                }
+            }
+
             //            
             throw new S.Exception(
                 "unknown XmlSchemaObject type: " + p.ToString());

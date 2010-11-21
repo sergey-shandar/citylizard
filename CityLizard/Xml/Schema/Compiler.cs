@@ -231,9 +231,24 @@
                     {                
                         var returnTypeName = Name(self, name, s.Value);
                         var returnTypeRef = TypeRef(returnTypeName);
-                        var parameterName = CS.Name.Cast(s.Key.Name);
-                        var parameter = 
-                            Parameter(TypeRef(parameterName), parameterName);
+
+                        string parameterName;
+                        string parameterTypeName;
+
+                        // Any element.
+                        if (s.Key.Name == "")
+                        {
+                            parameterName = "Element";
+                            parameterTypeName = "CityLizard.Xml.Linked.Element.Element";
+                        }
+                        else
+                        {
+                            parameterName = CS.Name.Cast(s.Key.Name);
+                            parameterTypeName = parameterName;
+                        }
+
+                        var parameter = Parameter(
+                            TypeRef(parameterTypeName), parameterName);
                         var parameterRef = parameter.Ref();
 
                         //
@@ -248,11 +263,11 @@
                             this.AddProperty(
                                 pType,
                                 returnTypeRef,
-                                TypeRef(parameterName),
+                                TypeRef(parameterTypeName),
                                 parameterName);
                             var listTypeRef = TypeRef(
                                 "System.Collections.Generic.IEnumerable<" + 
-                                parameterName + 
+                                parameterTypeName +
                                 ">");
                             var listParameter = Parameter(
                                 listTypeRef, parameterName);

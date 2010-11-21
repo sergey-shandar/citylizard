@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{D317F270-B5F9-4752-BE20-18DA634EF540}</ProjectGuid>
+    <ProjectGuid>{BE5CF38F-DDB5-4138-95FB-996D0BB33073}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CityLizard.GrpahML</RootNamespace>
-    <AssemblyName>CityLizard.GrpahML</AssemblyName>
+    <RootNamespace>CityLizard.GraphML</RootNamespace>
+    <AssemblyName>CityLizard.GraphML</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

@@ -58,12 +58,13 @@
         {
             this.SetUp(part0);
             this.AddLinkedNodeRequired(child);
-        }
+        }       
 
         /// <summary>
         /// Adds the linked node.
         /// </summary>
         /// <param name="n">The linked node.</param>
+        /// <returns>true if n is not null and was added.</returns>
         protected bool AddLinkedNodeOptional(LinkedNode n)
         {
             var result = n != null;
@@ -72,6 +73,20 @@
                 this.Part1.Add(this.InitChild(n));
             }
             return result;
+        }
+
+        /// <summary>
+        /// Adds the list of linked nodes.
+        /// </summary>
+        /// <typeparam name="E">The type of linked nodes.</typeparam>
+        /// <param name="list">The list of linked nodes.</param>
+        protected void AddElementList<E>(C.IEnumerable<E> list)
+            where E: Element
+        {
+            foreach (var n in list)
+            {
+                this.AddLinkedNodeOptional(n);
+            }
         }
 
         /// <summary>

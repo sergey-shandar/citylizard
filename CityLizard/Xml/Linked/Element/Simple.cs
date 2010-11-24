@@ -5,6 +5,13 @@
     /// </summary>
     public abstract class Simple: Element, ICharacterData
     {
+        protected new void SetUp(
+            Implementation implementation, string @namespace, string name, string value)
+        {
+            base.SetUp(implementation, @namespace, name);
+            this.Value = value;
+        }
+
         /// <summary>
         /// Returns Type.Simple.
         /// </summary>

@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <!-- edited with XML Spy v4.0.1 U (http://www.xmlspy.com) by Chris Lilley (W3C Staff) -->
+<!--
 <!DOCTYPE schema SYSTEM "XMLSchema.dtd" [
   <!ENTITY % p ''>
   <!ENTITY % s ''>
@@ -9,10 +10,18 @@
     xmlns:xml CDATA #FIXED "http://www.w3.org/XML/1998/namespace"
 >
 ]>
-<schema targetNamespace="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" elementFormDefault="unqualified" attributeFormDefault="unqualified" xml:lang="en">
+-->
+<schema 
+	targetNamespace="http://www.w3.org/2000/svg" 
+	xmlns="http://www.w3.org/2001/XMLSchema" 
+	xmlns:svg="http://www.w3.org/2000/svg" 
+	xmlns:xlink="http://www.w3.org/1999/xlink" 
+	elementFormDefault="unqualified" 
+	attributeFormDefault="unqualified" 
+	xml:lang="en">
   <!-- don't declare the XML namespace; it is predeclared and redeclaring it upsets some software -->
-  <import namespace="http://www.w3.org/1999/xlink" schemaLocation="xlink.xsd"/>
-  <import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
+  <import namespace="http://www.w3.org/1999/xlink" schemaLocation="../../../XML/2008/06/xlink.xsd"/>
+  <import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="../../../2001/xml.xsd"/>
   <!-- simpleTypes -->
   <simpleType name="BaselineShiftValueType">
     <annotation>
@@ -341,7 +350,10 @@
       <documentation>All elements have an ID</documentation>
     </annotation>
     <attribute name="id" type="ID" use="optional"/>
+	<!--
     <attribute ref="xml:base" type="anyURI" use="optional"/>
+	-->
+    <attribute ref="xml:base" use="optional"/>
   </attributeGroup>
   <attributeGroup name="langSpaceAttrs">
     <annotation>
@@ -842,7 +854,7 @@
   </attributeGroup>
   <attributeGroup name="animElementAttrs">
     <attributeGroup ref="svg:xlinkRefAttrs"/>
-    <attribute ref="xlink:href" type="anyURI" use="optional"/>
+    <attribute ref="xlink:href" use="optional"/>
   </attributeGroup>
   <attributeGroup name="animAttributeAttrs">
     <attribute name="attributeName" type="string" use="required"/>
@@ -1875,7 +1887,10 @@
     </sequence>
     <attributeGroup ref="svg:stdAttrs"/>
     <attributeGroup ref="svg:xlinkRefAttrs"/>
+	<!--
     <attribute ref="xlink:href" type="anyURI" use="optional"/>
+	-->
+    <attribute ref="xlink:href" use="optional"/>
     <attribute name="local" type="string" use="optional"/>
     <attribute name="name" type="string" use="required"/>
     <attribute name="rendering-intent" default="auto">

@@ -139,10 +139,25 @@
                     ];
             this.U.Add(Namespace(CS.Namespace.Cast(qName.Namespace))[x]);
 
+            // Constructor body.
+            var mainSetUp = Invoke("SetUp")
+                [implementation.Ref()]
+                [Primitive(qName.Namespace)]
+                [Primitive(qName.Name)];
+            // Main constructor.
+            var mainCtor = 
+                Constructor(Attributes: A.Assembly)[implementation][mainSetUp];
+
             // simple type
             if(complexType == null)
             {
+                // base type
                 csType.Add(TypeRef<E.Simple>());
+
+                var parameter = Parameter(TypeRef<string>(), "Value");
+                mainCtor.Add(parameter);
+                mainSetUp.Add(parameter.Ref());
+                csType.Add(mainCtor);
             }
             // complex type
             else
@@ -299,9 +314,6 @@
                         }
                     }
 
-                    var ctor = Constructor(Attributes: A.Assembly);
-                    pType.Add(ctor);
-
                     // Comments.
                     if (elementType != E.Type.Empty)
                     {
@@ -329,15 +341,11 @@
                     if (comparer.Equals(p.Key, Start))
                     {
                         // Constructor.
-                        ctor.Add(implementation);
-                        ctor.Add(attributes.Parameters);
+                        mainCtor.Add(attributes.Parameters);
                         // Constructor body.
-                        ctor.Add(
-                            Invoke("SetUp")
-                                [implementation.Ref()]
-                                [Primitive(qName.Namespace)]
-                                [Primitive(qName.Name)]);
-                        ctor.Add(attributes.Invokes);
+                        mainCtor.Add(attributes.Invokes);
+                        //
+                        pType.Add(mainCtor);
 
                         var typeRef = TypeRef("T." + pName);
 
@@ -378,11 +386,11 @@
                         var elementP = Parameter(
                             TypeRef<Linked.Element.Element>(), "Element");
                         // Constructor parameters.
-                        ctor.Add(part0);
-                        ctor.Add(elementP);
-                        // Constructor body.
-                        ctor.Add(
-                            Invoke("SetUp")[part0.Ref()][elementP.Ref()]);
+                        pType.Add(
+                            Constructor(Attributes: A.Assembly)
+                                [part0]
+                                [elementP]
+                                [Invoke("SetUp")[part0.Ref()][elementP.Ref()]]);
                     }
                 }
                 //

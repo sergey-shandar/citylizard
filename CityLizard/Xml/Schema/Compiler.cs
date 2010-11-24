@@ -158,6 +158,22 @@
                 mainCtor.Add(parameter);
                 mainSetUp.Add(parameter.Ref());
                 csType.Add(mainCtor);
+
+                var typeRef = TypeRef("T." + name);
+                // Method.
+                x.Add(
+                    Method
+                        (Name: name + "_",
+                            Attributes: A.Public,
+                            Return: typeRef
+                        )
+                        [parameter]
+                        [Return
+                            (New(typeRef)
+                                [This()]
+                                [parameter.Ref()]
+                            )
+                        ]);
             }
             // complex type
             else

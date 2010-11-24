@@ -17,7 +17,7 @@ namespace CityLizard.GraphML.Example
                     graphml
                         [key_(id: "d0")]
                         [graph_(edgedefault: "directed")
-                            [desc_()]
+                            [desc_("XXX")]
                         ];
             }
         }

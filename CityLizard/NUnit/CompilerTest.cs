@@ -30,7 +30,7 @@
         }
 
         [N.Test]
-        public static void LoadGraphMl()
+        public static void LoadGraphML()
         {
             var u = new S.Compiler().Load(
                 "../../../../graphml.graphdrawing.org/xmlns/1.1/graphml.xsd");
@@ -43,6 +43,25 @@
             using (var w =
                 new IO.StreamWriter(
                     "../../../GraphML/graphml.xsd.cs"))
+            {
+                w.Write(code);
+            }
+        }
+
+        [N.Test]
+        public static void LoadSvg()
+        {
+            var u = new S.Compiler().Load(
+                "../../../../www.w3.org/TR/2002/WD-SVG11-20020108/SVG.xsd");
+            //
+            var t = new IO.StringWriter();
+            new CS.CSharpCodeProvider().GenerateCodeFromCompileUnit(
+                u, t, new D.Compiler.CodeGeneratorOptions());
+            var code = t.ToString();
+            //
+            using (var w =
+                new IO.StreamWriter(
+                    "../../../Svg/svg.xsd.cs"))
             {
                 w.Write(code);
             }

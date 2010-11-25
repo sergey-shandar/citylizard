@@ -10,11 +10,13 @@
     [N.TestFixture]
     public static class CompilerTest
     {
+        private const string thirdParty = "../../../../third_party/";
+
         [N.Test]
         public static void Load()
         {
-            var u = new S.Compiler().Load(
-                "../../../../www.w3.org/MarkUp/SCHEMA/xhtml11.xsd");
+            var u = new S.Compiler().Load(IO.Path.Combine(
+                thirdParty, "www.w3.org/MarkUp/SCHEMA/xhtml11.xsd"));
             //
             var t = new IO.StringWriter();
             new CS.CSharpCodeProvider().GenerateCodeFromCompileUnit(
@@ -32,8 +34,8 @@
         [N.Test]
         public static void LoadGraphML()
         {
-            var u = new S.Compiler().Load(
-                "../../../../graphml.graphdrawing.org/xmlns/1.1/graphml.xsd");
+            var u = new S.Compiler().Load(IO.Path.Combine(
+                thirdParty, "graphml.graphdrawing.org/xmlns/1.1/graphml.xsd"));
             //
             var t = new IO.StringWriter();
             new CS.CSharpCodeProvider().GenerateCodeFromCompileUnit(
@@ -51,8 +53,8 @@
         [N.Test]
         public static void LoadSvg()
         {
-            var u = new S.Compiler().Load(
-                "../../../../www.w3.org/TR/2002/WD-SVG11-20020108/SVG.xsd");
+            var u = new S.Compiler().Load(IO.Path.Combine(
+                thirdParty, "www.w3.org/TR/2002/WD-SVG11-20020108/SVG.xsd"));
             //
             var t = new IO.StringWriter();
             new CS.CSharpCodeProvider().GenerateCodeFromCompileUnit(

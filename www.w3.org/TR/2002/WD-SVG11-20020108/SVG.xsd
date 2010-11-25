@@ -931,11 +931,11 @@
     <annotation>
       <documentation>A bit simpler than the DTD, but see commented-out alternative</documentation>
     </annotation>
-    <all>
+    <sequence>
       <element name="desc" type="svg:descType" minOccurs="0"/>
       <element name="title" type="svg:titleType" minOccurs="0"/>
       <element name="metadata" type="svg:metadataType" minOccurs="0"/>
-    </all>
+    </sequence>
   </group>
   <!--
 	<group name="descTitleMetadata">
@@ -1117,7 +1117,11 @@
     <attribute name="style" type="svg:StyleSheetType" use="optional"/>
     <attributeGroup ref="svg:PresentationAttributes-All"/>
     <attribute name="viewBox" type="svg:ViewBoxSpecType" use="optional"/>
+<!--
+The value 'xMidYMid meet' is invalid according to its schema type 'http://www.w3.org/2000/svg:PreserveAspectRatioSpecType' - The Pattern constraint failed.
     <attribute name="preserveAspectRatio" type="svg:PreserveAspectRatioSpecType" default="xMidYMid meet"/>
+-->
+	<attribute name="preserveAspectRatio" type="svg:PreserveAspectRatioSpecType"/>
     <attribute name="zoomAndPan" default="magnify">
       <simpleType>
         <restriction base="string">
@@ -1303,7 +1307,10 @@
     <attribute name="style" type="svg:StyleSheetType" use="optional"/>
     <attributeGroup ref="svg:PresentationAttributes-All"/>
     <attribute name="viewBox" type="svg:ViewBoxSpecType" use="optional"/>
+<!--
     <attribute name="preserveAspectRatio" type="svg:PreserveAspectRatioSpecType" default="xMidYMid meet"/>
+-->
+    <attribute name="preserveAspectRatio" type="svg:PreserveAspectRatioSpecType"/>
     <attributeGroup ref="svg:graphicsElementEvents"/>
   </complexType>
   <complexType name="useType">
@@ -1865,7 +1872,10 @@
     <attribute name="style" type="svg:StyleSheetType" use="optional"/>
     <attributeGroup ref="svg:PresentationAttributes-All"/>
     <attribute name="viewBox" type="svg:ViewBoxSpecType" use="optional"/>
+	<!--
     <attribute name="preserveAspectRatio" type="svg:PreserveAspectRatioSpecType" default="xMidYMid meet"/>
+	-->
+    <attribute name="preserveAspectRatio" type="svg:PreserveAspectRatioSpecType"/>
     <attribute name="refX" type="svg:CoordinateType" use="optional"/>
     <attribute name="refY" type="svg:CoordinateType" use="optional"/>
     <attribute name="markerUnits" use="optional">
@@ -2048,7 +2058,10 @@
     <attribute name="style" type="svg:StyleSheetType" use="optional"/>
     <attributeGroup ref="svg:PresentationAttributes-All"/>
     <attribute name="viewBox" type="svg:ViewBoxSpecType" use="optional"/>
+	<!--
     <attribute name="preserveAspectRatio" type="svg:PreserveAspectRatioSpecType" default="xMidYMid meet"/>
+	-->
+    <attribute name="preserveAspectRatio" type="svg:PreserveAspectRatioSpecType"/>
     <attribute name="patternUnits" use="optional">
       <simpleType>
         <restriction base="string">
@@ -2317,6 +2330,7 @@
       <element ref="svg:set"/>
     </choice>
     <attributeGroup ref="svg:stdAttrs"/>
+	<!--
     <attribute name="type" use="required">
       <simpleType>
         <restriction base="string">
@@ -2328,6 +2342,7 @@
         </restriction>
       </simpleType>
     </attribute>
+	-->
     <attributeGroup ref="svg:component_transfer_function_attributes"/>
   </complexType>
   <complexType name="feFuncGType">
@@ -2336,6 +2351,7 @@
       <element ref="svg:set"/>
     </choice>
     <attributeGroup ref="svg:stdAttrs"/>
+	<!--
     <attribute name="type" use="required">
       <simpleType>
         <restriction base="string">
@@ -2347,6 +2363,7 @@
         </restriction>
       </simpleType>
     </attribute>
+	-->
     <attributeGroup ref="svg:component_transfer_function_attributes"/>
   </complexType>
   <complexType name="feFuncBType">
@@ -2355,6 +2372,7 @@
       <element ref="svg:set"/>
     </choice>
     <attributeGroup ref="svg:stdAttrs"/>
+	<!--
     <attribute name="type" use="required">
       <simpleType>
         <restriction base="string">
@@ -2366,6 +2384,7 @@
         </restriction>
       </simpleType>
     </attribute>
+	-->
     <attributeGroup ref="svg:component_transfer_function_attributes"/>
   </complexType>
   <complexType name="feFuncAType">
@@ -2374,6 +2393,7 @@
       <element ref="svg:set"/>
     </choice>
     <attributeGroup ref="svg:stdAttrs"/>
+	<!--
     <attribute name="type" use="required">
       <simpleType>
         <restriction base="string">
@@ -2384,8 +2404,9 @@
           <enumeration value="gamma"/>
         </restriction>
       </simpleType>
-      <!-- these all need to be stripped out and checked -->
+      <!- - these all need to be stripped out and checked - ->
     </attribute>
+	-->
     <attributeGroup ref="svg:component_transfer_function_attributes"/>
   </complexType>
   <complexType name="feCompositeType">
@@ -2704,7 +2725,10 @@
     <attributeGroup ref="svg:stdAttrs"/>
     <attribute name="externalResourcesRequired" type="boolean" use="optional"/>
     <attribute name="viewBox" type="svg:ViewBoxSpecType" use="optional"/>
+<!--
     <attribute name="preserveAspectRatio" type="svg:PreserveAspectRatioSpecType" default="xMidYMid meet"/>
+-->
+	<attribute name="preserveAspectRatio" type="svg:PreserveAspectRatioSpecType"/>
     <attribute name="zoomAndPan" default="magnify">
       <simpleType>
         <restriction base="string">

@@ -83,14 +83,17 @@ foreach($f in [CityLizard.Hg.Hg]::Locate())
     }
 }
 
+$third_party = Join-Path $root "third_party"
+$typed_dom = Join-Path $root "CityLizard\TypedDom"
+$console = Join-Path $root "CityLizard\Xml\Schema\Console\bin\Debug\CityLizard.Xml.Schema.Console.exe"
+
 #
 # Building XHTML 1.1
 #
 ""
 "Building xhtml11.xsd.cs"
-$console = Join-Path $root "CityLizard\Xml\Schema\Console\bin\Debug\CityLizard.Xml.Schema.Console.exe"
-$xhtml11_xsd = Join-Path $root "www.w3.org\MarkUp\SCHEMA\xhtml11.xsd"
-$xhtml11_xsd_cs = Join-Path $root "CityLizard\XHtml\xhtml11.xsd.cs"
+$xhtml11_xsd = Join-Path $third_party "www.w3.org\MarkUp\SCHEMA\xhtml11.xsd"
+$xhtml11_xsd_cs = Join-Path $typed_dom "www_w3_org._1999.xhtml\X.xsd.cs"
 &$console $xhtml11_xsd $xhtml11_xsd_cs
 
 #
@@ -98,9 +101,35 @@ $xhtml11_xsd_cs = Join-Path $root "CityLizard\XHtml\xhtml11.xsd.cs"
 #
 ""
 "Building graphml.xsd.cs"
-$graphml_xsd = Join-Path $root "graphml.graphdrawing.org\xmlns\1.1\graphml.xsd"
-$graphml_xsd_cs = Join-Path $root "CityLizard\GraphML\graphml.xsd.cs"
+$graphml_xsd = Join-Path $third_party "graphml.graphdrawing.org\xmlns\1.1\graphml.xsd"
+$graphml_xsd_cs = Join-Path $typed_dom "graphml_graphdrawing_org.xmlns\X.xsd.cs"
 &$console $graphml_xsd $graphml_xsd_cs
+
+#
+# Building SVG 1.1
+#
+""
+"Building svg.xsd.cs"
+$svg_xsd = Join-Path $third_party "www.w3.org\TR\2002\WD-SVG11-20020108\SVG.xsd"
+$svg_xsd_cs = Join-Path $typed_dom "www_w3_org._2000.svg\X.xsd.cs"
+&$console $svg_xsd $svg_xsd_cs
+
+#
+# Building CityLizard.TypedDom.sln
+#
+""
+"Solution: CityLizard.TypedDom"
+$typed_dom = ""
+foreach($f in [CityLizard.Hg.Hg]::Locate())
+{
+    if([IO.Path]::GetFileName($f) -eq "CityLizard.TypedDom.sln")
+    {
+        $typed_dom = Join-Path $root $f
+        [CityLizard.Build.Build]::BuildSolution($typed_dom)
+        break;
+    }
+}
+$typed_dom_dir = Split-Path -parent $typed_dom
 
 #
 # Building CityLizard.XHtml.sln

@@ -5,7 +5,7 @@
     /// </summary>
     public abstract class Simple: Element, ICharacterData
     {
-        protected new void SetUp(
+        protected void SetUp(
             Implementation implementation, 
             string @namespace, 
             string name, 

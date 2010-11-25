@@ -161,7 +161,7 @@ $xhtmlDir = Split-Path -parent $xhtml
 #
 ""
 "Zip:"
-$zipName = "CityLizard.XHtml." + $version + ".zip"
+$zipName = "CityLizard." + $version + ".zip"
 $zip = Join-Path $root $zipName
 $xhtml = Join-Path $xhtmlDir "bin\Debug\*.dll"
 $graphml = Join-Path $root "CityLizard\GraphML\bin\Debug\CityLizard.GraphML.dll"

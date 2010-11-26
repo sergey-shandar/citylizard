@@ -6,7 +6,7 @@
     public class Attribute: Node, IQName, ICharacterData
     {
         /// <summary>
-        /// Saves the current attribute the specified System.Xml.XmlWriter.
+        /// Saves the current attribute to the specified System.Xml.XmlWriter.
         /// </summary>
         /// <param name="writer">
         /// The System.Xml.XmlWriter to which you want to save.

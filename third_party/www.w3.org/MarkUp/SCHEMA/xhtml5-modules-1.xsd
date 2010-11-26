@@ -335,7 +335,7 @@
             </xs:attributeGroup>
         </xs:attributeGroup>
     </xs:redefine>
-    <xs:redefine schemaLocation="xhtml-video-1.xsd">
+    <xs:redefine schemaLocation="xhtml5-video-1.xsd">
         <xs:annotation>
             <xs:documentation>
         Video module

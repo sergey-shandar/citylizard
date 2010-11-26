@@ -91,17 +91,17 @@ $console = Join-Path $root "CityLizard\Xml\Schema\Console\bin\Debug\CityLizard.X
 # Building XHTML 1.1
 #
 ""
-"Building xhtml11.xsd.cs"
+"Building XHTML 1.1"
 $xhtml_xsd = Join-Path $third_party "www.w3.org\MarkUp\SCHEMA\xhtml11.xsd"
 $xhtml_dir = Join-Path $typed_dom "www_w3_org._1999.xhtml"
 $xhtml_xsd_cs = Join-Path $xhtml_dir "X.xsd.cs"
-&$console $xhtml11_xsd $xhtml11_xsd_cs
+&$console $xhtml_xsd $xhtml_xsd_cs
 
 #
 # Building GraphML 1.1
 #
 ""
-"Building graphml.xsd.cs"
+"Building GrapnML 1.1"
 $graphml_xsd = Join-Path $third_party "graphml.graphdrawing.org\xmlns\1.1\graphml.xsd"
 $graphml_dir = Join-Path $typed_dom "graphml_graphdrawing_org.xmlns"
 $graphml_xsd_cs = Join-Path $graphml_dir "X.xsd.cs"
@@ -111,7 +111,7 @@ $graphml_xsd_cs = Join-Path $graphml_dir "X.xsd.cs"
 # Building SVG 1.1
 #
 ""
-"Building svg.xsd.cs"
+"Building SVG 1.1"
 $svg_xsd = Join-Path $third_party "www.w3.org\TR\2002\WD-SVG11-20020108\SVG.xsd"
 $svg_dir = Join-Path $typed_dom "www_w3_org._2000.svg"
 $svg_xsd_cs = Join-Path $svg_dir "X.xsd.cs"

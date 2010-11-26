@@ -147,13 +147,20 @@ $typed_dom_dir = Split-Path -parent $typed_dom
 #
 ""
 "Zip:"
+
 $zipName = "CityLizard." + $version + ".zip"
+
 $zip = Join-Path $root $zipName
+
 $xml = Join-Path $root "CityLizard\Xml\bin\Debug\CityLizard.Xml.dll"
+$schema = Join-Path $root "CityLizard\Xml\Schema\bin\Debug\CityLizard.Xml.Schema.dll"
+$codedom = Join-Path $root "CityLizard\CodeDom\bin\Debug\CityLizard.CodeDom.dll"
+$console = Join-Path $root "CityLizard\Xml\Schema\Console\bin\Debug\CityLizard.Xml.Schema.Console.exe"
+
 $xhtml = Join-Path $xhtml_dir "bin\Debug\www_w3_org._1999.xhtml.dll"
 $graphml = Join-Path $graphml_dir "bin\Debug\graphml_graphdrawing_org.xmlns.dll"
 $svg = Join-Path $svg_dir "bin\Debug\www_w3_org._2000.svg.dll"
-$schema = Join-Path $root "CityLizard\Xml\Schema\bin\Debug\CityLizard.Xml.Schema.dll"
-$console = Join-Path $root "CityLizard\Xml\Schema\Console\bin\Debug\CityLizard.Xml.Schema.Console.exe"
+
 $license = Join-Path $root "CityLizard\license.txt"
-&$_7z "a" $zip $xml $xhtml $graphml $svg $schema $console $license
+
+&$_7z "a" $zip $xml $xhtml $graphml $svg $schema $codedom $console $license

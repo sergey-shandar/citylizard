@@ -88,11 +88,11 @@ $typed_dom = Join-Path $root "CityLizard\TypedDom"
 $console = Join-Path $root "CityLizard\Xml\Schema\Console\bin\Debug\CityLizard.Xml.Schema.Console.exe"
 
 #
-# Building XHTML 1.1
+# Building XHTML 5
 #
 ""
-"Building XHTML 1.1"
-$xhtml_xsd = Join-Path $third_party "www.w3.org\MarkUp\SCHEMA\xhtml11.xsd"
+"Building XHTML 5"
+$xhtml_xsd = Join-Path $third_party "www.w3.org\MarkUp\SCHEMA\xhtml5.xsd"
 $xhtml_dir = Join-Path $typed_dom "www_w3_org._1999.xhtml"
 $xhtml_xsd_cs = Join-Path $xhtml_dir "X.xsd.cs"
 &$console $xhtml_xsd $xhtml_xsd_cs

@@ -92,8 +92,9 @@ $console = Join-Path $root "CityLizard\Xml\Schema\Console\bin\Debug\CityLizard.X
 #
 ""
 "Building xhtml11.xsd.cs"
-$xhtml11_xsd = Join-Path $third_party "www.w3.org\MarkUp\SCHEMA\xhtml11.xsd"
-$xhtml11_xsd_cs = Join-Path $typed_dom "www_w3_org._1999.xhtml\X.xsd.cs"
+$xhtml_xsd = Join-Path $third_party "www.w3.org\MarkUp\SCHEMA\xhtml11.xsd"
+$xhtml_dir = Join-Path $typed_dom "www_w3_org._1999.xhtml"
+$xhtml_xsd_cs = Join-Path $xhtml_dir "X.xsd.cs"
 &$console $xhtml11_xsd $xhtml11_xsd_cs
 
 #
@@ -102,7 +103,8 @@ $xhtml11_xsd_cs = Join-Path $typed_dom "www_w3_org._1999.xhtml\X.xsd.cs"
 ""
 "Building graphml.xsd.cs"
 $graphml_xsd = Join-Path $third_party "graphml.graphdrawing.org\xmlns\1.1\graphml.xsd"
-$graphml_xsd_cs = Join-Path $typed_dom "graphml_graphdrawing_org.xmlns\X.xsd.cs"
+$graphml_dir = Join-Path $typed_dom "graphml_graphdrawing_org.xmlns"
+$graphml_xsd_cs = Join-Path $graphml_dir "X.xsd.cs"
 &$console $graphml_xsd $graphml_xsd_cs
 
 #
@@ -111,7 +113,8 @@ $graphml_xsd_cs = Join-Path $typed_dom "graphml_graphdrawing_org.xmlns\X.xsd.cs"
 ""
 "Building svg.xsd.cs"
 $svg_xsd = Join-Path $third_party "www.w3.org\TR\2002\WD-SVG11-20020108\SVG.xsd"
-$svg_xsd_cs = Join-Path $typed_dom "www_w3_org._2000.svg\X.xsd.cs"
+$svg_dir = Join-Path $typed_dom "www_w3_org._2000.svg"
+$svg_xsd_cs = Join-Path $svg_dir "X.xsd.cs"
 &$console $svg_xsd $svg_xsd_cs
 
 #
@@ -132,23 +135,6 @@ foreach($f in [CityLizard.Hg.Hg]::Locate())
 $typed_dom_dir = Split-Path -parent $typed_dom
 
 #
-# Building CityLizard.XHtml.sln
-#
-""
-"Solution: CityLizard.XHtml"
-$xhtml = ""
-foreach($f in [CityLizard.Hg.Hg]::Locate())
-{
-    if([IO.Path]::GetFileName($f) -eq "CityLizard.XHtml.sln")
-    {
-        $xhtml = Join-Path $root $f
-        [CityLizard.Build.Build]::BuildSolution($xhtml)
-        break;
-    }
-}
-$xhtmlDir = Split-Path -parent $xhtml
-
-#
 # Sandcastle
 #
 # ""
@@ -163,7 +149,10 @@ $xhtmlDir = Split-Path -parent $xhtml
 "Zip:"
 $zipName = "CityLizard." + $version + ".zip"
 $zip = Join-Path $root $zipName
-$xhtml = Join-Path $xhtmlDir "bin\Debug\*.dll"
-$graphml = Join-Path $root "CityLizard\GraphML\bin\Debug\CityLizard.GraphML.dll"
+$xml = Join-Path $root "CityLizard\Xml\bin\Debug\CityLizard.Xml.dll"
+$xhtml = Join-Path $xhtml_dir "bin\Debug\www_w3_org._1999.xhtml.dll"
+$graphml = Join-Path $graphml_dir "bin\Debug\graphml_graphdrawing_org.xmlns.dll"
+$svg = Join-Path $svg_dir "bin\Debug\www_w3_org._2000.svg.dll"
+$console = Join-Path $root "CityLizard\Xml\Schema\Console\bin\Debug\CityLizard.Xml.Schema.Console.exe"
 $license = Join-Path $root "CityLizard\license.txt"
-&$_7z "a" $zip $dll $graphml $license
+&$_7z "a" $zip $xml $xhtml $graphml $svg $console $license

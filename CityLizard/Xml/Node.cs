@@ -78,7 +78,7 @@
         /// </param>
         public void WriteTo(IO.TextWriter writer)
         {
-            using (var xmlWriter = new X.XmlTextWriter(writer))
+            using(var xmlWriter = X.XmlWriter.Create(writer))
             {
                 this.WriteTo(xmlWriter);
             }

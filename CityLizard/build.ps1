@@ -133,7 +133,8 @@ foreach($f in [CityLizard.Hg.Hg]::Locate())
         $typed_dom_dir = Split-Path -parent $typed_dom        
         $sl_typed_dom = Join-Path $typed_dom_dir "SL.CityLizard.TypedDom.sln"
         [CityLizard.Build.Build]::BuildSolution($typed_dom)
-        [CityLizard.Build.Build]::BuildSolution($sl_typed_dom)        
+        # [CityLizard.Build.Build]::BuildSolution($sl_typed_dom)        
+        C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe $sl_typed_dom
         break;
     }
 }

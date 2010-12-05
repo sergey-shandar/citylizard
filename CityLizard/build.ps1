@@ -118,21 +118,25 @@ $svg_xsd_cs = Join-Path $svg_dir "X.xsd.cs"
 &$console $svg_xsd $svg_xsd_cs
 
 #
-# Building CityLizard.TypedDom.sln
+# Building CityLizard.TypedDom.sln and SL.CityLizard.TypedDom.sln 
 #
 ""
 "Solution: CityLizard.TypedDom"
 $typed_dom = ""
+$typed_dom_dir = ""
+$sl_typed_dom = ""
 foreach($f in [CityLizard.Hg.Hg]::Locate())
 {
     if([IO.Path]::GetFileName($f) -eq "CityLizard.TypedDom.sln")
     {
         $typed_dom = Join-Path $root $f
+        $typed_dom_dir = Split-Path -parent $typed_dom        
+        $sl_typed_dom = Join-Path $typed_dom_dir "SL.CityLizard.TypedDom.sln"
         [CityLizard.Build.Build]::BuildSolution($typed_dom)
+        [CityLizard.Build.Build]::BuildSolution($sl_typed_dom)        
         break;
     }
 }
-$typed_dom_dir = Split-Path -parent $typed_dom
 
 #
 # Sandcastle
@@ -153,14 +157,19 @@ $zipName = "CityLizard." + $version + ".zip"
 $zip = Join-Path $root $zipName
 
 $xml = Join-Path $root "CityLizard\Xml\bin\Debug\CityLizard.Xml.dll"
+$sl_xml = Join-Path $root "CityLizard\Xml\bin\Debug\SL.CityLizard.Xml.dll"
+
 $schema = Join-Path $root "CityLizard\Xml\Schema\bin\Debug\CityLizard.Xml.Schema.dll"
 $codedom = Join-Path $root "CityLizard\CodeDom\bin\Debug\CityLizard.CodeDom.dll"
 $console = Join-Path $root "CityLizard\Xml\Schema\Console\bin\Debug\CityLizard.Xml.Schema.Console.exe"
 
 $xhtml = Join-Path $xhtml_dir "bin\Debug\www_w3_org._1999.xhtml.dll"
+$sl_xhtml = Join-Path $xhtml_dir "bin\Debug\SL.www_w3_org._1999.xhtml.dll"
 $graphml = Join-Path $graphml_dir "bin\Debug\graphml_graphdrawing_org.xmlns.dll"
+$sl_graphml = Join-Path $graphml_dir "bin\Debug\SL.graphml_graphdrawing_org.xmlns.dll"
 $svg = Join-Path $svg_dir "bin\Debug\www_w3_org._2000.svg.dll"
+$sl_svg = Join-Path $svg_dir "bin\Debug\SL.www_w3_org._2000.svg.dll"
 
 $license = Join-Path $root "CityLizard\license.txt"
 
-&$_7z "a" $zip $xml $xhtml $graphml $svg $schema $codedom $console $license
+&$_7z "a" $zip $xml $xhtml $graphml $svg $schema $codedom $console $license $sl_xml $sl_xhtml, $sl_graphml, $sl_svg

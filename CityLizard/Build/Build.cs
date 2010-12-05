@@ -29,7 +29,7 @@
         /// Build the solution.
         /// </summary>
         /// <param name="path">A path to the solution.</param>
-        public static void BuildSolution(string path)
+        public static Ex.BuildResult BuildSolution(string path)
         {
             var pc = new E.ProjectCollection();
             var bp = new Ex.BuildParameters(pc);
@@ -41,7 +41,7 @@
                 new string[] { "Build" },
                 null);
 
-            var buildResult = Ex.BuildManager.DefaultBuildManager.Build(
+            return Ex.BuildManager.DefaultBuildManager.Build(
                 bp, BuidlRequest);
         }
 

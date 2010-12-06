@@ -28,11 +28,15 @@
             public int State;
         }
 
+        public class State : C.HashSet<Transition>
+        {
+        }
+
         /// <summary>
         /// List of states.
         /// </summary>
-        public readonly C.List<C.HashSet<Transition>> StateList = 
-            new C.List<C.HashSet<Transition>>();
+        public readonly C.List<State> StateList = 
+            new C.List<State>();
 
         /// <summary>
         /// The constructor adds a start state.
@@ -49,7 +53,7 @@
         /// <returns>State id.</returns>
         private int AddState()
         {
-            this.StateList.Add(new C.HashSet<Transition>());
+            this.StateList.Add(new State());
             return this.StateList.Count - 1;
         }
 
@@ -100,8 +104,10 @@
         /// <param name="set">Set of 'from' states.</param>
         /// <param name="transform">Apply transitions.</param>
         /// <param name="min">Minimum number of transitions (0..).</param>
-        /// <param name="max">Maximum number of transitions. No limit if the 
-        /// value equal int.MaxValue.</param>
+        /// <param name="max">
+        /// Maximum number of transitions. No limit if the value equal 
+        /// int.MaxValue.
+        /// </param>
         public void Loop(
             C.ISet<int> set, S.Action<C.ISet<int>> transform, int min, int max)
         {

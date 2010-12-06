@@ -35,8 +35,7 @@
         /// <summary>
         /// List of states.
         /// </summary>
-        public readonly C.List<State> StateList = 
-            new C.List<State>();
+        public readonly C.List<State> StateList = new C.List<State>();
 
         /// <summary>
         /// The constructor adds a start state.

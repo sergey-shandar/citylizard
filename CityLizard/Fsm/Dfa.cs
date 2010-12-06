@@ -5,6 +5,35 @@
 
     using System.Linq;
 
+    public class Name : C.HashSet<int>, S.IEquatable<Name>
+    {
+        public override bool Equals(object obj)
+        {
+            return this.Equals(obj as Name);
+        }
+
+        public bool Equals(Name other)
+        {
+            return base.SetEquals(other);
+        }
+
+        /// <summary>
+        /// Note: the function implementation has really bad distribution. 
+        /// However it works.
+        /// Requirements: { 0, 1 }.GetHachCode() == { 1, 0 }.GetHashCode().
+        /// </summary>
+        /// <returns></returns>
+        public override int GetHashCode()
+        {
+            uint hash = 0;
+            foreach (var i in this)
+            {
+                hash ^= (uint)i;
+            }
+            return (int)hash;
+        }
+    }
+
     /// <summary>
     /// Deterministic finite automaton.
     /// http://en.wikipedia.org/wiki/Deterministic_finite_automaton
@@ -12,37 +41,6 @@
     /// <typeparam name="Symbol">Symbol type.</typeparam>
     public class Dfa<Symbol>
     {
-        public class Name: S.IEquatable<Name>
-        {
-            private C.HashSet<int> Value;
-
-            public override bool Equals(object obj)
-            {
-                return this.Equals(obj as Name);
-            }
-
-            public bool Equals(Name other)
-            {
-                return this.Value.SetEquals(other.Value);
-            }
-
-            /// <summary>
-            /// Note: the function implementation has really bad distribution. 
-            /// However it works.
-            /// Requirements: { 0, 1 }.GetHachCode() == { 1, 0 }.GetHashCode().
-            /// </summary>
-            /// <returns></returns>
-            public override int GetHashCode()
-            {
-                uint hash = 0;
-                foreach(var i in this.Value)
-                {
-                    hash ^= (uint)i;
-                }
-                return (int)hash;
-            }
-        }
-
         private static readonly C.IEqualityComparer<C.HashSet<int>> comparer =
             C.HashSet<int>.CreateSetComparer();
 
@@ -50,7 +48,7 @@
         /// State.
         /// </summary>
         public class State : 
-            C.Dictionary<Symbol, C.HashSet<int>>, S.IEquatable<State>
+            C.Dictionary<Symbol, Name>, S.IEquatable<State>
         {
             /// <summary>
             /// true if this state is accept state.
@@ -77,10 +75,10 @@
                     foreach (var transition in fsm.StateList[fsmState])
                     {
                         // add transition.
-                        C.HashSet<int> state;
+                        Name state;                        
                         if (!this.TryGetValue(transition.Symbol, out state))
                         {
-                            state = new C.HashSet<int>();
+                            state = new Name();
                             this[transition.Symbol] = state;
                         }
                         state.Add(transition.State);
@@ -101,7 +99,7 @@
                 }
                 foreach (var p in this)
                 {
-                    C.HashSet<int> otherState;
+                    Name otherState;
                     if (!other.TryGetValue(p.Key, out otherState))
                     {
                         return false;
@@ -116,22 +114,9 @@
         }
 
         /// <summary>
-        /// Dictionary of states by state id.
-        /// </summary>
-        public class Dictionary : C.Dictionary<C.HashSet<int>, State>
-        {
-            /// <summary>
-            /// Default constructor.
-            /// </summary>
-            public Dictionary(): base(comparer)
-            {
-            }
-        }
-
-        /// <summary>
         /// Instance of the dictionary.
         /// </summary>
-        public Dictionary D = new Dictionary();
+        public C.Dictionary<Name, State> D = new C.Dictionary<Name, State>();
 
         /// <summary>
         /// The constructor builds DFA.
@@ -140,13 +125,13 @@
         /// <param name="accept">Accept state.</param>
         public Dfa(Fsm<Symbol> fsm, C.HashSet<int> accept)
         {
-            var startKey = new C.HashSet<int> { 0 };
+            var startKey = new Name() { 0 };
             {
-                var toDo = new C.HashSet<C.HashSet<int>>() { startKey };
+                var toDo = new C.HashSet<Name>() { startKey };
                 //
                 while (toDo.Count != 0)
                 {
-                    var newToDo = new C.HashSet<C.HashSet<int>>();
+                    var newToDo = new C.HashSet<Name>();
                     foreach (var key in toDo)
                     {
                         if (!this.D.ContainsKey(key))
@@ -166,7 +151,7 @@
             {
                 bool changed = false;
                 //
-                var newD = new Dictionary();
+                var newD = new C.Dictionary<Name, State>();
                 newD[startKey] = this.D[startKey];
                 foreach (var p in this.D)
                 {
@@ -189,7 +174,6 @@
                                 {
                                     if (comparer.Equals(copyK, transition))
                                     {
-                                        // state[transition.Key] = newK;
                                         transition.Clear();
                                         transition.UnionWith(newK);
                                         changed = true;

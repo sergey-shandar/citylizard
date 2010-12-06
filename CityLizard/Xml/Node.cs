@@ -70,6 +70,11 @@
         /// </param>
         public abstract void WriteTo(X.XmlWriter writer);
 
+        private X.XmlWriterSettings Settings = new X.XmlWriterSettings
+        {
+            OmitXmlDeclaration = true
+        };
+
         /// <summary>
         /// Saves the current node to the specified System.IO.TextWriter.
         /// </summary>
@@ -78,7 +83,7 @@
         /// </param>
         public void WriteTo(IO.TextWriter writer)
         {
-            using(var xmlWriter = X.XmlWriter.Create(writer))
+            using (var xmlWriter = X.XmlWriter.Create(writer, Settings))
             {
                 this.WriteTo(xmlWriter);
             }

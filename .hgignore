@@ -20,3 +20,5 @@ relre:.*\.zip$
 relre:.*\.orig$
 relre:.*\.log$
 relre:.*\.xsd\.cs
+relre:.*\.pidb$
+relre:.*\.userprefs$

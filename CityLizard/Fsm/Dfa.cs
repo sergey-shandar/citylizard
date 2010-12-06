@@ -12,6 +12,37 @@
     /// <typeparam name="Symbol">Symbol type.</typeparam>
     public class Dfa<Symbol>
     {
+        public class Name: S.IEquatable<Name>
+        {
+            private C.HashSet<int> Value;
+
+            public override bool Equals(object obj)
+            {
+                return this.Equals(obj as Name);
+            }
+
+            public bool Equals(Name other)
+            {
+                return this.Value.SetEquals(other.Value);
+            }
+
+            /// <summary>
+            /// Note: the function implementation has really bad distribution. 
+            /// However it works.
+            /// Requirements: { 0, 1 }.GetHachCode() == { 1, 0 }.GetHashCode().
+            /// </summary>
+            /// <returns></returns>
+            public override int GetHashCode()
+            {
+                uint hash = 0;
+                foreach(var i in this.Value)
+                {
+                    hash ^= (uint)i;
+                }
+                return (int)hash;
+            }
+        }
+
         private static readonly C.IEqualityComparer<C.HashSet<int>> comparer =
             C.HashSet<int>.CreateSetComparer();
 

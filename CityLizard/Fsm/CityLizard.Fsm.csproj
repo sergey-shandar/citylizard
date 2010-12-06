@@ -68,6 +68,7 @@
   <ItemGroup>
     <Compile Include="Dfa.cs" />
     <Compile Include="Fsm.cs" />
+    <Compile Include="CircularShift.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -25,7 +25,7 @@
             //
             using (var w =
                 new IO.StreamWriter(
-                    "../../../XHtml/xhtml11.xsd.cs"))
+                    "../../../TypedDom/www_w3_org._1999.xhtml/X.xsd.cs"))
             {
                 w.Write(code);
             }
@@ -44,7 +44,7 @@
             //
             using (var w =
                 new IO.StreamWriter(
-                    "../../../GraphML/graphml.xsd.cs"))
+                    "../../../TypedDom/graphml_graphdrawing_org.xmlns/X.xsd.cs"))
             {
                 w.Write(code);
             }
@@ -63,7 +63,7 @@
             //
             using (var w =
                 new IO.StreamWriter(
-                    "../../../Svg/svg.xsd.cs"))
+                    "../../../TypedDom/www_w3_org._2000.svg/X.xsd.cs"))
             {
                 w.Write(code);
             }

@@ -59,7 +59,7 @@
         private static readonly C.IEqualityComparer<C.HashSet<int>> comparer =
             C.HashSet<int>.CreateSetComparer();
 
-        private static C.HashSet<int> Start = new C.HashSet<int> { 0 };
+        private static Fsm.Name Start = new Fsm.Name { 0 };
 
         private static string Name(C.HashSet<int> s)
         {

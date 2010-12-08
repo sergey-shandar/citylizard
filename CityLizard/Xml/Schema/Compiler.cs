@@ -105,6 +105,15 @@
                     [Return(This())]);
         }
 
+        /// <summary>
+        /// A -X-> A: A.P |= X[1; +Inf)
+        /// A -X-> B: B.P |= A.P + X
+        /// A -X-> ... B -Y-> A: A |=
+        ///
+        /// </summary>
+        /// <param name="newToDo"></param>
+        /// <param name="element"></param>
+        /// <param name="isRoot"></param>
         private void SetType(
             ElementSet newToDo,
             XS.XmlSchemaElement element,

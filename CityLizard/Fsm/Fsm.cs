@@ -28,6 +28,9 @@
             public int State;
         }
 
+        /// <summary>
+        /// State.
+        /// </summary>
         public class State : C.HashSet<Transition>
         {
         }

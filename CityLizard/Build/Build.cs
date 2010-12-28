@@ -67,7 +67,9 @@
                 "." +
                 s.Parent.RevisionNumber;
         }
-       
+
+        const string Silverlight = ".Silverlight";
+
         /// <summary>
         /// Creates AssemblyInfo.cs.
         /// </summary>
@@ -79,11 +81,21 @@
         {
             var d = IO.Path.GetDirectoryName(solution);
             var f = IO.Path.GetFileNameWithoutExtension(solution);
+            string platform;
+            if (f.EndsWith(Silverlight))
+            {
+                f = f.Substring(0, f.Length - Silverlight.Length);
+                platform = "Silverlight";
+            }
+            else
+            {
+                platform = ".NET Framework";
+            }
             var u = new CD.CodeCompileUnit();
             var version = Version(s);
             Add<R.AssemblyVersionAttribute>(u, version);
             Add<R.AssemblyFileVersionAttribute>(u, version);
-            Add<R.AssemblyTitleAttribute>(u, f);
+            Add<R.AssemblyTitleAttribute>(u, f + " for " + platform);
             Add<R.AssemblyCompanyAttribute>(u, company);
             Add<R.AssemblyProductAttribute>(u, f);
             Add<R.AssemblyCopyrightAttribute>(

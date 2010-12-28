@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual C# Express 2010
+# Visual Studio 2010 Express for Windows Phone
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Xml", "Xml\CityLizard.Xml.csproj", "{270D7B7A-75BC-49BF-AE8E-ABB2FBC8D117}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.NUnit", "NUnit\CityLizard.NUnit.csproj", "{717D3E99-EFCF-46BE-BF30-8E970D2AE9D0}"
@@ -18,6 +18,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Xml.Schema.Console", "Xml\Schema\Console\CityLizard.Xml.Schema.Console.csproj", "{0D04D144-4F53-4C26-9E5E-AC87CB84DEFC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Build", "Build\CityLizard.Build.csproj", "{E7CF094A-3F92-456F-BB48-E3FD07C01D21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Xml.Silverlight", "Xml\Silverlight\CityLizard.Xml.Silverlight.csproj", "{688ACDBE-64C2-4645-B83E-F9190E9CB09C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -137,6 +139,16 @@ Global
 		{E7CF094A-3F92-456F-BB48-E3FD07C01D21}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{E7CF094A-3F92-456F-BB48-E3FD07C01D21}.Release|x86.ActiveCfg = Release|x86
 		{E7CF094A-3F92-456F-BB48-E3FD07C01D21}.Release|x86.Build.0 = Release|x86
+		{688ACDBE-64C2-4645-B83E-F9190E9CB09C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{688ACDBE-64C2-4645-B83E-F9190E9CB09C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{688ACDBE-64C2-4645-B83E-F9190E9CB09C}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{688ACDBE-64C2-4645-B83E-F9190E9CB09C}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{688ACDBE-64C2-4645-B83E-F9190E9CB09C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{688ACDBE-64C2-4645-B83E-F9190E9CB09C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{688ACDBE-64C2-4645-B83E-F9190E9CB09C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{688ACDBE-64C2-4645-B83E-F9190E9CB09C}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{688ACDBE-64C2-4645-B83E-F9190E9CB09C}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{688ACDBE-64C2-4645-B83E-F9190E9CB09C}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

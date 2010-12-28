@@ -118,7 +118,7 @@ $svg_xsd_cs = Join-Path $svg_dir "X.xsd.cs"
 &$console $svg_xsd $svg_xsd_cs
 
 #
-# Building CityLizard.TypedDom.sln and SL.CityLizard.TypedDom.sln 
+# Building CityLizard.TypedDom.sln
 #
 ""
 "Solution: CityLizard.TypedDom"
@@ -131,10 +131,10 @@ foreach($f in [CityLizard.Hg.Hg]::Locate())
     {
         $typed_dom = Join-Path $root $f
         $typed_dom_dir = Split-Path -parent $typed_dom        
-        $sl_typed_dom = Join-Path $typed_dom_dir "SL.CityLizard.TypedDom.sln"
-        [CityLizard.Build.Build]::BuildSolution($typed_dom)
+        # $sl_typed_dom = Join-Path $typed_dom_dir "SL.CityLizard.TypedDom.sln"
+        # [CityLizard.Build.Build]::BuildSolution($typed_dom)
         # [CityLizard.Build.Build]::BuildSolution($sl_typed_dom)        
-        C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe $sl_typed_dom
+        C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe $typed_dom
         break;
     }
 }
@@ -158,19 +158,45 @@ $zipName = "CityLizard." + $version + ".zip"
 $zip = Join-Path $root $zipName
 
 $xml = Join-Path $root "CityLizard\Xml\bin\Debug\CityLizard.Xml.dll"
-$sl_xml = Join-Path $root "CityLizard\Xml\bin\Debug\SL.CityLizard.Xml.dll"
+$sl_xml = Join-Path $root "CityLizard\Xml\Silverlight\bin\Debug\CityLizard.Xml.dll"
 
 $schema = Join-Path $root "CityLizard\Xml\Schema\bin\Debug\CityLizard.Xml.Schema.dll"
 $codedom = Join-Path $root "CityLizard\CodeDom\bin\Debug\CityLizard.CodeDom.dll"
 $console = Join-Path $root "CityLizard\Xml\Schema\Console\bin\Debug\CityLizard.Xml.Schema.Console.exe"
 
 $xhtml = Join-Path $xhtml_dir "bin\Debug\www_w3_org._1999.xhtml.dll"
-$sl_xhtml = Join-Path $xhtml_dir "bin\Debug\SL.www_w3_org._1999.xhtml.dll"
+$sl_xhtml = Join-Path $xhtml_dir "Silverlight\bin\Debug\www_w3_org._1999.xhtml.dll"
 $graphml = Join-Path $graphml_dir "bin\Debug\graphml_graphdrawing_org.xmlns.dll"
-$sl_graphml = Join-Path $graphml_dir "bin\Debug\SL.graphml_graphdrawing_org.xmlns.dll"
+$sl_graphml = Join-Path $graphml_dir "Silverlight\bin\Debug\graphml_graphdrawing_org.xmlns.dll"
 $svg = Join-Path $svg_dir "bin\Debug\www_w3_org._2000.svg.dll"
-$sl_svg = Join-Path $svg_dir "bin\Debug\SL.www_w3_org._2000.svg.dll"
+$sl_svg = Join-Path $svg_dir "Silverlight\bin\Debug\www_w3_org._2000.svg.dll"
 
 $license = Join-Path $root "CityLizard\license.txt"
 
-&$_7z "a" $zip $xml $xhtml $graphml $svg $schema $codedom $console $license $sl_xml $sl_xhtml, $sl_graphml, $sl_svg
+$lib = Join-Path $root "lib"
+mkdir $lib
+
+$lib_net = Join-Path $lib "NETFramework"
+mkdir $lib_net
+
+$lib_sl = Join-Path $lib "Silverlight"
+mkdir $lib_sl
+
+copy $xml $lib_net
+copy $sl_xml $lib_sl
+
+copy $schema $lib_net
+copy $codedom $lib_net
+copy $console $lib_net
+
+copy $xhtml $lib_net
+copy $sl_xhtml $lib_sl
+
+copy $graphml $lib_net
+copy $sl_graphml $lib_sl
+
+copy $svg $lib_net
+copy $sl_svg $lib_sl
+
+# &$_7z "a" $zip $xml $xhtml $graphml $svg $schema $codedom $console $license $sl_xml $sl_xhtml, $sl_graphml, $sl_svg
+&$_7z "a" $zip $lib $license

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+ xmlns:xs="http://www.w3.org/2001/XMLSchema"
+ elementFormDefault="qualified"
+ xmlns:xh11d="http://www.w3.org/1999/xhtml/datatypes/"
+>
+    <xs:import namespace="http://www.w3.org/1999/xhtml/datatypes/" 
+               schemaLocation="xhtml-datatypes-1.xsd" />
+
+    <xs:annotation>
+        <xs:documentation>
+      Video
+      This is the XML Schema Video module for XHTML
+    
+        * video
+     	</xs:documentation>
+    </xs:annotation>
+    <xs:attributeGroup name="xhtml.video.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+        <xs:attribute name="src" type="xh11d:URI" use="required"/>
+	<!--
+        <xs:attribute name="alt" type="xh11d:Text" use="required"/>
+        <xs:attribute name="longdesc" type="xh11d:URI"/>
+        <xs:attribute name="name" type="xh11d:CDATA"/>
+	-->
+        <xs:attribute name="height" type="xh11d:Length"/>
+        <xs:attribute name="width" type="xh11d:Length"/>
+
+	<!-- http://www.w3.org/TR/html5/video.html#video -->
+	<xs:attribute name="poster" type="xh11d:URI"/>
+	<xs:attribute name="preload">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="none"/>
+                    <xs:enumeration value="metadata"/>
+                    <xs:enumeration value="auto"/>
+                </xs:restriction>
+            </xs:simpleType>
+	</xs:attribute>
+	<xs:attribute name="autoplay">
+            <xs:simpleType>
+     	  	<xs:restriction base="xs:NMTOKEN">
+            	    <xs:enumeration value="autoplay"/>
+                </xs:restriction>
+            </xs:simpleType>
+	</xs:attribute>
+	<xs:attribute name="loop">
+            <xs:simpleType>
+     	  	<xs:restriction base="xs:NMTOKEN">
+            	    <xs:enumeration value="loop"/>
+                </xs:restriction>
+            </xs:simpleType>
+	</xs:attribute>
+	<xs:attribute name="controls">
+            <xs:simpleType>
+     	  	<xs:restriction base="xs:NMTOKEN">
+            	    <xs:enumeration value="controls"/>
+                </xs:restriction>
+            </xs:simpleType>
+	</xs:attribute>
+
+    </xs:attributeGroup>
+    <xs:group name="xhtml.video.content">
+        <xs:sequence/>
+    </xs:group>
+    <!--
+	Mixed for legacy browsers.
+    -->
+    <xs:complexType name="xhtml.video.type" mixed="true">
+        <xs:group ref="xhtml.video.content"/>
+        <xs:attributeGroup ref="xhtml.video.attlist"/>
+    </xs:complexType>
+</xs:schema>

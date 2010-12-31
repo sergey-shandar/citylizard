@@ -53,6 +53,17 @@
                 }
             }
 
+            // all
+            // set -A-> {A} -B-> {AB}
+            // set -B-> {B} -A-> {AB}
+            {
+                var all = p as XS.XmlSchemaAll;
+                if (all != null)
+                {
+                    
+                }
+            }
+
             // element
             {
                 var element = p as XS.XmlSchemaElement;

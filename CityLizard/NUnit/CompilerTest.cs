@@ -68,5 +68,24 @@
                 w.Write(code);
             }
         }
+
+        [N.Test]
+        public static void LoadNuGet()
+        {
+            var u = new S.Compiler().Load(IO.Path.Combine(
+                thirdParty, "nuget.codeplex.com/nuspec.xsd"));
+            //
+            var t = new IO.StringWriter();
+            new CS.CSharpCodeProvider().GenerateCodeFromCompileUnit(
+                u, t, new D.Compiler.CodeGeneratorOptions());
+            var code = t.ToString();
+            //
+            using (var w =
+                new IO.StreamWriter(
+                    "../../../TypedDom/schemas_microsoft_com.packaging._2010._07.nuspec_xsd/X.xsd.cs"))
+            {
+                w.Write(code);
+            }
+        }
     }
 }

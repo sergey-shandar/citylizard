@@ -118,6 +118,16 @@ $svg_xsd_cs = Join-Path $svg_dir "X.xsd.cs"
 &$console $svg_xsd $svg_xsd_cs
 
 #
+# Building NuGet
+#
+""
+"Building NuGet"
+$nuget_xsd = Join-Path $third_party "nuget.codeplex.com\nuspec.xsd"
+$nuget_dir = Join-Path $typed_dom "schemas_microsoft_com.packaging._2010._07.nuspec_xsd"
+$nuget_xsd_cs = Join-Path $nuget_dir "X.xsd.cs"
+&$console $nuget_xsd $nuget_xsd_cs
+
+#
 # Building CityLizard.TypedDom.sln
 #
 ""

@@ -63,13 +63,9 @@
                 if (all != null)
                 {
                     var list = all.ItemsTyped().ToList();
-                    /*
-                    var setMap = new C.Dictionary<Fsm.Name, C.ISet<int>> 
-                        { { new Fsm.Name(), set } };
-                     * */
                     var setMap = new C.Dictionary<CS.BitVector32, C.ISet<int>>
                         { { new CS.BitVector32(0), set } };
-                    for (var i = 1; i < list.Count; ++i)
+                    for (var i = 0; i < list.Count; ++i)
                     {
                         var newSetMap = 
                             new C.Dictionary<CS.BitVector32, C.ISet<int>>();
@@ -96,32 +92,9 @@
                         }
                         setMap = newSetMap;
                     }
-                    set = setMap.First().Value;
+                    set.Clear();
+                    set.UnionWith(setMap.First().Value);
                     return;
-                    /*
-                    var list = new C.List<C.List<XS.XmlSchemaParticle> > 
-                    { 
-                        all.ItemsTyped().ToList() 
-                    };
-                    while(true)
-                    {
-                        var newList = new C.List<C.List<XS.XmlSchemaParticle>>();
-                        foreach (var i in list)
-                        {
-                            foreach (var j in i)
-                            {
-                                newList.Add(
-                                    i.Except(new XS.XmlSchemaParticle[] { j }).
-                                        ToList());
-                            }
-                        }
-                        if (newList[0].Count == 0)
-                        {
-                            break;
-                        }
-                        list = newList;
-                    }
-                     * */
                 }
             }
 

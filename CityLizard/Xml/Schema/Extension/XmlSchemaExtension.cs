@@ -5,6 +5,9 @@
 
     using System.Linq;
 
+    /// <summary>
+    /// XML Schema extensions.
+    /// </summary>
     public static class XmlSchemaExtension
     {
         public static C.IEnumerable<XS.XmlSchemaElement> GlobalElementsTyped(
@@ -27,6 +30,12 @@
 
         public static C.IEnumerable<XS.XmlSchemaParticle> ItemsTyped(
             this XS.XmlSchemaChoice x)
+        {
+            return x.Items.Cast<XS.XmlSchemaParticle>();
+        }
+
+        public static C.IEnumerable<XS.XmlSchemaParticle> ItemsTyped(
+            this XS.XmlSchemaAll x)
         {
             return x.Items.Cast<XS.XmlSchemaParticle>();
         }

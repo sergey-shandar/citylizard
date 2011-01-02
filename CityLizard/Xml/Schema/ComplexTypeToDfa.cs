@@ -53,14 +53,18 @@
                 }
             }
 
-            // all
+            // all (requires for nuget: http://nuget.codeplex.com/)
             // set -A-> {A} -B-> {AB}
             // set -B-> {B} -A-> {AB}
             {
                 var all = p as XS.XmlSchemaAll;
                 if (all != null)
                 {
-                    
+                    /*
+                    foreach (var i in all.ItemsTyped())
+                    {
+                    }
+                     * */
                 }
             }
 

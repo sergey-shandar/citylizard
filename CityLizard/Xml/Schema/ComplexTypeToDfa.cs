@@ -2,6 +2,7 @@
 {
     using X = System.Xml;
     using C = System.Collections.Generic;
+    using CS = System.Collections.Specialized;
     using XS = System.Xml.Schema;
     using S = System;
 
@@ -62,6 +63,41 @@
                 if (all != null)
                 {
                     var list = all.ItemsTyped().ToList();
+                    /*
+                    var setMap = new C.Dictionary<Fsm.Name, C.ISet<int>> 
+                        { { new Fsm.Name(), set } };
+                     * */
+                    var setMap = new C.Dictionary<CS.BitVector32, C.ISet<int>>
+                        { { new CS.BitVector32(0), set } };
+                    for (var i = 1; i < list.Count; ++i)
+                    {
+                        var newSetMap = 
+                            new C.Dictionary<CS.BitVector32, C.ISet<int>>();
+                        foreach (var pair in setMap)
+                        {
+                            for (var j = 0; j < list.Count; ++j)
+                            {
+                                var k = pair.Key;
+                                var m = 1 << j;
+                                if (!k[m])
+                                {
+                                    k[m] = true;
+                                    C.ISet<int> s;
+                                    if (!newSetMap.TryGetValue(k, out s))
+                                    {
+                                        newSetMap[k] = s = new C.HashSet<int>();
+                                    }
+                                    //     
+                                    var x = new C.HashSet<int>(pair.Value);
+                                    this.Apply(x, list[j]);
+                                    s.UnionWith(x);
+                                }
+                            }
+                        }
+                        setMap = newSetMap;
+                    }
+                    set = setMap.First().Value;
+                    return;
                     /*
                     var list = new C.List<C.List<XS.XmlSchemaParticle> > 
                     { 

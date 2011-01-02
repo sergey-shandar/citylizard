@@ -8,6 +8,7 @@
     using F = Fsm;
 
     using Extension;
+    using System.Linq;
 
     internal class ComplexTypeToDfa
     {
@@ -60,9 +61,29 @@
                 var all = p as XS.XmlSchemaAll;
                 if (all != null)
                 {
+                    var list = all.ItemsTyped().ToList();
                     /*
-                    foreach (var i in all.ItemsTyped())
+                    var list = new C.List<C.List<XS.XmlSchemaParticle> > 
+                    { 
+                        all.ItemsTyped().ToList() 
+                    };
+                    while(true)
                     {
+                        var newList = new C.List<C.List<XS.XmlSchemaParticle>>();
+                        foreach (var i in list)
+                        {
+                            foreach (var j in i)
+                            {
+                                newList.Add(
+                                    i.Except(new XS.XmlSchemaParticle[] { j }).
+                                        ToList());
+                            }
+                        }
+                        if (newList[0].Count == 0)
+                        {
+                            break;
+                        }
+                        list = newList;
                     }
                      * */
                 }

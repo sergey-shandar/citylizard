@@ -1,4 +1,4 @@
-#define BOOST_TEST_MODULE citylizard_com
+#define BOOST_TEST_MODULE citylizard
 #include <boost/test/unit_test.hpp>
 
 //
@@ -11,7 +11,7 @@
 
 #define override
 
-namespace citylizard_com
+namespace citylizard
 {
 namespace com
 {
@@ -89,7 +89,7 @@ public:
 }
 }
 
-namespace citylizard_com
+namespace citylizard
 {
 namespace intrusive
 {
@@ -107,7 +107,7 @@ class traits<T, typename meta::if_< ::std::is_base_of< com::IUnknown, T> >::type
 }
 }
 
-namespace citylizard_com
+namespace citylizard
 {
 namespace _detail
 {
@@ -127,9 +127,9 @@ public:
 namespace NS
 {
 
-namespace C = ::citylizard_com::com;
-namespace I = ::citylizard_com::intrusive;
-typedef ::citylizard_com::com::_detail::traits T;
+namespace C = ::citylizard::com;
+namespace I = ::citylizard::intrusive;
+typedef ::citylizard::com::_detail::traits T;
 
 /*
 class IA: public ::citylizard_com::com::IUnknown

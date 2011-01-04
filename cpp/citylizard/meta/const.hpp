@@ -4,7 +4,7 @@
 #include <citylizard/meta/bool_fwd.hpp>
 #include <citylizard/meta/_detail/op.hpp>
 
-namespace citylizard_com
+namespace citylizard
 {
 namespace meta
 {

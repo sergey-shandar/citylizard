@@ -1,6 +1,6 @@
 #include <citylizard/intrusive/_detail/holder.hpp>
 
-namespace citylizard_com
+namespace citylizard
 {
 namespace intrusive
 {

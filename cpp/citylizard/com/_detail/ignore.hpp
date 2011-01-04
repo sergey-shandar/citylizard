@@ -2,7 +2,7 @@
 
 #include <windows.h>
 
-namespace citylizard_com
+namespace citylizard
 {
 namespace com
 {

@@ -4,7 +4,7 @@
 
 #pragma warning(disable: 4481)
 
-namespace citylizard_com
+namespace citylizard
 {
 namespace com
 {
@@ -43,8 +43,8 @@ public:
 
 BOOST_AUTO_TEST_CASE(is_same_object)
 {
-    namespace C = ::citylizard_com::com;
-    namespace T = ::citylizard_com::com::test;
+    namespace C = ::citylizard::com;
+    namespace T = ::citylizard::com::test;
     T::My a;
     T::My b;
     BOOST_CHECK(!C::is_same_object(a, b));

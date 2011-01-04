@@ -4,7 +4,7 @@
 #include <citylizard/meta/bool.hpp>
 #include <citylizard/meta/_detail/list_config.hpp>
 
-namespace citylizard_com
+namespace citylizard
 {
 namespace meta
 {

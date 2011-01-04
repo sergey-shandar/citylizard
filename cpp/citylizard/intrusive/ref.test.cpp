@@ -2,7 +2,7 @@
 
 #include <citylizard/meta/if.hpp>
 
-namespace citylizard_com
+namespace citylizard
 {
 namespace intrusive
 {
@@ -79,7 +79,7 @@ void ref_test()
 
 #include <citylizard/intrusive/ptr.hpp>
 
-namespace citylizard_com
+namespace citylizard
 {
 namespace intrusive
 {
@@ -112,7 +112,7 @@ void ref_test_ptr()
 
 // #include <citylizard.com/intrusive/rv_ptr.hpp>
 
-namespace citylizard_com
+namespace citylizard
 {
 namespace intrusive
 {

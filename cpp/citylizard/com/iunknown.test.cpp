@@ -5,5 +5,5 @@
 
 BOOST_AUTO_TEST_CASE(iunknown_test)
 {
-    citylizard_com::intrusive::ptr< ::IUnknown> p;
+    citylizard::intrusive::ptr< ::IUnknown> p;
 }

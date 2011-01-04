@@ -5,7 +5,7 @@
 #include <citylizard/intrusive/_detail/down_cast.hpp>
 #include <citylizard/intrusive/ref_fwd.hpp>
 
-namespace citylizard_com
+namespace citylizard
 {
 /// \brief Intrusive pointers.
 ///

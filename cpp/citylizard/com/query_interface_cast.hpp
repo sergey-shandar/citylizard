@@ -3,7 +3,7 @@
 #include <citylizard/com/_detail/query_interface_handled.hpp>
 #include <citylizard/com/_detail/ignore.hpp>
 
-namespace citylizard_com
+namespace citylizard
 {
 namespace com
 {

@@ -6,7 +6,7 @@
 
 #include <type_traits>
 
-namespace citylizard_com
+namespace citylizard
 {
 namespace intrusive
 {

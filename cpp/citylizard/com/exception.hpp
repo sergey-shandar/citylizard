@@ -11,7 +11,7 @@
 // nonstandard extension used: override specifier 'keyword'
 #pragma warning(disable: 4481)
 
-namespace citylizard_com
+namespace citylizard
 {
 /// COM (Component Object Model).
 namespace com

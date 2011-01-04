@@ -52,7 +52,7 @@ public:
 	};
 }; // class safe_reinterpret
 
-} // namespace detail
+} // namespace _detail
 
 typedef _detail::base<_detail::safe_reinterpret> safe_reinterpret;
 

@@ -29,7 +29,7 @@ public:
 
 }; // class reinterpret
 
-}
+} // namespace _detail
 
 typedef _detail::base<_detail::reinterpret> reinterpret;
 

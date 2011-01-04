@@ -24,7 +24,7 @@ public:
 	};
 }; // class const_
 
-} // namespace detail
+} // namespace _detail
 
 typedef _detail::base<_detail::const_> const_;
 

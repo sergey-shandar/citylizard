@@ -9,7 +9,7 @@
 // __declspec(nothrow)
 #pragma warning(disable: 4290)
 
-namespace citylizard_com
+namespace citylizard
 {
 namespace intrusive
 {
@@ -38,13 +38,13 @@ public:
     void ref_add() const 
         throw()
     {
-        CITYLIZARD_COM_INTRUSIVE_DETAIL_ASSUME(this->p);
+        CITYLIZARD_INTRUSIVE_DETAIL_ASSUME(this->p);
         traits::add(*this->p);
     }
     void ref_release() const 
         throw()
     {
-        CITYLIZARD_COM_INTRUSIVE_DETAIL_ASSUME(this->p);
+        CITYLIZARD_INTRUSIVE_DETAIL_ASSUME(this->p);
         traits::release(*this->p);
     }
     void ref_assign(holder const &b) 

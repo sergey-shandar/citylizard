@@ -4,7 +4,7 @@
 #include <citylizard/com/iunknown.hpp>
 #include <citylizard/intrusive/ptr.hpp>
 
-namespace citylizard_com
+namespace citylizard
 {
 namespace com
 {

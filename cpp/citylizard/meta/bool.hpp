@@ -3,7 +3,7 @@
 #include <citylizard/meta/const.hpp>
 #include <citylizard/meta/bool_fwd.hpp>
 
-namespace citylizard_com
+namespace citylizard
 {
 namespace meta
 {

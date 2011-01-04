@@ -4,7 +4,7 @@
 
 namespace M = ::boost::mpl;
 
-typedef ::citylizard_com::meta::list L0;
+typedef ::citylizard::meta::list L0;
 
 static_assert(::std::is_same< L0::clear, L0>::value, "L0::clear != L0");
 static_assert(L0::empty::value, "L0::empty != true");

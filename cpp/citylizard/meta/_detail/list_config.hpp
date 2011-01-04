@@ -5,7 +5,7 @@
 
 #include <boost/mpl/identity.hpp>
 
-namespace citylizard_com
+namespace citylizard
 {
 namespace meta
 {

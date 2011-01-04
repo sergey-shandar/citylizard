@@ -2,7 +2,7 @@
 
 #include <citylizard/meta/eval_if_c.hpp>
 
-namespace citylizard_com
+namespace citylizard
 {
 namespace meta
 {

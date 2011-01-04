@@ -5,7 +5,7 @@
 #include <citylizard/intrusive/ptr_fwd.hpp>
 #include <citylizard/intrusive/ref_fwd.hpp>
 
-namespace citylizard_com
+namespace citylizard
 {
 namespace intrusive
 {
@@ -138,13 +138,13 @@ public:
     T &operator*() const
         throw()
     {
-        CITYLIZARD_COM_INTRUSIVE_DETAIL_ASSUME(this->_detail.p);
+        CITYLIZARD_INTRUSIVE_DETAIL_ASSUME(this->_detail.p);
         return *this->_detail.p;
     }
     T *operator->() const
         throw()
     {
-        CITYLIZARD_COM_INTRUSIVE_DETAIL_ASSUME(this->_detail.p);
+        CITYLIZARD_INTRUSIVE_DETAIL_ASSUME(this->_detail.p);
         return this->_detail.p;
     }
 #endif

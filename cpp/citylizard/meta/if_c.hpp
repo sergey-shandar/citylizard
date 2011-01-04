@@ -3,7 +3,7 @@
 #include <citylizard/meta/_detail/if_c.hpp>
 #include <boost/mpl/aux_/na.hpp>
 
-namespace citylizard_com
+namespace citylizard
 {
 /// Meta-programming.
 namespace meta

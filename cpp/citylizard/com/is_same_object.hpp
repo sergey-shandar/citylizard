@@ -2,7 +2,7 @@
 
 #include <citylizard/com/query_interface_cast.hpp>
 
-namespace citylizard_com
+namespace citylizard
 {
 namespace com
 {

@@ -1,6 +1,6 @@
 #pragma once
 
-namespace citylizard_com
+namespace citylizard
 {
 namespace meta
 {

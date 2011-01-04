@@ -2,7 +2,7 @@
 
 #include <boost/static_assert.hpp>
 
-namespace citylizard_com
+namespace citylizard
 {
 namespace intrusive
 {

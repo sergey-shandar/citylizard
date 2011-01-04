@@ -7,7 +7,7 @@
 #include <boost/static_assert.hpp>
 #include <boost/mpl/identity.hpp>
 
-namespace C = ::citylizard_com::meta;
+namespace C = ::citylizard::meta;
 
 static_assert(::std::is_same<C::if_c<true>::type, void>::value, "");
 static_assert(!::std::is_same<C::if_c<true>::type, int>::value, "");
@@ -40,16 +40,16 @@ static_assert(
 		value, 
 	"");
 
-#define CITYLIZARD_COM_META_ASSERT(X) \
+#define CITYLIZARD_META_ASSERT(X) \
     static_assert(::boost::mpl::identity<decltype(X)>::type::value, #X)
 
-CITYLIZARD_COM_META_ASSERT(
+CITYLIZARD_META_ASSERT(
     C::if__(C::true__, C::true__, C::false__).type_());
-CITYLIZARD_COM_META_ASSERT(
+CITYLIZARD_META_ASSERT(
     !C::if__(C::false__, C::true__, C::false__).type_());
-CITYLIZARD_COM_META_ASSERT(
+CITYLIZARD_META_ASSERT(
     C::if__(C::true__, C::true__).else__(C::false__).type_());
-CITYLIZARD_COM_META_ASSERT(!
+CITYLIZARD_META_ASSERT(!
     C::if__(C::false__, C::true__).
     else_if_(C::true__, C::false__).
     else__(C::true__).

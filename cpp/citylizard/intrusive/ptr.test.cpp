@@ -3,7 +3,7 @@
 
 #include <boost/test/unit_test.hpp>
 
-namespace citylizard_com
+namespace citylizard
 {
 namespace intrusive
 {
@@ -55,8 +55,8 @@ public:
 
 BOOST_AUTO_TEST_CASE(ptr_test)
 {
-    namespace I = ::citylizard_com::intrusive;
-    namespace T = ::citylizard_com::intrusive::test;
+    namespace I = ::citylizard::intrusive;
+    namespace T = ::citylizard::intrusive::test;
     //
     T::ptr_test_a object;
     T::ptr_test_b object_b;
@@ -231,8 +231,8 @@ BOOST_AUTO_TEST_CASE(ptr_test)
 
 BOOST_AUTO_TEST_CASE(ptr_test_ref)
 {    
-    namespace I = ::citylizard_com::intrusive;
-    namespace T = ::citylizard_com::intrusive::test;
+    namespace I = ::citylizard::intrusive;
+    namespace T = ::citylizard::intrusive::test;
     T::ptr_test_a object;
     {
         I::ref<T::ptr_test_a> ra = I::wrap(&object);
@@ -275,8 +275,8 @@ BOOST_AUTO_TEST_CASE(ptr_test_ref)
 
 BOOST_AUTO_TEST_CASE(ptr_test_rv_ptr)
 {
-    namespace I = ::citylizard_com::intrusive;
-    namespace T = ::citylizard_com::intrusive::test;
+    namespace I = ::citylizard::intrusive;
+    namespace T = ::citylizard::intrusive::test;
     T::ptr_test_a object;
     {
         // Constructor from ptr.

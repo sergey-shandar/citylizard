@@ -1,6 +1,6 @@
 #include <citylizard/intrusive/ref_fwd.hpp>
 
-namespace citylizard_com
+namespace citylizard
 {
 namespace intrusive
 {

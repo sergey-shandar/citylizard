@@ -8,7 +8,7 @@
 // __declspec(nothrow)
 #pragma warning(disable: 4290)
 
-namespace citylizard_com
+namespace citylizard
 {
 namespace com
 {

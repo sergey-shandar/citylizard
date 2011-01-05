@@ -33,6 +33,15 @@
         /// </summary>
         public class State : C.HashSet<Transition>
         {
+            /// <summary>
+            /// true if no transitions from this state.
+            /// </summary>
+            public bool Empty { get { return this.Count == 0; } }
+
+            /// <summary>
+            /// Back-links.
+            /// </summary>
+            public C.List<Transition> FromList = new C.List<Transition>();
         }
 
         /// <summary>
@@ -70,6 +79,9 @@
         {
             this.StateList[state].Add(
                 new Transition { Symbol = symbol, State = to });
+            // backlink.
+            this.StateList[to].FromList.Add(
+                new Transition { Symbol = symbol, State = state });
             return to;
         }
 
@@ -143,5 +155,53 @@
                 set.UnionWith(copy);
             }
         }
+
+        public int Combine(C.ISet<int> name)
+        {
+            var state = this.AddState();
+            foreach (var s in name)
+            {
+                foreach (var t in this.StateList[s].FromList)
+                {
+                    this.Add(t.State, t.Symbol, state);
+                }
+            }
+            return state;
+        }
+
+        /*
+        public void Optimize(C.ISet<int> name)
+        {
+            var copy = new C.HashSet<int>(name);
+            var firstEmpty = -1;
+            foreach (var i in copy)
+            {
+                var state = this.StateList[i];
+                if (state.Empty)
+                {
+                    if (firstEmpty == -1)
+                    {
+                        firstEmpty = i;
+                    }
+                    else
+                    {
+                        // backlinks are required to get rid of the loops.
+                        foreach (var s in this.StateList)
+                        {
+                            foreach (var t in s)
+                            {
+                                if (t.State == i)
+                                {
+                                    t.State = firstEmpty;   
+                                }
+                            }
+                        }
+                        //
+                        name.Remove(i);
+                    }
+                }
+            }
+        }
+        */
     }
 }

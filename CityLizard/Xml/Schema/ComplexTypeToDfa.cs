@@ -90,6 +90,12 @@
                                 }
                             }
                         }
+                        /*
+                        foreach (var s in newSetMap)
+                        {
+                            this.Fsm.Optimize(s.Value);
+                        }
+                         * */
                         setMap = newSetMap;
                     }
                     set.Clear();

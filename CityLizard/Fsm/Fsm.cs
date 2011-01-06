@@ -156,17 +156,21 @@
             }
         }
 
-        public int Combine(C.ISet<int> name)
+        public void Combine(C.ISet<int> name)
         {
-            var state = this.AddState();
-            foreach (var s in name)
+            if (name.Count != 1)
             {
-                foreach (var t in this.StateList[s].FromList)
+                var state = this.AddState();
+                foreach (var s in name)
                 {
-                    this.Add(t.State, t.Symbol, state);
+                    foreach (var t in this.StateList[s].FromList)
+                    {
+                        this.Add(t.State, t.Symbol, state);
+                    }
                 }
+                name.Clear();
+                name.Add(state);
             }
-            return state;
         }
 
         /*

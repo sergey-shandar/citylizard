@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="meta">
+      <UniqueIdentifier>{97a6776c-34da-40f1-9389-d805e1ef7552}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="intrusive">
+      <UniqueIdentifier>{b4ce47aa-4e59-422b-97fe-bcdf653581a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="intrusive\user">
+      <UniqueIdentifier>{f448b69f-c9af-4d6a-839a-26dde2e9888e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="com">
+      <UniqueIdentifier>{7259bae6-f450-4b14-bab4-e41e39357b15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="intrusive\_detail">
+      <UniqueIdentifier>{8b83c44e-2e17-4e43-9a79-2cad8c937ce7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meta\_detail">
+      <UniqueIdentifier>{01d8f91e-a45d-419f-a98e-f3851b210872}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="com\_detail">
+      <UniqueIdentifier>{58058d7a-a8d0-453c-9622-9e736d26e04e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config">
+      <UniqueIdentifier>{2f854e00-beda-43a2-b1ad-447afd1bfd1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config\_detail">
+      <UniqueIdentifier>{1a3a8f5e-1830-412a-bd34-75af2614a83e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="meta\eval_if.hpp">
+      <Filter>meta</Filter>
+    </ClInclude>
+    <ClInclude Include="meta\eval_if_c.hpp">
+      <Filter>meta</Filter>
+    </ClInclude>
+    <ClInclude Include="meta\if.hpp">
+      <Filter>meta</Filter>
+    </ClInclude>
+    <ClInclude Include="meta\if_c.hpp">
+      <Filter>meta</Filter>
+    </ClInclude>
+    <ClInclude Include="meta\list.hpp">
+      <Filter>meta</Filter>
+    </ClInclude>
+    <ClInclude Include="intrusive\ptr.hpp">
+      <Filter>intrusive</Filter>
+    </ClInclude>
+    <ClInclude Include="intrusive\ptr_fwd.hpp">
+      <Filter>intrusive</Filter>
+    </ClInclude>
+    <ClInclude Include="intrusive\ref.hpp">
+      <Filter>intrusive</Filter>
+    </ClInclude>
+    <ClInclude Include="intrusive\ref_fwd.hpp">
+      <Filter>intrusive</Filter>
+    </ClInclude>
+    <ClInclude Include="intrusive\user\traits.hpp">
+      <Filter>intrusive\user</Filter>
+    </ClInclude>
+    <ClInclude Include="com\exception.hpp">
+      <Filter>com</Filter>
+    </ClInclude>
+    <ClInclude Include="com\is_same_object.hpp">
+      <Filter>com</Filter>
+    </ClInclude>
+    <ClInclude Include="com\iunknown.hpp">
+      <Filter>com</Filter>
+    </ClInclude>
+    <ClInclude Include="com\query_interface.hpp">
+      <Filter>com</Filter>
+    </ClInclude>
+    <ClInclude Include="com\query_interface_cast.hpp">
+      <Filter>com</Filter>
+    </ClInclude>
+    <ClInclude Include="main.hpp" />
+    <ClInclude Include="com\_detail\ignore.hpp">
+      <Filter>com\_detail</Filter>
+    </ClInclude>
+    <ClInclude Include="com\_detail\ignore.test.hpp">
+      <Filter>com\_detail</Filter>
+    </ClInclude>
+    <ClInclude Include="com\_detail\query_interface_handled.hpp">
+      <Filter>com\_detail</Filter>
+    </ClInclude>
+    <ClInclude Include="intrusive\_detail\assume.hpp">
+      <Filter>intrusive\_detail</Filter>
+    </ClInclude>
+    <ClInclude Include="intrusive\_detail\down_cast.hpp">
+      <Filter>intrusive\_detail</Filter>
+    </ClInclude>
+    <ClInclude Include="intrusive\_detail\holder.hpp">
+      <Filter>intrusive\_detail</Filter>
+    </ClInclude>
+    <ClInclude Include="intrusive\_detail\safe_reinterpret_ref_cast.hpp">
+      <Filter>intrusive\_detail</Filter>
+    </ClInclude>
+    <ClInclude Include="meta\const.hpp">
+      <Filter>meta</Filter>
+    </ClInclude>
+    <ClInclude Include="meta\_detail\if_c.hpp">
+      <Filter>meta\_detail</Filter>
+    </ClInclude>
+    <ClInclude Include="meta\_detail\op.hpp">
+      <Filter>meta\_detail</Filter>
+    </ClInclude>
+    <ClInclude Include="meta\bool.hpp">
+      <Filter>meta</Filter>
+    </ClInclude>
+    <ClInclude Include="meta\bool_fwd.hpp">
+      <Filter>meta</Filter>
+    </ClInclude>
+    <ClInclude Include="meta\_detail\list_config.hpp">
+      <Filter>meta\_detail</Filter>
+    </ClInclude>
+    <ClInclude Include="config\_detail\config.hpp">
+      <Filter>config\_detail</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="meta\eval_if.test.cpp">
+      <Filter>meta</Filter>
+    </ClCompile>
+    <ClCompile Include="meta\eval_if_c.test.cpp">
+      <Filter>meta</Filter>
+    </ClCompile>
+    <ClCompile Include="meta\if.test.cpp">
+      <Filter>meta</Filter>
+    </ClCompile>
+    <ClCompile Include="meta\if_c.test.cpp">
+      <Filter>meta</Filter>
+    </ClCompile>
+    <ClCompile Include="intrusive\ptr.test.cpp">
+      <Filter>intrusive</Filter>
+    </ClCompile>
+    <ClCompile Include="intrusive\ptr_fwd.test.cpp">
+      <Filter>intrusive</Filter>
+    </ClCompile>
+    <ClCompile Include="intrusive\ref.test.cpp">
+      <Filter>intrusive</Filter>
+    </ClCompile>
+    <ClCompile Include="intrusive\ref_fwd.test.cpp">
+      <Filter>intrusive</Filter>
+    </ClCompile>
+    <ClCompile Include="intrusive\user\traits.test.cpp">
+      <Filter>intrusive\user</Filter>
+    </ClCompile>
+    <ClCompile Include="com\exception.test.cpp">
+      <Filter>com</Filter>
+    </ClCompile>
+    <ClCompile Include="com\is_same_object.test.cpp">
+      <Filter>com</Filter>
+    </ClCompile>
+    <ClCompile Include="com\iunknown.test.cpp">
+      <Filter>com</Filter>
+    </ClCompile>
+    <ClCompile Include="com\query_interface.test.cpp">
+      <Filter>com</Filter>
+    </ClCompile>
+    <ClCompile Include="com\query_interface_cast.test.cpp">
+      <Filter>com</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="meta\list.test.cpp">
+      <Filter>meta</Filter>
+    </ClCompile>
+    <ClCompile Include="com\_detail\query_interface_handled.test.cpp">
+      <Filter>com\_detail</Filter>
+    </ClCompile>
+    <ClCompile Include="intrusive\_detail\assume.test.cpp">
+      <Filter>intrusive\_detail</Filter>
+    </ClCompile>
+    <ClCompile Include="intrusive\_detail\down_cast.test.cpp">
+      <Filter>intrusive\_detail</Filter>
+    </ClCompile>
+    <ClCompile Include="intrusive\_detail\holder.test.cpp">
+      <Filter>intrusive\_detail</Filter>
+    </ClCompile>
+    <ClCompile Include="intrusive\_detail\safe_reinterpret_ref_cast.test.cpp">
+      <Filter>intrusive\_detail</Filter>
+    </ClCompile>
+    <ClCompile Include="meta\const.test.cpp">
+      <Filter>meta</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

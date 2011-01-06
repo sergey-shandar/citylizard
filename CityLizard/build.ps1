@@ -125,7 +125,7 @@ $svg_xsd_cs = Join-Path $svg_dir "X.xsd.cs"
 $nuget_xsd = Join-Path $third_party "nuget.codeplex.com\nuspec.xsd"
 $nuget_dir = Join-Path $typed_dom "schemas_microsoft_com.packaging._2010._07.nuspec_xsd"
 $nuget_xsd_cs = Join-Path $nuget_dir "X.xsd.cs"
-&$console $nuget_xsd $nuget_xsd_cs
+# &$console $nuget_xsd $nuget_xsd_cs
 
 #
 # Building CityLizard.TypedDom.sln
@@ -169,6 +169,7 @@ $zip = Join-Path $root $zipName
 
 $xml = Join-Path $root "CityLizard\Xml\bin\Debug\CityLizard.Xml.dll"
 $sl_xml = Join-Path $root "CityLizard\Xml\Silverlight\bin\Debug\CityLizard.Xml.dll"
+$xml_35 = Join-Path $root "CityLizard\Xml\3.5\bin\Debug\CityLizard.Xml.dll"
 
 $schema = Join-Path $root "CityLizard\Xml\Schema\bin\Debug\CityLizard.Xml.Schema.dll"
 $codedom = Join-Path $root "CityLizard\CodeDom\bin\Debug\CityLizard.CodeDom.dll"
@@ -176,36 +177,48 @@ $console = Join-Path $root "CityLizard\Xml\Schema\Console\bin\Debug\CityLizard.X
 
 $xhtml = Join-Path $xhtml_dir "bin\Debug\www_w3_org._1999.xhtml.dll"
 $sl_xhtml = Join-Path $xhtml_dir "Silverlight\bin\Debug\www_w3_org._1999.xhtml.dll"
+$xhtml_35 = Join-Path $xhtml_dir "3.5\bin\Debug\www_w3_org._1999.xhtml.dll"
+
 $graphml = Join-Path $graphml_dir "bin\Debug\graphml_graphdrawing_org.xmlns.dll"
 $sl_graphml = Join-Path $graphml_dir "Silverlight\bin\Debug\graphml_graphdrawing_org.xmlns.dll"
+$graphml_35 = Join-Path $graphml_dir "3.5\bin\Debug\graphml_graphdrawing_org.xmlns.dll"
+
 $svg = Join-Path $svg_dir "bin\Debug\www_w3_org._2000.svg.dll"
 $sl_svg = Join-Path $svg_dir "Silverlight\bin\Debug\www_w3_org._2000.svg.dll"
+$svg_35 = Join-Path $svg_dir "3.5\bin\Debug\www_w3_org._2000.svg.dll"
 
 $license = Join-Path $root "CityLizard\license.txt"
 
 $lib = Join-Path $root "lib"
 mkdir $lib
 
-$lib_net = Join-Path $lib "NETFramework"
-mkdir $lib_net
+$lib_net4 = Join-Path $lib "NETFramework4.0"
+mkdir $lib_net4
+
+$lib_net35 = Join-Path $lib "NETFramework3.5"
+mkdir $lib_net35
 
 $lib_sl = Join-Path $lib "Silverlight"
 mkdir $lib_sl
 
-copy $xml $lib_net
+copy $xml $lib_net4
+copy $xml_35 $lib_net35
 copy $sl_xml $lib_sl
 
-copy $schema $lib_net
-copy $codedom $lib_net
-copy $console $lib_net
+copy $schema $lib_net4
+copy $codedom $lib_net4
+copy $console $lib_net4
 
-copy $xhtml $lib_net
+copy $xhtml $lib_net4
+copy $xhtml_35 $lib_net35
 copy $sl_xhtml $lib_sl
 
-copy $graphml $lib_net
+copy $graphml $lib_net4
+copy $graphml_35 $lib_net35
 copy $sl_graphml $lib_sl
 
-copy $svg $lib_net
+copy $svg $lib_net4
+copy $svg_35 $lib_net35
 copy $sl_svg $lib_sl
 
 # &$_7z "a" $zip $xml $xhtml $graphml $svg $schema $codedom $console $license $sl_xml $sl_xhtml, $sl_graphml, $sl_svg

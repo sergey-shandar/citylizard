@@ -40,8 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\X.xsd.cs">
+      <Link>X.xsd.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="X.xsd.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Xml\3.5\CityLizard.Xml.3.5.csproj">

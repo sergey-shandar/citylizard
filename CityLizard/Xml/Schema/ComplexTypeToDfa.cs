@@ -91,9 +91,9 @@
                             }
                         }
                         /*
-                        foreach (var s in newSetMap)
+                        foreach (var pair in newSetMap)
                         {
-                            this.Fsm.Optimize(s.Value);
+                            this.Fsm.Combine(pair.Value);
                         }
                          * */
                         setMap = newSetMap;

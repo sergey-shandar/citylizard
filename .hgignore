@@ -23,3 +23,4 @@ relre:.*\.xsd\.cs
 relre:.*\.pidb$
 relre:.*\.userprefs$
 relre:.*\.nupkg$
+relre:.*\.nsuo$

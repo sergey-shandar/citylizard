@@ -188,8 +188,8 @@ $sl_svg = Join-Path $svg_dir "Silverlight\bin\Debug\www_w3_org._2000.svg.dll"
 $svg_35 = Join-Path $svg_dir "3.5\bin\Debug\www_w3_org._2000.svg.dll"
 
 $nuget = Join-Path $nuget_dir "bin\Debug\schemas_microsoft_com.packaging._2010._07.nuspec_xsd.dll"
-$sl_nuget = Join-Path $svg_dir "Silverlight\bin\Debug\schemas_microsoft_com.packaging._2010._07.nuspec_xsd.dll"
-$nuget_35 = Join-Path $svg_dir "3.5\bin\Debug\schemas_microsoft_com.packaging._2010._07.nuspec_xsd.dll"
+$sl_nuget = Join-Path $nuget_dir "Silverlight\bin\Debug\schemas_microsoft_com.packaging._2010._07.nuspec_xsd.dll"
+$nuget_35 = Join-Path $nuget_dir "3.5\bin\Debug\schemas_microsoft_com.packaging._2010._07.nuspec_xsd.dll"
 
 $license = Join-Path $root "CityLizard\license.txt"
 

@@ -125,7 +125,7 @@ $svg_xsd_cs = Join-Path $svg_dir "X.xsd.cs"
 $nuget_xsd = Join-Path $third_party "nuget.codeplex.com\nuspec.xsd"
 $nuget_dir = Join-Path $typed_dom "schemas_microsoft_com.packaging._2010._07.nuspec_xsd"
 $nuget_xsd_cs = Join-Path $nuget_dir "X.xsd.cs"
-# &$console $nuget_xsd $nuget_xsd_cs
+&$console $nuget_xsd $nuget_xsd_cs
 
 #
 # Building CityLizard.TypedDom.sln
@@ -187,6 +187,10 @@ $svg = Join-Path $svg_dir "bin\Debug\www_w3_org._2000.svg.dll"
 $sl_svg = Join-Path $svg_dir "Silverlight\bin\Debug\www_w3_org._2000.svg.dll"
 $svg_35 = Join-Path $svg_dir "3.5\bin\Debug\www_w3_org._2000.svg.dll"
 
+$nuget = Join-Path $nuget_dir "bin\Debug\schemas_microsoft_com.packaging._2010._07.nuspec_xsd.dll"
+$sl_nuget = Join-Path $svg_dir "Silverlight\bin\Debug\schemas_microsoft_com.packaging._2010._07.nuspec_xsd.dll"
+$nuget_35 = Join-Path $svg_dir "3.5\bin\Debug\schemas_microsoft_com.packaging._2010._07.nuspec_xsd.dll"
+
 $license = Join-Path $root "CityLizard\license.txt"
 
 $lib = Join-Path $root "lib"
@@ -220,6 +224,10 @@ copy $sl_graphml $lib_sl
 copy $svg $lib_net4
 copy $svg_35 $lib_net35
 copy $sl_svg $lib_sl
+
+copy $nuget $lib_net4
+copy $nuget_35 $lib_net35
+copy $sl_nuget $lib_sl
 
 # &$_7z "a" $zip $xml $xhtml $graphml $svg $schema $codedom $console $license $sl_xml $sl_xhtml, $sl_graphml, $sl_svg
 &$_7z "a" $zip $lib $license

@@ -11,7 +11,12 @@
             <xs:sequence>
                 <xs:element name="metadata" maxOccurs="1" minOccurs="1">
                     <xs:complexType>
-                        <xs:all>
+			<!-- 
+                            It was xs:all. However, the current version of 
+                            CityLizard framework generates to much code for
+                            14 elements inside xs:all. More then 2^14 classes.
+			-->
+                        <xs:sequence>
                             <xs:element name="id" maxOccurs="1" minOccurs="1" type="xs:string" />
                             <xs:element name="version" maxOccurs="1" minOccurs="1" type="xs:string" />
                             <xs:element name="title" maxOccurs="1" minOccurs="0" type="xs:string" />
@@ -37,7 +42,7 @@
                                     </xs:sequence>
                                 </xs:complexType>
                             </xs:element>
-                        </xs:all>
+                        </xs:sequence>
                     </xs:complexType>
                 </xs:element>                
                 <xs:element name="files" minOccurs="0" maxOccurs="1">

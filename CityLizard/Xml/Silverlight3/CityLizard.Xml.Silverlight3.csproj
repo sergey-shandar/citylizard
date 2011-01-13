@@ -55,6 +55,9 @@
     <Reference Include="System.Windows.Browser" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Attribute.cs">
+      <Link>Attribute.cs</Link>
+    </Compile>
     <Compile Include="..\ICharacterData.cs">
       <Link>ICharacterData.cs</Link>
     </Compile>
@@ -66,6 +69,30 @@
     </Compile>
     <Compile Include="..\Linked\Comment.cs">
       <Link>Linked\Comment.cs</Link>
+    </Compile>
+    <Compile Include="..\Linked\Element\Complex.cs">
+      <Link>Linked\Element\Complex.cs</Link>
+    </Compile>
+    <Compile Include="..\Linked\Element\Element.cs">
+      <Link>Linked\Element\Element.cs</Link>
+    </Compile>
+    <Compile Include="..\Linked\Element\Empty.cs">
+      <Link>Linked\Element\Empty.cs</Link>
+    </Compile>
+    <Compile Include="..\Linked\Element\Mixed.cs">
+      <Link>Linked\Element\Mixed.cs</Link>
+    </Compile>
+    <Compile Include="..\Linked\Element\NotEmpty.cs">
+      <Link>Linked\Element\NotEmpty.cs</Link>
+    </Compile>
+    <Compile Include="..\Linked\Element\NotMixed.cs">
+      <Link>Linked\Element\NotMixed.cs</Link>
+    </Compile>
+    <Compile Include="..\Linked\Element\Simple.cs">
+      <Link>Linked\Element\Simple.cs</Link>
+    </Compile>
+    <Compile Include="..\Linked\Element\Type.cs">
+      <Link>Linked\Element\Type.cs</Link>
     </Compile>
     <Compile Include="..\Linked\LinkedNode.cs">
       <Link>Linked\LinkedNode.cs</Link>
@@ -79,14 +106,6 @@
     <Compile Include="..\QName.cs">
       <Link>QName.cs</Link>
     </Compile>
-    <Compile Include="Linked\Element\Complex.cs" />
-    <Compile Include="Linked\Element\Element.cs" />
-    <Compile Include="Linked\Element\Empty.cs" />
-    <Compile Include="Linked\Element\Mixed.cs" />
-    <Compile Include="Linked\Element\NotEmpty.cs" />
-    <Compile Include="Linked\Element\NotMixed.cs" />
-    <Compile Include="Linked\Element\Simple.cs" />
-    <Compile Include="Linked\Element\Type.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />

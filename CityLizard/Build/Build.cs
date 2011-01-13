@@ -1,14 +1,23 @@
-﻿namespace CityLizard.Build
+﻿//------------------------------------------------------------------------------
+// <copyright file="Build.cs" company="CityLizard">
+//     Copyright (c) CityLizard. All rights reserved.
+// </copyright>
+// <author>Sergey Shandar</author>
+// <summary>
+//     Build utilities.
+// </summary>
+//------------------------------------------------------------------------------
+namespace CityLizard.Build
 {
+    using CityLizard.CodeDom.Extension;
+
+    using CD = System.CodeDom;
+    using CS = Microsoft.CSharp;
     using E = Microsoft.Build.Evaluation;
     using Ex = Microsoft.Build.Execution;
     using G = System.Collections.Generic;
     using IO = System.IO;
-    using CD = System.CodeDom;
     using R = System.Reflection;
-    using CS = Microsoft.CSharp;
-
-    using CityLizard.CodeDom.Extension;
 
     /// <summary>
     /// Build utilities.
@@ -26,36 +35,30 @@
             };
 
         /// <summary>
+        /// Silverlight extension.
+        /// </summary>
+        private const string Silverlight = ".Silverlight";
+
+        /// <summary>
         /// Build the solution.
         /// </summary>
         /// <param name="path">A path to the solution.</param>
+        /// <returns>Result of building.</returns>
         public static Ex.BuildResult BuildSolution(string path)
         {
             var pc = new E.ProjectCollection();
             var bp = new Ex.BuildParameters(pc);
 
-            var BuidlRequest = new Ex.BuildRequestData(
+            var buidlRequest = new Ex.BuildRequestData(
                 path,
                 GlobalProperty,
                 null,
                 new string[] { "Build" },
                 null);
 
-            return Ex.BuildManager.DefaultBuildManager.Build(
-                bp, BuidlRequest);
+            return Ex.BuildManager.DefaultBuildManager.Build(bp, buidlRequest);
         }
 
-        /// <summary>
-        /// Add attribute declaration.
-        /// </summary>
-        /// <typeparam name="T">Attribute.</typeparam>
-        /// <param name="u">Compilation unit.</param>
-        /// <param name="v">Value.</param>
-        private static void Add<T>(CD.CodeCompileUnit u, string v)
-        {
-            u.AssemblyCustomAttributes.AddDeclarationString<T>(v);
-        }
-       
         /// <summary>
         /// Version. Format: Branch.RevisionNumber.
         /// </summary>
@@ -67,8 +70,6 @@
                 "." +
                 s.Parent.RevisionNumber;
         }
-
-        const string Silverlight = ".Silverlight";
 
         /// <summary>
         /// Creates AssemblyInfo.cs.
@@ -91,6 +92,7 @@
             {
                 platform = ".NET Framework";
             }
+            
             var u = new CD.CodeCompileUnit();
             var version = Version(s);
             Add<R.AssemblyVersionAttribute>(u, version);
@@ -111,5 +113,15 @@
             }
         }
 
+        /// <summary>
+        /// Add attribute declaration.
+        /// </summary>
+        /// <typeparam name="T">Attribute.</typeparam>
+        /// <param name="u">Compilation unit.</param>
+        /// <param name="v">Value.</param>
+        private static void Add<T>(CD.CodeCompileUnit u, string v)
+        {
+            u.AssemblyCustomAttributes.AddDeclarationString<T>(v);
+        }
     }
 }

@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual C# Express 2010
+# Visual Web Developer Express 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Xml", "Xml\CityLizard.Xml.csproj", "{270D7B7A-75BC-49BF-AE8E-ABB2FBC8D117}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.NUnit", "NUnit\CityLizard.NUnit.csproj", "{717D3E99-EFCF-46BE-BF30-8E970D2AE9D0}"
@@ -22,6 +22,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Xml.Silverlight", "Xml\Silverlight\CityLizard.Xml.Silverlight.csproj", "{688ACDBE-64C2-4645-B83E-F9190E9CB09C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Xml.3.5", "Xml\3.5\CityLizard.Xml.3.5.csproj", "{3B97C2DC-CB6F-4AE9-8214-6E3AF39A8B09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Xml.Silverlight3", "Xml\Silverlight3\CityLizard.Xml.Silverlight3.csproj", "{2B2DEFE6-E1CB-41BD-913D-699D66BFB4B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -161,6 +163,16 @@ Global
 		{3B97C2DC-CB6F-4AE9-8214-6E3AF39A8B09}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{3B97C2DC-CB6F-4AE9-8214-6E3AF39A8B09}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{3B97C2DC-CB6F-4AE9-8214-6E3AF39A8B09}.Release|x86.ActiveCfg = Release|Any CPU
+		{2B2DEFE6-E1CB-41BD-913D-699D66BFB4B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B2DEFE6-E1CB-41BD-913D-699D66BFB4B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B2DEFE6-E1CB-41BD-913D-699D66BFB4B1}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{2B2DEFE6-E1CB-41BD-913D-699D66BFB4B1}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{2B2DEFE6-E1CB-41BD-913D-699D66BFB4B1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2B2DEFE6-E1CB-41BD-913D-699D66BFB4B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B2DEFE6-E1CB-41BD-913D-699D66BFB4B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B2DEFE6-E1CB-41BD-913D-699D66BFB4B1}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{2B2DEFE6-E1CB-41BD-913D-699D66BFB4B1}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{2B2DEFE6-E1CB-41BD-913D-699D66BFB4B1}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

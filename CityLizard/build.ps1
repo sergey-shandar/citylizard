@@ -128,6 +128,16 @@ $nuget_xsd_cs = Join-Path $nuget_dir "X.xsd.cs"
 &$console $nuget_xsd $nuget_xsd_cs
 
 #
+# Building WiX
+#
+""
+"Building WiX"
+$wix_xsd = Join-Path $third_party "wix.codeplex.com\wix.xsd"
+$wix_dir = Join-Path $typed_dom "schemas_microsoft_com.wix.2006.wi"
+$wix_xsd_cs = Join-Path $nuget_dir "X.xsd.cs"
+&$console $wix_xsd $wix_xsd_cs
+
+#
 # Building CityLizard.TypedDom.sln
 #
 ""

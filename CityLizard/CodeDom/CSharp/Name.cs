@@ -17,7 +17,8 @@
             {
                 newName = "_" + newName;
             }
-            return (Keyword.Set.Contains(newName) ? "@" : "") + newName;
+            return 
+                (Keyword.Set.Contains(newName) ? "@" : string.Empty) + newName;
         }
     }
 }

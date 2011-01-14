@@ -1,13 +1,128 @@
-﻿namespace CityLizard.CodeDom
+﻿//------------------------------------------------------------------------------
+// <copyright file="CodeDom.cs" company="CityLizard">
+//     Copyright (c) CityLizard. All rights reserved.
+// </copyright>
+// <author>Sergey Shandar</author>
+// <summary>
+//     Build utilities.
+// </summary>
+//------------------------------------------------------------------------------
+namespace CityLizard.CodeDom
 {
-    using S = System;
-    using D = System.CodeDom;
-    using C = System.Collections.Generic;
-
     using System.Linq;
 
+    using C = System.Collections.Generic;
+    using D = System.CodeDom;
+    using S = System;
+
+    /// <summary>
+    /// Code DOM.
+    /// </summary>
     public partial class CodeDom
     {
+        public T.Unit Unit()
+        {
+            return new T.Unit();
+        }
+
+        public T.Namespace Namespace(string Name)
+        {
+            return new T.Namespace(Name);
+        }
+
+        public T.Type Type(
+            string Name,
+            bool IsPartial = false,
+            D.MemberAttributes Attributes = default(D.MemberAttributes))
+        {
+            return new T.Type(Name, IsPartial, Attributes);
+        }
+
+        public T.TypeRef TypeRef<S>()
+        {
+            return new T.TypeRef(typeof(S));
+        }
+
+        public T.TypeRef TypeRef(string Name)
+        {
+            return new T.TypeRef(Name);
+        }
+
+        public T.Method Method(
+            string Name,
+            D.MemberAttributes Attributes = default(D.MemberAttributes),
+            T.TypeRef Return = null)
+        {
+            return new T.Method(Name, Attributes, Return);
+        }
+
+        public T.Method Method(
+            T.TypeRef Return, 
+            D.MemberAttributes Attributes = default(D.MemberAttributes))
+        {
+            return new T.Method(Return, Attributes);
+        }
+
+        public T.Constructor Constructor(
+            D.MemberAttributes Attributes = default(D.MemberAttributes))
+        {
+            return new T.Constructor(Attributes);
+        }
+
+        public T.Get Get()
+        {
+            return new T.Get();
+        }
+
+        public T.Property Property(
+            string Name,
+            T.TypeRef Type,
+            D.MemberAttributes Attributes = default(D.MemberAttributes))
+        {
+            return new T.Property(Name, Type, Attributes);
+        }
+
+        public T.Parameter Parameter(
+            T.TypeRef TypeRef, string Name, T.Primitive Value = null)
+        {
+            return new T.Parameter(TypeRef, Name, Value);
+        }
+
+        public T.VariableRef VariableRef(string Name)
+        {
+            return new T.VariableRef(Name);
+        }
+
+        public T.Return Return(T.New New)
+        {
+            return new T.Return(New);
+        }
+
+        public T.Return Return(T.This This)
+        {
+            return new T.Return(This);
+        }
+
+        public T.New New(T.TypeRef TypeRef)
+        {
+            return new T.New(TypeRef);
+        }
+
+        public T.This This()
+        {
+            return new T.This();
+        }
+
+        public T.Primitive Primitive(object Value)
+        {
+            return new T.Primitive(Value);
+        }
+
+        public T.Invoke Invoke(string Name)
+        {
+            return new T.Invoke(Name);
+        }
+        
         public static class T
         {
             public class Unit : D.CodeCompileUnit
@@ -556,109 +671,6 @@
                     }
                 }
             }
-        }
-
-        public T.Unit Unit()
-        {
-            return new T.Unit();
-        }
-
-        public T.Namespace Namespace(string Name)
-        {
-            return new T.Namespace(Name);
-        }
-
-        public T.Type Type(
-            string Name,
-            bool IsPartial = false,
-            D.MemberAttributes Attributes = default(D.MemberAttributes))
-        {
-            return new T.Type(Name, IsPartial, Attributes);
-        }
-
-        public T.TypeRef TypeRef<S>()
-        {
-            return new T.TypeRef(typeof(S));
-        }
-
-        public T.TypeRef TypeRef(string Name)
-        {
-            return new T.TypeRef(Name);
-        }
-
-        public T.Method Method(
-            string Name,
-            D.MemberAttributes Attributes = default(D.MemberAttributes),
-            T.TypeRef Return = null)
-        {
-            return new T.Method(Name, Attributes, Return);
-        }
-
-        public T.Method Method(
-            T.TypeRef Return, 
-            D.MemberAttributes Attributes = default(D.MemberAttributes))
-        {
-            return new T.Method(Return, Attributes);
-        }
-
-        public T.Constructor Constructor(
-            D.MemberAttributes Attributes = default(D.MemberAttributes))
-        {
-            return new T.Constructor(Attributes);
-        }
-
-        public T.Get Get()
-        {
-            return new T.Get();
-        }
-
-        public T.Property Property(
-            string Name,
-            T.TypeRef Type,
-            D.MemberAttributes Attributes = default(D.MemberAttributes))
-        {
-            return new T.Property(Name, Type, Attributes);
-        }
-
-        public T.Parameter Parameter(
-            T.TypeRef TypeRef, string Name, T.Primitive Value = null)
-        {
-            return new T.Parameter(TypeRef, Name, Value);
-        }
-
-        public T.VariableRef VariableRef(string Name)
-        {
-            return new T.VariableRef(Name);
-        }
-
-        public T.Return Return(T.New New)
-        {
-            return new T.Return(New);
-        }
-
-        public T.Return Return(T.This This)
-        {
-            return new T.Return(This);
-        }
-
-        public T.New New(T.TypeRef TypeRef)
-        {
-            return new T.New(TypeRef);
-        }
-
-        public T.This This()
-        {
-            return new T.This();
-        }
-
-        public T.Primitive Primitive(object Value)
-        {
-            return new T.Primitive(Value);
-        }
-
-        public T.Invoke Invoke(string Name)
-        {
-            return new T.Invoke(Name);
         }
     }
 }

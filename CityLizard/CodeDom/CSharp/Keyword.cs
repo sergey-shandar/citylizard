@@ -95,6 +95,5 @@ namespace CityLizard.CodeDom.CSharp
             "namespace", 
             "string",
         };
-
     }
 }

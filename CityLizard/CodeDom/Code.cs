@@ -1,4 +1,13 @@
-﻿namespace CityLizard.CodeDom
+﻿//------------------------------------------------------------------------------
+// <copyright file="Code.cs" company="CityLizard">
+//     Copyright (c) CityLizard. All rights reserved.
+// </copyright>
+// <author>Sergey Shandar</author>
+// <summary>
+//     Build utilities.
+// </summary>
+//------------------------------------------------------------------------------
+namespace CityLizard.CodeDom
 {
     using D = System.CodeDom;
 

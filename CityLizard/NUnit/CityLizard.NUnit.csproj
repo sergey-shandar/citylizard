@@ -62,6 +62,7 @@
     <Compile Include="BuildTest.cs" />
     <Compile Include="CompilerTest.cs" />
     <Compile Include="IdeaTest.cs" />
+    <Compile Include="PolicyTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="XmlTest.cs" />
   </ItemGroup>
@@ -73,6 +74,10 @@
     <ProjectReference Include="..\CodeDom\CityLizard.CodeDom.csproj">
       <Project>{ACF5201B-625E-4356-A515-9D11768881A3}</Project>
       <Name>CityLizard.CodeDom</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Policy\CityLizard.Policy.csproj">
+      <Project>{4ED0D450-FBE4-4B82-B1E9-55E83913B8A0}</Project>
+      <Name>CityLizard.Policy</Name>
     </ProjectReference>
     <ProjectReference Include="..\Xml\CityLizard.Xml.csproj">
       <Project>{270D7B7A-75BC-49BF-AE8E-ABB2FBC8D117}</Project>

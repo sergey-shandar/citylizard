@@ -1,8 +1,9 @@
 ﻿namespace CityLizard.CodeDom.Extension
 {
     using D = System.CodeDom;
-    using C = Code;
+    // using C = Code;
 
+    /*
     /// <summary>
     /// Statement collection extension methods.
     /// </summary>
@@ -69,4 +70,5 @@
             return sC.AddExpression(C.MethodInvokeExpression(e, name, eP));
         }
     }
+     * */
 }

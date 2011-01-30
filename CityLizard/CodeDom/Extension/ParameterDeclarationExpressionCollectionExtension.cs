@@ -2,10 +2,11 @@
 {
     using D = System.CodeDom;
     using S = System;
-    using C = Code;
+    // using C = Code;
 
     using System.Linq;
 
+    /*
     /// <summary>
     /// Extension methods for collection of parameter declarations.
     /// </summary>
@@ -27,4 +28,5 @@
             return r;
         }
     }
+     * */
 }

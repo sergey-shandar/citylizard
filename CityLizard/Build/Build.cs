@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 namespace CityLizard.Build
 {
-    using CityLizard.CodeDom.Extension;
+    // using CityLizard.CodeDom.Extension;
 
     using CD = System.CodeDom;
     using CS = Microsoft.CSharp;
@@ -95,17 +95,17 @@ namespace CityLizard.Build
                 platform = ".NET Framework";
             }
 
-            var c = new C();
-            // var u = new CD.CodeCompileUnit();
-            var u = c.Unit();
             var version = Version(s);
-            Add<R.AssemblyVersionAttribute>(u, version);
-            Add<R.AssemblyFileVersionAttribute>(u, version);
-            Add<R.AssemblyTitleAttribute>(u, f + " for " + platform);
-            Add<R.AssemblyCompanyAttribute>(u, company);
-            Add<R.AssemblyProductAttribute>(u, f);
-            Add<R.AssemblyCopyrightAttribute>(
-                u, "Copyright © " + company + " 2010");
+
+            var c = new C();
+            var u = c.Unit()
+                [c.Attribute<R.AssemblyVersionAttribute>(version)]
+                [c.Attribute<R.AssemblyFileVersionAttribute>(version)]
+                [c.Attribute<R.AssemblyTitleAttribute>(f + " for " + platform)]
+                [c.Attribute<R.AssemblyCompanyAttribute>(company)]
+                [c.Attribute<R.AssemblyProductAttribute>(f)]
+                [c.Attribute<R.AssemblyCopyrightAttribute>(
+                    "Copyright © " + company + " 2010")];
             var p = new CS.CSharpCodeProvider();
             var dir = IO.Path.Combine(d, "Properties");
             IO.Directory.CreateDirectory(dir);
@@ -115,17 +115,6 @@ namespace CityLizard.Build
                 p.GenerateCodeFromCompileUnit(
                     u, w, new CD.Compiler.CodeGeneratorOptions());
             }
-        }
-
-        /// <summary>
-        /// Add attribute declaration.
-        /// </summary>
-        /// <typeparam name="T">Attribute.</typeparam>
-        /// <param name="u">Compilation unit.</param>
-        /// <param name="v">Value.</param>
-        private static void Add<T>(CD.CodeCompileUnit u, string v)
-        {
-            u.AssemblyCustomAttributes.AddDeclarationString<T>(v);
         }
     }
 }

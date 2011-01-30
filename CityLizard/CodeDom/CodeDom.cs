@@ -123,9 +123,11 @@ namespace CityLizard.CodeDom
             return new T.Invoke(Name);
         }
 
-        public T.Attribute Attribute()
+        public T.Attribute Attribute<X>(
+            params object[] Arguments)
         {
-            return new T.Attribute();
+            return new T.Attribute(
+                TypeRef<X>(), Arguments.Select(x => Primitive(x)).ToArray());
         }
 
         public static class T
@@ -163,6 +165,15 @@ namespace CityLizard.CodeDom
 
             public class Attribute : D.CodeAttributeDeclaration
             {
+                public Attribute(
+                    TypeRef TypeRef, 
+                    params Primitive[] Arguments):
+                    base(
+                        TypeRef, 
+                        Arguments.Select(
+                            x => new D.CodeAttributeArgument(x)).ToArray())
+                {
+                }
             }
 
             public class Namespace : D.CodeNamespace

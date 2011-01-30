@@ -1,8 +1,9 @@
 ﻿namespace CityLizard.CodeDom.Extension
 {
     using D = System.CodeDom;
-    using C = Code;
+    // using C = Code;
 
+    /*
     /// <summary>
     /// Namespace collection extension methods.
     /// </summary>
@@ -22,4 +23,5 @@
             return n;
         }
     }
+     * */
 }

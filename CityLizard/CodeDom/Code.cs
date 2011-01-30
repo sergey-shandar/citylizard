@@ -11,6 +11,7 @@ namespace CityLizard.CodeDom
 {
     using D = System.CodeDom;
 
+    /*
     /// <summary>
     /// CodeDom utility.
     /// </summary>
@@ -179,4 +180,5 @@ namespace CityLizard.CodeDom
 
         #endregion
     }
+     * */
 }

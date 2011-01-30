@@ -1,10 +1,11 @@
 ﻿namespace CityLizard.CodeDom.Extension
 {
     using D = System.CodeDom;
-    using C = Code;
+    // using C = Code;
 
     using System.Linq;
 
+    /*
     /// <summary>
     /// Attribute declaration collection extension.
     /// </summary>
@@ -42,4 +43,5 @@
                     ToArray());
         }
     }
+     * */
 }

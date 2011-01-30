@@ -53,16 +53,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Code.cs" />
     <Compile Include="CodeDom.cs" />
     <Compile Include="CSharp\Keyword.cs" />
     <Compile Include="CSharp\Name.cs" />
     <Compile Include="CSharp\Namespace.cs" />
-    <Compile Include="Extension\AttributeDeclarationCollectionExtension.cs" />
-    <Compile Include="Extension\ConstructorExtension.cs" />
-    <Compile Include="Extension\ParameterDeclarationExpressionCollectionExtension.cs" />
-    <Compile Include="Extension\NamespaceCollectionExtension.cs" />
-    <Compile Include="Extension\StatementCollectionExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

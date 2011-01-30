@@ -19,6 +19,8 @@ namespace CityLizard.Build
     using IO = System.IO;
     using R = System.Reflection;
 
+    using C = CityLizard.CodeDom.CodeDom;
+
     /// <summary>
     /// Build utilities.
     /// </summary>
@@ -92,8 +94,10 @@ namespace CityLizard.Build
             {
                 platform = ".NET Framework";
             }
-            
-            var u = new CD.CodeCompileUnit();
+
+            var c = new C();
+            // var u = new CD.CodeCompileUnit();
+            var u = c.Unit();
             var version = Version(s);
             Add<R.AssemblyVersionAttribute>(u, version);
             Add<R.AssemblyFileVersionAttribute>(u, version);

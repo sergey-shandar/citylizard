@@ -30,6 +30,7 @@ $params =
         "CodeDom\Code.cs",
         "CodeDom\Extension\AttributeDeclarationCollectionExtension.cs",
         "CodeDom\Extension\NamespaceCollectionExtension.cs",
+        "CodeDom\CodeDom.cs",
         "Hg\Hg.cs",
         "Build\Build.cs"
     ReferencedAssemblies = 

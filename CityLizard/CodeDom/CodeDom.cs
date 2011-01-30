@@ -122,7 +122,12 @@ namespace CityLizard.CodeDom
         {
             return new T.Invoke(Name);
         }
-        
+
+        public T.Attribute Attribute()
+        {
+            return new T.Attribute();
+        }
+
         public static class T
         {
             public class Unit : D.CodeCompileUnit
@@ -140,6 +145,24 @@ namespace CityLizard.CodeDom
                         return this;
                     }
                 }
+
+                public void Add(Attribute Attribute)
+                {
+                    this.AssemblyCustomAttributes.Add(Attribute);
+                }
+
+                public Unit this[Attribute Attribute]
+                {
+                    get
+                    {
+                        this.Add(Attribute);
+                        return this;
+                    }
+                }
+            }
+
+            public class Attribute : D.CodeAttributeDeclaration
+            {
             }
 
             public class Namespace : D.CodeNamespace

@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Xml.Silverlight3
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Policy", "Policy\CityLizard.Policy.csproj", "{4ED0D450-FBE4-4B82-B1E9-55E83913B8A0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Policy.Build", "Policy\Build\CityLizard.Policy.Build.csproj", "{E19226CF-2EC6-47DB-82E1-780AC4BA3518}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -185,6 +187,16 @@ Global
 		{4ED0D450-FBE4-4B82-B1E9-55E83913B8A0}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{4ED0D450-FBE4-4B82-B1E9-55E83913B8A0}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{4ED0D450-FBE4-4B82-B1E9-55E83913B8A0}.Release|x86.ActiveCfg = Release|Any CPU
+		{E19226CF-2EC6-47DB-82E1-780AC4BA3518}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E19226CF-2EC6-47DB-82E1-780AC4BA3518}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E19226CF-2EC6-47DB-82E1-780AC4BA3518}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{E19226CF-2EC6-47DB-82E1-780AC4BA3518}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{E19226CF-2EC6-47DB-82E1-780AC4BA3518}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E19226CF-2EC6-47DB-82E1-780AC4BA3518}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E19226CF-2EC6-47DB-82E1-780AC4BA3518}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E19226CF-2EC6-47DB-82E1-780AC4BA3518}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{E19226CF-2EC6-47DB-82E1-780AC4BA3518}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{E19226CF-2EC6-47DB-82E1-780AC4BA3518}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

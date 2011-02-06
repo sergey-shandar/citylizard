@@ -27,7 +27,7 @@ $dir = Split-Path -parent $MyInvocation.MyCommand.Definition
 $params = 
 @{
     Path =
-        "CodeDom\CodeDom.cs",
+        "CodeDom\Code.cs",
         "Hg\Hg.cs",
         "Build\Build.cs"
     ReferencedAssemblies = 

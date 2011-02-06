@@ -8,7 +8,7 @@
     using A = System.CodeDom.MemberAttributes;
 
     using CS = CodeDom.CSharp;
-    using D = CodeDom.CodeDom;
+    using D = CodeDom.Code;
     using E = Xml.Linked.Element;
     using F = Fsm;
 

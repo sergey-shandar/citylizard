@@ -18,7 +18,7 @@ namespace CityLizard.CodeDom
     /// <summary>
     /// Code DOM.
     /// </summary>
-    public partial class CodeDom
+    public partial class Code
     {
         public T.Unit Unit()
         {
@@ -33,9 +33,10 @@ namespace CityLizard.CodeDom
         public T.Type Type(
             string Name,
             bool IsPartial = false,
+            bool IsStruct = false,
             D.MemberAttributes Attributes = default(D.MemberAttributes))
         {
-            return new T.Type(Name, IsPartial, Attributes);
+            return new T.Type(Name, IsPartial, IsStruct, Attributes);
         }
 
         public T.TypeRef TypeRef<S>()
@@ -202,11 +203,13 @@ namespace CityLizard.CodeDom
                 public Type(
                     string Name,
                     bool IsPartial = false,
+                    bool IsStruct = false,
                     D.MemberAttributes Attributes = 
                         default(D.MemberAttributes)):
                     base(Name)
                 {
                     this.IsPartial = IsPartial;
+                    this.IsStruct = IsStruct;
                     this.Attributes = Attributes;
                 }
 

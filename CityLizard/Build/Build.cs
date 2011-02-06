@@ -19,7 +19,7 @@ namespace CityLizard.Build
     using IO = System.IO;
     using R = System.Reflection;
 
-    using C = CityLizard.CodeDom.CodeDom;
+    using C = CityLizard.CodeDom.Code;
 
     /// <summary>
     /// Build utilities.

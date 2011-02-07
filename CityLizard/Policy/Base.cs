@@ -13,12 +13,136 @@ namespace CityLizard.Policy {
     
     public partial struct Base : CityLizard.Policy.INumeric<System.Byte>, CityLizard.Policy.INumeric<System.SByte>, CityLizard.Policy.INumeric<System.UInt16>, CityLizard.Policy.INumeric<System.Int16>, CityLizard.Policy.INumeric<System.UInt32>, CityLizard.Policy.INumeric<System.Int32>, CityLizard.Policy.INumeric<System.UInt64>, CityLizard.Policy.INumeric<System.Int64>, CityLizard.Policy.INumeric<System.Decimal>, CityLizard.Policy.INumeric<System.Single>, CityLizard.Policy.INumeric<System.Double> {
         
-        byte CityLizard.Policy.INumeric<System.Byte>._0() {
-            return 0;
+        byte CityLizard.Policy.INumeric<System.Byte>._0 {
+            get {
+                return 0;
+            }
         }
         
-        byte CityLizard.Policy.INumeric<System.Byte>._1() {
-            return 1;
+        byte CityLizard.Policy.INumeric<System.Byte>._1 {
+            get {
+                return 1;
+            }
+        }
+        
+        sbyte CityLizard.Policy.INumeric<System.SByte>._0 {
+            get {
+                return 0;
+            }
+        }
+        
+        sbyte CityLizard.Policy.INumeric<System.SByte>._1 {
+            get {
+                return 1;
+            }
+        }
+        
+        ushort CityLizard.Policy.INumeric<System.UInt16>._0 {
+            get {
+                return 0;
+            }
+        }
+        
+        ushort CityLizard.Policy.INumeric<System.UInt16>._1 {
+            get {
+                return 1;
+            }
+        }
+        
+        short CityLizard.Policy.INumeric<System.Int16>._0 {
+            get {
+                return 0;
+            }
+        }
+        
+        short CityLizard.Policy.INumeric<System.Int16>._1 {
+            get {
+                return 1;
+            }
+        }
+        
+        uint CityLizard.Policy.INumeric<System.UInt32>._0 {
+            get {
+                return 0;
+            }
+        }
+        
+        uint CityLizard.Policy.INumeric<System.UInt32>._1 {
+            get {
+                return 1;
+            }
+        }
+        
+        int CityLizard.Policy.INumeric<System.Int32>._0 {
+            get {
+                return 0;
+            }
+        }
+        
+        int CityLizard.Policy.INumeric<System.Int32>._1 {
+            get {
+                return 1;
+            }
+        }
+        
+        ulong CityLizard.Policy.INumeric<System.UInt64>._0 {
+            get {
+                return 0;
+            }
+        }
+        
+        ulong CityLizard.Policy.INumeric<System.UInt64>._1 {
+            get {
+                return 1;
+            }
+        }
+        
+        long CityLizard.Policy.INumeric<System.Int64>._0 {
+            get {
+                return 0;
+            }
+        }
+        
+        long CityLizard.Policy.INumeric<System.Int64>._1 {
+            get {
+                return 1;
+            }
+        }
+        
+        decimal CityLizard.Policy.INumeric<System.Decimal>._0 {
+            get {
+                return 0;
+            }
+        }
+        
+        decimal CityLizard.Policy.INumeric<System.Decimal>._1 {
+            get {
+                return 1;
+            }
+        }
+        
+        float CityLizard.Policy.INumeric<System.Single>._0 {
+            get {
+                return 0;
+            }
+        }
+        
+        float CityLizard.Policy.INumeric<System.Single>._1 {
+            get {
+                return 1;
+            }
+        }
+        
+        double CityLizard.Policy.INumeric<System.Double>._0 {
+            get {
+                return 0;
+            }
+        }
+        
+        double CityLizard.Policy.INumeric<System.Double>._1 {
+            get {
+                return 1;
+            }
         }
         
         byte CityLizard.Policy.INumeric<System.Byte>.Add(byte a, byte b) {
@@ -37,14 +161,6 @@ namespace CityLizard.Policy {
             return ((byte)((a / b)));
         }
         
-        sbyte CityLizard.Policy.INumeric<System.SByte>._0() {
-            return 0;
-        }
-        
-        sbyte CityLizard.Policy.INumeric<System.SByte>._1() {
-            return 1;
-        }
-        
         sbyte CityLizard.Policy.INumeric<System.SByte>.Add(sbyte a, sbyte b) {
             return ((sbyte)((a + b)));
         }
@@ -59,14 +175,6 @@ namespace CityLizard.Policy {
         
         sbyte CityLizard.Policy.INumeric<System.SByte>.Divide(sbyte a, sbyte b) {
             return ((sbyte)((a / b)));
-        }
-        
-        ushort CityLizard.Policy.INumeric<System.UInt16>._0() {
-            return 0;
-        }
-        
-        ushort CityLizard.Policy.INumeric<System.UInt16>._1() {
-            return 1;
         }
         
         ushort CityLizard.Policy.INumeric<System.UInt16>.Add(ushort a, ushort b) {
@@ -85,14 +193,6 @@ namespace CityLizard.Policy {
             return ((ushort)((a / b)));
         }
         
-        short CityLizard.Policy.INumeric<System.Int16>._0() {
-            return 0;
-        }
-        
-        short CityLizard.Policy.INumeric<System.Int16>._1() {
-            return 1;
-        }
-        
         short CityLizard.Policy.INumeric<System.Int16>.Add(short a, short b) {
             return ((short)((a + b)));
         }
@@ -107,14 +207,6 @@ namespace CityLizard.Policy {
         
         short CityLizard.Policy.INumeric<System.Int16>.Divide(short a, short b) {
             return ((short)((a / b)));
-        }
-        
-        uint CityLizard.Policy.INumeric<System.UInt32>._0() {
-            return 0;
-        }
-        
-        uint CityLizard.Policy.INumeric<System.UInt32>._1() {
-            return 1;
         }
         
         uint CityLizard.Policy.INumeric<System.UInt32>.Add(uint a, uint b) {
@@ -133,14 +225,6 @@ namespace CityLizard.Policy {
             return ((uint)((a / b)));
         }
         
-        int CityLizard.Policy.INumeric<System.Int32>._0() {
-            return 0;
-        }
-        
-        int CityLizard.Policy.INumeric<System.Int32>._1() {
-            return 1;
-        }
-        
         int CityLizard.Policy.INumeric<System.Int32>.Add(int a, int b) {
             return ((int)((a + b)));
         }
@@ -155,14 +239,6 @@ namespace CityLizard.Policy {
         
         int CityLizard.Policy.INumeric<System.Int32>.Divide(int a, int b) {
             return ((int)((a / b)));
-        }
-        
-        ulong CityLizard.Policy.INumeric<System.UInt64>._0() {
-            return 0;
-        }
-        
-        ulong CityLizard.Policy.INumeric<System.UInt64>._1() {
-            return 1;
         }
         
         ulong CityLizard.Policy.INumeric<System.UInt64>.Add(ulong a, ulong b) {
@@ -181,14 +257,6 @@ namespace CityLizard.Policy {
             return ((ulong)((a / b)));
         }
         
-        long CityLizard.Policy.INumeric<System.Int64>._0() {
-            return 0;
-        }
-        
-        long CityLizard.Policy.INumeric<System.Int64>._1() {
-            return 1;
-        }
-        
         long CityLizard.Policy.INumeric<System.Int64>.Add(long a, long b) {
             return ((long)((a + b)));
         }
@@ -203,14 +271,6 @@ namespace CityLizard.Policy {
         
         long CityLizard.Policy.INumeric<System.Int64>.Divide(long a, long b) {
             return ((long)((a / b)));
-        }
-        
-        decimal CityLizard.Policy.INumeric<System.Decimal>._0() {
-            return 0;
-        }
-        
-        decimal CityLizard.Policy.INumeric<System.Decimal>._1() {
-            return 1;
         }
         
         decimal CityLizard.Policy.INumeric<System.Decimal>.Add(decimal a, decimal b) {
@@ -229,14 +289,6 @@ namespace CityLizard.Policy {
             return ((decimal)((a / b)));
         }
         
-        float CityLizard.Policy.INumeric<System.Single>._0() {
-            return 0;
-        }
-        
-        float CityLizard.Policy.INumeric<System.Single>._1() {
-            return 1;
-        }
-        
         float CityLizard.Policy.INumeric<System.Single>.Add(float a, float b) {
             return ((float)((a + b)));
         }
@@ -251,14 +303,6 @@ namespace CityLizard.Policy {
         
         float CityLizard.Policy.INumeric<System.Single>.Divide(float a, float b) {
             return ((float)((a / b)));
-        }
-        
-        double CityLizard.Policy.INumeric<System.Double>._0() {
-            return 0;
-        }
-        
-        double CityLizard.Policy.INumeric<System.Double>._1() {
-            return 1;
         }
         
         double CityLizard.Policy.INumeric<System.Double>.Add(double a, double b) {

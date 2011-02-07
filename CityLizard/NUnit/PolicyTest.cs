@@ -8,13 +8,13 @@
     [N.TestFixture]
     public static class PolicyTest
     {
-        public static T Sum<P, T>(this P p, params T[] e) 
-            where P : Policy.INumeric<T>
+        public static T Sum<X, T>(this X x, params T[] e) 
+            where X : Policy.INumeric<T>
         {
-            var r = p._0();
+            var r = x._0;
             foreach (var i in e)
             {
-                r = p.Add(r, i);
+                r = x.Add(r, i);
             }
             return r;
         }

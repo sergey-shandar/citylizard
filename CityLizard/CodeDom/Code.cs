@@ -104,6 +104,21 @@ namespace CityLizard.CodeDom
             return new T.Return(This);
         }
 
+        public T.Return Return(T.Primitive Primitive)
+        {
+            return new T.Return(Primitive);
+        }
+
+        public T.Return Return(T.BinaryOperator BinaryOperator)
+        {
+            return new T.Return(BinaryOperator);
+        }
+
+        public T.Return Return(T.Cast Cast)
+        {
+            return new T.Return(Cast);
+        }
+
         public T.New New(T.TypeRef TypeRef)
         {
             return new T.New(TypeRef);
@@ -129,6 +144,19 @@ namespace CityLizard.CodeDom
         {
             return new T.Attribute(
                 TypeRef<X>(), Arguments.Select(x => Primitive(x)).ToArray());
+        }
+
+        public T.BinaryOperator BinaryOperator(
+            T.VariableRef left,
+            D.CodeBinaryOperatorType op,
+            T.VariableRef right)
+        {
+            return new T.BinaryOperator(left, op, right);
+        }
+
+        public T.Cast Cast(T.TypeRef TypeRef, T.BinaryOperator BinaryOperator)
+        {
+            return new T.Cast(TypeRef, BinaryOperator);
         }
 
         public static class T
@@ -237,6 +265,18 @@ namespace CityLizard.CodeDom
                     get
                     {
                         this.Add(TypeRef);
+                        return this;
+                    }
+                }
+
+                public Type this[C.IEnumerable<TypeRef> TypeRefList]
+                {
+                    get
+                    {
+                        foreach (var i in TypeRefList)
+                        {
+                            this.Add(i);
+                        }
                         return this;
                     }
                 }
@@ -606,6 +646,19 @@ namespace CityLizard.CodeDom
                 public Return(This This): base(This)
                 {
                 }
+
+                public Return(Primitive Primitive): base(Primitive)
+                {
+                }
+
+                public Return(BinaryOperator BinaryOperator)
+                    : base(BinaryOperator)
+                {
+                }
+
+                public Return(Cast Cast): base(Cast)
+                {
+                }
             }
 
             public class New : D.CodeObjectCreateExpression
@@ -706,6 +759,25 @@ namespace CityLizard.CodeDom
                         this.Add(Primitive);
                         return this;
                     }
+                }
+            }
+
+            public class BinaryOperator : D.CodeBinaryOperatorExpression
+            {
+                public BinaryOperator(
+                    VariableRef Left, 
+                    D.CodeBinaryOperatorType Op,
+                    VariableRef Right) :
+                    base(Left, Op, Right)
+                {
+                }
+            }
+
+            public class Cast : D.CodeCastExpression
+            {
+                public Cast(TypeRef TypeRef, BinaryOperator BinaryOperator)
+                    : base(TypeRef, BinaryOperator)
+                {
                 }
             }
         }

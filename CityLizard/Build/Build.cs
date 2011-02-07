@@ -106,10 +106,10 @@ namespace CityLizard.Build
                 [c.Attribute<R.AssemblyProductAttribute>(f)]
                 [c.Attribute<R.AssemblyCopyrightAttribute>(
                     "Copyright © " + company + " 2010")];
-            var p = new CS.CSharpCodeProvider();
             var dir = IO.Path.Combine(d, "Properties");
             IO.Directory.CreateDirectory(dir);
             var a = IO.Path.Combine(dir, "AssemblyInfo.cs");
+            var p = new CS.CSharpCodeProvider();
             using (var w = new IO.StreamWriter(a))
             {
                 p.GenerateCodeFromCompileUnit(

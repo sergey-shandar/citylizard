@@ -11,7 +11,7 @@
         public static T Sum<P, T>(this P p, params T[] e) 
             where P : Policy.INumeric<T>
         {
-            var r = p.Zero();
+            var r = p._0();
             foreach (var i in e)
             {
                 r = p.Add(r, i);

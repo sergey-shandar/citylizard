@@ -284,7 +284,7 @@
                         else
                         {
                             parameterName = CS.Name.Cast(s.Key.Name);
-                            parameterTypeName = parameterName;
+                            parameterTypeName = "T." + parameterName;
                         }
 
                         var parameter = Parameter(

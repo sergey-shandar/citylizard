@@ -55,8 +55,8 @@
                 foreach (var c in ConstList)
                 {
                     t.Add(
-                        Method(interface_ + "._" + c.ToString(), Return: r)
-                            [Return(Primitive(c))]);
+                        Property(interface_ + "._" + c.ToString(), r)
+                            [Get()[Return(Primitive(c))]]);
                 }
                 var a = Parameter(r, "a");
                 var b = Parameter(r, "b");
@@ -64,7 +64,7 @@
                 var br = b.Ref();
                 foreach (var o in BinaryOperatorList)
                 {
-                    t.Add(
+                    t.Add(                            
                         Method(interface_ + "." + o.ToString(), Return: r)
                             [a]
                             [b]

@@ -6,7 +6,7 @@
     {
         public string Namespace { get; private set; }
 
-        public Untyped(string namespace_)
+        public Untyped(string namespace_ = "")
         {
             this.Namespace = namespace_;
         }
@@ -92,29 +92,24 @@
             }
         }
 
-        public static XName N(string localName, string namespace_)
+        public XName LocalName(string localName)
         {
-            return XName.Get(localName, namespace_);
+            return XName.Get(localName, this.Namespace);
         }
 
-        public static XName N(string expandedName)
+        public static XName GlobalName(string localName)
         {
-            return XName.Get(expandedName);
+            return XName.Get(localName, string.Empty);
         }
 
-        public static T.A A(XName N, string value)
+        public static T.A A(string globalName, string value)
         {
-            return new T.A(N, value);
+            return new T.A(GlobalName(globalName), value);
         }
 
-        public static T.A A(string expandedName, string value)
+        public T.A L(string localName, string value)
         {
-            return A(N(expandedName), value);
-        }
-
-        public static T.A A(string localName, string namespace_, string value)
-        {
-            return A(N(localName, namespace_), value);
+            return new T.A(LocalName(localName), value);
         }
 
         public static T.C C(string Comment)
@@ -122,34 +117,14 @@
             return new T.C(Comment);
         }
 
-        public static T.X X(XName N, params T.A[] A)
+        public T.X X(string localName, params T.A[] A)
         {
-            return new T.X(N, A);
+            return new T.X(this.LocalName(localName), A);
         }
 
-        public static T.X X(string expandedName, params T.A[] A)
+        public T.E E(string localName, params T.A[] A)
         {
-            return X(N(expandedName), A);
-        }
-
-        public static T.X X(string localName, string namespace_, params T.A[] A)
-        {
-            return X(N(localName, namespace_), A);
-        }
-
-        public static T.E E(XName N, params T.A[] A)
-        {
-            return new T.E(N, A);
-        }
-
-        public static T.E E(string expandedName, params T.A[] A)
-        {
-            return E(N(expandedName), A);
-        }
-
-        public static T.E E(string localName, string namespace_, params T.A[] A)
-        {
-            return E(N(localName, namespace_), A);
+            return new T.E(this.LocalName(localName), A);
         }
     }
 }

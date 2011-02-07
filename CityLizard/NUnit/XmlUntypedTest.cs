@@ -7,10 +7,14 @@
     {
         public class G : Xml.Untyped
         {
-            public static T.X Do()
+            public G(): base("http://www.w3.org/1999/xhtml")
+            {
+            }
+
+            public T.X Do()
             {
                 return
-                    X("{http://www.w3.org/1999/xhtml}html")
+                    X("html")
                         [X("head")
                             [X("title")["Hello world!"]]
                         ]
@@ -29,7 +33,7 @@
         [N.Test]
         public void Test()
         {
-            var x = G.Do();
+            var x = new G().Do();
         }
     }
 }

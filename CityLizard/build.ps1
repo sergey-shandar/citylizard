@@ -29,7 +29,8 @@ $params =
     Path =
         "CodeDom\Code.cs",
         "Hg\Hg.cs",
-        "Build\Build.cs"
+        "Build\Build.cs",
+        "Policy\Build\Base.cs"
     ReferencedAssemblies = 
         "System.Core", "Microsoft.Build"
 }
@@ -64,6 +65,11 @@ foreach($f in [CityLizard.Hg.Hg]::Locate())
         [CityLizard.Build.Build]::CreateAssemblyInfo($summary, $company, $path)
     }
 }
+
+#
+# Generating Policy\Base.cs
+#
+[CityLizard.Policy.Build.Base]::Run()
 
 #
 # Building CityLizard.sln

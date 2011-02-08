@@ -194,6 +194,7 @@ $console = Join-Path $root "CityLizard\Xml\Schema\Console\bin\Debug\CityLizard.X
 $xhtml = Join-Path $xhtml_dir "bin\Debug\www_w3_org._1999.xhtml.dll"
 $sl_xhtml = Join-Path $xhtml_dir "Silverlight\bin\Debug\www_w3_org._1999.xhtml.dll"
 $xhtml_35 = Join-Path $xhtml_dir "3.5\bin\Debug\www_w3_org._1999.xhtml.dll"
+$sl3_xhtml = Join-Path $xhtml_dir "Silverlight3\bin\Debug\www_w3_org._1999.xhtml.dll"
 
 $graphml = Join-Path $graphml_dir "bin\Debug\graphml_graphdrawing_org.xmlns.dll"
 $sl_graphml = Join-Path $graphml_dir "Silverlight\bin\Debug\graphml_graphdrawing_org.xmlns.dll"
@@ -238,6 +239,7 @@ copy $console $lib_net4
 copy $xhtml $lib_net4
 copy $xhtml_35 $lib_net35
 copy $sl_xhtml $lib_sl
+copy $sl3_xhtml $lib_sl3
 
 copy $graphml $lib_net4
 copy $graphml_35 $lib_net35

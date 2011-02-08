@@ -41,6 +41,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "graphml_graphdrawing_org.xm
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "www_w3_org._1999.xhtml.Silverlight3", "www_w3_org._1999.xhtml\Silverlight3\www_w3_org._1999.xhtml.Silverlight3.csproj", "{17BBF7A9-961D-412F-9D9B-ED1C012F70F8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "www_w3_org._2000.svg.Silverlight3", "www_w3_org._2000.svg\Silverlight3\www_w3_org._2000.svg.Silverlight3.csproj", "{602E7EDF-6506-49BA-B2D6-D387481E3C47}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -253,6 +255,16 @@ Global
 		{17BBF7A9-961D-412F-9D9B-ED1C012F70F8}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{17BBF7A9-961D-412F-9D9B-ED1C012F70F8}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{17BBF7A9-961D-412F-9D9B-ED1C012F70F8}.Release|x86.ActiveCfg = Release|Any CPU
+		{602E7EDF-6506-49BA-B2D6-D387481E3C47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{602E7EDF-6506-49BA-B2D6-D387481E3C47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{602E7EDF-6506-49BA-B2D6-D387481E3C47}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{602E7EDF-6506-49BA-B2D6-D387481E3C47}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{602E7EDF-6506-49BA-B2D6-D387481E3C47}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{602E7EDF-6506-49BA-B2D6-D387481E3C47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{602E7EDF-6506-49BA-B2D6-D387481E3C47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{602E7EDF-6506-49BA-B2D6-D387481E3C47}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{602E7EDF-6506-49BA-B2D6-D387481E3C47}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{602E7EDF-6506-49BA-B2D6-D387481E3C47}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

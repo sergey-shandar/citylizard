@@ -91,6 +91,9 @@
     <Compile Include="..\QName.cs">
       <Link>QName.cs</Link>
     </Compile>
+    <Compile Include="..\Untyped.cs">
+      <Link>Untyped.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

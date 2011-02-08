@@ -184,6 +184,7 @@ $zip = Join-Path $root $zipName
 $xml = Join-Path $root "CityLizard\Xml\bin\Debug\CityLizard.Xml.dll"
 $sl_xml = Join-Path $root "CityLizard\Xml\Silverlight\bin\Debug\CityLizard.Xml.dll"
 $xml_35 = Join-Path $root "CityLizard\Xml\3.5\bin\Debug\CityLizard.Xml.dll"
+$sl3_xml = Join-Path $root "CityLizard\Xml\Silverlight3\bin\Debug\CityLizard.Xml.dll"
 
 $schema = Join-Path $root "CityLizard\Xml\Schema\bin\Debug\CityLizard.Xml.Schema.dll"
 $codedom = Join-Path $root "CityLizard\CodeDom\bin\Debug\CityLizard.CodeDom.dll"
@@ -197,6 +198,7 @@ $xhtml_35 = Join-Path $xhtml_dir "3.5\bin\Debug\www_w3_org._1999.xhtml.dll"
 $graphml = Join-Path $graphml_dir "bin\Debug\graphml_graphdrawing_org.xmlns.dll"
 $sl_graphml = Join-Path $graphml_dir "Silverlight\bin\Debug\graphml_graphdrawing_org.xmlns.dll"
 $graphml_35 = Join-Path $graphml_dir "3.5\bin\Debug\graphml_graphdrawing_org.xmlns.dll"
+$sl3_graphml = Join-Path $graphml_dir "Silverlight3\bin\Debug\graphml_graphdrawing_org.xmlns.dll"
 
 $svg = Join-Path $svg_dir "bin\Debug\www_w3_org._2000.svg.dll"
 $sl_svg = Join-Path $svg_dir "Silverlight\bin\Debug\www_w3_org._2000.svg.dll"
@@ -217,12 +219,16 @@ mkdir $lib_net4
 $lib_net35 = Join-Path $lib "NETFramework3.5"
 mkdir $lib_net35
 
-$lib_sl = Join-Path $lib "Silverlight"
+$lib_sl3 = Join-Path $lib "Silverlight3"
+mkdir $lib_sl3
+
+$lib_sl = Join-Path $lib "Silverlight4"
 mkdir $lib_sl
 
 copy $xml $lib_net4
 copy $xml_35 $lib_net35
 copy $sl_xml $lib_sl
+copy $sl3_xml $lib_sl3
 
 copy $schema $lib_net4
 copy $codedom $lib_net4
@@ -236,6 +242,7 @@ copy $sl_xhtml $lib_sl
 copy $graphml $lib_net4
 copy $graphml_35 $lib_net35
 copy $sl_graphml $lib_sl
+copy $sl3_graphml $lib_sl3
 
 copy $svg $lib_net4
 copy $svg_35 $lib_net35
@@ -245,5 +252,4 @@ copy $nuget $lib_net4
 copy $nuget_35 $lib_net35
 copy $sl_nuget $lib_sl
 
-# &$_7z "a" $zip $xml $xhtml $graphml $svg $schema $codedom $console $license $sl_xml $sl_xhtml, $sl_graphml, $sl_svg
 &$_7z "a" $zip $lib $license

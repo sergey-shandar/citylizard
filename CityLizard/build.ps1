@@ -204,10 +204,12 @@ $sl3_graphml = Join-Path $graphml_dir "Silverlight3\bin\Debug\graphml_graphdrawi
 $svg = Join-Path $svg_dir "bin\Debug\www_w3_org._2000.svg.dll"
 $sl_svg = Join-Path $svg_dir "Silverlight\bin\Debug\www_w3_org._2000.svg.dll"
 $svg_35 = Join-Path $svg_dir "3.5\bin\Debug\www_w3_org._2000.svg.dll"
+$sl3_svg = Join-Path $svg_dir "Silverlight3\bin\Debug\www_w3_org._2000.svg.dll"
 
 $nuget = Join-Path $nuget_dir "bin\Debug\schemas_microsoft_com.packaging._2010._07.nuspec_xsd.dll"
 $sl_nuget = Join-Path $nuget_dir "Silverlight\bin\Debug\schemas_microsoft_com.packaging._2010._07.nuspec_xsd.dll"
 $nuget_35 = Join-Path $nuget_dir "3.5\bin\Debug\schemas_microsoft_com.packaging._2010._07.nuspec_xsd.dll"
+$sl3_nuget = Join-Path $nuget_dir "Silverlight3\bin\Debug\schemas_microsoft_com.packaging._2010._07.nuspec_xsd.dll"
 
 $license = Join-Path $root "CityLizard\license.txt"
 
@@ -249,9 +251,11 @@ copy $sl3_graphml $lib_sl3
 copy $svg $lib_net4
 copy $svg_35 $lib_net35
 copy $sl_svg $lib_sl
+copy $sl3_svg $lib_sl3
 
 copy $nuget $lib_net4
 copy $nuget_35 $lib_net35
 copy $sl_nuget $lib_sl
+copy $sl3_nuget $lib_sl3
 
 &$_7z "a" $zip $lib $license

@@ -9,7 +9,11 @@
 #include <citylizard/meta/if.hpp>
 #include <Windows.h>
 
-#define override
+// #define override
+#pragma warning(push)
+// C++ exception specification ignored except to indicate a function is not 
+// __declspec(nothrow)
+#pragma warning(disable: 4290)
 
 namespace citylizard
 {
@@ -147,3 +151,5 @@ public:
 */
 
 }
+
+#pragma warning(pop)

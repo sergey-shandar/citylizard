@@ -28,6 +28,12 @@
     <Filter Include="config\_detail">
       <UniqueIdentifier>{1a3a8f5e-1830-412a-bd34-75af2614a83e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="cast">
+      <UniqueIdentifier>{38b6c9ec-ccba-4112-87b7-9e905dd31684}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="cast\_detail">
+      <UniqueIdentifier>{0d0d8e9b-40dd-48bb-a13a-cfecaa8c5399}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="meta\eval_if.hpp">
@@ -118,6 +124,36 @@
     <ClInclude Include="config\_detail\config.hpp">
       <Filter>config\_detail</Filter>
     </ClInclude>
+    <ClInclude Include="cast\const.hpp">
+      <Filter>cast</Filter>
+    </ClInclude>
+    <ClInclude Include="cast\default.hpp">
+      <Filter>cast</Filter>
+    </ClInclude>
+    <ClInclude Include="cast\dynamic.hpp">
+      <Filter>cast</Filter>
+    </ClInclude>
+    <ClInclude Include="cast\explicit.hpp">
+      <Filter>cast</Filter>
+    </ClInclude>
+    <ClInclude Include="cast\polymorphic.hpp">
+      <Filter>cast</Filter>
+    </ClInclude>
+    <ClInclude Include="cast\polymorphic_down.hpp">
+      <Filter>cast</Filter>
+    </ClInclude>
+    <ClInclude Include="cast\reinterpret.hpp">
+      <Filter>cast</Filter>
+    </ClInclude>
+    <ClInclude Include="cast\safe_reinterpret.hpp">
+      <Filter>cast</Filter>
+    </ClInclude>
+    <ClInclude Include="cast\static.hpp">
+      <Filter>cast</Filter>
+    </ClInclude>
+    <ClInclude Include="cast\_detail\base.hpp">
+      <Filter>cast\_detail</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="meta\eval_if.test.cpp">
@@ -183,6 +219,9 @@
     </ClCompile>
     <ClCompile Include="meta\const.test.cpp">
       <Filter>meta</Filter>
+    </ClCompile>
+    <ClCompile Include="cast\test.cpp">
+      <Filter>cast</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

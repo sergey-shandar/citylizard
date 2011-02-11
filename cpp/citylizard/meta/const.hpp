@@ -4,6 +4,12 @@
 #include <citylizard/meta/bool_fwd.hpp>
 #include <citylizard/meta/_detail/op.hpp>
 
+#pragma warning(push)
+// 'operation' : unsafe use of type 'bool' in operation
+#pragma warning(disable: 4804)
+// unary minus operator applied to unsigned type, result still unsigned
+#pragma warning(disable: 4146)
+
 namespace citylizard
 {
 namespace meta
@@ -160,7 +166,7 @@ namespace meta
 
         // -A
 #if 1
-        static T const minus_v = -v;
+        static T const minus_v = static_cast<T>(-v);
 
         /// \brief unary minus
         typedef const_<T, minus_v> minus;
@@ -171,7 +177,7 @@ namespace meta
 
         // ~
 #if 1
-        static T const bit_not_v = ~v;
+        static T const bit_not_v = static_cast<T>(~v);
 
         /// \brief bit not.
         typedef const_<T, bit_not_v> bit_not;
@@ -182,7 +188,7 @@ namespace meta
 
         // ++
 #if 1
-        static T const inc_v = v + 1;
+        static T const inc_v = static_cast<T>(v + 1);
 
         /// \brief increment
         typedef const_<T, inc_v> inc;
@@ -193,7 +199,7 @@ namespace meta
 
         // --
 #if 1
-        static T const dec_v = v - 1;
+        static T const dec_v = static_cast<T>(v - 1);
 
         /// \brief decrement
         typedef const_<T, dec_v> dec;
@@ -417,3 +423,5 @@ namespace meta
 
 }
 }
+
+#pragma warning(pop)

@@ -7,7 +7,7 @@ namespace citylizard
 namespace cast
 {
 
-namespace detail
+namespace _detail
 {
 
 class reinterpret

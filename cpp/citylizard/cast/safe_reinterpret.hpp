@@ -2,7 +2,7 @@
 
 #include <boost/type_traits/remove_const.hpp>
 #include <citylizard/meta/const.hpp>
-#include <citylizard/cast/detail/base.hpp>
+#include <citylizard/cast/_detail/base.hpp>
 
 #pragma warning(push)
 // 'variable' : pointer truncation from 'type' to 'type'
@@ -28,7 +28,8 @@ public:
 		template<class From>
 		static To apply(From &f)
 		{
-			BOOST_STATIC_ASSERT(sizeof(To) == sizeof(From));
+			static_assert(
+				sizeof(To) == sizeof(From), "sizeof(To) != sizeof(From)");
 			return reinterpret_cast<To>(f);
 		}
 	};
@@ -40,13 +41,15 @@ public:
 		template<class From>
 		static To *apply(From &f)
 		{
-			BOOST_STATIC_ASSERT(sizeof(To *) == sizeof(From));
+			static_assert(
+				sizeof(To *) == sizeof(From), "sizeof(To *) != sizeof(From)");
 			return reinterpret_cast<To *>(f);
 		}
 		template<class From>
 		static To *apply(From *f)
 		{
-			BOOST_STATIC_ASSERT(sizeof(To) == sizeof(From));
+			static_assert(
+				sizeof(To) == sizeof(From), "sizeof(To) != sizeof(From)");
 			return reinterpret_cast<To *>(f);
 		}
 	};

@@ -95,7 +95,7 @@
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>C:\Users\Sergey\Downloads\boost_1_45_0\stage\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\Sergey\Downloads\boost_1_45_0\stage_x86\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
@@ -139,7 +139,7 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>C:\Users\Sergey\Downloads\boost_1_45_0\stage\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\Sergey\Downloads\boost_1_45_0\stage_x86\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
@@ -183,6 +183,9 @@
     <ClCompile>
       <WarningLevel>Level4</WarningLevel>
     </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>C:\Program Files\Microsoft SDKs\Windows\v7.1\Lib\x64;C:\Users\Sergey\Downloads\boost_1_45_0\stage_x86_64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -193,8 +196,21 @@
     <ClCompile>
       <WarningLevel>Level4</WarningLevel>
     </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>C:\Program Files\Microsoft SDKs\Windows\v7.1\Lib\x64;C:\Users\Sergey\Downloads\boost_1_45_0\stage_x86_64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="cast\const.hpp" />
+    <ClInclude Include="cast\default.hpp" />
+    <ClInclude Include="cast\dynamic.hpp" />
+    <ClInclude Include="cast\explicit.hpp" />
+    <ClInclude Include="cast\polymorphic.hpp" />
+    <ClInclude Include="cast\polymorphic_down.hpp" />
+    <ClInclude Include="cast\reinterpret.hpp" />
+    <ClInclude Include="cast\safe_reinterpret.hpp" />
+    <ClInclude Include="cast\static.hpp" />
+    <ClInclude Include="cast\_detail\base.hpp" />
     <ClInclude Include="com\_detail\ignore.hpp" />
     <ClInclude Include="com\_detail\ignore.test.hpp" />
     <ClInclude Include="com\_detail\query_interface_handled.hpp" />
@@ -227,6 +243,7 @@
     <ClInclude Include="meta\_detail\op.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="cast\test.cpp" />
     <ClCompile Include="com\_detail\query_interface_handled.test.cpp" />
     <ClCompile Include="intrusive\_detail\assume.test.cpp" />
     <ClCompile Include="intrusive\_detail\down_cast.test.cpp" />

@@ -1,5 +1,5 @@
 // 'operation' : conversion from 'type1' to 'type2' of greater size
-// http://msdn2.microsoft.com/en-us/library/h97f4b9y(VS.80).aspx
+// http://msdn2.microsoft.com/en-us/library/h97f4b9y.aspx
 #pragma warning(disable: 4312)
 
 #include <citylizard/cast/polymorphic.hpp>
@@ -95,7 +95,8 @@ int main()
 	a *ax2 = cast::polymorphic_down::value(by2);
 	a &ax2r = cast::polymorphic_down::ref(by2r);
 	ax2;
-	int* p = cast::safe_reinterpret::value(i1);
+	::ptrdiff_t pd = 3;
+	int* p = cast::safe_reinterpret::value(pd);
 	p;
 	int* p1 = cast::reinterpret::value(i1);
 	try

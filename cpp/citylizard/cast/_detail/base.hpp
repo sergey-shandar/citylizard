@@ -49,7 +49,9 @@ public:
 		template<class T>
 		operator T() const
 		{
-			static_assert(!::boost::is_reference<T>::value);
+			static_assert(
+				!::boost::is_reference<T>::value, 
+				"type T is a reference type.");
 			return C::template traits<T>::apply(this->f);
 		}
 

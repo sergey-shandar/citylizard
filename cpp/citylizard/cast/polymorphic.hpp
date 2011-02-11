@@ -3,7 +3,7 @@
 #include <citylizard/cast/_detail/base.hpp>
 #include <boost/cast.hpp>
 
-namespace cbear_berlios_de
+namespace citylizard
 {
 namespace cast
 {

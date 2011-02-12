@@ -18,7 +18,7 @@ intrusive::ptr<T> query_interface_handled(::IUnknown &f)
     intrusive::ptr<T> r;
     E::throw_if(f.QueryInterface(
         __uuidof(T),
-        &intrusive::_detail::safe_reinterpret_ref_cast<void *>(r.unwrap())));
+        cast::safe_reinterpret::value(&r.unwrap())));
     return r;
 }
 

@@ -10,7 +10,9 @@ namespace citylizard
 namespace intrusive
 {
 
-/// \brief Intrusive reference.
+/// \brief Intrusive not-null reference. 
+///
+/// It is the same as ptr<T> but does not allow assign null.
 ///
 /// \pre \ref user::traits<T> should be defined.
 ///
@@ -150,12 +152,14 @@ public:
 #endif
 
 #if 1
+
     template<class B>
     ref<B> const &down_cast() const
         throw()
     {
         return _detail::down_cast<ref<B> >(*this);
     }
+
 #endif
 
 private:

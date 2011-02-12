@@ -94,13 +94,7 @@
     <ClInclude Include="intrusive\_detail\assume.hpp">
       <Filter>intrusive\_detail</Filter>
     </ClInclude>
-    <ClInclude Include="intrusive\_detail\down_cast.hpp">
-      <Filter>intrusive\_detail</Filter>
-    </ClInclude>
     <ClInclude Include="intrusive\_detail\holder.hpp">
-      <Filter>intrusive\_detail</Filter>
-    </ClInclude>
-    <ClInclude Include="intrusive\_detail\safe_reinterpret_ref_cast.hpp">
       <Filter>intrusive\_detail</Filter>
     </ClInclude>
     <ClInclude Include="meta\const.hpp">
@@ -153,6 +147,9 @@
     </ClInclude>
     <ClInclude Include="cast\_detail\base.hpp">
       <Filter>cast\_detail</Filter>
+    </ClInclude>
+    <ClInclude Include="intrusive\_detail\down_cast.hpp">
+      <Filter>intrusive\_detail</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -208,13 +205,7 @@
     <ClCompile Include="intrusive\_detail\assume.test.cpp">
       <Filter>intrusive\_detail</Filter>
     </ClCompile>
-    <ClCompile Include="intrusive\_detail\down_cast.test.cpp">
-      <Filter>intrusive\_detail</Filter>
-    </ClCompile>
     <ClCompile Include="intrusive\_detail\holder.test.cpp">
-      <Filter>intrusive\_detail</Filter>
-    </ClCompile>
-    <ClCompile Include="intrusive\_detail\safe_reinterpret_ref_cast.test.cpp">
       <Filter>intrusive\_detail</Filter>
     </ClCompile>
     <ClCompile Include="meta\const.test.cpp">
@@ -222,6 +213,9 @@
     </ClCompile>
     <ClCompile Include="cast\test.cpp">
       <Filter>cast</Filter>
+    </ClCompile>
+    <ClCompile Include="intrusive\_detail\down_cast.test.cpp">
+      <Filter>intrusive\_detail</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

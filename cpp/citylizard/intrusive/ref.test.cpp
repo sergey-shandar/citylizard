@@ -13,12 +13,19 @@ class ref_test_a
 {
 public:
     int k;
+	virtual ~ref_test_a() {}
 };
 
 class ref_test_b: public ref_test_a
 {
 public:
     int m;
+};
+
+class ref_test_c: public ref_test_a
+{
+public:
+	virtual void x() {}
 };
 
 }
@@ -69,8 +76,12 @@ void ref_test()
     // operator->.
     r->k = 0;
     // down_cast.
+	/*
     ref<ref_test_b> *pb = 0;
-    r =    pb->down_cast<ref_test_a>();
+    r = pb->down_cast<ref_test_a>();
+	*/
+    ref<ref_test_c> *pc = 0;
+    r = pc->down_cast<ref_test_a>();
 }
 
 }

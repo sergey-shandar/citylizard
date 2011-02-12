@@ -14,6 +14,8 @@
 
 #include <iostream>
 
+#include <boost/test/unit_test.hpp>
+
 class MyClass 
 {
 public:
@@ -58,7 +60,7 @@ struct throw_sfinae
 	}
 };
 
-int main()
+BOOST_AUTO_TEST_CASE(cast_test)
 {
 	namespace cast = citylizard::cast;
 

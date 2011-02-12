@@ -218,7 +218,6 @@
     <ClInclude Include="intrusive\_detail\assume.hpp" />
     <ClInclude Include="intrusive\_detail\down_cast.hpp" />
     <ClInclude Include="intrusive\_detail\holder.hpp" />
-    <ClInclude Include="intrusive\_detail\safe_reinterpret_ref_cast.hpp" />
     <ClInclude Include="meta\bool.hpp" />
     <ClInclude Include="meta\bool_fwd.hpp" />
     <ClInclude Include="meta\const.hpp" />
@@ -248,7 +247,6 @@
     <ClCompile Include="intrusive\_detail\assume.test.cpp" />
     <ClCompile Include="intrusive\_detail\down_cast.test.cpp" />
     <ClCompile Include="intrusive\_detail\holder.test.cpp" />
-    <ClCompile Include="intrusive\_detail\safe_reinterpret_ref_cast.test.cpp" />
     <ClCompile Include="meta\const.test.cpp" />
     <ClCompile Include="meta\eval_if.test.cpp" />
     <ClCompile Include="meta\eval_if_c.test.cpp" />

@@ -2,8 +2,9 @@
 
 #include <citylizard/config/_detail/config.hpp>
 #include <citylizard/intrusive/_detail/holder.hpp>
-#include <citylizard/intrusive/_detail/down_cast.hpp>
+// #include <citylizard/intrusive/_detail/down_cast.hpp>
 #include <citylizard/intrusive/ref_fwd.hpp>
+#include <citylizard/cast/safe_reinterpret.hpp>
 
 namespace citylizard
 {
@@ -172,26 +173,29 @@ public:
         return this->_detail.bool_cast();
     }
 
-    template<class B>
-    ptr<B> const &down_cast() const
-        throw()
-    {
-        return _detail::down_cast<ptr<B> >(*this);
-    }
     /// Raw access.
     /// \sa wrap.
     T *const &unwrap() const
         throw()
     {
-        return _detail::safe_reinterpret_ref_cast<T *const>(*this);
+		return cast::safe_reinterpret::ref(*this);
     }
+
+	template<class B>
+	ptr<B> const &down_cast() const
+		throw()
+	{
+		return _detail::down_cast<ptr<B> >(*this);
+    }
+
     /// Raw access.
     /// \sa wrap.
     T * &unwrap()
         throw()
     {
-        return _detail::safe_reinterpret_ref_cast<T *>(*this);
+		return cast::safe_reinterpret::ref(*this);
     }
+
 #endif
 
 private:
@@ -204,7 +208,7 @@ template<class T>
 ptr<T> const &wrap(T *const &p)
     throw()
 {
-    return _detail::safe_reinterpret_ref_cast<ptr<T> const>(p);
+    return cast::safe_reinterpret::ref(p);
 }
 
 /// \sa ptr::unwrap.
@@ -212,7 +216,8 @@ template<class T>
 ptr<T> &wrap(T * &p)
     throw()
 {
-    return _detail::safe_reinterpret_ref_cast<ptr<T> >(p);
+
+	return cast::safe_reinterpret::ref(p);
 }
 
 }

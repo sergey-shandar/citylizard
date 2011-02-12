@@ -2,7 +2,7 @@
 
 #include <boost/type_traits/is_base_of.hpp>
 
-#include <citylizard/intrusive/_detail/safe_reinterpret_ref_cast.hpp>
+#include <citylizard/cast/safe_reinterpret.hpp>
 
 #include <type_traits>
 
@@ -13,15 +13,18 @@ namespace intrusive
 namespace _detail
 {
 
-template<class To, class From>
-To const &down_cast(From const &f)
+template<class Base, class Derived>
+Base const &down_cast(Derived const &d)
 {
-    typedef typename To::element_type to_element_type;
-    typedef typename From::element_type from_element_type;
+    typedef typename Base::element_type base_t;
+    typedef typename Derived::element_type derived_t;
     static_assert(
-        (::boost::is_base_of<to_element_type, from_element_type>::value),
-        "the type 'To' is not a base class of the type 'From'");
-    return safe_reinterpret_ref_cast<To const>(f);
+        (::boost::is_base_of<base_t, derived_t>::value),
+        "the type 'Base' is not a base class of the type 'Derived'");
+	static_assert(
+		sizeof(base_t) == sizeof(derived_t), 
+		"sizeof(Base) != sizeof(Derived)");
+    return cast::safe_reinterpret::ref(d);
 }
 
 }

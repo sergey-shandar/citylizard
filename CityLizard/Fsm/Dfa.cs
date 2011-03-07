@@ -12,9 +12,6 @@
     /// <typeparam name="Symbol">Symbol type.</typeparam>
     public class Dfa<Symbol>
     {
-        private static readonly C.IEqualityComparer<C.HashSet<int>> comparer =
-            C.HashSet<int>.CreateSetComparer();
-
         /// <summary>
         /// State.
         /// </summary>
@@ -75,7 +72,7 @@
                     {
                         return false;
                     }
-                    if (!comparer.Equals(p.Value, otherState))
+                    if (p.Value != otherState)
                     {
                         return false;
                     }
@@ -138,12 +135,12 @@
                         }
                         else
                         {
-                            var copyK = new C.HashSet<int>(k);
+                            var copyK = new Name(k);
                             foreach(var state in D.Values)
                             {
                                 foreach (var transition in state.Values)
                                 {
-                                    if (comparer.Equals(copyK, transition))
+                                    if (copyK == transition)
                                     {
                                         transition.Clear();
                                         transition.UnionWith(newK);

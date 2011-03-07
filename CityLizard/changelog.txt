@@ -5,7 +5,7 @@
 		Silverlight 4 (Windows Phone).
 
 	XML Schemas: 
-		XHTML 1.1 (+ HTML 5 features), 
+		XHTML 1.1 (+ HTML 5 features), examples under Hg (C#, F#, VB.NET, Nemerle),
 		GraphML,
 		SVG,
 		NuGet.
@@ -19,6 +19,7 @@
 1.2.10
 
 	Changes:
+		HTML examples: VB.NET.
 		CityLizard.Binary 3.5 => CityLizard.Binary 4.0
 		INumeric:
 			Min/Max values.

@@ -119,6 +119,11 @@ namespace CityLizard.CodeDom
             return new T.Return(Cast);
         }
 
+        public T.Return Return(T.Field Field)
+        {
+            return new T.Return(Field);
+        }
+
         public T.New New(T.TypeRef TypeRef)
         {
             return new T.New(TypeRef);
@@ -137,6 +142,11 @@ namespace CityLizard.CodeDom
         public T.Invoke Invoke(string Name)
         {
             return new T.Invoke(Name);
+        }
+
+        public T.Field Field(T.TypeRef TypeRef, string Name)
+        {
+            return new T.Field(TypeRef, Name);
         }
 
         public T.Attribute Attribute<X>(
@@ -659,6 +669,11 @@ namespace CityLizard.CodeDom
                 public Return(Cast Cast): base(Cast)
                 {
                 }
+
+                public Return(Field Field)
+                    : base(Field)
+                {
+                }
             }
 
             public class New : D.CodeObjectCreateExpression
@@ -759,6 +774,14 @@ namespace CityLizard.CodeDom
                         this.Add(Primitive);
                         return this;
                     }
+                }
+            }
+
+            public class Field : D.CodeFieldReferenceExpression
+            {
+                public Field(TypeRef TypeRef, string Name)
+                    : base(new D.CodeTypeReferenceExpression(TypeRef), Name)
+                {
                 }
             }
 

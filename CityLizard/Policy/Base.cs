@@ -25,6 +25,18 @@ namespace CityLizard.Policy {
             }
         }
         
+        byte CityLizard.Policy.INumeric<System.Byte>.MinValue {
+            get {
+                return byte.MinValue;
+            }
+        }
+        
+        byte CityLizard.Policy.INumeric<System.Byte>.MaxValue {
+            get {
+                return byte.MaxValue;
+            }
+        }
+        
         sbyte CityLizard.Policy.INumeric<System.SByte>._0 {
             get {
                 return 0;
@@ -34,6 +46,18 @@ namespace CityLizard.Policy {
         sbyte CityLizard.Policy.INumeric<System.SByte>._1 {
             get {
                 return 1;
+            }
+        }
+        
+        sbyte CityLizard.Policy.INumeric<System.SByte>.MinValue {
+            get {
+                return sbyte.MinValue;
+            }
+        }
+        
+        sbyte CityLizard.Policy.INumeric<System.SByte>.MaxValue {
+            get {
+                return sbyte.MaxValue;
             }
         }
         
@@ -49,6 +73,18 @@ namespace CityLizard.Policy {
             }
         }
         
+        ushort CityLizard.Policy.INumeric<System.UInt16>.MinValue {
+            get {
+                return ushort.MinValue;
+            }
+        }
+        
+        ushort CityLizard.Policy.INumeric<System.UInt16>.MaxValue {
+            get {
+                return ushort.MaxValue;
+            }
+        }
+        
         short CityLizard.Policy.INumeric<System.Int16>._0 {
             get {
                 return 0;
@@ -58,6 +94,18 @@ namespace CityLizard.Policy {
         short CityLizard.Policy.INumeric<System.Int16>._1 {
             get {
                 return 1;
+            }
+        }
+        
+        short CityLizard.Policy.INumeric<System.Int16>.MinValue {
+            get {
+                return short.MinValue;
+            }
+        }
+        
+        short CityLizard.Policy.INumeric<System.Int16>.MaxValue {
+            get {
+                return short.MaxValue;
             }
         }
         
@@ -73,6 +121,18 @@ namespace CityLizard.Policy {
             }
         }
         
+        uint CityLizard.Policy.INumeric<System.UInt32>.MinValue {
+            get {
+                return uint.MinValue;
+            }
+        }
+        
+        uint CityLizard.Policy.INumeric<System.UInt32>.MaxValue {
+            get {
+                return uint.MaxValue;
+            }
+        }
+        
         int CityLizard.Policy.INumeric<System.Int32>._0 {
             get {
                 return 0;
@@ -82,6 +142,18 @@ namespace CityLizard.Policy {
         int CityLizard.Policy.INumeric<System.Int32>._1 {
             get {
                 return 1;
+            }
+        }
+        
+        int CityLizard.Policy.INumeric<System.Int32>.MinValue {
+            get {
+                return int.MinValue;
+            }
+        }
+        
+        int CityLizard.Policy.INumeric<System.Int32>.MaxValue {
+            get {
+                return int.MaxValue;
             }
         }
         
@@ -97,6 +169,18 @@ namespace CityLizard.Policy {
             }
         }
         
+        ulong CityLizard.Policy.INumeric<System.UInt64>.MinValue {
+            get {
+                return ulong.MinValue;
+            }
+        }
+        
+        ulong CityLizard.Policy.INumeric<System.UInt64>.MaxValue {
+            get {
+                return ulong.MaxValue;
+            }
+        }
+        
         long CityLizard.Policy.INumeric<System.Int64>._0 {
             get {
                 return 0;
@@ -106,6 +190,18 @@ namespace CityLizard.Policy {
         long CityLizard.Policy.INumeric<System.Int64>._1 {
             get {
                 return 1;
+            }
+        }
+        
+        long CityLizard.Policy.INumeric<System.Int64>.MinValue {
+            get {
+                return long.MinValue;
+            }
+        }
+        
+        long CityLizard.Policy.INumeric<System.Int64>.MaxValue {
+            get {
+                return long.MaxValue;
             }
         }
         
@@ -121,6 +217,18 @@ namespace CityLizard.Policy {
             }
         }
         
+        decimal CityLizard.Policy.INumeric<System.Decimal>.MinValue {
+            get {
+                return decimal.MinValue;
+            }
+        }
+        
+        decimal CityLizard.Policy.INumeric<System.Decimal>.MaxValue {
+            get {
+                return decimal.MaxValue;
+            }
+        }
+        
         float CityLizard.Policy.INumeric<System.Single>._0 {
             get {
                 return 0;
@@ -133,6 +241,18 @@ namespace CityLizard.Policy {
             }
         }
         
+        float CityLizard.Policy.INumeric<System.Single>.MinValue {
+            get {
+                return float.MinValue;
+            }
+        }
+        
+        float CityLizard.Policy.INumeric<System.Single>.MaxValue {
+            get {
+                return float.MaxValue;
+            }
+        }
+        
         double CityLizard.Policy.INumeric<System.Double>._0 {
             get {
                 return 0;
@@ -142,6 +262,18 @@ namespace CityLizard.Policy {
         double CityLizard.Policy.INumeric<System.Double>._1 {
             get {
                 return 1;
+            }
+        }
+        
+        double CityLizard.Policy.INumeric<System.Double>.MinValue {
+            get {
+                return double.MinValue;
+            }
+        }
+        
+        double CityLizard.Policy.INumeric<System.Double>.MaxValue {
+            get {
+                return double.MaxValue;
             }
         }
         

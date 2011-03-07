@@ -33,7 +33,13 @@
         {
             0,
             1,
-        };        
+        };
+
+        private static readonly string[] MemberConstList =
+        {
+            "MinValue",
+            "MaxValue",
+        };
 
         private static readonly CD.CodeBinaryOperatorType[] BinaryOperatorList =
         {
@@ -57,6 +63,12 @@
                     t.Add(
                         Property(interface_ + "._" + c.ToString(), r)
                             [Get()[Return(Primitive(c))]]);
+                }
+                foreach (var c in MemberConstList)
+                {
+                    t.Add(
+                        Property(interface_ + "." + c, r)
+                            [Get()[Return(Field(r, c))]]);
                 }
                 var a = Parameter(r, "a");
                 var b = Parameter(r, "b");

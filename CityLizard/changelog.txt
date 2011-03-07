@@ -1,4 +1,3 @@
-1.2.9
 	Platforms: 
 		.NET 3.5, 
 		.NET 4.0, 
@@ -14,8 +13,20 @@
 	Untyped XML Builder.
 
 	INumeric Policy.
+		+, -, *, /,
+		0, 1, Min, Max
 
-	Change:
+1.2.10
+
+	Changes:
+		CityLizard.Binary 3.5 => CityLizard.Binary 4.0
+		INumeric:
+			Min/Max values.
+			Interval.
+
+1.2.9
+
+	Changes:
 		CityLizard.Binary.
 
 1.2.8

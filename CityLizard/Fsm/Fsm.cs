@@ -37,11 +37,6 @@
             /// true if no transitions from this state.
             /// </summary>
             public bool Empty { get { return this.Count == 0; } }
-
-            /// <summary>
-            /// Back-links.
-            /// </summary>
-            public C.List<Transition> FromList = new C.List<Transition>();
         }
 
         /// <summary>
@@ -79,9 +74,6 @@
         {
             this.StateList[state].Add(
                 new Transition { Symbol = symbol, State = to });
-            // backlink.
-            this.StateList[to].FromList.Add(
-                new Transition { Symbol = symbol, State = state });
             return to;
         }
 

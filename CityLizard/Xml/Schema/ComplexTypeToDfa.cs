@@ -23,7 +23,7 @@
             this.ToDo = toDo;
         }
 
-        private void ApplyOne(C.ISet<int> set, XS.XmlSchemaParticle p)
+        private void ApplyOne(Fsm.Name set, XS.XmlSchemaParticle p)
         {
             // sequence
             {
@@ -43,11 +43,13 @@
                 var choice = p as XS.XmlSchemaChoice;
                 if (choice != null)
                 {
-                    var x = new C.HashSet<int>(set);
+                    // var x = new C.HashSet<int>(set);
+                    var x = new Fsm.Name(set);
                     set.Clear();
                     foreach (var i in choice.ItemsTyped())
                     {
-                        var xi = new C.HashSet<int>(x);
+                        // var xi = new C.HashSet<int>(x);
+                        var xi = new Fsm.Name(x);
                         this.Apply(xi, i);
                         set.UnionWith(xi);
                     }
@@ -63,12 +65,12 @@
                 if (all != null)
                 {
                     var list = all.ItemsTyped().ToList();
-                    var setMap = new C.Dictionary<CS.BitVector32, C.ISet<int>>
+                    var setMap = new C.Dictionary<CS.BitVector32, Fsm.Name> 
                         { { new CS.BitVector32(0), set } };
                     for (var i = 0; i < list.Count; ++i)
                     {
                         var newSetMap = 
-                            new C.Dictionary<CS.BitVector32, C.ISet<int>>();
+                            new C.Dictionary<CS.BitVector32, Fsm.Name>();
                         foreach (var pair in setMap)
                         {
                             for (var j = 0; j < list.Count; ++j)
@@ -78,24 +80,18 @@
                                 if (!k[m])
                                 {
                                     k[m] = true;
-                                    C.ISet<int> s;
+                                    Fsm.Name s;
                                     if (!newSetMap.TryGetValue(k, out s))
                                     {
-                                        newSetMap[k] = s = new C.HashSet<int>();
+                                        newSetMap[k] = s = new Fsm.Name();
                                     }
                                     //     
-                                    var x = new C.HashSet<int>(pair.Value);
+                                    var x = new Fsm.Name(pair.Value);
                                     this.Apply(x, list[j]);
                                     s.UnionWith(x);
                                 }
                             }
                         }
-                        /*
-                        foreach (var pair in newSetMap)
-                        {
-                            this.Fsm.Combine(pair.Value);
-                        }
-                         * */
                         setMap = newSetMap;
                     }
                     set.Clear();
@@ -135,7 +131,7 @@
                 "unknown XmlSchemaObject type: " + p.ToString());
         }
 
-        private void Apply(C.ISet<int> set, XS.XmlSchemaParticle p)
+        private void Apply(Fsm.Name set, XS.XmlSchemaParticle p)
         {
             // group ref
             {
@@ -163,7 +159,8 @@
 
         public F.Dfa<X.XmlQualifiedName> Apply(XS.XmlSchemaComplexType type)
         {
-            var set = new C.HashSet<int> { 0 };
+            // var set = new C.HashSet<int> { 0 };
+            var set = new Fsm.Name { 0 };
             this.Apply(set, type.Particle);
             return new F.Dfa<X.XmlQualifiedName>(this.Fsm, set);
         }

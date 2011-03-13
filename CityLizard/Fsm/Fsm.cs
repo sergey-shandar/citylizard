@@ -92,7 +92,7 @@
         /// <param name="symbol">Transition symbol.</param>
         /// <param name="to">To.</param>
         /// <returns>To.</returns>
-        private int Add(C.ISet<int> set, T symbol, int to)
+        private int Add(Name set, T symbol, int to)
         {
             foreach (var state in set)
             {
@@ -107,7 +107,7 @@
         /// <param name="set">Set of 'from' states.</param>
         /// <param name="symbol">Transition symbol.</param>
         /// <returns>To.</returns>
-        public int AddNew(C.ISet<int> set, T symbol)
+        public int AddNew(Name set, T symbol)
         {
             return this.Add(set, symbol, this.AddState());
         }
@@ -122,8 +122,7 @@
         /// Maximum number of transitions. No limit if the value equal 
         /// int.MaxValue.
         /// </param>
-        public void Loop(
-            C.ISet<int> set, S.Action<C.ISet<int>> transform, int min, int max)
+        public void Loop(Name set, S.Action<Name> transform, int min, int max)
         {
             // min
             for (var i = 0; i < min; ++i)
@@ -133,7 +132,7 @@
             // max
             if (max < int.MaxValue)
             {
-                var copy = new C.HashSet<int>(set);
+                var copy = new Name(set);
                 for (var i = min; i < max; ++i)
                 {
                     transform(copy);
@@ -144,7 +143,7 @@
             else
             {
                 var label = this.AddState();
-                var copy = new C.HashSet<int>(set);
+                var copy = new Name(set);
                 set.Add(label);
                 transform(set);
                 var labelTransactionList = this.StateList[label];
@@ -155,57 +154,5 @@
                 set.UnionWith(copy);
             }
         }
-
-        public void Combine(C.ISet<int> name)
-        {
-            if (name.Count != 1)
-            {
-                var state = this.AddState();
-                foreach (var s in name)
-                {
-                    foreach (var t in this.StateList[s].FromList)
-                    {
-                        this.Add(t.State, t.Symbol, state);
-                    }
-                }
-                name.Clear();
-                name.Add(state);
-            }
-        }
-
-        /*
-        public void Optimize(C.ISet<int> name)
-        {
-            var copy = new C.HashSet<int>(name);
-            var firstEmpty = -1;
-            foreach (var i in copy)
-            {
-                var state = this.StateList[i];
-                if (state.Empty)
-                {
-                    if (firstEmpty == -1)
-                    {
-                        firstEmpty = i;
-                    }
-                    else
-                    {
-                        // backlinks are required to get rid of the loops.
-                        foreach (var s in this.StateList)
-                        {
-                            foreach (var t in s)
-                            {
-                                if (t.State == i)
-                                {
-                                    t.State = firstEmpty;   
-                                }
-                            }
-                        }
-                        //
-                        name.Remove(i);
-                    }
-                }
-            }
-        }
-        */
     }
 }

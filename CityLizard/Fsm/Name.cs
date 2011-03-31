@@ -7,6 +7,15 @@
 
     public class Name : C.HashSet<int>, S.IEquatable<Name>
     {
+        public Name()
+        {
+        }
+
+        public Name(Name v)
+            : base(v)
+        {
+        }
+
         public override bool Equals(object obj)
         {
             return this.Equals(obj as Name);
@@ -15,6 +24,16 @@
         public bool Equals(Name other)
         {
             return base.SetEquals(other);
+        }
+
+        public static bool operator ==(Name a, Name b)
+        {
+            return a.Equals(b);
+        }
+
+        public static bool operator !=(Name a, Name b)
+        {
+            return !a.Equals(b);
         }
 
         /// <summary>

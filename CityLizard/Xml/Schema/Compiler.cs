@@ -56,25 +56,16 @@
             return result;
         }
 
-        private static readonly C.IEqualityComparer<C.HashSet<int>> comparer =
-            C.HashSet<int>.CreateSetComparer();
-
         private static Fsm.Name Start = new Fsm.Name { 0 };
 
-        private static string Name(C.HashSet<int> s)
+        private static string Name(Fsm.Name s)
         {
-            var r = "";
-            foreach (var i in s)
-            {
-                r += "_" + i;
-            }
-            return r;
+            return string.Join("_", s);
         }
 
-        private static string Name(
-            C.HashSet<int> self, string selfName, C.HashSet<int> key)
+        private static string Name(Fsm.Name self, string selfName, Fsm.Name key)
         {
-            return comparer.Equals(key, self) ? selfName : Name(key);
+            return key == self ? selfName : Name(key);
         }
 
         private void AddProperty(
@@ -229,7 +220,7 @@
                     string pName;
 
                     //
-                    if (comparer.Equals(p.Key, self))
+                    if (p.Key == self)
                     {
                         pType = csType;
                         pName = name;
@@ -292,7 +283,7 @@
                         var parameterRef = parameter.Ref();
 
                         //
-                        if (comparer.Equals(p.Key, s.Value))
+                        if (p.Key == s.Value)
                         {
                             pType.Add(
                                 Method("Add", A.Public)
@@ -363,7 +354,7 @@
 
                     // If start element.
                     // Exactly one start exsists in DFA.
-                    if (comparer.Equals(p.Key, Start))
+                    if (p.Key == Start)
                     {
                         // Constructor.
                         mainCtor.Add(attributes.Parameters);

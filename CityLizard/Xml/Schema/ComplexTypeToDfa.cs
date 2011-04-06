@@ -13,15 +13,22 @@
 
     internal class ComplexTypeToDfa
     {
-        private readonly F.Fsm<X.XmlQualifiedName> Fsm =
-            new F.Fsm<X.XmlQualifiedName>();
-
-        private readonly ElementSet ToDo;
-
         public ComplexTypeToDfa(ElementSet toDo)
         {
             this.ToDo = toDo;
         }
+
+        private void ApplyOne(Fsm.Name set, XS.XmlSchemaParticle p)
+        {
+            var set = new Fsm.Name { 0 };
+            this.Apply(set, type.Particle);
+            return new F.Dfa<X.XmlQualifiedName>(this.Fsm, set);
+        }
+
+        private readonly F.Fsm<X.XmlQualifiedName> Fsm =
+            new F.Fsm<X.XmlQualifiedName>();
+
+        private readonly ElementSet ToDo;
 
         private void ApplyOne(Fsm.Name set, XS.XmlSchemaParticle p)
         {
@@ -44,9 +51,11 @@
                 if (choice != null)
                 {
                     var x = new Fsm.Name(set);
+                    var x = new Fsm.Name(set);
                     set.Clear();
                     foreach (var i in choice.ItemsTyped())
                     {
+                        var xi = new Fsm.Name(x);
                         var xi = new Fsm.Name(x);
                         this.Apply(xi, i);
                         set.UnionWith(xi);
@@ -155,11 +164,7 @@
             this.Fsm.Loop(set, x => this.ApplyOne(x, p), min, max);
         }
 
-        public F.Dfa<X.XmlQualifiedName> Apply(XS.XmlSchemaComplexType type)
-        {
+
             var set = new Fsm.Name() { 0 };
-            this.Apply(set, type.Particle);
-            return new F.Dfa<X.XmlQualifiedName>(this.Fsm, set);
-        }
     }
 }

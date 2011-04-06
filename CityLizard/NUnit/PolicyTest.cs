@@ -9,7 +9,8 @@
     public static class PolicyTest
     {
         public static T Sum<X, T>(this X x, params T[] e) 
-            where X : Policy.INumeric<T>
+            where X : struct, Policy.INumeric<T>
+            where T: System.IComparable<T>
         {
             var r = x._0;
             foreach (var i in e)

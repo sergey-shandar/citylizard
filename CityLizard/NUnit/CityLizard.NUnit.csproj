@@ -59,6 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BinaryTest.cs" />
     <Compile Include="BuildTest.cs" />
     <Compile Include="CompilerTest.cs" />
     <Compile Include="IdeaTest.cs" />
@@ -68,6 +69,10 @@
     <Compile Include="XmlUntypedTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Binary\CityLizard.Binary.csproj">
+      <Project>{5BDC0FC0-EB57-4F71-AEB3-F396D5F110BE}</Project>
+      <Name>CityLizard.Binary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Build\CityLizard.Build.csproj">
       <Project>{E7CF094A-3F92-456F-BB48-E3FD07C01D21}</Project>
       <Name>CityLizard.Build</Name>

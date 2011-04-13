@@ -62,6 +62,7 @@
     <Compile Include="BinaryTest.cs" />
     <Compile Include="BuildTest.cs" />
     <Compile Include="CompilerTest.cs" />
+    <Compile Include="HgTest.cs" />
     <Compile Include="IdeaTest.cs" />
     <Compile Include="PolicyTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -80,6 +81,10 @@
     <ProjectReference Include="..\CodeDom\CityLizard.CodeDom.csproj">
       <Project>{ACF5201B-625E-4356-A515-9D11768881A3}</Project>
       <Name>CityLizard.CodeDom</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hg\CityLizard.Hg.csproj">
+      <Project>{5293C8F4-FB29-4F98-B604-569B20ECF34C}</Project>
+      <Name>CityLizard.Hg</Name>
     </ProjectReference>
     <ProjectReference Include="..\Policy\CityLizard.Policy.csproj">
       <Project>{4ED0D450-FBE4-4B82-B1E9-55E83913B8A0}</Project>

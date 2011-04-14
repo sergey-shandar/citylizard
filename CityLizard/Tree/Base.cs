@@ -117,7 +117,7 @@
             newChild.Parent = parent;
         }
 
-        private void SetParent(Node child, Node parent)
+        private static void SetParent(Node child, Node parent)
         {
             if (child != null)
             {
@@ -125,15 +125,15 @@
             }
         }
 
-        private void SetLeftChild(Node parent, Node newChild)
+        private static void SetLeftChild(Node parent, Node newChild)
         {
-            this.SetParent(newChild, parent);
+            SetParent(newChild, parent);
             parent.Left = newChild;
         }
 
-        private void SetRightChild(Node parent, Node newChild)
+        private static void SetRightChild(Node parent, Node newChild)
         {
-            this.SetParent(newChild, parent);
+            SetParent(newChild, parent);
             parent.Right = newChild;
         }
 
@@ -141,16 +141,39 @@
         {
             var left = node.Left;
             this.ChangeChild(node, left);
-            this.SetLeftChild(node, left.Right);
-            this.SetRightChild(left, node);
+            SetLeftChild(node, left.Right);
+            SetRightChild(left, node);
         }
 
         public void LeftRotation(Node node)
         {
             var right = node.Right;
             this.ChangeChild(node, right);
-            this.SetRightChild(node, right.Left);
-            this.SetLeftChild(right, node);
+            SetRightChild(node, right.Left);
+            SetLeftChild(right, node);
+        }
+
+        public static Node Parent(Node node)
+        {
+            return node != null ? node.Parent : null;
+        }
+
+        public static Node GrandParent(Node node)
+        {
+            return Parent(Parent(node));
+        }
+
+        public static Node Sibling(Node node)
+        {
+            var parent = Parent(node);
+            return 
+                parent == null ? null :
+                node == parent.Left ? parent.Right : parent.Left;
+        }
+
+        public static Node Uncle(Node node)
+        {
+            return Sibling(Parent(node));
         }
     }
 }

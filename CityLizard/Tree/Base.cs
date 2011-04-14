@@ -14,24 +14,24 @@
         public struct Pair
         {
             /// <summary>
-            /// Left.
+            /// Before.
             /// </summary>
-            public Node Left;
+            public Node Before;
 
             /// <summary>
             /// Right.
             /// </summary>
-            public Node Right;
+            public Node After;
 
             /// <summary>
             /// Constructor.
             /// </summary>
-            /// <param name="left">Left.</param>
-            /// <param name="right">Right.</param>
-            public Pair(Node left, Node right)
+            /// <param name="before">Before.</param>
+            /// <param name="after">After.</param>
+            public Pair(Node before, Node after)
             {
-                this.Left = left;
-                this.Right = right;
+                this.Before = before;
+                this.After = after;
             }
         }
 
@@ -46,9 +46,14 @@
             public Node Parent;
 
             /// <summary>
-            /// Left and Right.
+            /// Left.
             /// </summary>
-            public Pair Between;
+            public Node Left;
+
+            /// <summary>
+            /// Right.
+            /// </summary>
+            public Node Right;
 
             /// <summary>
             /// User data.
@@ -72,13 +77,13 @@
                 var sign = compare.CompareTo(i.Value);
                 if (sign < 0)
                 {
-                    result.Right = i;
-                    i = i.Between.Left;
+                    result.After = i;
+                    i = i.Left;
                 }
                 else if (sign > 0)
                 {
-                    result.Left = i;
-                    i = i.Between.Right;
+                    result.Before = i;
+                    i = i.Right;
                 }
                 // sign == 0
                 else
@@ -87,6 +92,65 @@
                 }
             }
             return result;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="oldChild">Must not be null.</param>
+        /// <param name="newChild">Must not be null.</param>
+        private void ChangeChild(Node oldChild, Node newChild)
+        {
+            var parent = oldChild.Parent;
+            if (parent == null)
+            {
+                this.Root = newChild;
+            }
+            else if (parent.Left == oldChild)
+            {
+                parent.Left = newChild;
+            }
+            else
+            {
+                parent.Right = newChild;
+            }
+            newChild.Parent = parent;
+        }
+
+        private void SetParent(Node child, Node parent)
+        {
+            if (child != null)
+            {
+                child.Parent = parent;
+            }
+        }
+
+        private void SetLeftChild(Node parent, Node newChild)
+        {
+            this.SetParent(newChild, parent);
+            parent.Left = newChild;
+        }
+
+        private void SetRightChild(Node parent, Node newChild)
+        {
+            this.SetParent(newChild, parent);
+            parent.Right = newChild;
+        }
+
+        public void RightRotation(Node node)
+        {
+            var left = node.Left;
+            this.ChangeChild(node, left);
+            this.SetLeftChild(node, left.Right);
+            this.SetRightChild(left, node);
+        }
+
+        public void LeftRotation(Node node)
+        {
+            var right = node.Right;
+            this.ChangeChild(node, right);
+            this.SetRightChild(node, right.Left);
+            this.SetLeftChild(right, node);
         }
     }
 }

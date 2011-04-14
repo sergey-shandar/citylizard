@@ -1,6 +1,6 @@
 ﻿namespace CityLizard.Tree
 {
-    class RedBlack<T>
+    public class RedBlack<T>
     {
         private struct Data
         {

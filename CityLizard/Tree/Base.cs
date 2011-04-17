@@ -35,6 +35,12 @@
             }
         }
 
+        public enum Direction
+        {
+            Left,
+            Right,
+        }
+
         /// <summary>
         /// Tree node.
         /// </summary>
@@ -54,6 +60,22 @@
             /// Right.
             /// </summary>
             public Node Right;
+
+            public Node this[Direction direction]
+            {
+                get { return direction == Direction.Left ? this.Left : this.Right; }
+                set
+                {
+                    if (direction == Direction.Left)
+                    {
+                        this.Left = value;
+                    }
+                    else
+                    {
+                        this.Right = value;
+                    }
+                }
+            }
 
             /// <summary>
             /// User data.

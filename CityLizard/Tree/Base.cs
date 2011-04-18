@@ -7,7 +7,7 @@
     /// Basic tree structure.
     /// </summary>
     /// <typeparam name="T">User data.</typeparam>
-    class Base<T>
+    public class Base<T>
     {
         /// <summary>
         /// Position.
@@ -87,6 +87,18 @@
             /// User data.
             /// </summary>
             public T Value;
+
+            public void SetLeftChild(Node newChild)
+            {
+                newChild.SetParent(this);
+                this.Left = newChild;
+            }
+
+            public void SetRightChild(Node newChild)
+            {
+                newChild.SetParent(this);
+                this.Right = newChild;
+            }
         }
 
         public Node Root;
@@ -145,63 +157,20 @@
             newChild.Parent = parent;
         }
 
-        private static void SetParent(Node child, Node parent)
-        {
-            if (child != null)
-            {
-                child.Parent = parent;
-            }
-        }
-
-        private static void SetLeftChild(Node parent, Node newChild)
-        {
-            SetParent(newChild, parent);
-            parent.Left = newChild;
-        }
-
-        private static void SetRightChild(Node parent, Node newChild)
-        {
-            SetParent(newChild, parent);
-            parent.Right = newChild;
-        }
-
         public void RightRotation(Node node)
         {
             var left = node.Left;
             this.ChangeChild(node, left);
-            SetLeftChild(node, left.Right);
-            SetRightChild(left, node);
+            node.SetLeftChild(left.Right);
+            left.SetRightChild(node);
         }
 
         public void LeftRotation(Node node)
         {
             var right = node.Right;
             this.ChangeChild(node, right);
-            SetRightChild(node, right.Left);
-            SetLeftChild(right, node);
-        }
-
-        public static Node Parent(Node node)
-        {
-            return node != null ? node.Parent : null;
-        }
-
-        public static Node GrandParent(Node node)
-        {
-            return Parent(Parent(node));
-        }
-
-        public static Node Sibling(Node node)
-        {
-            var parent = Parent(node);
-            return 
-                parent == null ? null :
-                node == parent.Left ? parent.Right : parent.Left;
-        }
-
-        public static Node Uncle(Node node)
-        {
-            return Sibling(Parent(node));
+            node.SetRightChild(right.Left);
+            right.SetLeftChild(node);
         }
 
         public Node Insert(Position position, T value)
@@ -229,6 +198,41 @@
                 D.Debug.Fail("Invalid position");
             }
             return result;
+        }
+    }
+
+    public static class BaseNodeExtension
+    {
+        public static void SetParent<T>(
+            this Base<T>.Node node, Base<T>.Node parent)
+        {
+            if (node != null)
+            {
+                node.Parent = parent;
+            }
+        }
+
+        public static Base<T>.Node GetParent<T>(this Base<T>.Node node)
+        {
+            return node != null ? node.Parent : null;
+        }
+
+        public static Base<T>.Node GetGrandParent<T>(this Base<T>.Node node)
+        {
+            return node.GetParent().GetParent();
+        }
+
+        public static Base<T>.Node GetSibling<T>(this Base<T>.Node node)
+        {
+            var parent = node.GetParent();
+            return
+                parent == null ? null :
+                node == parent.Left ? parent.Right : parent.Left;
+        }
+
+        public static Base<T>.Node GetUncle<T>(this Base<T>.Node node)
+        {
+            return node.GetParent().GetSibling();
         }
     }
 }

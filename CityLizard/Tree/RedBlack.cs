@@ -40,13 +40,13 @@
 
         private void Insert3(Base<Data>.Node node)
         {
-            var u = Base<Data>.Uncle(node);
+            var u = node.GetUncle();
 
             if (u != null && u.Value.Red)
             {
                 node.Parent.Value.Red = false;
                 u.Value.Red = false;
-                var g = Base<Data>.Parent(u);
+                var g = u.GetParent();
                 g.Value.Red = true;
                 this.Insert1(g);
             }
@@ -58,7 +58,7 @@
 
         private void Insert4(Base<Data>.Node node)
         {
-            var g = Base<Data>.GrandParent(node);
+            var g = node.GetGrandParent();
  
             if (node == node.Parent.Right && node.Parent == g.Left)
             {
@@ -75,7 +75,7 @@
 
         private void Insert5(Base<Data>.Node node)
         {
-            var g = Base<Data>.GrandParent(node);
+            var g = node.GetGrandParent();
  
             node.Parent.Value.Red = false;
             g.Value.Red = true;

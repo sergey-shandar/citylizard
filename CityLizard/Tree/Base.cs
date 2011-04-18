@@ -1,6 +1,7 @@
 ﻿namespace CityLizard.Tree
 {
     using S = System;
+    using D = System.Diagnostics;
 
     /// <summary>
     /// Basic tree structure.
@@ -9,9 +10,9 @@
     class Base<T>
     {
         /// <summary>
-        /// Pair.
+        /// Position.
         /// </summary>
-        public struct Pair
+        public struct Position
         {
             /// <summary>
             /// Before.
@@ -28,10 +29,15 @@
             /// </summary>
             /// <param name="before">Before.</param>
             /// <param name="after">After.</param>
-            public Pair(Node before, Node after)
+            public Position(Node before, Node after)
             {
                 this.Before = before;
                 this.After = after;
+            }
+
+            public Node One()
+            {
+                return this.Before == this.After ? this.Before : null;
             }
         }
 
@@ -83,16 +89,16 @@
             public T Value;
         }
 
-        private Node Root;
+        public Node Root;
 
         /// <summary>
         /// Find an insertion place.
         /// </summary>
         /// <param name="compare">User data comparison function.</param>
         /// <returns>A pair.</returns>
-        public Pair Find(S.IComparable<T> compare)
+        public Position Find(S.IComparable<T> compare)
         {
-            var result = new Pair();
+            var result = new Position();
             var i = this.Root;
             while(i != null)
             {
@@ -110,7 +116,7 @@
                 // sign == 0
                 else
                 {
-                    return new Pair(i, i);
+                    return new Position(i, i);
                 }
             }
             return result;
@@ -196,6 +202,33 @@
         public static Node Uncle(Node node)
         {
             return Sibling(Parent(node));
+        }
+
+        public Node Insert(Position position, T value)
+        {
+            var result = new Node { Value = value };
+
+            D.Debug.Assert(position.One() == null);
+            if (position.Before == null && position.After == null)
+            {
+                this.Root = result;
+                result.Parent = null;
+            }
+            else if(position.Before != null && position.Before.Right == null)
+            {
+                position.Before.Right = result;
+                result.Parent = position.Before;
+            }
+            else if(position.After != null && position.After.Left == null)
+            {
+                position.After.Left = result;
+                result.Parent = position.After;
+            }
+            else
+            {
+                D.Debug.Fail("Invalid position");
+            }
+            return result;
         }
     }
 }

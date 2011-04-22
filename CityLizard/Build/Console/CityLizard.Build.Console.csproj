@@ -81,6 +81,9 @@
     <Compile Include="..\..\Hg\Hg.cs">
       <Link>Hg\Hg.cs</Link>
     </Compile>
+    <Compile Include="..\..\Policy\Build\Base.cs">
+      <Link>Policy\Build\Base.cs</Link>
+    </Compile>
     <Compile Include="..\Build.cs">
       <Link>Build\Build.cs</Link>
     </Compile>

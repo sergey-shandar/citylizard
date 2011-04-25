@@ -81,12 +81,14 @@ namespace CityLizard.Build.Console
         {
             // Set current directory to ".../CityLizard/"
             var dir = IO.Path.GetDirectoryName(R.Assembly.GetExecutingAssembly().Location);
+            /*
             while (IO.Path.GetFileName(dir) != "CityLizard")
             {
                 dir = IO.Path.GetDirectoryName(dir);
             }
             IO.Directory.SetCurrentDirectory(dir);
             S.Console.WriteLine(IO.Directory.GetCurrentDirectory());
+             * */
             //
             var root = Hg.Hg.Root();
             var summary = Hg.Hg.Summary();
@@ -95,7 +97,7 @@ namespace CityLizard.Build.Console
             foreach (
                 var file in 
                 Hg.Hg.Locate().Where(
-                    file => IO.Path.GetExtension(file) == ".vcproj"))
+                    file => IO.Path.GetExtension(file) == ".csproj"))
             {
                 Build.CreateAssemblyInfo(
                     summary, Company, IO.Path.Combine(root, file));
@@ -113,6 +115,10 @@ namespace CityLizard.Build.Console
             {
                 xs.Run(i);
             }
+            //
+            Build.BuildSolution(
+                Hg.Hg.Locate().First(
+                    file => IO.Path.GetFileName(file) == "CityLizard.TypedDom.sln"));
         }
     }
 }

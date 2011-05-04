@@ -79,16 +79,6 @@ namespace CityLizard.Build.Console
 
         static void Main(string[] args)
         {
-            // Set current directory to ".../CityLizard/"
-            var dir = IO.Path.GetDirectoryName(R.Assembly.GetExecutingAssembly().Location);
-            /*
-            while (IO.Path.GetFileName(dir) != "CityLizard")
-            {
-                dir = IO.Path.GetDirectoryName(dir);
-            }
-            IO.Directory.SetCurrentDirectory(dir);
-            S.Console.WriteLine(IO.Directory.GetCurrentDirectory());
-             * */
             //
             var root = Hg.Hg.Root();
             var summary = Hg.Hg.Summary();
@@ -103,7 +93,7 @@ namespace CityLizard.Build.Console
                     summary, Company, IO.Path.Combine(root, file));
             }
             //
-            Policy.Build.Base.Run();
+            Policy.Build.Base.Run(root);
             //
             Build.BuildSolution(
                 Hg.Hg.Locate().First(

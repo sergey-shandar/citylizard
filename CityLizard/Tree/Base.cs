@@ -3,6 +3,12 @@
     using S = System;
     using D = System.Diagnostics;
 
+    public enum Direction
+    {
+        Left,
+        Right,
+    }
+
     /// <summary>
     /// Basic tree structure.
     /// </summary>
@@ -41,12 +47,6 @@
             }
         }
 
-        public enum Direction
-        {
-            Left,
-            Right,
-        }
-
         /// <summary>
         /// Tree node.
         /// </summary>
@@ -78,6 +78,7 @@
                     }
                     else
                     {
+                        D.Debug.Assert(direction == Direction.Right);
                         this.Right = value;
                     }
                 }
@@ -99,9 +100,73 @@
                 newChild.SetParent(this);
                 this.Right = newChild;
             }
+
+            public Node Next()
+            {
+                var i = this.Right;
+                if (i != null)
+                {
+                    while (i.Right != null)
+                    {
+                        i = i.Right;
+                    } ;
+                    return i;
+                }
+                else
+                {
+                    var parent = this.Parent;
+                    return parent != null && parent.Left == this ? parent : null;
+                }
+            }
+
+            public Node Prior()
+            {
+                var i = this.Left;
+                if (i != null)
+                {
+                    while(i.Left != null)
+                    {
+                        i = i.Left;
+                    }
+                    return i;
+                }
+                else
+                {
+                    var parent = this.Parent;
+                    return parent != null && parent.Right == this ? parent : null;
+                }
+            }
+
+            public Node Step(Direction direction)
+            {
+                var i = this[direction];
+                if (i != null)
+                {
+                    while (i[direction] != null)
+                    {
+                        i = i[direction];
+                    }
+                    return i;
+                }
+                else
+                {
+                    var parent = this.Parent;
+                    return 
+                        parent != null && parent[direction.Revert()] == this ?
+                            parent :
+                            null;
+                }
+            }
         }
 
-        public Node Root;
+        public Node Root = new Node();
+        public Node End = new Node();
+        public Node Begin;
+
+        public Base()
+        {
+            this.Begin = this.End;
+        }
 
         /// <summary>
         /// Find an insertion place.
@@ -142,17 +207,24 @@
         private void ChangeChild(Node oldChild, Node newChild)
         {
             var parent = oldChild.Parent;
+
             if (parent == null)
             {
+                D.Debug.Assert(this.Root == oldChild);
+
                 this.Root = newChild;
-            }
-            else if (parent.Left == oldChild)
-            {
-                parent.Left = newChild;
             }
             else
             {
-                parent.Right = newChild;
+                if (parent.Left == oldChild)
+                {
+                    parent.Left = newChild;
+                }
+                else
+                {
+                    D.Debug.Assert(parent.Right == oldChild);
+                    parent.Right = newChild;
+                }
             }
             newChild.Parent = parent;
         }
@@ -175,64 +247,108 @@
 
         public Node Insert(Position position, T value)
         {
+            D.Debug.Assert(position.One() != null);
+
             var result = new Node { Value = value };
 
-            D.Debug.Assert(position.One() == null);
             if (position.Before == null && position.After == null)
             {
                 this.Root = result;
                 result.Parent = null;
             }
-            else if(position.Before != null && position.Before.Right == null)
+            else if (position.Before != null && position.Before.Right == null)
             {
                 position.Before.Right = result;
                 result.Parent = position.Before;
             }
-            else if(position.After != null && position.After.Left == null)
+            else
             {
+                D.Debug.Assert(position.After != null && position.After.Left == null);
+                
                 position.After.Left = result;
                 result.Parent = position.After;
             }
+            return result;
+        }
+
+        public Position Remove(Node node)
+        {
+            D.Debug.Assert(node != null);
+
+            var left = node.Left;
+            var right = node.Right;
+            if (left != null)
+            {
+                this.ChangeChild(node, left);
+            }
             else
             {
-                D.Debug.Fail("Invalid position");
+                this.ChangeChild(node, right);
             }
-            return result;
+
+            // var result = new Position(node.Prior(), node.Next());
+            /*
+            var parent = node.Parent;
+            if (parent != null)
+            {
+                if (parent.Left == node)
+                {
+                }
+                else
+                {
+                    D.Debug.Assert(parent.Right == node);
+                }
+            }
+            else
+            {
+            }
+             * */
+            return Position;
         }
     }
 
+    /// <summary>
+    /// Extension methods. First parameter can be null.
+    /// </summary>
     public static class BaseNodeExtension
     {
-        public static void SetParent<T>(
-            this Base<T>.Node node, Base<T>.Node parent)
+        public static Direction Revert(this Direction this_)
         {
-            if (node != null)
+            D.Debug.Assert(this_ == Direction.Left || this_ == Direction.Right);
+
+            return this_ == Direction.Left ? Direction.Right : Direction.Left;
+        }
+
+        public static void SetParent<T>(
+            this Base<T>.Node this_, Base<T>.Node parent)
+        {
+            if (this_ != null)
             {
-                node.Parent = parent;
+                this_.Parent = parent;
             }
         }
 
-        public static Base<T>.Node GetParent<T>(this Base<T>.Node node)
+        public static Base<T>.Node GetParent<T>(this Base<T>.Node this_)
         {
-            return node != null ? node.Parent : null;
+            return this_ != null ? this_.Parent : null;
         }
 
-        public static Base<T>.Node GetGrandParent<T>(this Base<T>.Node node)
+        public static Base<T>.Node GetGrandParent<T>(this Base<T>.Node this_)
         {
-            return node.GetParent().GetParent();
+            return this_.GetParent().GetParent();
         }
 
-        public static Base<T>.Node GetSibling<T>(this Base<T>.Node node)
+        public static Base<T>.Node GetSibling<T>(this Base<T>.Node this_)
         {
-            var parent = node.GetParent();
+            var parent = this_.GetParent();
             return
                 parent == null ? null :
-                node == parent.Left ? parent.Right : parent.Left;
+                this_ == parent.Left ? parent.Right : parent.Left;
         }
 
-        public static Base<T>.Node GetUncle<T>(this Base<T>.Node node)
+        public static Base<T>.Node GetUncle<T>(this Base<T>.Node this_)
         {
-            return node.GetParent().GetSibling();
+            return this_.GetParent().GetSibling();
         }
     }
 }

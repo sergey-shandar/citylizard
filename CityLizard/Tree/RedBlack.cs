@@ -2,9 +2,15 @@
 {
     public class RedBlack<T>
     {
+        private enum Color
+        {
+            Red,
+            Black,
+        }
+
         private struct Data
         {
-            public bool Red;
+            public Color Color;
             public T Value;
         }
 
@@ -13,7 +19,7 @@
         private Base<Data>.Node Insert(Base<Data>.Position position, T value)
         {
             // Root.
-            var node = this.Base.Insert(position, new Data { Red = true, Value = value });
+            var node = this.Base.Insert(position, new Data { Color = Color.Red, Value = value });
             this.Insert1(node);
             return node;
         }
@@ -22,7 +28,7 @@
         {
             if (node.Parent == null)
             {
-                node.Value.Red = false;
+                node.Value.Color = Color.Black;
             }
             else
             {
@@ -32,7 +38,7 @@
 
         private void Insert2(Base<Data>.Node node)
         {
-            if (node.Parent.Value.Red)
+            if (node.Parent.Value.Color == Color.Red)
             {
                 this.Insert3(node);
             }
@@ -42,12 +48,12 @@
         {
             var u = node.GetUncle();
 
-            if (u != null && u.Value.Red)
+            if (u != null && u.Value.Color == Color.Red)
             {
-                node.Parent.Value.Red = false;
-                u.Value.Red = false;
+                node.Parent.Value.Color = Color.Black;
+                u.Value.Color = Color.Black;
                 var g = u.GetParent();
-                g.Value.Red = true;
+                g.Value.Color = Color.Red;
                 this.Insert1(g);
             }
             else
@@ -77,8 +83,8 @@
         {
             var g = node.GetGrandParent();
  
-            node.Parent.Value.Red = false;
-            g.Value.Red = true;
+            node.Parent.Value.Color = Color.Black;
+            g.Value.Color = Color.Red;
 
             if (node == node.Parent.Left && node.Parent == g.Left) 
             {
@@ -88,6 +94,11 @@
             {
                 this.Base.LeftRotation(g);
             }
+        }
+
+        private void Remove(Base<Data>.Node node)
+        {
+
         }
     }
 }

@@ -33,8 +33,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Binary", "Binary
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Tree", "Tree\CityLizard.Tree.csproj", "{806E6917-E29C-4F84-A5D1-6556DDE2A6E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Build.Console", "Build\Console\CityLizard.Build.Console.csproj", "{E0E70117-A258-4294-A700-865D671271D5}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -105,10 +103,6 @@ Global
 		{806E6917-E29C-4F84-A5D1-6556DDE2A6E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{806E6917-E29C-4F84-A5D1-6556DDE2A6E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{806E6917-E29C-4F84-A5D1-6556DDE2A6E1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E0E70117-A258-4294-A700-865D671271D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E0E70117-A258-4294-A700-865D671271D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E0E70117-A258-4294-A700-865D671271D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E0E70117-A258-4294-A700-865D671271D5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

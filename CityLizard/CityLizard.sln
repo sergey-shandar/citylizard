@@ -33,7 +33,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Binary", "Binary
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Tree", "Tree\CityLizard.Tree.csproj", "{806E6917-E29C-4F84-A5D1-6556DDE2A6E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Cast", "CityLizard.Cast\CityLizard.Cast.csproj", "{3A50FAB0-C6CC-4499-8412-92D5D37ED2DA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Cast", "Cast\CityLizard.Cast.csproj", "{3A50FAB0-C6CC-4499-8412-92D5D37ED2DA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

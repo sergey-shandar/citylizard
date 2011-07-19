@@ -303,7 +303,7 @@
             {
             }
              * */
-            return Position;
+            return new Position();
         }
     }
 

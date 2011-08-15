@@ -33,16 +33,6 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Release\CityLizard.CodeDom.XML</DocumentationFile>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
-    <PlatformTarget>x86</PlatformTarget>
-    <OutputPath>bin\x86\Debug\</OutputPath>
-    <DocumentationFile>bin\x86\Debug\CityLizard.CodeDom.XML</DocumentationFile>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
-    <PlatformTarget>x86</PlatformTarget>
-    <OutputPath>bin\x86\Release\</OutputPath>
-    <DocumentationFile>bin\x86\Release\CityLizard.CodeDom.XML</DocumentationFile>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />

@@ -5,26 +5,26 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{0D04D144-4F53-4C26-9E5E-AC87CB84DEFC}</ProjectGuid>
+    <ProjectGuid>{E0E70117-A258-4294-A700-865D671271D5}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CityLizard.Xml.Schema.Console</RootNamespace>
-    <AssemblyName>CityLizard.Xml.Schema.Console</AssemblyName>
+    <RootNamespace>CityLizard.Build.Console</RootNamespace>
+    <AssemblyName>CityLizard.Build.Console</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>bin\Debug\CityLizard.Xml.Schema.Console.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>bin\Release\CityLizard.Xml.Schema.Console.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Build" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -34,18 +34,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\CodeDom\Code.cs">
+      <Link>CodeDom\Code.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Hg\Hg.cs">
+      <Link>Hg\Hg.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Policy\Build\Base.cs">
+      <Link>Policy\Build\Base.cs</Link>
+    </Compile>
+    <Compile Include="..\Build.cs">
+      <Link>Build\Build.cs</Link>
+    </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\CodeDom\CityLizard.CodeDom.csproj">
-      <Project>{ACF5201B-625E-4356-A515-9D11768881A3}</Project>
-      <Name>CityLizard.CodeDom</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CityLizard.Xml.Schema.csproj">
-      <Project>{B65374FF-0CC7-470B-A138-7968EE9B1187}</Project>
-      <Name>CityLizard.Xml.Schema</Name>
-    </ProjectReference>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

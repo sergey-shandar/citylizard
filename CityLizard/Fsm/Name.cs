@@ -26,16 +26,6 @@
             return base.SetEquals(other);
         }
 
-        public static bool operator ==(Name a, Name b)
-        {
-            return a.Equals(b);
-        }
-
-        public static bool operator !=(Name a, Name b)
-        {
-            return !a.Equals(b);
-        }
-
         /// <summary>
         /// Note: the function implementation has really bad distribution. 
         /// However it works.

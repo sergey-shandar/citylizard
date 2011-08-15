@@ -18,7 +18,7 @@
             this.ToDo = toDo;
         }
 
-        private void ApplyOne(Fsm.Name set, XS.XmlSchemaParticle p)
+        public F.Dfa<X.XmlQualifiedName> Apply(XS.XmlSchemaComplexType type)
         {
             var set = new Fsm.Name { 0 };
             this.Apply(set, type.Particle);
@@ -50,12 +50,12 @@
                 var choice = p as XS.XmlSchemaChoice;
                 if (choice != null)
                 {
-                    var x = new Fsm.Name(set);
+                    // var x = new C.HashSet<int>(set);
                     var x = new Fsm.Name(set);
                     set.Clear();
                     foreach (var i in choice.ItemsTyped())
                     {
-                        var xi = new Fsm.Name(x);
+                        // var xi = new C.HashSet<int>(x);
                         var xi = new Fsm.Name(x);
                         this.Apply(xi, i);
                         set.UnionWith(xi);
@@ -72,7 +72,7 @@
                 if (all != null)
                 {
                     var list = all.ItemsTyped().ToList();
-                    var setMap = new C.Dictionary<CS.BitVector32, Fsm.Name>
+                    var setMap = new C.Dictionary<CS.BitVector32, Fsm.Name> 
                         { { new CS.BitVector32(0), set } };
                     for (var i = 0; i < list.Count; ++i)
                     {
@@ -165,6 +165,5 @@
         }
 
 
-            var set = new Fsm.Name() { 0 };
     }
 }

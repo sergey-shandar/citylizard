@@ -1,4 +1,4 @@
-++++++	Platforms: 
+	Platforms: 
 		.NET 3.5, 
 		.NET 4.0, 
 		Silverlight 3, 

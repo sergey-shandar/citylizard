@@ -49,7 +49,7 @@
             CD.CodeBinaryOperatorType.Divide,
         };
 
-        private void Do(string root)
+        private void Do()
         {
             var t = Type("Base", IsPartial: true, IsStruct: true);
             foreach (var i in TypeList)
@@ -85,17 +85,16 @@
             }
             var u = Unit()[Namespace("CityLizard.Policy")[t]];
             var p = new CS.CSharpCodeProvider();
-            using (var w =
-                new IO.StreamWriter(IO.Path.Combine(root, "CityLizard/Policy/Base.cs")))
+            using (var w = new IO.StreamWriter("Policy/Base.cs"))
             {
                 p.GenerateCodeFromCompileUnit(
                     u, w, new CD.Compiler.CodeGeneratorOptions());
             }
         }
 
-        public static void Run(string root)
+        public static void Run()
         {
-            new Base().Do(root);
+            new Base().Do();
         }
     }
 }

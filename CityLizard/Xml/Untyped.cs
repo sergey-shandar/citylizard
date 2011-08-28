@@ -89,6 +89,15 @@
                         return this;
                     }
                 }
+
+                public X this[Element Element]
+                {
+                    get
+                    {
+                        this.Add(Element);
+                        return this;
+                    }
+                }
             }
         }
 

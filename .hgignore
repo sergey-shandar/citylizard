@@ -24,5 +24,3 @@ relre:.*\.pidb$
 relre:.*\.userprefs$
 relre:.*\.nupkg$
 relre:.*\.nsuo$
-syntax: glob
-CityLizard/Policy/Base.cs

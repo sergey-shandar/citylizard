@@ -1,0 +1,22 @@
+Source: 
+    http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition/
+
+(c) 2008 Microsoft Corporation.  All rights reserved. The following schema for 
+Microsoft SQL Server is presented in XML format and is for informational 
+purposes only. Microsoft Corporation ("Microsoft") may have trademarks, 
+copyrights, or other intellectual property rights covering subject matter in 
+the schema.  Microsoft does not make any representation or warranty regarding 
+the schema or any product or item developed based on the schema. The schema is 
+provided to you on an AS IS basis. Microsoft disclaims all express, implied and 
+statutory warranties, including but not limited to the implied warranties of 
+merchantability, fitness for a particular purpose, and freedom from 
+infringement. Without limiting the generality of the foregoing, Microsoft does 
+not make any warranty of any kind that any item developed based on the schema, 
+or any portion of the schema, will not infringe any copyright, patent, trade 
+secret, or other intellectual property right of any person or entity in any 
+country. It is your responsibility to seek licenses for such intellectual 
+property rights where appropriate. MICROSOFT SHALL NOT BE LIABLE FOR ANY 
+DAMAGES OF ANY KIND ARISING OUT OF OR IN CONNECTION WITH THE USE OF THE SCHEMA, 
+INCLUDING WITHOUT LIMITATION, ANY DIRECT, INDIRECT, INCIDENTAL, CONSEQUENTIAL 
+(INCLUDING ANY LOST PROFITS), PUNITIVE OR SPECIAL DAMAGES, WHETHER OR NOT 
+MICROSOFT HAS BEEN ADVISED OF SUCH DAMAGES. 

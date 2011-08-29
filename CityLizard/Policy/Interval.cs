@@ -1,6 +1,6 @@
 ﻿namespace CityLizard.Policy
 {
-    public struct Interval<P, T>
+    struct Interval<P, T>
         where P : struct, INumeric<T>
         where T : System.IComparable<T>
     {

@@ -6,7 +6,7 @@
     /// Mercurial access.
     /// See http://en.wikipedia.org/wiki/Mercurial.
     /// </summary>
-    public class Hg
+    public static class Hg
     {
         /// <summary>
         /// The HG command.
@@ -17,7 +17,7 @@
         {
             var p = new D.ProcessStartInfo
             {
-                FileName = "c:/Program Files/TortoiseHg/hg.exe",
+                FileName = "hg",
                 Arguments = arguments,
                 UseShellExecute = false,
                 RedirectStandardOutput = true,

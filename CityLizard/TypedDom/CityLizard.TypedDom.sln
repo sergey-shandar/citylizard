@@ -49,6 +49,10 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VBExample", "www_w3_org._19
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "www_w3_org._2000.svg", "www_w3_org._2000.svg\www_w3_org._2000.svg.csproj", "{75CAFEDF-63E6-4CA7-8756-2D79491824C8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Collections", "..\Collections\CityLizard.Collections.csproj", "{C4356246-D884-44C6-8013-D2A264C8599C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Collections.3.5", "..\Collections\3.5\CityLizard.Collections.3.5.csproj", "{448E0358-36DC-459B-94D8-0307960D4A53}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -149,6 +153,14 @@ Global
 		{75CAFEDF-63E6-4CA7-8756-2D79491824C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75CAFEDF-63E6-4CA7-8756-2D79491824C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75CAFEDF-63E6-4CA7-8756-2D79491824C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4356246-D884-44C6-8013-D2A264C8599C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4356246-D884-44C6-8013-D2A264C8599C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4356246-D884-44C6-8013-D2A264C8599C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4356246-D884-44C6-8013-D2A264C8599C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{448E0358-36DC-459B-94D8-0307960D4A53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{448E0358-36DC-459B-94D8-0307960D4A53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{448E0358-36DC-459B-94D8-0307960D4A53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{448E0358-36DC-459B-94D8-0307960D4A53}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

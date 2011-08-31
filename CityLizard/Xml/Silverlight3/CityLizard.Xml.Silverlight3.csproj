@@ -107,19 +107,10 @@
     <Compile Include="..\QName.cs">
       <Link>QName.cs</Link>
     </Compile>
-    <Compile Include="..\Serializer.cs">
-      <Link>Serializer.cs</Link>
-    </Compile>
     <Compile Include="..\Untyped.cs">
       <Link>Untyped.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Collections\Silverlight3\CityLizard.Collections.Silverlight3.csproj">
-      <Project>{89FE3CA3-9598-4EAA-A3A4-D2A8BC655370}</Project>
-      <Name>CityLizard.Collections.Silverlight3</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <ProjectExtensions>

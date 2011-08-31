@@ -8,8 +8,8 @@
     <ProjectGuid>{448E0358-36DC-459B-94D8-0307960D4A53}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CityLizard.Collections._3._5</RootNamespace>
-    <AssemblyName>CityLizard.Collections.3.5</AssemblyName>
+    <RootNamespace>CityLizard.Collections</RootNamespace>
+    <AssemblyName>CityLizard.Collections</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>

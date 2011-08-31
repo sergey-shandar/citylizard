@@ -90,9 +90,22 @@ namespace CityLizard.Xml
 
         private static G.HashSet<S.Type> SimpleSet = new G.HashSet<S.Type>()
         {
-            typeof(string),
-            typeof(S.DateTime),
+            typeof(bool),
+            typeof(byte),
+            typeof(sbyte),
+            typeof(char),
             typeof(decimal),
+            typeof(double),
+            typeof(float),
+            typeof(int),
+            typeof(uint),
+            typeof(long),
+            typeof(ulong),
+            typeof(short),
+            typeof(ushort),
+            typeof(string),
+            //
+            typeof(S.DateTime),
         };
 
         private static bool IsSimple(S.Type sType)

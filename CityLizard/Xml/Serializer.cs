@@ -8,6 +8,7 @@ namespace CityLizard.Xml
     using L = System.Xml.Linq;
     using SC = System.Collections;
     using G = System.Collections.Generic;
+    using CC = CityLizard.Collections;
 
     using U = CityLizard.Xml.Untyped;
 
@@ -87,7 +88,7 @@ namespace CityLizard.Xml
                 sType.GetGenericTypeDefinition() == typeof(G.List<>);
         }
 
-        private static G.HashSet<S.Type> SimpleSet = new G.HashSet<S.Type>()
+        private static G.Set<S.Type> SimpleSet = new G.Set<S.Type>()
         {
             typeof(string),
             typeof(S.DateTime),
@@ -121,7 +122,7 @@ namespace CityLizard.Xml
                 }
             }
 
-            private sealed class ObjectMap : IdCache<object, int>
+            private sealed class ObjectMap : CC.IdCache<object, int>
             {
                 protected override int Create(object key, int id)
                 {
@@ -165,7 +166,7 @@ namespace CityLizard.Xml
                 return x;
             }
 
-            private sealed class TypeMap : IdCache<S.Type, Type>
+            private sealed class TypeMap : CC.IdCache<S.Type, Type>
             {
                 public readonly SerializerObject X;
 
@@ -271,7 +272,7 @@ namespace CityLizard.Xml
         {
             private L.XElement Types;
 
-            private class ObjectDictionary : Cache<int, object>
+            private class ObjectDictionary : CC.Cache<int, object>
             {
                 private readonly Type Type;
 
@@ -339,7 +340,7 @@ namespace CityLizard.Xml
                 }
             }
 
-            private class TypeDictionary : Cache<int, Type>
+            private class TypeDictionary : CC.Cache<int, Type>
             {
                 private readonly DeserializerObject D;
 

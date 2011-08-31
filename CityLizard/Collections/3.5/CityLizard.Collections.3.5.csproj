@@ -5,12 +5,12 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{270D7B7A-75BC-49BF-AE8E-ABB2FBC8D117}</ProjectGuid>
+    <ProjectGuid>{448E0358-36DC-459B-94D8-0307960D4A53}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CityLizard.Xml</RootNamespace>
-    <AssemblyName>CityLizard.Xml</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <RootNamespace>CityLizard.Collections._3._5</RootNamespace>
+    <AssemblyName>CityLizard.Collections.3.5</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
   </PropertyGroup>
@@ -22,7 +22,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\CityLizard.Xml.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,7 +30,6 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\CityLizard.Xml.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -43,33 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Attribute.cs" />
-    <Compile Include="Extension\NotEmptyExtension.cs" />
-    <Compile Include="ICharacterData.cs" />
-    <Compile Include="Implementation.cs" />
-    <Compile Include="IQName.cs" />
-    <Compile Include="Linked\Comment.cs" />
-    <Compile Include="Linked\Element\Complex.cs" />
-    <Compile Include="Linked\Element\Element.cs" />
-    <Compile Include="Linked\Element\Empty.cs" />
-    <Compile Include="Linked\Element\Mixed.cs" />
-    <Compile Include="Linked\Element\NotEmpty.cs" />
-    <Compile Include="Linked\Element\NotMixed.cs" />
-    <Compile Include="Linked\Element\Simple.cs" />
-    <Compile Include="Linked\Element\Type.cs" />
-    <Compile Include="Linked\LinkedNode.cs" />
-    <Compile Include="Linked\Text.cs" />
-    <Compile Include="Node.cs" />
-    <Compile Include="QName.cs" />
+    <Compile Include="..\Cache.cs">
+      <Link>Cache.cs</Link>
+    </Compile>
+    <Compile Include="..\IdCache.cs">
+      <Link>IdCache.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Serializer.cs" />
-    <Compile Include="Untyped.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Collections\CityLizard.Collections.csproj">
-      <Project>{C4356246-D884-44C6-8013-D2A264C8599C}</Project>
-      <Name>CityLizard.Collections</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

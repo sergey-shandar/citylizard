@@ -91,10 +91,19 @@
     <Compile Include="..\QName.cs">
       <Link>QName.cs</Link>
     </Compile>
+    <Compile Include="..\Serializer.cs">
+      <Link>Serializer.cs</Link>
+    </Compile>
     <Compile Include="..\Untyped.cs">
       <Link>Untyped.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Collections\3.5\CityLizard.Collections.3.5.csproj">
+      <Project>{448E0358-36DC-459B-94D8-0307960D4A53}</Project>
+      <Name>CityLizard.Collections.3.5</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

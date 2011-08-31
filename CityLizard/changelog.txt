@@ -16,6 +16,19 @@
 		+, -, *, /,
 		0, 1, Min, Max
 
+	XML Serializer serializes and deserializes an object, or an entire graph of connected objects, in XML format.
+
+1.2.12
+
+	Changes:
+		CityLizard.Xml.Serializer.
+		subrepository for XML Schemas.
+
+1.2.11
+
+	Changes:
+		CityLizard.Xml.Untyped.T.X accepts CityLizard.Xml.Untyped.T.Element
+
 1.2.10
 
 	Changes:

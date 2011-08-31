@@ -43,6 +43,12 @@
     <Compile Include="..\Attribute.cs">
       <Link>Attribute.cs</Link>
     </Compile>
+    <Compile Include="..\Extension\NotEmptyExtension.cs">
+      <Link>Extension\NotEmptyExtension.cs</Link>
+    </Compile>
+    <Compile Include="..\Extension\SerializerExtension.cs">
+      <Link>Extension\SerializerExtension.cs</Link>
+    </Compile>
     <Compile Include="..\ICharacterData.cs">
       <Link>ICharacterData.cs</Link>
     </Compile>
@@ -90,9 +96,6 @@
     </Compile>
     <Compile Include="..\QName.cs">
       <Link>QName.cs</Link>
-    </Compile>
-    <Compile Include="..\Serializer.cs">
-      <Link>Serializer.cs</Link>
     </Compile>
     <Compile Include="..\Untyped.cs">
       <Link>Untyped.cs</Link>

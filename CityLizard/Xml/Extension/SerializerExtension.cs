@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace CityLizard.Xml
+namespace CityLizard.Xml.Extension
 {
     using S = System;
     using X = System.Xml;
@@ -79,7 +79,7 @@ namespace CityLizard.Xml
     /// [/root]
     /// </code>
     /// </summary>
-    static class Serializer
+    public static class SerializerExtension
     {
         private static bool IsList(S.Type sType)
         {
@@ -113,7 +113,7 @@ namespace CityLizard.Xml
             return SimpleSet.Contains(sType);
         }
 
-        private class SerializerObject : C.Untyped
+        private class Serializer : C.Untyped
         {
             private T.X Types;
 
@@ -151,7 +151,7 @@ namespace CityLizard.Xml
 
                 private readonly S.Action<T.X, object> Set;
 
-                private readonly SerializerObject X;
+                private readonly Serializer X;
 
                 private readonly TypeMap TypeMap;
 
@@ -181,9 +181,9 @@ namespace CityLizard.Xml
 
             private sealed class TypeMap : CC.IdCache<S.Type, Type>
             {
-                public readonly SerializerObject X;
+                public readonly Serializer X;
 
-                public TypeMap(SerializerObject x)
+                public TypeMap(Serializer x)
                 {
                     this.X = x;
                 }
@@ -268,7 +268,7 @@ namespace CityLizard.Xml
                         [this.Types];
             }
 
-            public SerializerObject()
+            public Serializer()
             {
                 this.TypeMapInstance = new TypeMap(this);
                 this.Types = X("types");
@@ -278,10 +278,10 @@ namespace CityLizard.Xml
         public static void Serialize(
             this X.XmlWriter this_, object object_)
         {
-            new SerializerObject().Serialize(object_).Save(this_);
+            new Serializer().Serialize(object_).Save(this_);
         }
 
-        private class DeserializerObject
+        private class Deserializer
         {
             private L.XElement Types;
 
@@ -327,7 +327,7 @@ namespace CityLizard.Xml
 
                 public readonly S.Action<object, L.XElement> Action;
 
-                public Type(DeserializerObject d, L.XElement element)
+                public Type(Deserializer d, L.XElement element)
                 {
                     this.Element = element;
                     this.SType =
@@ -355,7 +355,7 @@ namespace CityLizard.Xml
 
             private class TypeDictionary : CC.Cache<int, Type>
             {
-                private readonly DeserializerObject D;
+                private readonly Deserializer D;
 
                 protected override Type Create(int id)
                 {
@@ -372,7 +372,7 @@ namespace CityLizard.Xml
                 {
                 }
 
-                public TypeDictionary(DeserializerObject d)
+                public TypeDictionary(Deserializer d)
                 {
                     this.D = d;
                 }
@@ -443,7 +443,7 @@ namespace CityLizard.Xml
         public static object
             Deserialize(this X.XmlReader this_)
         {
-            return new DeserializerObject().Deserialize(L.XElement.Load(this_));
+            return new Deserializer().Deserialize(L.XElement.Load(this_));
         }
     }
 }

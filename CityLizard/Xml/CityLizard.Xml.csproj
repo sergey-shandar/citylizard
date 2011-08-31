@@ -62,7 +62,7 @@
     <Compile Include="Node.cs" />
     <Compile Include="QName.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Serializer.cs" />
+    <Compile Include="Extension\SerializerExtension.cs" />
     <Compile Include="Untyped.cs" />
   </ItemGroup>
   <ItemGroup>

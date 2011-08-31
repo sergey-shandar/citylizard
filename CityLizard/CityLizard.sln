@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual C# Express 2010
+# Visual Studio 2010 Express for Windows Phone
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Xml", "Xml\CityLizard.Xml.csproj", "{270D7B7A-75BC-49BF-AE8E-ABB2FBC8D117}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.NUnit", "NUnit\CityLizard.NUnit.csproj", "{717D3E99-EFCF-46BE-BF30-8E970D2AE9D0}"
@@ -38,6 +38,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Collections", "Collections\CityLizard.Collections.csproj", "{C4356246-D884-44C6-8013-D2A264C8599C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Collections.3.5", "Collections\3.5\CityLizard.Collections.3.5.csproj", "{448E0358-36DC-459B-94D8-0307960D4A53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Collections.Silverlight3", "Collections\Silverlight3\CityLizard.Collections.Silverlight3.csproj", "{89FE3CA3-9598-4EAA-A3A4-D2A8BC655370}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Collections.Silverlight", "Collections\Silverlight\CityLizard.Collections.Silverlight.csproj", "{FB2D5795-31C9-4B0F-BD89-9C84F486FCA0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -121,6 +125,14 @@ Global
 		{448E0358-36DC-459B-94D8-0307960D4A53}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{448E0358-36DC-459B-94D8-0307960D4A53}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{448E0358-36DC-459B-94D8-0307960D4A53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89FE3CA3-9598-4EAA-A3A4-D2A8BC655370}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89FE3CA3-9598-4EAA-A3A4-D2A8BC655370}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89FE3CA3-9598-4EAA-A3A4-D2A8BC655370}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89FE3CA3-9598-4EAA-A3A4-D2A8BC655370}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB2D5795-31C9-4B0F-BD89-9C84F486FCA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB2D5795-31C9-4B0F-BD89-9C84F486FCA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB2D5795-31C9-4B0F-BD89-9C84F486FCA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB2D5795-31C9-4B0F-BD89-9C84F486FCA0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

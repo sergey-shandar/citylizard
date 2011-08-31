@@ -5,12 +5,12 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{688ACDBE-64C2-4645-B83E-F9190E9CB09C}</ProjectGuid>
+    <ProjectGuid>{FB2D5795-31C9-4B0F-BD89-9C84F486FCA0}</ProjectGuid>
     <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CityLizard.Xml</RootNamespace>
-    <AssemblyName>CityLizard.Xml</AssemblyName>
+    <RootNamespace>CityLizard.Collections.Silverlight</RootNamespace>
+    <AssemblyName>CityLizard.Collections.Silverlight</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
     <TargetFrameworkProfile>WindowsPhone</TargetFrameworkProfile>
@@ -46,75 +46,15 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Net" />
-    <Reference Include="System.Xml.Linq">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\Silverlight\v4.0\Profile\WindowsPhone\System.Xml.Linq.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\Attribute.cs">
-      <Link>Attribute.cs</Link>
+    <Compile Include="..\Cache.cs">
+      <Link>Cache.cs</Link>
     </Compile>
-    <Compile Include="..\ICharacterData.cs">
-      <Link>ICharacterData.cs</Link>
-    </Compile>
-    <Compile Include="..\Implementation.cs">
-      <Link>Implementation.cs</Link>
-    </Compile>
-    <Compile Include="..\IQName.cs">
-      <Link>IQName.cs</Link>
-    </Compile>
-    <Compile Include="..\Linked\Comment.cs">
-      <Link>Linked\Comment.cs</Link>
-    </Compile>
-    <Compile Include="..\Linked\Element\Complex.cs">
-      <Link>Linked\Element\Complex.cs</Link>
-    </Compile>
-    <Compile Include="..\Linked\Element\Element.cs">
-      <Link>Linked\Element\Element.cs</Link>
-    </Compile>
-    <Compile Include="..\Linked\Element\Empty.cs">
-      <Link>Linked\Element\Empty.cs</Link>
-    </Compile>
-    <Compile Include="..\Linked\Element\Mixed.cs">
-      <Link>Linked\Element\Mixed.cs</Link>
-    </Compile>
-    <Compile Include="..\Linked\Element\NotEmpty.cs">
-      <Link>Linked\Element\NotEmpty.cs</Link>
-    </Compile>
-    <Compile Include="..\Linked\Element\NotMixed.cs">
-      <Link>Linked\Element\NotMixed.cs</Link>
-    </Compile>
-    <Compile Include="..\Linked\Element\Simple.cs">
-      <Link>Linked\Element\Simple.cs</Link>
-    </Compile>
-    <Compile Include="..\Linked\Element\Type.cs">
-      <Link>Linked\Element\Type.cs</Link>
-    </Compile>
-    <Compile Include="..\Linked\LinkedNode.cs">
-      <Link>Linked\LinkedNode.cs</Link>
-    </Compile>
-    <Compile Include="..\Linked\Text.cs">
-      <Link>Linked\Text.cs</Link>
-    </Compile>
-    <Compile Include="..\Node.cs">
-      <Link>Node.cs</Link>
-    </Compile>
-    <Compile Include="..\QName.cs">
-      <Link>QName.cs</Link>
-    </Compile>
-    <Compile Include="..\Serializer.cs">
-      <Link>Serializer.cs</Link>
-    </Compile>
-    <Compile Include="..\Untyped.cs">
-      <Link>Untyped.cs</Link>
+    <Compile Include="..\IdCache.cs">
+      <Link>IdCache.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Collections\Silverlight\CityLizard.Collections.Silverlight.csproj">
-      <Project>{FB2D5795-31C9-4B0F-BD89-9C84F486FCA0}</Project>
-      <Name>CityLizard.Collections.Silverlight</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />

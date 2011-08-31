@@ -88,7 +88,7 @@ namespace CityLizard.Xml
                 sType.GetGenericTypeDefinition() == typeof(G.List<>);
         }
 
-        private static G.Set<S.Type> SimpleSet = new G.Set<S.Type>()
+        private static G.HashSet<S.Type> SimpleSet = new G.HashSet<S.Type>()
         {
             typeof(string),
             typeof(S.DateTime),

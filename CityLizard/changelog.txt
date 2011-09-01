@@ -18,6 +18,11 @@
 
 	XML Serializer serializes and deserializes an object, or an entire graph of connected objects, in XML format.
 
+1.2.13
+
+	Changes:
+		internal CityLizard.Xml.Serializer => public CityLizard.Xml.Extension.SerializerExtension		
+
 1.2.12
 
 	Changes:

@@ -12,11 +12,19 @@
 
 	Untyped XML Builder.
 
+	FSM (finite-state machine).
+
 	INumeric Policy.
 		+, -, *, /,
 		0, 1, Min, Max
 
 	XML Serializer serializes and deserializes an object, or an entire graph of connected objects, in XML format.
+
+1.2.14
+
+	Changes:
+		FSM.
+
 
 1.2.13
 

@@ -25,7 +25,7 @@
             }
             catch (S.Exception e)
             {
-                S.Console.WriteLine("error: " + e.Message);
+                S.Console.WriteLine("error: " + e.ToString());
             }
         }
     }

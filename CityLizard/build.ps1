@@ -189,6 +189,7 @@ $sl3_xml = Join-Path $root "CityLizard\Xml\Silverlight3\bin\Debug\CityLizard.Xml
 $collections = Join-Path $root "CityLizard\Collections\bin\Debug\CityLizard.Collections.dll"
 $collections_35 = Join-Path $root "CityLizard\Collections\3.5\bin\Debug\CityLizard.Collections.dll"
 
+$fsm =  Join-Path $root "CityLizard\Fsm\bin\Debug\CityLizard.Fsm.dll"
 $schema = Join-Path $root "CityLizard\Xml\Schema\bin\Debug\CityLizard.Xml.Schema.dll"
 $codedom = Join-Path $root "CityLizard\CodeDom\bin\Debug\CityLizard.CodeDom.dll"
 $policy = Join-Path $root "CityLizard\Policy\bin\Debug\CityLizard.Policy.dll"
@@ -240,6 +241,7 @@ copy $sl3_xml $lib_sl3
 copy $collections $lib_net4
 copy $collections_35 $lib_net35
 
+copy $fsm $lib_net4
 copy $schema $lib_net4
 copy $codedom $lib_net4
 copy $policy $lib_net4

@@ -24,6 +24,8 @@
 
         protected abstract Data Create(Key key);
 
-        protected abstract void Initialize(Key key, Data data);
+        protected virtual void Initialize(Key key, Data data)
+        {
+        }
     }
 }

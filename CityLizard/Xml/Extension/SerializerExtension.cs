@@ -4,11 +4,13 @@ namespace CityLizard.Xml.Extension
 {
     using S = System;
     using X = System.Xml;
+    using XS = System.Xml.Serialization;
     using C = CityLizard.Xml;
     using L = System.Xml.Linq;
     using SC = System.Collections;
     using G = System.Collections.Generic;
     using CC = CityLizard.Collections;
+    using I = Internal;
 
     using U = CityLizard.Xml.Untyped;
 
@@ -81,6 +83,16 @@ namespace CityLizard.Xml.Extension
     /// </summary>
     public static class SerializerExtension
     {
+        private static void SystemSerialize<T>(this X.XmlWriter writer, T value)
+        {
+            new XS.XmlSerializer(typeof(T)).Serialize(writer, value);
+        }
+
+        private static T SystemDeserialize<T>(this X.XmlReader reader)
+        {
+            return (T)(new XS.XmlSerializer(typeof(T)).Deserialize(reader));
+        }
+
         private static bool IsList(S.Type sType)
         {
             return
@@ -88,31 +100,168 @@ namespace CityLizard.Xml.Extension
                 sType.GetGenericTypeDefinition() == typeof(G.List<>);
         }
 
-        private static G.HashSet<S.Type> SimpleSet = new G.HashSet<S.Type>()
-        {
-            typeof(bool),
-            typeof(byte),
-            typeof(sbyte),
-            typeof(char),
-            typeof(decimal),
-            typeof(double),
-            typeof(float),
-            typeof(int),
-            typeof(uint),
-            typeof(long),
-            typeof(ulong),
-            typeof(short),
-            typeof(ushort),
-            typeof(string),
-            //
-            typeof(S.DateTime),
-        };
+        private static readonly G.HashSet<S.Type> SimpleSet =
+            new G.HashSet<S.Type>()
+            {
+                typeof(bool),
+                typeof(byte),
+                typeof(sbyte),
+                typeof(char),
+                typeof(decimal),
+                typeof(double),
+                typeof(float),
+                typeof(int),
+                typeof(uint),
+                typeof(long),
+                typeof(ulong),
+                typeof(short),
+                typeof(ushort),
+                typeof(string),
+                //
+                typeof(S.DateTime),
+            };
 
         private static bool IsSimple(S.Type sType)
         {
             return SimpleSet.Contains(sType);
         }
 
+        private static string TypeName(this object object_)
+        {
+            return object_.GetType().AssemblyQualifiedName;
+        }
+
+        private static int AddElement<T>(this G.List<T> list, T value)
+        {
+            var i = list.Count;
+            list.Add(value);
+            return i;
+        }
+
+        private sealed class SerializerInstance
+        {
+            public readonly int Id;
+
+            public readonly I.Serialization.Instance I;
+
+            public SerializerInstance(int id, I.Serialization.Instance i)
+            {
+                this.Id = id;
+                this.I = i;
+            }
+        }
+
+        private sealed class SerializerClass:
+            CC.Cache<object, SerializerInstance>
+        {
+            private readonly I.Serialization.Class C;
+
+            public readonly int Id;
+
+            private readonly S.Action<I.Serialization.Instance, object> Set;
+
+            public SerializerClass(Serializer s, S.Type type)
+            {
+                this.C = new I.Serialization.Class()
+                {
+                    Name = type.AssemblyQualifiedName,
+                };
+                this.Id = s.S.Classes.AddElement(this.C);
+
+                if (IsList(type))
+                {
+                    this.Set = 
+                        (i, o) =>
+                            i.Elements =
+                                ((SC.IEnumerable)o).
+                                Cast<object>().
+                                Select(e => s.AddObject(e)).
+                                ToList();
+                }
+                else
+                {
+                    this.Set = (i, o) => i.Fields = s.GetFields(o);
+                }
+            }
+
+            protected override SerializerInstance Create(object key)
+            {
+                var i = new I.Serialization.Instance();
+                return
+                    new SerializerInstance(this.C.Instances.AddElement(i), i);
+            }
+
+            protected override void Initialize(object key, SerializerInstance data)
+            {
+                this.Set(data.I, key);
+            }
+        }
+
+        private sealed class Serializer: CC.Cache<S.Type, SerializerClass>
+        {
+            public readonly I.Serialization S = new I.Serialization();
+
+            public G.List<I.Serialization.Field> GetFields(object object_)
+            {
+                return
+                    object_.
+                    GetType().
+                    GetFields().
+                    Select(
+                        f => new I.Serialization.Field() 
+                        { 
+                            Name = f.Name,
+                            Object = this.AddObject(f.GetValue(object_)),
+                        }).
+                    ToList();
+            }
+
+            public I.Serialization.Object AddObject(object object_)
+            {
+                var o = new I.Serialization.Object();
+                if (object_ != null)
+                {
+                    var type = object_.GetType();
+                    if (IsSimple(type))
+                    {
+                        o.Value = object_.ToString();
+                    }
+                    else if (type.IsValueType)
+                    {
+                        o.Fields = this.GetFields(object_);
+                    }
+                    else
+                    {
+                        var class_ = this[type];
+                        o.Reference = new I.Serialization.Reference()
+                        {
+                            Class = class_.Id,
+                            Instance = class_[o].Id,
+                        };
+                    }
+                }
+                return o;
+            }
+
+            public I.Serialization Serialize(object object_)
+            {
+                this.S.TypeName = object_.TypeName();
+                this.S.Main = this.AddObject(object_);
+                return this.S;
+            }
+
+            protected override SerializerClass Create(S.Type key)
+            {
+                return new SerializerClass(this, key);
+            }
+        }
+
+        public static void Serialize(this X.XmlWriter writer, object object_)
+        {
+            writer.SystemSerialize(new Serializer().Serialize(object_));
+        }
+
+        /*
         private class Serializer : C.Untyped
         {
             private T.X Types;
@@ -280,6 +429,7 @@ namespace CityLizard.Xml.Extension
         {
             new Serializer().Serialize(object_).Save(this_);
         }
+         * */
 
         private class Deserializer
         {

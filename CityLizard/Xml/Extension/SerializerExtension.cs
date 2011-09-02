@@ -165,6 +165,7 @@ namespace CityLizard.Xml.Extension
                 this.C = new I.Serialization.Class()
                 {
                     Name = type.AssemblyQualifiedName,
+                    Instances = new G.List<I.Serialization.Instance>(),
                 };
                 this.Id = s.S.Classes.AddElement(this.C);
 
@@ -236,7 +237,7 @@ namespace CityLizard.Xml.Extension
                         o.Reference = new I.Serialization.Reference()
                         {
                             Class = class_.Id,
-                            Instance = class_[o].Id,
+                            Instance = class_[object_].Id,
                         };
                     }
                 }
@@ -245,6 +246,7 @@ namespace CityLizard.Xml.Extension
 
             public I.Serialization Serialize(object object_)
             {
+                this.S.Classes = new G.List<I.Serialization.Class>();
                 this.S.TypeName = object_.TypeName();
                 this.S.Main = this.AddObject(object_);
                 return this.S;

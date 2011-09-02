@@ -55,6 +55,9 @@
     <Compile Include="..\Implementation.cs">
       <Link>Implementation.cs</Link>
     </Compile>
+    <Compile Include="..\Internal\Serialization.cs">
+      <Link>Internal\Serialization.cs</Link>
+    </Compile>
     <Compile Include="..\IQName.cs">
       <Link>IQName.cs</Link>
     </Compile>

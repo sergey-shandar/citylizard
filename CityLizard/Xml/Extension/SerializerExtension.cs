@@ -17,71 +17,10 @@ namespace CityLizard.Xml.Extension
     using U = CityLizard.Xml.Untyped;
 
     /// <summary>
-    /// 1. Object-oriented serialization keeps top-level objects
-    ///    (dynamic serializer).
+    /// Object-oriented serialization keeps top-level objects
+    /// (dynamic serializer).
     ///     Advantages: can save unknown structures.
     ///     Disadvantages: no XML schema.
-    /// 2. Type defined structure (static serializer).
-    ///     Advantages:
-    ///         - can generate XML schema.
-    ///         - can generate more readable XML structure.
-    ///         - can generate faster serializer/deserializer.
-    ///     Disadvantages:
-    ///         - .NET does not have unions.
-    /// Requirements:
-    /// <list type="ordered">
-    ///     <item>value types is keeped as values.</item>
-    /// </list>
-    /// Proposed dynamic structure:
-    /// <code>
-    /// [root]
-    ///     [object type="..."]
-    ///         [ref type="..." object="..."/]
-    ///     [/object]
-    ///     [type id="..." name="..."]
-    ///         [object id="..."]
-    ///             [item id="..."]
-    ///                 [value]...[/value]
-    ///             [/item]
-    ///             ...
-    ///         [/object]
-    ///         ...
-    ///     [/type]
-    ///     [type id="..." name="..."]
-    ///         [object id="..."]
-    ///             [item id="..."]
-    ///                 [ref type="..." object="..."/]
-    ///             [/item]
-    ///             [item id="..."]
-    ///                 [null /]
-    ///             [/item]
-    ///             ...
-    ///         [/object]
-    ///         ...
-    ///     [/type]
-    ///     [type id="..." name="..."]
-    ///         [object id="..."]
-    ///             [field name="..."]
-    ///                 [ref type="..." object="..."/]
-    ///             [/field]
-    ///             [field name="..."]
-    ///                 [value]...[/value]
-    ///             [/field]
-    ///             [field name="..."]
-    ///                 [struct]
-    ///                     [field name="..."]
-    ///                         [value]...[/value]
-    ///                     [/field]
-    ///                     ...
-    ///                 [/struct]
-    ///             [/field]
-    ///             ...
-    ///         [/object]
-    ///         ...
-    ///     [/type]
-    ///     ...
-    /// [/root]
-    /// </code>
     /// </summary>
     public static class SerializerExtension
     {

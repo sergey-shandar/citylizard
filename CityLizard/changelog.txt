@@ -20,11 +20,16 @@
 
 	XML Serializer serializes and deserializes an object, or an entire graph of connected objects, in XML format.
 
+1.2.15
+
+	Changes:
+		Serializer is based on System.Xml.Serialization.XmlSerializer.	
+		Serializer: object identification bug fix.
+
 1.2.14
 
 	Changes:
 		FSM.
-
 
 1.2.13
 

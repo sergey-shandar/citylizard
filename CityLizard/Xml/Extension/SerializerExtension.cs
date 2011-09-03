@@ -140,25 +140,9 @@ namespace CityLizard.Xml.Extension
             return i;
         }
 
-        /*
-        private sealed class SerializerInstance
+        private sealed class SerializerClass
         {
-            public readonly int Id;
-
-            public readonly I.Serialization.Instance I;
-
-            public SerializerInstance(int id, I.Serialization.Instance i)
-            {
-                this.Id = id;
-                this.I = i;
-            }
-        }
-         * */
-
-        private sealed class SerializerClass//:
-        //    CC.Cache<object, SerializerInstance>
-        {
-            private readonly I.Serialization.Class C;
+            private readonly G.List<I.Serialization.Instance> Instances;
 
             public readonly int Id;
 
@@ -169,12 +153,13 @@ namespace CityLizard.Xml.Extension
 
             public SerializerClass(Serializer s, S.Type type)
             {
-                this.C = new I.Serialization.Class()
+                var class_ = new I.Serialization.Class()
                 {
                     Name = type.AssemblyQualifiedName,
                     Instances = new G.List<I.Serialization.Instance>(),
                 };
-                this.Id = s.S.Classes.AddElement(this.C);
+                this.Id = s.S.Classes.AddElement(class_);
+                this.Instances = class_.Instances;
 
                 if (IsList(type))
                 {
@@ -201,8 +186,8 @@ namespace CityLizard.Xml.Extension
                     if (firstTime)
                     {
                         var instance = new I.Serialization.Instance();
-                        this.C.Instances.Add(instance);
-                        D.Debug.Assert(result == this.C.Instances.Count);
+                        this.Instances.Add(instance);
+                        D.Debug.Assert(result == this.Instances.Count);
                         //
                         this.Set(instance, key);
                     }

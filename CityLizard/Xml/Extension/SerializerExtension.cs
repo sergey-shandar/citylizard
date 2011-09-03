@@ -10,7 +10,9 @@ namespace CityLizard.Xml.Extension
     using SC = System.Collections;
     using G = System.Collections.Generic;
     using CC = CityLizard.Collections;
+    using RS = System.Runtime.Serialization;
     using I = Internal;
+    using D = System.Diagnostics;
 
     using U = CityLizard.Xml.Untyped;
 
@@ -138,6 +140,7 @@ namespace CityLizard.Xml.Extension
             return i;
         }
 
+        /*
         private sealed class SerializerInstance
         {
             public readonly int Id;
@@ -150,15 +153,19 @@ namespace CityLizard.Xml.Extension
                 this.I = i;
             }
         }
+         * */
 
-        private sealed class SerializerClass:
-            CC.Cache<object, SerializerInstance>
+        private sealed class SerializerClass//:
+        //    CC.Cache<object, SerializerInstance>
         {
             private readonly I.Serialization.Class C;
 
             public readonly int Id;
 
             private readonly S.Action<I.Serialization.Instance, object> Set;
+
+            private readonly RS.ObjectIDGenerator Generator =
+                new RS.ObjectIDGenerator();
 
             public SerializerClass(Serializer s, S.Type type)
             {
@@ -185,16 +192,22 @@ namespace CityLizard.Xml.Extension
                 }
             }
 
-            protected override SerializerInstance Create(object key)
+            public int this[object key]
             {
-                var i = new I.Serialization.Instance();
-                return
-                    new SerializerInstance(this.C.Instances.AddElement(i), i);
-            }
-
-            protected override void Initialize(object key, SerializerInstance data)
-            {
-                this.Set(data.I, key);
+                get
+                {
+                    bool firstTime;
+                    var result = this.Generator.GetId(key, out firstTime);
+                    if (firstTime)
+                    {
+                        var instance = new I.Serialization.Instance();
+                        this.C.Instances.Add(instance);
+                        D.Debug.Assert(result == this.C.Instances.Count);
+                        //
+                        this.Set(instance, key);
+                    }
+                    return (int)result - 1;
+                }
             }
         }
 
@@ -237,7 +250,7 @@ namespace CityLizard.Xml.Extension
                         o.Reference = new I.Serialization.Reference()
                         {
                             Class = class_.Id,
-                            Instance = class_[object_].Id,
+                            Instance = class_[object_],
                         };
                     }
                 }

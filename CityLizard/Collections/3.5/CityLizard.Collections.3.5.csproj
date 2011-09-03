@@ -41,11 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\ArrayCache.cs">
+      <Link>ArrayCache.cs</Link>
+    </Compile>
     <Compile Include="..\Cache.cs">
       <Link>Cache.cs</Link>
-    </Compile>
-    <Compile Include="..\IdCache.cs">
-      <Link>IdCache.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

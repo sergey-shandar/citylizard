@@ -265,21 +265,49 @@ namespace CityLizard.Xml.Extension
         {
             private readonly S.Type Type;
 
-            public DeserializerClass(I.Serialization.Class class_):
+            private readonly G.List<I.Serialization.Instance> Instances;
+
+            public readonly S.Action<object, I.Serialization.Instance> Set;
+
+            public DeserializerClass(
+                Deserializer d, I.Serialization.Class class_):
                 base(class_.Instances.Count)
             {
                 this.Type = S.Type.GetType(class_.Name);
+                this.Instances = class_.Instances;
+                
+                if (IsList(this.Type))
+                {
+                    this.Set = (o, i) =>
+                    {
+                        var list = (SC.IList)o;
+                        var itemType = this.Type.GetGenericArguments()[0];
+                        foreach (var element in i.Elements)
+                        {
+                            list.Add(d.GetObject(itemType, element));
+                        }
+                    };
+                }
+                else
+                {
+                    this.Set = (o, i) => d.SetFields(o, i.Fields);
+                }
             }
 
             protected override object Create(int i)
             {
                 return S.Activator.CreateInstance(this.Type);
             }
+
+            protected override void Initialize(int i, object data)
+            {
+                this.Set(data, this.Instances[i]);
+            }
         }
 
         private sealed class Deserializer: CC.ArrayCache<DeserializerClass>
         {
-            private void SetFields(
+            public void SetFields(
                 object o, G.List<I.Serialization.Field> fields)
             {
                 foreach(var f in o.GetType().GetFields())
@@ -299,7 +327,7 @@ namespace CityLizard.Xml.Extension
                 return this.GetObject(S.Type.GetType(typeName), object_);
             }
 
-            private object GetObject(
+            public object GetObject(
                 S.Type type, I.Serialization.Object object_)
             {
                 if (object_.Value != null)
@@ -344,7 +372,7 @@ namespace CityLizard.Xml.Extension
 
             protected override DeserializerClass Create(int i)
             {
-                return new DeserializerClass(this.Serialization.Classes[i]);
+                return new DeserializerClass(this, this.Serialization.Classes[i]);
             }
         }
 

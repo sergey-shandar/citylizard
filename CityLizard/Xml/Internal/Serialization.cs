@@ -96,13 +96,13 @@
         }
 
         /// <summary>
-        /// A main object type name.
+        /// A type name of the main object.
         /// </summary>
         [S.XmlAttribute()]
         public string TypeName;
 
         /// <summary>
-        /// A main object.
+        /// The main object.
         /// </summary>
         public Object Main;
 

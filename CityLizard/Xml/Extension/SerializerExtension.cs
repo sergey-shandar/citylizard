@@ -263,176 +263,101 @@ namespace CityLizard.Xml.Extension
             writer.SystemSerialize(new Serializer().Serialize(object_));
         }
 
-        /*
-        private class Serializer : C.Untyped
+        private sealed class DeserializerClass: CC.ArrayCache<object>
         {
-            private T.X Types;
+            private readonly S.Type Type;
 
-            private static T.A Id(string value)
+            public DeserializerClass(I.Serialization.Class class_):
+                base(class_.Instances.Count)
             {
-                return A("id", value);
+                this.Type = S.Type.GetType(class_.Name);
             }
 
-            private class Type
+            protected override object Create(int i)
             {
-                public readonly int Id;
-                public T.X Element;
-
-                public ObjectMap ObjectMap;
-
-                public Type(int id)
-                {
-                    this.Id = id;
-                }
+                return S.Activator.CreateInstance(this.Type);
             }
+        }
 
-            private sealed class ObjectMap : CC.IdCache<object, int>
+        private sealed class Deserializer: CC.ArrayCache<DeserializerClass>
+        {
+            private void SetFields(
+                object o, G.List<I.Serialization.Field> fields)
             {
-                protected override int Create(object key, int id)
+                foreach(var f in o.GetType().GetFields())
                 {
-                    return id;
-                }
-
-                protected override void Initialize(object key, int data)
-                {
-                    var element = this.X.X("object", Id(data.ToString()));
-                    this.Type.Element = this.Type.Element[element];
-                    this.Set(element, key);
-                }
-
-                private readonly S.Action<T.X, object> Set;
-
-                private readonly Serializer X;
-
-                private readonly TypeMap TypeMap;
-
-                private readonly Type Type;
-
-                public ObjectMap(
-                    TypeMap typeMap, Type type, S.Action<T.X, object> set)
-                {
-                    this.TypeMap = typeMap;
-                    this.X = typeMap.X;
-                    this.Type = type;
-                    this.Set = set;
+                    var name = f.Name;
+                    f.SetValue(
+                        o,
+                        this.GetObject(
+                            f.FieldType,
+                            fields.First(x => x.Name == name).Object));
                 }
             }
 
-            private T.X FieldList(T.X x, object object_)
+            private object GetObject(
+                string typeName, I.Serialization.Object object_)
             {
-                foreach (var field in object_.GetType().GetFields())
-                {
-                    x = x
-                        [this.X("field", Id(field.Name))
-                            [this.AddObject(field.GetValue(object_))]
-                        ];
-                }
-                return x;
+                return this.GetObject(S.Type.GetType(typeName), object_);
             }
 
-            private sealed class TypeMap : CC.IdCache<S.Type, Type>
+            private object GetObject(
+                S.Type type, I.Serialization.Object object_)
             {
-                public readonly Serializer X;
-
-                public TypeMap(Serializer x)
+                if (object_.Value != null)
                 {
-                    this.X = x;
+                    return S.Convert.ChangeType(object_.Value, type);
                 }
-
-                protected override Type Create(S.Type key, int id)
+                else if (object_.Fields != null)
                 {
-                    return new Type(id);
+                    var o = S.Activator.CreateInstance(type);
+                    this.SetFields(o, object_.Fields);
+                    return o;
                 }
-
-                protected override void Initialize(S.Type key, Type data)
+                else if (object_.Reference != null)
                 {
-                    S.Action<T.X, object> set;
-                    if (IsList(key))
-                    {
-                        set = (e, o) =>
-                        {
-                            var i = 0;
-                            foreach (var item in (SC.IEnumerable)o)
-                            {
-                                e = e
-                                    [this.X.X("item", Id(i.ToString()))
-                                        [this.X.AddObject(item)]
-                                    ];
-                                ++i;
-                            }
-                        };
-                    }
-                    else
-                    {
-                        set = (e, o) => this.X.FieldList(e, o);
-                    }
-                    data.ObjectMap = new ObjectMap(this, data, set);
-                    var element =
-                        this.X.X("type",
-                            Id(data.Id.ToString()),
-                            A("name", key.AssemblyQualifiedName));
-                    this.X.Types = this.X.Types[element];
-                    data.Element = element;
-                }
-            }
-
-            private readonly TypeMap TypeMapInstance;
-
-            private T.Element AddObject(object object_)
-            {
-                if (object_ == null)
-                {
-                    return E("null");
+                    var r = object_.Reference;
+                    return
+                        this.
+                        Serialization.
+                        Classes[r.Class].
+                        Instances[r.Instance];
                 }
                 else
                 {
-                    var sType = object_.GetType();
-                    if (IsSimple(sType))
-                    {
-                        return X("value")[object_.ToString()];
-                    }
-                    else if (sType.IsValueType)
-                    {
-                        return this.FieldList(X("struct"), sType.GetFields());
-                    }
-                    else
-                    {
-                        var type = this.TypeMapInstance[sType];
-                        var refType = type.Id;
-                        var refObject = type.ObjectMap[object_];
-                        return
-                            E("ref",
-                                A("type", refType.ToString()),
-                                A("object", refObject.ToString()));
-                    }
+                    return null;
                 }
             }
 
-            public C.Untyped.T.X Serialize(object object_)
+            private readonly I.Serialization Serialization;
+
+            public Deserializer(I.Serialization s):
+                base(s.Classes.Count)
             {
-                var typeName = object_.GetType().AssemblyQualifiedName;
+                this.Serialization = s;
+            }
+
+            public object Deserialize()
+            {
                 return
-                    X("root")
-                        [X("object", A("type", typeName))
-                            [this.AddObject(object_)]
-                        ]
-                        [this.Types];
+                    this.GetObject(
+                        this.Serialization.TypeName, this.Serialization.Main);
             }
 
-            public Serializer()
+            protected override DeserializerClass Create(int i)
             {
-                this.TypeMapInstance = new TypeMap(this);
-                this.Types = X("types");
+                return new DeserializerClass(this.Serialization.Classes[i]);
             }
         }
 
-        public static void Serialize(
-            this X.XmlWriter this_, object object_)
+        public static object Deserialize(this X.XmlReader reader)
         {
-            new Serializer().Serialize(object_).Save(this_);
+            return
+                new Deserializer(reader.SystemDeserialize<I.Serialization>()).
+                Deserialize();
         }
-         * */
 
+        /*
         private class Deserializer
         {
             private L.XElement Types;
@@ -597,5 +522,6 @@ namespace CityLizard.Xml.Extension
         {
             return new Deserializer().Deserialize(L.XElement.Load(this_));
         }
+         * */
     }
 }

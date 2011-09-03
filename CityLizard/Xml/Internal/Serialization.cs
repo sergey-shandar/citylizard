@@ -57,10 +57,22 @@
         }
 
         /// <summary>
+        /// Null.
+        /// </summary>
+        public sealed class Null
+        {
+        }
+
+        /// <summary>
         /// An object.
         /// </summary>
         public sealed class Object
         {
+            /// <summary>
+            /// Null.
+            /// </summary>
+            public Null Null;
+
             /// <summary>
             /// Value.
             /// </summary>

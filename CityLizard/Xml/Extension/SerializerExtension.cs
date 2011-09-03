@@ -88,11 +88,14 @@ namespace CityLizard.Xml.Extension
         private static void SystemSerialize<T>(this X.XmlWriter writer, T value)
         {
             new XS.XmlSerializer(typeof(T)).Serialize(writer, value);
+            //new RS.DataContractSerializer(typeof(T)).WriteObject(writer, value);
         }
 
         private static T SystemDeserialize<T>(this X.XmlReader reader)
         {
             return (T)(new XS.XmlSerializer(typeof(T)).Deserialize(reader));
+            //return
+            //    (T)(new RS.DataContractSerializer(typeof(T)).ReadObject(reader));
         }
 
         private static bool IsList(S.Type sType)
@@ -218,7 +221,11 @@ namespace CityLizard.Xml.Extension
             public I.Serialization.Object AddObject(object object_)
             {
                 var o = new I.Serialization.Object();
-                if (object_ != null)
+                if (object_ == null)
+                {
+                    o.Null = new I.Serialization.Null();
+                }
+                else
                 {
                     var type = object_.GetType();
                     if (IsSimple(type))
@@ -330,28 +337,24 @@ namespace CityLizard.Xml.Extension
             public object GetObject(
                 S.Type type, I.Serialization.Object object_)
             {
-                if (object_.Value != null)
+                if (object_.Null != null)
+                {
+                    return null;
+                }
+                else if (object_.Value != null)
                 {
                     return S.Convert.ChangeType(object_.Value, type);
-                }
-                else if (object_.Fields != null)
-                {
-                    var o = S.Activator.CreateInstance(type);
-                    this.SetFields(o, object_.Fields);
-                    return o;
                 }
                 else if (object_.Reference != null)
                 {
                     var r = object_.Reference;
-                    return
-                        this.
-                        Serialization.
-                        Classes[r.Class].
-                        Instances[r.Instance];
+                    return this[r.Class][r.Instance];
                 }
                 else
                 {
-                    return null;
+                    var o = S.Activator.CreateInstance(type);
+                    this.SetFields(o, object_.Fields);
+                    return o;
                 }
             }
 

@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{C738F0FD-13CA-41CD-84AB-30400D1CC251}</ProjectGuid>
+    <ProjectGuid>{A26EEB6B-F53A-459B-942C-E2EECC89603D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CityLizard.Collections</RootNamespace>
-    <AssemblyName>CityLizard.Collections</AssemblyName>
+    <RootNamespace>CityLizard.Tree</RootNamespace>
+    <AssemblyName>CityLizard.Tree</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -35,11 +35,11 @@
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\ArrayCache.cs">
-      <Link>ArrayCache.cs</Link>
+    <Compile Include="..\Base.cs">
+      <Link>Base.cs</Link>
     </Compile>
-    <Compile Include="..\Cache.cs">
-      <Link>Cache.cs</Link>
+    <Compile Include="..\RedBlack.cs">
+      <Link>RedBlack.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

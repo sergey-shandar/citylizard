@@ -8,8 +8,8 @@
     <ProjectGuid>{AD410E78-E63D-4311-8C67-79387CCCE3AF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CityLizard.Fsm._4._5</RootNamespace>
-    <AssemblyName>CityLizard.Fsm.4.5</AssemblyName>
+    <RootNamespace>CityLizard.Fsm</RootNamespace>
+    <AssemblyName>CityLizard.Fsm</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>

@@ -8,8 +8,8 @@
     <ProjectGuid>{1339BD29-6B05-435B-BE71-B98AE44BA860}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CityLizard.Cast._4._5</RootNamespace>
-    <AssemblyName>CityLizard.Cast.4.5</AssemblyName>
+    <RootNamespace>CityLizard.Cast</RootNamespace>
+    <AssemblyName>CityLizard.Cast</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>

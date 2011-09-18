@@ -24,7 +24,7 @@
 2.0.0 alpha
 
 	Changes:
-		.NET 4.5 libraies.
+		.NET 4.5 libraries.
 		Silverlight for Windows Phone 7.1.
 
 1.2.15

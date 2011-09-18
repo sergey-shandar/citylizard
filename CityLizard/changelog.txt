@@ -3,7 +3,7 @@
 		.NET 3.5, 
 		.NET 4.0, 
 		Silverlight 3, 
-		Silverlight 4 (Windows Phone).
+		Silverlight 4 (Windows Phone 7.1).
 
 	XML Schemas: 
 		XHTML 1.1 (+ HTML 5 features), examples under Hg (C#, F#, VB.NET, Nemerle),
@@ -25,6 +25,7 @@
 
 	Changes:
 		.NET 4.5 libraies.
+		Silverlight for Windows Phone 7.1.
 
 1.2.15
 

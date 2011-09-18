@@ -1,8 +1,9 @@
-	Platforms: 
+	Platforms:
+		.NET 4.5, 
 		.NET 3.5, 
 		.NET 4.0, 
 		Silverlight 3, 
-		Silverlight 4 (Windows Phone).
+		Silverlight 4 (Windows Phone 7.1).
 
 	XML Schemas: 
 		XHTML 1.1 (+ HTML 5 features), examples under Hg (C#, F#, VB.NET, Nemerle),
@@ -19,6 +20,12 @@
 		0, 1, Min, Max
 
 	XML Serializer serializes and deserializes an object, or an entire graph of connected objects, in XML format.
+
+2.0.0 alpha
+
+	Changes:
+		.NET 4.5 libraries.
+		Silverlight for Windows Phone 7.1.
 
 1.2.15
 

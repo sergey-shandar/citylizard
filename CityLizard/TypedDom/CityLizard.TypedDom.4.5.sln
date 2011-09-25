@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 11 Express for Windows 8
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "www_w3_org._1999.xhtml.4.5", "www_w3_org._1999.xhtml\4.5\www_w3_org._1999.xhtml.4.5.csproj", "{045F0059-356B-4225-8D0B-C7B36D9EB1C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Xml.4.5", "..\Xml\4.5\CityLizard.Xml.4.5.csproj", "{A2FB53CB-4F6A-4C72-A2BB-57A696489E23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "graphml_graphdrawing_org.xmlns.4.5", "graphml_graphdrawing_org.xmlns\4.5\graphml_graphdrawing_org.xmlns.4.5.csproj", "{8A09CA65-76AE-41D1-AFC4-3B8E7AEB32B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "schemas_microsoft_com.packaging._2010._07.nuspec_xsd.4.5", "schemas_microsoft_com.packaging._2010._07.nuspec_xsd\4.5\schemas_microsoft_com.packaging._2010._07.nuspec_xsd.4.5.csproj", "{AD6F0B9C-EE1F-4CA8-898C-236CDF7B7020}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "www_w3_org._2000.svg.4.5", "www_w3_org._2000.svg\4.5\www_w3_org._2000.svg.4.5.csproj", "{E9BACE70-9A6F-460C-877F-37531DE717FC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{045F0059-356B-4225-8D0B-C7B36D9EB1C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{045F0059-356B-4225-8D0B-C7B36D9EB1C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{045F0059-356B-4225-8D0B-C7B36D9EB1C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{045F0059-356B-4225-8D0B-C7B36D9EB1C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A09CA65-76AE-41D1-AFC4-3B8E7AEB32B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A09CA65-76AE-41D1-AFC4-3B8E7AEB32B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A09CA65-76AE-41D1-AFC4-3B8E7AEB32B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A09CA65-76AE-41D1-AFC4-3B8E7AEB32B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2FB53CB-4F6A-4C72-A2BB-57A696489E23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2FB53CB-4F6A-4C72-A2BB-57A696489E23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2FB53CB-4F6A-4C72-A2BB-57A696489E23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2FB53CB-4F6A-4C72-A2BB-57A696489E23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD6F0B9C-EE1F-4CA8-898C-236CDF7B7020}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD6F0B9C-EE1F-4CA8-898C-236CDF7B7020}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD6F0B9C-EE1F-4CA8-898C-236CDF7B7020}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD6F0B9C-EE1F-4CA8-898C-236CDF7B7020}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9BACE70-9A6F-460C-877F-37531DE717FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9BACE70-9A6F-460C-877F-37531DE717FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9BACE70-9A6F-460C-877F-37531DE717FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9BACE70-9A6F-460C-877F-37531DE717FC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -90,15 +90,6 @@ public class XmlBuilderTest {
                 newInstance().
                 newDocumentBuilder().
                 newDocument();
-        final org.w3c.dom.Element element = document.createElement("html");
-        final org.w3c.dom.Attr attr = document.createAttribute("attr");
-        attr.setValue("value");
-        //element.appendChild(attr);
-        element.setAttribute("attr", "value");
-        // document.appendChild(element);
-        //
-        //final org.w3c.dom.Node domNode = html.castToDomNode(document);
-        //document.appendChild(domNode);
         html.addToDomDocument(document);
     }
 }

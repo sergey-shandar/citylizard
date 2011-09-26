@@ -1,6 +1,5 @@
 package com.codeplex.citylizard;
 
-import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 
 /**
@@ -13,9 +12,7 @@ public final class XmlBuilder {
      * An XML node.
      */
     public static interface Node {
-        void addToDomElement(
-            org.w3c.dom.Element domParent,
-            Document domDocument);
+        void addToDomElement(org.w3c.dom.Element domParent);
     }
     
     /**
@@ -48,7 +45,7 @@ public final class XmlBuilder {
         private final Node[] nodes;
         
         private void addToDomNode(
-            org.w3c.dom.Node domParent,
+            org.w3c.dom.Node domParent, 
             Document domDocument) 
         {
             final org.w3c.dom.Element domElement =
@@ -56,7 +53,7 @@ public final class XmlBuilder {
                     this.name.namespace, 
                     this.name.localName);
             for(final Node node: this.nodes) {
-                node.addToDomElement(domElement, domDocument);                
+                node.addToDomElement(domElement);                
             }
             domParent.appendChild(domElement);
         }
@@ -80,11 +77,8 @@ public final class XmlBuilder {
         }
 
         @Override
-        public void addToDomElement(
-            org.w3c.dom.Element domParent, 
-            Document domDocument) 
-        {
-            this.addToDomNode(domParent, domDocument);
+        public void addToDomElement(org.w3c.dom.Element domParent) {
+            this.addToDomNode(domParent, domParent.getOwnerDocument());
         }
     }
     
@@ -108,10 +102,7 @@ public final class XmlBuilder {
         }
 
         @Override
-        public void addToDomElement(
-            org.w3c.dom.Element domParent, 
-            Document domDocument) 
-        {
+        public void addToDomElement(org.w3c.dom.Element domParent) {
             domParent.setAttributeNS(
                 this.name.namespace,
                 this.name.localName,
@@ -131,11 +122,9 @@ public final class XmlBuilder {
         }
 
         @Override
-        public void addToDomElement(
-            org.w3c.dom.Element domParent, 
-            Document domDocument)
-        {
-            domParent.appendChild(domDocument.createTextNode(this.value));
+        public void addToDomElement(org.w3c.dom.Element domParent) {
+            domParent.appendChild(
+                domParent.getOwnerDocument().createTextNode(this.value));
         }
     }
     

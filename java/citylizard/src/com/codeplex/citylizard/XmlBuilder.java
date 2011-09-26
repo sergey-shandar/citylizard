@@ -12,6 +12,10 @@ public final class XmlBuilder {
      * An XML node.
      */
     public static interface Node {
+        /**
+         * The function adds the node to the passed element.
+         * @param domParent an element.
+         */
         void addToDomElement(org.w3c.dom.Element domParent);
     }
     
@@ -117,6 +121,10 @@ public final class XmlBuilder {
         
         private final String value;
         
+        /**
+         * The constructor creates a text node.
+         * @param value the text.
+         */
         public Text(String value) {
             this.value = value;
         }

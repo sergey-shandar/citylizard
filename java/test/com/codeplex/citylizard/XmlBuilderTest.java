@@ -47,7 +47,7 @@ public class XmlBuilderTest {
             x.e("html",
                 x.e("head",
                     x.e("title", t("Title of the page")),
-                    x.e("meta", 
+                    x.e("meta",
                         a("content", "text/html;charset=UTF-8"),
                         a("http-equiv", "Content-Type")
                     ),

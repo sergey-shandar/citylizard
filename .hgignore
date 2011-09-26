@@ -28,3 +28,4 @@ syntax: glob
 CityLizard/Policy/Base.cs
 syntax: regexp
 /build/
+/private/

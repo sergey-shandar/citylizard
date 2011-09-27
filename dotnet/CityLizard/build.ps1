@@ -93,9 +93,11 @@ foreach($f in [CityLizard.Hg.Hg]::Locate())
     }
 }
 
+$dotnet = Join-Path $root "dotnet"
+
 $third_party = Join-Path $root "third_party"
-$typed_dom = Join-Path $root "CityLizard\TypedDom"
-$console = Join-Path $root "CityLizard\Xml\Schema\Console\bin\Debug\CityLizard.Xml.Schema.Console.exe"
+$typed_dom = Join-Path $dotnet "CityLizard\TypedDom"
+$console = Join-Path $dotnet "CityLizard\Xml\Schema\Console\bin\Debug\CityLizard.Xml.Schema.Console.exe"
 
 #
 # Building XHTML 5
@@ -193,24 +195,24 @@ foreach($f in [CityLizard.Hg.Hg]::Locate())
 
 $zipName = "CityLizard." + $version + ".zip"
 
-$zip = Join-Path $root $zipName
+$zip = Join-Path $dotnet $zipName
 
-$xml = Join-Path $root "CityLizard\Xml\bin\Debug\CityLizard.Xml.dll"
-$sl_xml = Join-Path $root "CityLizard\Xml\Silverlight\bin\Debug\CityLizard.Xml.dll"
-$xml_35 = Join-Path $root "CityLizard\Xml\3.5\bin\Debug\CityLizard.Xml.dll"
-$sl3_xml = Join-Path $root "CityLizard\Xml\Silverlight3\bin\Debug\CityLizard.Xml.dll"
-$xml_45 = Join-Path $root "CityLizard\Xml\4.5\bin\Debug\CityLizard.Xml.dll"
+$xml = Join-Path $dotnet "CityLizard\Xml\bin\Debug\CityLizard.Xml.dll"
+$sl_xml = Join-Path $dotnet "CityLizard\Xml\Silverlight\bin\Debug\CityLizard.Xml.dll"
+$xml_35 = Join-Path $dotnet "CityLizard\Xml\3.5\bin\Debug\CityLizard.Xml.dll"
+$sl3_xml = Join-Path $dotnet "CityLizard\Xml\Silverlight3\bin\Debug\CityLizard.Xml.dll"
+$xml_45 = Join-Path $dotnet "CityLizard\Xml\4.5\bin\Debug\CityLizard.Xml.dll"
 
-$collections = Join-Path $root "CityLizard\Collections\bin\Debug\CityLizard.Collections.dll"
-$collections_35 = Join-Path $root "CityLizard\Collections\3.5\bin\Debug\CityLizard.Collections.dll"
-$collections_45 = Join-Path $root "CityLizard\Collections\4.5\bin\Debug\CityLizard.Collections.dll"
+$collections = Join-Path $dotnet "CityLizard\Collections\bin\Debug\CityLizard.Collections.dll"
+$collections_35 = Join-Path $dotnet "CityLizard\Collections\3.5\bin\Debug\CityLizard.Collections.dll"
+$collections_45 = Join-Path $dotnet "CityLizard\Collections\4.5\bin\Debug\CityLizard.Collections.dll"
 
-$fsm =  Join-Path $root "CityLizard\Fsm\bin\Debug\CityLizard.Fsm.dll"
-$schema = Join-Path $root "CityLizard\Xml\Schema\bin\Debug\CityLizard.Xml.Schema.dll"
-$codedom = Join-Path $root "CityLizard\CodeDom\bin\Debug\CityLizard.CodeDom.dll"
-$policy = Join-Path $root "CityLizard\Policy\bin\Debug\CityLizard.Policy.dll"
-$binary = Join-Path $root "CityLizard\Binary\bin\Debug\CityLizard.Binary.dll"
-$console = Join-Path $root "CityLizard\Xml\Schema\Console\bin\Debug\CityLizard.Xml.Schema.Console.exe"
+$fsm =  Join-Path $dotnet "CityLizard\Fsm\bin\Debug\CityLizard.Fsm.dll"
+$schema = Join-Path $dotnet "CityLizard\Xml\Schema\bin\Debug\CityLizard.Xml.Schema.dll"
+$codedom = Join-Path $dotnet "CityLizard\CodeDom\bin\Debug\CityLizard.CodeDom.dll"
+$policy = Join-Path $dotnet "CityLizard\Policy\bin\Debug\CityLizard.Policy.dll"
+$binary = Join-Path $dotnet "CityLizard\Binary\bin\Debug\CityLizard.Binary.dll"
+$console = Join-Path $dotnet "CityLizard\Xml\Schema\Console\bin\Debug\CityLizard.Xml.Schema.Console.exe"
 
 $xhtml = Join-Path $xhtml_dir "bin\Debug\www_w3_org._1999.xhtml.dll"
 $sl_xhtml = Join-Path $xhtml_dir "Silverlight\bin\Debug\www_w3_org._1999.xhtml.dll"
@@ -236,9 +238,9 @@ $nuget_35 = Join-Path $nuget_dir "3.5\bin\Debug\schemas_microsoft_com.packaging.
 $sl3_nuget = Join-Path $nuget_dir "Silverlight3\bin\Debug\schemas_microsoft_com.packaging._2010._07.nuspec_xsd.dll"
 $nuget_45 = Join-Path $nuget_dir "4.5\bin\Debug\schemas_microsoft_com.packaging._2010._07.nuspec_xsd.dll"
 
-$license = Join-Path $root "CityLizard\license.txt"
+$license = Join-Path $dotnet "CityLizard\license.txt"
 
-$lib = Join-Path $root "lib"
+$lib = Join-Path $dotnet "lib"
 mkdir $lib
 
 $lib_net4 = Join-Path $lib "NETFramework4.0"

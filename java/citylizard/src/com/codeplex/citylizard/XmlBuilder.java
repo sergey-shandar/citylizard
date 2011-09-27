@@ -1,5 +1,7 @@
 package com.codeplex.citylizard;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import org.w3c.dom.Document;
 
 /**
@@ -46,7 +48,7 @@ public final class XmlBuilder {
         
         private final Name name;
         
-        private final Node[] nodes;
+        private final ArrayList<Node> nodes;
         
         private void addToDomNode(
             org.w3c.dom.Node domParent, 
@@ -69,7 +71,7 @@ public final class XmlBuilder {
          */
         public Element(Name name, Node...nodes) {
             this.name = name;
-            this.nodes = nodes;
+            this.nodes = new ArrayList(Arrays.asList(nodes));
         }
         
         /**
@@ -78,6 +80,11 @@ public final class XmlBuilder {
          */
         public void addToDomDocument(Document domDocument) {
             this.addToDomNode(domDocument, domDocument);
+        }
+        
+        public Element add(Node node) {
+            this.nodes.add(node);
+            return this;
         }
 
         @Override

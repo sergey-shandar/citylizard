@@ -8,6 +8,7 @@
 
     using F = Fsm;
 
+    using Collections.Extension;
     using Extension;
     using System.Linq;
 
@@ -87,15 +88,15 @@
                                 if (!k[m])
                                 {
                                     k[m] = true;
-                                    Fsm.Name s;
-                                    if (!newSetMap.TryGetValue(k, out s))
+                                    var s = newSetMap.TryGet(k);
+                                    if (!s.HasValue)
                                     {
-                                        newSetMap[k] = s = new Fsm.Name();
+                                        newSetMap[k] = s.Value = new Fsm.Name();
                                     }
                                     //     
                                     var x = new Fsm.Name(pair.Value);
                                     this.Apply(x, list[j]);
-                                    s.UnionWith(x);
+                                    s.Value.UnionWith(x);
                                 }
                             }
                         }

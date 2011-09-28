@@ -4,6 +4,7 @@
     using S = System;
 
     using System.Linq;
+    using CityLizard.Collections.Extension;
 
     /// <summary>
     /// Deterministic finite automaton.
@@ -43,13 +44,13 @@
                     foreach (var transition in fsm.StateList[fsmState])
                     {
                         // add transition.
-                        Name state;                        
-                        if (!this.TryGetValue(transition.Symbol, out state))
+                        var state = this.TryGet(transition.Symbol);
+                        if (!state.HasValue)
                         {
-                            state = new Name();
-                            this[transition.Symbol] = state;
+                            state.Value = new Name();
+                            this[transition.Symbol] = state.Value;
                         }
-                        state.Add(transition.State);
+                        state.Value.Add(transition.State);
                     }
                 }
             }
@@ -67,12 +68,12 @@
                 }
                 foreach (var p in this)
                 {
-                    Name otherState;
-                    if (!other.TryGetValue(p.Key, out otherState))
+                    var otherState = other.TryGet(p.Key);
+                    if (!otherState.HasValue)
                     {
                         return false;
                     }
-                    if (p.Value != otherState)
+                    if (p.Value != otherState.Value)
                     {
                         return false;
                     }

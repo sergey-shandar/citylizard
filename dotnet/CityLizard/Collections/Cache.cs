@@ -2,6 +2,8 @@
 {
     using G = System.Collections.Generic;
 
+    using Extension;
+
     public abstract class Cache<Key, Data>
     {
         private G.Dictionary<Key, Data> Dictionary =
@@ -11,14 +13,14 @@
         {
             get
             {
-                Data data;
-                if (!this.Dictionary.TryGetValue(key, out data))
+                var data = this.Dictionary.TryGet(key);
+                if (!data.HasValue)
                 {
-                    data = this.Create(key);
-                    this.Dictionary[key] = data;
-                    this.Initialize(key, data);
+                    data.Value = this.Create(key);
+                    this.Dictionary[key] = data.Value;
+                    this.Initialize(key, data.Value);
                 }
-                return data;
+                return data.Value;
             }
         }
 

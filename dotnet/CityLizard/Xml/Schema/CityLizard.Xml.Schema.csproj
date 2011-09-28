@@ -54,6 +54,10 @@
       <Project>{ACF5201B-625E-4356-A515-9D11768881A3}</Project>
       <Name>CityLizard.CodeDom</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Collections\CityLizard.Collections.csproj">
+      <Project>{C4356246-D884-44C6-8013-D2A264C8599C}</Project>
+      <Name>CityLizard.Collections</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Fsm\CityLizard.Fsm.csproj">
       <Project>{E9C49FF2-73F9-44A4-AAE7-2F959B5D2916}</Project>
       <Name>CityLizard.Fsm</Name>

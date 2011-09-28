@@ -47,6 +47,9 @@
     <Compile Include="..\Cache.cs">
       <Link>Cache.cs</Link>
     </Compile>
+    <Compile Include="..\Extension\IDictionaryExtension.cs">
+      <Link>Extension\IDictionaryExtension.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

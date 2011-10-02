@@ -138,7 +138,7 @@ namespace CityLizard.Xml.Extension
             }
         }
 
-        private sealed class Serializer: CC.Cache<S.Type, SerializerClass>
+        private sealed class Serializer: CC.DictionaryCache<S.Type, SerializerClass>
         {
             public readonly I.Serialization S = new I.Serialization();
 

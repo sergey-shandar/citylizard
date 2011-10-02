@@ -42,8 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArrayCache.cs" />
-    <Compile Include="Cache.cs" />
+    <Compile Include="DictionaryCache.cs" />
     <Compile Include="Extension\IDictionaryExtension.cs" />
+    <Compile Include="Cache.cs" />
+    <Compile Include="Optional.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

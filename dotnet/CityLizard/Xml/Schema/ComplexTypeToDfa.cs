@@ -51,12 +51,10 @@
                 var choice = p as XS.XmlSchemaChoice;
                 if (choice != null)
                 {
-                    // var x = new C.HashSet<int>(set);
                     var x = new Fsm.Name(set);
                     set.Clear();
                     foreach (var i in choice.ItemsTyped())
                     {
-                        // var xi = new C.HashSet<int>(x);
                         var xi = new Fsm.Name(x);
                         this.Apply(xi, i);
                         set.UnionWith(xi);

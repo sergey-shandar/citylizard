@@ -47,8 +47,14 @@
     <Compile Include="..\Cache.cs">
       <Link>Cache.cs</Link>
     </Compile>
+    <Compile Include="..\DictionaryCache.cs">
+      <Link>DictionaryCache.cs</Link>
+    </Compile>
     <Compile Include="..\Extension\IDictionaryExtension.cs">
       <Link>Extension\IDictionaryExtension.cs</Link>
+    </Compile>
+    <Compile Include="..\Optional.cs">
+      <Link>Optional.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

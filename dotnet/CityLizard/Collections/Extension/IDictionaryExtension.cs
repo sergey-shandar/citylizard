@@ -5,12 +5,6 @@
 
     public static class IDictionaryExtension
     {
-        public struct Optional<T>
-        {
-            public bool HasValue;
-            public T Value;
-        }
-
         public static Optional<T> TryGet<K, T>(
             this G.IDictionary<K, T> dictionary,
             K key)

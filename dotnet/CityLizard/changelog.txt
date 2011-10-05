@@ -3,6 +3,7 @@
 		.NET 3.5, 
 		.NET 4.0, 
 		Silverlight 3, 
+
 		Silverlight 4 (Windows Phone 7.1).
 
 	XML Schemas: 
@@ -21,11 +22,17 @@
 
 	XML Serializer serializes and deserializes an object, or an entire graph of connected objects, in XML format.
 
+1.3.0
+
+	Changes:
+		Silverlight for Windows Phone 7.1
+		Java XML builder (not included)
+
 2.0.0 alpha
 
 	Changes:
-		.NET 4.5 libraries.
-		Silverlight for Windows Phone 7.1.
+		.NET 4.5 libraries (alpha).
+		Silverlight for Windows Phone 7.1 (alpha).
 
 1.2.15
 

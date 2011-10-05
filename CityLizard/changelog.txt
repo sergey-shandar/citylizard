@@ -1,0 +1,129 @@
+	Platforms:
+		.NET 4.5, 
+		.NET 3.5, 
+		.NET 4.0, 
+		Silverlight 3, 
+		Silverlight 4 (Windows Phone 7.1).
+
+	XML Schemas: 
+		XHTML 1.1 (+ HTML 5 features), examples under Hg (C#, F#, VB.NET, Nemerle),
+		GraphML,
+		SVG,
+		NuGet.
+
+	Untyped XML Builder.
+
+	FSM (finite-state machine).
+
+	INumeric Policy.
+		+, -, *, /,
+		0, 1, Min, Max
+
+	XML Serializer serializes and deserializes an object, or an entire graph of connected objects, in XML format.
+
+2.0.0 alpha
+
+	Changes:
+		.NET 4.5 libraries.
+		Silverlight for Windows Phone 7.1.
+
+1.2.15
+
+	Changes:
+		Serializer is based on System.Xml.Serialization.XmlSerializer.	
+		Serializer: object identification bug fix.
+
+1.2.14
+
+	Changes:
+		FSM.
+
+1.2.13
+
+	Changes:
+		internal CityLizard.Xml.Serializer => public CityLizard.Xml.Extension.SerializerExtension		
+
+1.2.12
+
+	Changes:
+		CityLizard.Xml.Serializer.
+		subrepository for XML Schemas.
+
+1.2.11
+
+	Changes:
+		CityLizard.Xml.Untyped.T.X accepts CityLizard.Xml.Untyped.T.Element
+
+1.2.10
+
+	Changes:
+		HTML examples: VB.NET.
+		CityLizard.Binary 3.5 => CityLizard.Binary 4.0
+		INumeric:
+			Min/Max values.
+			Interval.
+
+1.2.9
+
+	Changes:
+		CityLizard.Binary.
+
+1.2.8
+
+	Changes:
+		CityLizard.Xml.Untyped.
+		Silverlight 3 support for Moonlight.
+
+1.2.7
+	Changes:
+		NuGet.
+		INumeric policy.
+
+1.2.6
+	Changes:
+		.NET 3.5 support for Nemerle. 
+
+1.2.5
+	Changes:
+		Windows Phone 7.
+
+1.2.4
+	Changes:
+		Bug fix: XML declaration is omitted in ToString() method.
+
+1.2.3
+	Changes:
+		Silverlight 4.
+
+1.2.2
+	Changes:
+		CodeDom extensions.
+
+1.2.1 
+	Changes:
+		HTML 5 video element.
+
+1.2.0
+	Changes:
+		GraphML.
+		SVG.
+		XML Schema simpleType element.
+
+1.1.1
+
+1.1.0
+	Changes:
+		XML class hieararchy compatable with XML Schema.
+
+1.0.2
+	Changes:
+		Support of System.Xml.XmlWriter.
+
+1.0.1
+	Changes:
+		Bug fix: A space is included before the trailing / and > of empty elements.
+
+1.0.0
+	Changes:
+		XHTML 1.1.
+		Empty elements.

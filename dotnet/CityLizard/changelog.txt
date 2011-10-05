@@ -3,7 +3,6 @@
 		.NET 3.5, 
 		.NET 4.0, 
 		Silverlight 3, 
-
 		Silverlight 4 (Windows Phone 7.1).
 
 	XML Schemas: 

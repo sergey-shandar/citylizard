@@ -30,6 +30,16 @@ namespace CityLizard.Xml.Utf8
             InitializeComponent();
         }
 
+        private void Invoke(Action action)
+        {
+            this.Dispatcher.Invoke(action);
+        }
+
+        private void ThreadAddText(string text)
+        {
+            this.Invoke(() => this.textBox.AppendText(text));
+        }
+
         private void convertFiles_Click(object sender, RoutedEventArgs e)
         {
             var openFileDialog = new W.OpenFileDialog()
@@ -39,46 +49,57 @@ namespace CityLizard.Xml.Utf8
             };
             if (openFileDialog.ShowDialog() == true)
             {
-                foreach (var file in openFileDialog.FileNames)
+                this.convertFiles.IsEnabled = false;
+                this.progressBar.Value = 0;
+                this.progressBar.Maximum = openFileDialog.FileNames.Length;
+                var thread = new System.Threading.Thread(
+                () =>
                 {
-                    try
+                    var i = 0;
+                    foreach (var file in openFileDialog.FileNames)
                     {
-                        // detect encoding.
-                        string encoding = null;
-                        using (var reader = X.XmlReader.Create(file))
+                        try
                         {
-                            if (reader.Read())
+                            // detect encoding.
+                            string encoding = null;
+                            using (var reader = X.XmlReader.Create(file))
                             {
-                                if (reader.NodeType == 
-                                    X.XmlNodeType.XmlDeclaration)
+                                if (reader.Read())
                                 {
-                                    encoding = reader.GetAttribute("encoding");
+                                    if (reader.NodeType ==
+                                        X.XmlNodeType.XmlDeclaration)
+                                    {
+                                        encoding = reader.GetAttribute("encoding");
+                                    }
                                 }
                             }
+                            //
+                            string text;
+                            using (var reader =
+                                new IO.StreamReader(
+                                    file, Encoding.GetEncoding(encoding)))
+                            {
+                                text = reader.ReadToEnd();
+                            }
+                            text = R.Regex.Replace(text, "<([^>]*<)", "&lt;$1");
+                            // text = R.Regex.Replace(text, "<([^/\\?A-Za-z])", "&lt;$1");
+                            //
+                            var xml = L.XDocument.Parse(text);
+                            xml.Declaration.Encoding = "utf-8";
+                            xml.Save(file, L.SaveOptions.DisableFormatting);
                         }
-                        //
-                        string text;
-                        using (var reader = 
-                            new IO.StreamReader(
-                                file, Encoding.GetEncoding(encoding)))
+                        catch (Exception ex)
                         {
-                            text = reader.ReadToEnd();
+                            this.ThreadAddText(
+                                "file: " + file + "\n" +
+                                "error: " + ex.Message + "\n");
                         }
-                        text = R.Regex.Replace(text, "<([^>]*<)", "&lt;$1");
-                        text = R.Regex.Replace(text, "<([^/\\?A-Za-z])", "&lt;$1");
-                        //
-                        var xml = L.XDocument.Parse(text);
-                        xml.Declaration.Encoding = "utf-8";
-                        xml.Save(file, L.SaveOptions.DisableFormatting);
-                        this.textBox.AppendText(".");
+                        ++i;
+                        this.Invoke(() => this.progressBar.Value = i);
                     }
-                    catch (Exception ex)
-                    {
-                        this.textBox.AppendText("\n");
-                        this.textBox.AppendText("file: " + file + "\n");
-                        this.textBox.AppendText("error: " + ex.Message + "\n");
-                    }
-                }
+                    this.Invoke(() => this.convertFiles.IsEnabled = true);
+                });
+                thread.Start();
             }
         }
 

@@ -105,7 +105,7 @@ namespace CityLizard.Build
                 [c.Attribute<R.AssemblyCompanyAttribute>(company)]
                 [c.Attribute<R.AssemblyProductAttribute>(f)]
                 [c.Attribute<R.AssemblyCopyrightAttribute>(
-                    "Copyright © " + company + " 2010")];
+                    "Copyright © " + company + " 2010-2011")];
             var dir = IO.Path.Combine(d, "Properties");
             IO.Directory.CreateDirectory(dir);
             var a = IO.Path.Combine(dir, "AssemblyInfo.cs");

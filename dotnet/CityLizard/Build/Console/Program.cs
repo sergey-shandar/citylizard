@@ -93,11 +93,11 @@ namespace CityLizard.Build.Console
                     summary, Company, IO.Path.Combine(root, file));
             }
             //
-            Policy.Build.Base.Run(root);
+            var sln = Hg.Hg.Locate().First(
+                file => IO.Path.GetFileName(file) == "CityLizard.sln");
+            Policy.Build.Base.Run(IO.Path.GetDirectoryName(root));
             //
-            Build.BuildSolution(
-                Hg.Hg.Locate().First(
-                    file => IO.Path.GetFileName(file) == "CityLizard.sln"));
+            Build.BuildSolution(sln);
             //
             var xs = new XmlSchema(root);
             //

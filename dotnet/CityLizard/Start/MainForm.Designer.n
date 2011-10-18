@@ -44,6 +44,7 @@ namespace CityLizard.Start
       this.treeView.SelectedImageIndex = 0;
       this.treeView.Size = System.Drawing.Size(308,  315);
       this.treeView.TabIndex = 0;
+      this.treeView.DoubleClick += System.EventHandler(this.treeView_DoubleClick);
       // 
       // imageList
       // 

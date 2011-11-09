@@ -1,0 +1,495 @@
+﻿<!DOCTYPE html PUBLIC>
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>CityLizard++</title>
+    <style type="text/css">
+span.code { font-family: Monospace; }
+pre 
+{ 
+    border: 1px solid #E0E0E0; 
+    padding: 5px 5px 5px 5px;
+}
+table
+{
+    border-collapse: collapse;
+}
+td, th 
+{
+    border: 1px solid #E0E0E0;
+    padding: 5px 5px 5px 5px;
+}
+    </style>
+</head>
+<body>
+    <h1>CityLizard++</h1>
+    <p>CityLizard++ is a set of general header-only C++ libraries.</p>
+    <h2>1. Binary Literals</h2>
+    <p>
+Header <span class="code"><a href="binary/b.hpp">citylizard/binary/b.hpp</a></span>.
+    </p>
+    <p>
+Namespace <span class="code">citylizard::binary</span>.
+    </p>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#000084; font-weight:bold; '>namespace</span> _detail
+{
+    <span style='color:#000084; font-weight:bold; '>template</span>&lt;<span style='color:#000084; font-weight:bold; '>unsigned</span> <span style='color:#000084; font-weight:bold; '>int</span> X>
+    <span style='color:#000084; font-weight:bold; '>struct</span> b
+    {
+        <span style='color:#000084; font-weight:bold; '>static</span> <span style='color:#000084; font-weight:bold; '>unsigned</span> <span style='color:#000084; font-weight:bold; '>int</span> x = X;
+
+        <span style='color:#000084; font-weight:bold; '>typedef</span> b&lt;...> _0000;
+        <span style='color:#000084; font-weight:bold; '>typedef</span> b&lt;...> _0001;
+        ...
+        <span style='color:#000084; font-weight:bold; '>typedef</span> b&lt;...> _1111;
+    };
+}
+
+<span style='color:#000084; font-weight:bold; '>typedef</span> _detail::b&lt;0x0> _0000;
+<span style='color:#000084; font-weight:bold; '>typedef</span> _detail::b&lt;0x1> _0001;
+...
+<span style='color:#000084; font-weight:bold; '>typedef</span> _detail::b&lt;0xF> _1111;
+</pre>
+    <h3>1.1. Example</h3>
+    <pre style='color:#000000;background:#ffffff;'><span style='color:#000084; font-weight:bold; '>using</span> <span style='color:#000084; font-weight:bold; '>namespace</span> citylizard::binary;
+<span style='color:#000084; font-weight:bold; '>unsigned</span> <span style='color:#000084; font-weight:bold; '>int</span> xE19F = _1110::_0001::_1001::_1111::x;
+</pre>
+    <h2>2. Conversion Library</h2>
+    <p>
+Namespace <span class="code">citylizard::cast</span>.
+    </p>    
+    <h3>2.1. Default Value</h3>
+    <p>
+Header <span class="code"><a href="cast/default.hpp">citylizard/cast/default.hpp</a></span>.
+    </p>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#000084; font-weight:bold; '>struct</span> default_
+{
+    <span style='color:#000084; font-weight:bold; '>template</span>&lt;<span style='color:#000084; font-weight:bold; '>class</span> To>
+    <span style='color:#000084; font-weight:bold; '>static</span> To value();
+};</pre>
+    <h3>2.2. Type Casting</h3>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#000084; font-weight:bold; '>struct</span> ...
+{
+    <span style='color:#000084; font-weight:bold; '>template</span>&lt;<span style='color:#000084; font-weight:bold; '>class</span> From>
+    <span style='color:#000084; font-weight:bold; '>struct</span> value_t;
+
+    <span style='color:#000084; font-weight:bold; '>template</span>&lt;<span style='color:#000084; font-weight:bold; '>class</span> From>
+    <span style='color:#000084; font-weight:bold; '>struct</span> ref_t;
+
+    <span style='color:#000084; font-weight:bold; '>template</span>&lt;<span style='color:#000084; font-weight:bold; '>class</span> From>
+    <span style='color:#000084; font-weight:bold; '>static</span> value_t&lt;From> value(From ...);
+
+    <span style='color:#000084; font-weight:bold; '>template</span>&lt;<span style='color:#000084; font-weight:bold; '>class</span> From>
+    <span style='color:#000084; font-weight:bold; '>static</span> ref_t&lt;From> ref(From ...);
+
+    <span style='color:#000084; font-weight:bold; '>template</span>&lt;<span style='color:#000084; font-weight:bold; '>class</span> To, <span style='color:#000084; font-weight:bold; '>class</span> From>
+    <span style='color:#000084; font-weight:bold; '>static</span> To to(From ...);
+};</pre>
+    <table>
+        <tr>
+            <th>File</th>
+            <th>Type Name</th>
+            <th>Effects</th>
+        </tr>
+        <tr>
+            <td>
+                <a href="cast/const.hpp"><span class="code">const.hpp</span></a>
+            </td>
+            <td><span class="code">const_</span></td>
+            <td><pre>const_cast&lt;T&gt;(V)</pre></td>
+        </tr>
+        <tr>
+            <td>
+                <a href="cast/dynamic.hpp"><span class="code">dynamic.hpp</span></a>
+            </td>
+            <td><span class="code">dynamic</span></td>
+            <td><pre>dynamic_cast&lt;T&gt;(V)</pre></td>
+        </tr>
+        <tr>
+            <td>
+                <a href="cast/static.hpp"><span class="code">static.hpp</span></a>
+            </td>
+            <td><span class="code">static</span></td>
+            <td><pre>static_cast&lt;T&gt;(V)</pre></td>
+        </tr>
+        <tr>
+            <td>
+                <a href="cast/reinterpret.hpp"><span class="code">reinterpret.hpp</span></a>
+            </td>
+            <td><span class="code">reinterpret</span></td>
+            <td><pre>reinterpret_cast&lt;T&gt;(V)</pre></td>
+        </tr>
+        <tr>
+            <td>
+                <a href="cast/explicit.hpp"><span class="code">explicit.hpp</span></a>
+            </td>
+            <td><span class="code">explicit</span></td>
+            <td><pre>T(V)</pre></td>
+        </tr>
+        <tr>
+            <td>
+                <a href="cast/polymorphic.hpp"><span class="code">polymorphic.hpp</span></a>
+            </td>
+            <td><span class="code">polymorphic</span></td>
+            <td><pre>::boost::polymorphic_cast&lt;T&gt;(V)</pre></td>
+        </tr>
+        <tr>
+            <td>
+                <a href="cast/polymorphic_down.hpp"><span class="code">polymorphic_down.hpp</span></a>
+            </td>
+            <td><span class="code">polymorphic_down</span></td>
+            <td><pre>::boost::polymorphic_downcast&lt;T&gt;(V)</pre></td>
+        </tr>
+        <tr>
+            <td>
+                <a href="cast/safe_reinterpret_cast.hpp"><span class="code">safe_reinterpret_cast.hpp</span></a>
+            </td>
+            <td><span class="code">safe_reinterpret_cast</span></td>
+            <td><pre>static_assert(sizeof(T) == sizeof(V));
+reinterpret_cast&lt;T&gt;(V)</pre></td>
+        </tr>
+    </table>
+    <h3>2.3. Example</h3>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#000084; font-weight:bold; '>using</span> <span style='color:#000084; font-weight:bold; '>namespace</span> citylizard::cast;
+
+<span style='color:#000084; font-weight:bold; '>char</span> x = static_::value(89);
+A a;
+B &amp;b = dynamic::ref(a);
+</pre>
+    <h2>3. Meta Programming</h2>
+    <p>
+Namespace <span class="code">citylizard::meta</span>.
+    </p>
+    <h3>3.1. Constant</h3>
+    <p>
+Header <span class="code"><a href="meta/const.hpp">citylizard/meta/const.hpp</a></span>.
+    </p>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#000084; font-weight:bold; '>template</span>&lt;<span style='color:#000084; font-weight:bold; '>class</span> T, T V>
+<span style='color:#000084; font-weight:bold; '>struct</span> const_
+{
+    <span style='color:#000084; font-weight:bold; '>typedef</span> const_ type;
+
+    <span style='color:#000084; font-weight:bold; '>typedef</span> T value_type;
+
+    <span style='color:#000084; font-weight:bold; '>static</span> T <span style='color:#000084; font-weight:bold; '>const</span> value = V;
+
+    <span style='color:#808080; '>// unary operators</span>
+    ...
+    <span style='color:#808080; '>// binary operators</span>
+    ...
+};
+</pre>
+    <h4>3.1.1. Unary Operators</h4>
+    <table>
+        <tr>
+            <th>Type Name</th>
+            <th>Effects</th>
+        </tr>
+        <tr>
+            <td><span class="code">not</span></td>
+            <td><span class="code">!</span></td>
+        </tr>
+        <tr>
+            <td><span class="code">plus</span></td>
+            <td><span class="code">+</span></td>
+        </tr>
+        <tr>
+            <td><span class="code">minus</span></td>
+            <td><span class="code">-</span></td>
+        </tr>
+        <tr>
+            <td><span class="code">bit_not</span></td>
+            <td><span class="code">~</span></td>
+        </tr>
+        <tr>
+            <td><span class="code">inc</span></td>
+            <td><span class="code">++</span></td>
+        </tr>
+        <tr>
+            <td><span class="code">dec</span></td>
+            <td><span class="code">--</span></td>
+        </tr>
+    </table>
+
+    <h4>3.1.2. Binary Operators</h4>
+    <table>
+        <tr>
+            <th>Type Name</th>
+            <th>Second Parameter Type</th>
+            <th>Effects</th>
+        </tr>
+        <tr>
+            <td><span class="code">equal</span></td>
+            <td><span class="code">T</span></td>
+            <td><span class="code">==</span></td>
+        </tr>
+        <tr>
+            <td><span class="code">not_equal</span></td>
+            <td><span class="code">T</span></td>
+            <td><span class="code">!=</span></td>
+        </tr>
+        <tr>
+            <td><span class="code">less</span></td>
+            <td><span class="code">T</span></td>
+            <td><span class="code">&lt;</span></td>
+        </tr>
+        <tr>
+            <td><span class="code">greater</span></td>
+            <td><span class="code">T</span></td>
+            <td><span class="code">&gt;</span></td>
+        </tr>
+        <tr>
+            <td><span class="code">less_equal</span></td>
+            <td><span class="code">T</span></td>
+            <td><span class="code">&lt;=</span></td>
+        </tr>
+        <tr>
+            <td><span class="code">greater_equal</span></td>
+            <td><span class="code">T</span></td>
+            <td><span class="code">&gt;=</span></td>
+        </tr>
+        <tr>
+            <td><span class="code">add</span></td>
+            <td><span class="code">T</span></td>
+            <td><span class="code">+</span></td>
+        </tr>
+        <tr>
+            <td><span class="code">sub</span></td>
+            <td><span class="code">T</span></td>
+            <td><span class="code">-</span></td>
+        </tr>
+        <tr>
+            <td><span class="code">mul</span></td>
+            <td><span class="code">T</span></td>
+            <td><span class="code">*</span></td>
+        </tr>
+        <tr>
+            <td><span class="code">div</span></td>
+            <td><span class="code">T</span></td>
+            <td><span class="code">/</span></td>
+        </tr>
+        <tr>
+            <td><span class="code">rem</span></td>
+            <td><span class="code">T</span></td>
+            <td><span class="code">%</span></td>
+        </tr>
+        <tr>
+            <td><span class="code">or</span></td>
+            <td><span class="code">T</span></td>
+            <td><span class="code">||</span></td>
+        </tr>
+        <tr>
+            <td><span class="code">and</span></td>
+            <td><span class="code">T</span></td>
+            <td><span class="code">&amp;&amp;</span></td>
+        </tr>
+        <tr>
+            <td><span class="code">bit_or</span></td>
+            <td><span class="code">T</span></td>
+            <td><span class="code">|</span></td>
+        </tr>
+        <tr>
+            <td><span class="code">bit_and</span></td>
+            <td><span class="code">T</span></td>
+            <td><span class="code">&amp;</span></td>
+        </tr>
+        <tr>
+            <td><span class="code">bit_xor</span></td>
+            <td><span class="code">T</span></td>
+            <td><span class="code">^</span></td>
+        </tr>
+        <tr>
+            <td><span class="code">left_shift</span></td>
+            <td><span class="code">int</span></td>
+            <td><span class="code">&lt;&lt;</span></td>
+        </tr>
+        <tr>
+            <td><span class="code">right_shift</span></td>
+            <td><span class="code">int</span></td>
+            <td><span class="code">&gt;&gt;</span></td>
+        </tr>
+        <tr>
+            <td><span class="code">at</span></td>
+            <td><span class="code">int</span></td>
+            <td><span class="code">(a &gt;&gt; b) &amp; 1</span></td>
+        </tr>
+        <tr>
+            <td><span class="code">cast</span></td>
+            <td><span class="code">class</span></td>
+            <td><span class="code">static_cast</span></td>            
+        </tr>
+    </table>
+    <h3>3.2. If Statement</h3>
+    <h4>3.2.1. Types</h4>
+    <table>
+        <tr>
+            <th>Header</th>
+            <th>Declarations of Types</th>
+        </tr>
+        <tr>
+            <td>
+                <a href="meta/if.hpp"><span class="code">if.hpp</span></a>
+            </td>
+            <td>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#000084; font-weight:bold; '>template</span>&lt;<span style='color:#000084; font-weight:bold; '>class</span> C, <span style='color:#000084; font-weight:bold; '>class</span> T = <span style='color:#000084; font-weight:bold; '>void</span>, <span style='color:#000084; font-weight:bold; '>class</span> E = ...>
+<span style='color:#000084; font-weight:bold; '>struct</span> if_;</pre>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="meta/if_c.hpp"><span class="code">if_c.hpp</span></a>
+            </td>
+            <td>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#000084; font-weight:bold; '>template</span>&lt;<span style='color:#000084; font-weight:bold; '>bool</span> C, <span style='color:#000084; font-weight:bold; '>class</span> T = <span style='color:#000084; font-weight:bold; '>void</span>, <span style='color:#000084; font-weight:bold; '>class</span> E = ...>
+<span style='color:#000084; font-weight:bold; '>struct</span> if_c;</pre>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="meta/eval_if.hpp"><span class="code">eval_if.hpp</span></a>
+            </td>
+            <td>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#000084; font-weight:bold; '>template</span>&lt;<span style='color:#000084; font-weight:bold; '>class</span> C, <span style='color:#000084; font-weight:bold; '>class</span> T, <span style='color:#000084; font-weight:bold; '>class</span> E = ...>
+<span style='color:#000084; font-weight:bold; '>struct</span> eval_if;</pre>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="meta/eval_if_c.hpp"><span class="code">eval_if_c.hpp</span></a>
+            </td>
+            <td>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#000084; font-weight:bold; '>template</span>&lt;<span style='color:#000084; font-weight:bold; '>bool</span> C, <span style='color:#000084; font-weight:bold; '>class</span> T, <span style='color:#000084; font-weight:bold; '>class</span> E = ...>
+<span style='color:#000084; font-weight:bold; '>struct</span> eval_if_c;</pre>
+            </td>
+        </tr>
+    </table>
+    <h4>3.2.2. Subtypes</h4>
+    <table>
+        <tr>
+            <th>Declarations of Subtypes</th>
+        </tr>
+        <tr>
+            <td>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#000084; font-weight:bold; '>typedef</span> ... type;</pre>
+            </td>
+        </tr>
+        <tr>
+            <td>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#000084; font-weight:bold; '>template</span>&lt;<span style='color:#000084; font-weight:bold; '>class</span> C1, <span style='color:#000084; font-weight:bold; '>class</span> T1 = <span style='color:#000084; font-weight:bold; '>void</span>, <span style='color:#000084; font-weight:bold; '>class</span> E = ...>
+<span style='color:#000084; font-weight:bold; '>struct</span> else_if;</pre>
+            </td>
+        </tr>
+        <tr>
+            <td>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#000084; font-weight:bold; '>template</span>&lt;<span style='color:#000084; font-weight:bold; '>bool</span> C1, <span style='color:#000084; font-weight:bold; '>class</span> T1 = <span style='color:#000084; font-weight:bold; '>void</span>, <span style='color:#000084; font-weight:bold; '>class</span> E = ...>
+<span style='color:#000084; font-weight:bold; '>struct</span> else_if_c;</pre>            
+            </td>
+        </tr>
+        <tr>
+            <td>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#000084; font-weight:bold; '>template</span>&lt;<span style='color:#000084; font-weight:bold; '>class</span> C1, <span style='color:#000084; font-weight:bold; '>class</span> T1, <span style='color:#000084; font-weight:bold; '>class</span> E = ...>
+<span style='color:#000084; font-weight:bold; '>struct</span> eval_else_if;</pre>
+            </td>
+        </tr>
+        <tr>
+            <td>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#000084; font-weight:bold; '>template</span>&lt;<span style='color:#000084; font-weight:bold; '>bool</span> C1, <span style='color:#000084; font-weight:bold; '>class</span> T1, <span style='color:#000084; font-weight:bold; '>class</span> E = ...>
+<span style='color:#000084; font-weight:bold; '>struct</span> eval_else_if_c;</pre>
+            </td>
+        </tr>
+        <tr>
+            <td>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#000084; font-weight:bold; '>template</span>&lt;<span style='color:#000084; font-weight:bold; '>class</span> E>
+<span style='color:#000084; font-weight:bold; '>struct</span> else_;</pre>
+            </td>
+        </tr>
+        <tr>
+            <td>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#000084; font-weight:bold; '>template</span>&lt;<span style='color:#000084; font-weight:bold; '>class</span> E>
+<span style='color:#000084; font-weight:bold; '>struct</span> eval_else;</pre>
+            </td>
+        </tr>
+    </table>
+    <h4>3.2.3. Examples</h4>
+<pre style='color:#000000;background:#ffffff;'>if_c&lt;C, T>::type
+
+if_c&lt;C, T, E>::type
+
+if_c&lt;C, T>::else_&lt;E>::type
+
+if_c&lt;C, T>::eval_else&lt;E>::type
+
+if_c&lt;C1, T1>::
+    else_if_c&lt;C2, T2>::
+    else_if&lt;C3, T3>::
+    eval_else_if_c&lt;C4, T4>::
+    eval_else_if&lt;C5, T5>::
+    else_&lt;E>::
+    type</pre>
+    <h3>3.3. List</h3>
+    <h4>3.3.1. Optional Types</h4>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#000084; font-weight:bold; '>typedef</span> ... front;
+<span style='color:#000084; font-weight:bold; '>typedef</span> ... back;
+<span style='color:#000084; font-weight:bold; '>typedef</span> ... pop_front;
+<span style='color:#000084; font-weight:bold; '>typedef</span> ... pop_back;
+<span style='color:#000084; font-weight:bold; '>template</span>&lt;<span style='color:#000084; font-weight:bold; '>class</span> I> <span style='color:#000084; font-weight:bold; '>struct</span> at;
+<span style='color:#000084; font-weight:bold; '>template</span>&lt;<span style='color:#000084; font-weight:bold; '>class</span> I> <span style='color:#000084; font-weight:bold; '>struct</span> erase;</pre>
+    <h4>3.3.2. Required Types</h4>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#000084; font-weight:bold; '>typedef</span> ... type;
+<span style='color:#000084; font-weight:bold; '>template</span>&lt;<span style='color:#000084; font-weight:bold; '>class</span> B> <span style='color:#000084; font-weight:bold; '>struct</span> <span style='color:#000084; font-weight:bold; '>equal</span>;
+<span style='color:#000084; font-weight:bold; '>template</span>&lt;<span style='color:#000084; font-weight:bold; '>class</span> B> <span style='color:#000084; font-weight:bold; '>struct</span> not_equal;
+<span style='color:#000084; font-weight:bold; '>typedef</span> ... size;
+<span style='color:#000084; font-weight:bold; '>typedef</span> ... empty;
+<span style='color:#000084; font-weight:bold; '>typedef</span> ... clear;
+<span style='color:#000084; font-weight:bold; '>template</span>&lt;<span style='color:#000084; font-weight:bold; '>class</span> T> <span style='color:#000084; font-weight:bold; '>struct</span> push_front;
+<span style='color:#000084; font-weight:bold; '>template</span>&lt;<span style='color:#000084; font-weight:bold; '>class</span> T> <span style='color:#000084; font-weight:bold; '>struct</span> push_back;
+<span style='color:#000084; font-weight:bold; '>template</span>&lt;<span style='color:#000084; font-weight:bold; '>class</span> B> <span style='color:#000084; font-weight:bold; '>struct</span> push_front_range;
+<span style='color:#000084; font-weight:bold; '>template</span>&lt;<span style='color:#000084; font-weight:bold; '>class</span> B> <span style='color:#000084; font-weight:bold; '>struct</span> push_back_range;
+<span style='color:#000084; font-weight:bold; '>template</span>&lt;<span style='color:#000084; font-weight:bold; '>class</span> I, <span style='color:#000084; font-weight:bold; '>class</span> T> <span style='color:#000084; font-weight:bold; '>struct</span> insert;
+<span style='color:#000084; font-weight:bold; '>template</span>&lt;<span style='color:#000084; font-weight:bold; '>class</span> I, <span style='color:#000084; font-weight:bold; '>class</span> B> <span style='color:#000084; font-weight:bold; '>struct</span> insert_range;
+<span style='color:#000084; font-weight:bold; '>template</span>&lt;<span style='color:#000084; font-weight:bold; '>class</span> IB, <span style='color:#000084; font-weight:bold; '>class</span> IE> <span style='color:#000084; font-weight:bold; '>struct</span> erase_range;
+</pre>
+    <h4>3.3.3. Example</h4>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#000084; font-weight:bold; '>typedef</span> <span style='color:#000084; font-weight:bold; '>list</span>::push_back&lt;<span style='color:#000084; font-weight:bold; '>int</span>>::push_back&lt;<span style='color:#000084; font-weight:bold; '>char</span>>::push_back&lt;<span style='color:#000084; font-weight:bold; '>long</span>> my_list;</pre>
+    <h2>4. Intrusive Pointer and Reference</h2>
+    <p>
+Namespace <span class="code">citylizard::intrusive</span>.
+    </p>
+    <h3>4.1. Intrusive Pointer</h3>
+    <pre>
+template<class T>
+struct ptr
+{
+    ptr() throw();
+    ptr(ptr const &) throw();
+    ptr(ptr &&) throw();
+    ptr(ref<T> const &) throw();
+
+    ptr &operator=(ptr const &) throw();
+    ptr &operator=(ptr &&) throw();
+    ptr &operator=(ref<T> const &) throw();
+
+    void reset() throw();
+
+    void swap(ptr &) throw();
+    void swap(ref<T> &) throw(...);
+
+    bool operator==(ptr const &) const throw();
+    bool operator==(ref<T> const &) const throw();
+
+    bool operator!=(ptr const &) const throw();
+    bool operator!=(ref<T> const &) const throw();
+
+    T &operator*() const throw(...);
+    T *operator->() const throw(...);
+
+    bool bool_cast() const throw();
+
+    template<class U>
+    ptr<U> up_cast() const throw();
+
+    template<class U>
+    ptr<U> up_cast() && throw();
+};
+    </pre>
+</body>
+</html>

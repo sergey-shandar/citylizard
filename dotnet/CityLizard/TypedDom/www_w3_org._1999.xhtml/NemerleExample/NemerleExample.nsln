@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Nemerle Studio Solution File, Format Version 10.00
+Project("{EDCC3B85-0BAD-11DB-BC1A-00112FDE8B61}") = "NemerleExample", "NemerleExample.nproj", "{C0615049-BD01-4173-90AA-25D0AB880240}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C0615049-BD01-4173-90AA-25D0AB880240}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0615049-BD01-4173-90AA-25D0AB880240}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0615049-BD01-4173-90AA-25D0AB880240}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0615049-BD01-4173-90AA-25D0AB880240}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

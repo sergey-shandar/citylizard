@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A2FB53CB-4F6A-4C72-A2BB-57A696489E23}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CityLizard.Xml</RootNamespace>
+    <AssemblyName>CityLizard.Xml</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <Compile Include="..\Attribute.cs">
+      <Link>Attribute.cs</Link>
+    </Compile>
+    <Compile Include="..\ICharacterData.cs">
+      <Link>ICharacterData.cs</Link>
+    </Compile>
+    <Compile Include="..\Implementation.cs">
+      <Link>Implementation.cs</Link>
+    </Compile>
+    <Compile Include="..\IQName.cs">
+      <Link>IQName.cs</Link>
+    </Compile>
+    <Compile Include="..\Linked\Comment.cs">
+      <Link>Linked\Comment.cs</Link>
+    </Compile>
+    <Compile Include="..\Linked\Element\Complex.cs">
+      <Link>Linked\Element\Complex.cs</Link>
+    </Compile>
+    <Compile Include="..\Linked\Element\Element.cs">
+      <Link>Linked\Element\Element.cs</Link>
+    </Compile>
+    <Compile Include="..\Linked\Element\Empty.cs">
+      <Link>Linked\Element\Empty.cs</Link>
+    </Compile>
+    <Compile Include="..\Linked\Element\Mixed.cs">
+      <Link>Linked\Element\Mixed.cs</Link>
+    </Compile>
+    <Compile Include="..\Linked\Element\NotEmpty.cs">
+      <Link>Linked\Element\NotEmpty.cs</Link>
+    </Compile>
+    <Compile Include="..\Linked\Element\NotMixed.cs">
+      <Link>Linked\Element\NotMixed.cs</Link>
+    </Compile>
+    <Compile Include="..\Linked\Element\Simple.cs">
+      <Link>Linked\Element\Simple.cs</Link>
+    </Compile>
+    <Compile Include="..\Linked\Element\Type.cs">
+      <Link>Linked\Element\Type.cs</Link>
+    </Compile>
+    <Compile Include="..\Linked\LinkedNode.cs">
+      <Link>Linked\LinkedNode.cs</Link>
+    </Compile>
+    <Compile Include="..\Linked\Text.cs">
+      <Link>Linked\Text.cs</Link>
+    </Compile>
+    <Compile Include="..\Node.cs">
+      <Link>Node.cs</Link>
+    </Compile>
+    <Compile Include="..\QName.cs">
+      <Link>QName.cs</Link>
+    </Compile>
+    <Compile Include="..\Untyped.cs">
+      <Link>Untyped.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v1.0\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

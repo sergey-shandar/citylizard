@@ -1,0 +1,295 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Itanium">
+      <Configuration>Debug</Configuration>
+      <Platform>Itanium</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Itanium">
+      <Configuration>Release</Configuration>
+      <Platform>Itanium</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{AC9DDA3E-0D35-4EAA-842C-1AB41B062E47}</ProjectGuid>
+    <RootNamespace>citylizard_com</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Itanium'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Itanium'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Itanium'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Itanium'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Itanium'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Itanium'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Itanium'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Itanium'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Itanium'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Itanium'">false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>C:\Users\Sergey\Downloads\boost_1_46_1;C:\Users\Sergey\Desktop\citylizardpp.codeplex.com;</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>C:\Users\Sergey\Downloads\boost_1_46_1\stage_x86\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command>"$(TargetDir)\$(TargetName).exe" --result_code=no --report_level=no </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Itanium'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>C:\Users\Sergey\Downloads\boost_1_46_1;C:\Users\Sergey\Desktop\citylizardpp.codeplex.com;</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>C:\Program Files\Microsoft SDKs\Windows\v7.1\Lib\IA64;C:\Users\Sergey\Downloads\boost_1_45_0\stage_ia64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <PostBuildEvent>
+      <Command>"$(TargetDir)\$(TargetName).exe" --result_code=no --report_level=no </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>C:\Users\Sergey\Downloads\boost_1_46_1;C:\Users\Sergey\Desktop\citylizardpp.codeplex.com;</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>C:\Users\Sergey\Downloads\boost_1_46_1\stage_x86\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command>"$(TargetDir)\$(TargetName).exe" --result_code=no --report_level=no </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Itanium'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>C:\Users\Sergey\Downloads\boost_1_46_1;C:\Users\Sergey\Desktop\citylizardpp.codeplex.com;</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>C:\Program Files\Microsoft SDKs\Windows\v7.1\Lib\IA64;C:\Users\Sergey\Downloads\boost_1_45_0\stage_ia64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+    </Link>
+    <PostBuildEvent>
+      <Command>"$(TargetDir)\$(TargetName).exe" --result_code=no --report_level=no </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\Sergey\Downloads\boost_1_46_1;C:\Users\Sergey\Desktop\citylizardpp.codeplex.com;</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>C:\Program Files\Microsoft SDKs\Windows\v7.1\Lib\x64;C:\Users\Sergey\Downloads\boost_1_45_0\stage_x86_64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>"$(TargetDir)\$(TargetName).exe" --result_code=no --report_level=no </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\Sergey\Downloads\boost_1_46_1;C:\Users\Sergey\Desktop\citylizardpp.codeplex.com;</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>C:\Program Files\Microsoft SDKs\Windows\v7.1\Lib\x64;C:\Users\Sergey\Downloads\boost_1_45_0\stage_x86_64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>"$(TargetDir)\$(TargetName).exe" --result_code=no --report_level=no </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="binary\b.hpp" />
+    <ClInclude Include="cast\const.hpp" />
+    <ClInclude Include="cast\default.hpp" />
+    <ClInclude Include="cast\dynamic.hpp" />
+    <ClInclude Include="cast\explicit.hpp" />
+    <ClInclude Include="cast\implicit.hpp" />
+    <ClInclude Include="cast\polymorphic.hpp" />
+    <ClInclude Include="cast\polymorphic_down.hpp" />
+    <ClInclude Include="cast\reinterpret.hpp" />
+    <ClInclude Include="cast\safe_reinterpret.hpp" />
+    <ClInclude Include="cast\static.hpp" />
+    <ClInclude Include="cast\_detail\base.hpp" />
+    <ClInclude Include="com\_detail\ignore.hpp" />
+    <ClInclude Include="com\_detail\ignore.test.hpp" />
+    <ClInclude Include="com\_detail\query_interface_handled.hpp" />
+    <ClInclude Include="config\_detail\config.hpp" />
+    <ClInclude Include="intrusive\_detail\assume.hpp" />
+    <ClInclude Include="intrusive\_detail\holder.hpp" />
+    <ClInclude Include="meta\bool.hpp" />
+    <ClInclude Include="meta\bool_fwd.hpp" />
+    <ClInclude Include="meta\const.hpp" />
+    <ClInclude Include="meta\eval_if.hpp" />
+    <ClInclude Include="meta\eval_if_c.hpp" />
+    <ClInclude Include="meta\eval_is_same.hpp" />
+    <ClInclude Include="meta\if.hpp" />
+    <ClInclude Include="meta\if_c.hpp" />
+    <ClInclude Include="meta\is_reference.hpp" />
+    <ClInclude Include="meta\is_same.hpp" />
+    <ClInclude Include="meta\is_same_fwd.hpp" />
+    <ClInclude Include="meta\list.hpp" />
+    <ClInclude Include="intrusive\ptr.hpp" />
+    <ClInclude Include="intrusive\ptr_fwd.hpp" />
+    <ClInclude Include="intrusive\ref.hpp" />
+    <ClInclude Include="intrusive\ref_fwd.hpp" />
+    <ClInclude Include="intrusive\user\traits.hpp" />
+    <ClInclude Include="com\exception.hpp" />
+    <ClInclude Include="com\is_same_object.hpp" />
+    <ClInclude Include="com\iunknown.hpp" />
+    <ClInclude Include="com\query_interface.hpp" />
+    <ClInclude Include="com\query_interface_cast.hpp" />
+    <ClInclude Include="main.hpp" />
+    <ClInclude Include="meta\_detail\if_c.hpp" />
+    <ClInclude Include="meta\_detail\list_config.hpp" />
+    <ClInclude Include="meta\_detail\op.hpp" />
+    <ClInclude Include="tuple\list.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="binary\b.test.cpp" />
+    <ClCompile Include="cast\const.test.cpp" />
+    <ClCompile Include="cast\default.test.cpp" />
+    <ClCompile Include="cast\dynamic.test.cpp" />
+    <ClCompile Include="cast\explicit.test.cpp" />
+    <ClCompile Include="cast\implicit.test.cpp" />
+    <ClCompile Include="cast\polymorphic.test.cpp" />
+    <ClCompile Include="cast\polymorphic_down.test.cpp" />
+    <ClCompile Include="cast\reinterpret.test.cpp" />
+    <ClCompile Include="cast\safe_reinterpret.test.cpp" />
+    <ClCompile Include="cast\static.test.cpp" />
+    <ClCompile Include="com\_detail\query_interface_handled.test.cpp" />
+    <ClCompile Include="intrusive\_detail\assume.test.cpp" />
+    <ClCompile Include="intrusive\_detail\holder.test.cpp" />
+    <ClCompile Include="meta\const.test.cpp" />
+    <ClCompile Include="meta\eval_if.test.cpp" />
+    <ClCompile Include="meta\eval_if_c.test.cpp" />
+    <ClCompile Include="meta\eval_is_same.test.cpp" />
+    <ClCompile Include="meta\if.test.cpp" />
+    <ClCompile Include="meta\if_c.test.cpp" />
+    <ClCompile Include="intrusive\ptr.test.cpp" />
+    <ClCompile Include="intrusive\ptr_fwd.test.cpp" />
+    <ClCompile Include="intrusive\ref.test.cpp" />
+    <ClCompile Include="intrusive\ref_fwd.test.cpp" />
+    <ClCompile Include="intrusive\user\traits.test.cpp" />
+    <ClCompile Include="com\exception.test.cpp" />
+    <ClCompile Include="com\is_same_object.test.cpp" />
+    <ClCompile Include="com\iunknown.test.cpp" />
+    <ClCompile Include="com\query_interface.test.cpp" />
+    <ClCompile Include="com\query_interface_cast.test.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="meta\is_same.test.cpp" />
+    <ClCompile Include="meta\list.test.cpp" />
+    <ClCompile Include="tuple\list.test.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

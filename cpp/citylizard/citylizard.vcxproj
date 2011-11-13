@@ -84,7 +84,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>C:\Users\Sergey\Downloads\boost_1_46_1;C:\Users\Sergey\Desktop\citylizardpp.codeplex.com;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Sergey\Downloads\boost_1_46_1;..</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -129,7 +129,7 @@
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>C:\Users\Sergey\Downloads\boost_1_46_1;C:\Users\Sergey\Desktop\citylizardpp.codeplex.com;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Sergey\Downloads\boost_1_46_1;..</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>

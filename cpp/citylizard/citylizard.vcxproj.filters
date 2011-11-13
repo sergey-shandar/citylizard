@@ -37,6 +37,9 @@
     <Filter Include="binary">
       <UniqueIdentifier>{55b58ed6-4ac5-4dad-b38b-bcf7bb18f90e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="tuple">
+      <UniqueIdentifier>{fba5affb-9970-43d2-af0c-c74b1b1ccda2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="meta\eval_if.hpp">
@@ -169,6 +172,9 @@
     <ClInclude Include="meta\is_same_fwd.hpp">
       <Filter>meta</Filter>
     </ClInclude>
+    <ClInclude Include="tuple\list.hpp">
+      <Filter>tuple</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="meta\eval_if.test.cpp">
@@ -267,6 +273,9 @@
     </ClCompile>
     <ClCompile Include="cast\implicit.test.cpp">
       <Filter>cast</Filter>
+    </ClCompile>
+    <ClCompile Include="tuple\list.test.cpp">
+      <Filter>tuple</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

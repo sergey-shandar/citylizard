@@ -251,6 +251,7 @@
     <ClInclude Include="meta\_detail\if_c.hpp" />
     <ClInclude Include="meta\_detail\list_config.hpp" />
     <ClInclude Include="meta\_detail\op.hpp" />
+    <ClInclude Include="tuple\list.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="binary\b.test.cpp" />
@@ -286,6 +287,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="meta\is_same.test.cpp" />
     <ClCompile Include="meta\list.test.cpp" />
+    <ClCompile Include="tuple\list.test.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -70,6 +70,8 @@ public:
     /// Itself.
     typedef list type;
 
+	typedef C config;
+
     /// Equal.
     template<class L>
     class equal: public eval_is_same<L, list> {};

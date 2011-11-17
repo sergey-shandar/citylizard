@@ -41,4 +41,5 @@ BOOST_AUTO_TEST_CASE(cast_dynamic_test)
     by;
     a *pax1 = 0;
     b *by1 = dynamic::value(pax1);
+	by1;
 }

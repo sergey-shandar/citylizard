@@ -12,6 +12,9 @@ namespace meta
 namespace _detail
 {
 
+template<class C>
+class tuple;
+
 /// Requirements to list config:
 ///
 /// - 'front' value type (optional).
@@ -89,6 +92,7 @@ public:
     public:
         typedef null type;
     };
+
 };
 
 template<class C, class B>
@@ -102,9 +106,14 @@ public:
     typedef one type;
 
     typedef B front;
-    typedef B back;
-    typedef null pop_front;
+    
+	typedef B back;
+    
+	typedef null pop_front;
+	typedef tuple<null> pop_front_tuple;
+
     typedef null pop_back;
+	typedef tuple<null> pop_back_tuple;
 
     static ::std::size_t const size = 1;
 
@@ -177,6 +186,31 @@ public:
     public:
         typedef type type;
     };
+
+	class tuple_detail
+	{
+	public:
+
+		back back_v;
+
+		const front &front_ref() const
+		{
+			return this->back_value;
+		}
+
+		static pop_back_tuple pop_back_value()
+		{
+			return tuple<null>();
+		}
+
+		template< ::std::size_t I>
+		const typename at_c<I>::type &at_value() const
+		{
+			return this->back_v;
+		}
+
+	};
+
 };
 
 /// C must be either 'one' or 'append'.
@@ -192,10 +226,14 @@ public:
     typedef append type;
 
     typedef C pop_back;
+	typedef tuple<pop_back> pop_back_tuple;
+
     typedef B back;
 
     typedef typename pop_back::pop_front::template push_back<B>::type
         pop_front;
+	typedef tuple<pop_front> pop_front_tuple;
+
     typedef typename pop_back::front front;
 
     static ::std::size_t const size = pop_back::size + 1;
@@ -272,6 +310,43 @@ public:
     public:
         typedef type type;
     };
+
+	class tuple_detail
+	{
+	public:
+
+		pop_back_tuple pop_back_v;
+		
+		back back_v;
+
+		const front &front_ref() const
+		{
+			return this->pb.front();
+		}
+
+		const pop_back_tuple &pop_back_value() const
+		{
+			return this->pop_back_v;
+		}
+
+		pop_front_tuple pop_front_value() const
+		{
+			return this->pop_back_v.pop_front().push_back(this->back_v);
+		}
+
+		template< ::std::size_t I>
+		const typename at_c<I>::type &at_value() const
+		{
+			return this->pop_back_v.at<I>();
+		}
+
+		template<>
+		const typename at_c<size - 1>::type &at_value<size - 1>() const
+		{
+			return this->back_v;
+		}
+	};
+
 };
 
 template<class Config>

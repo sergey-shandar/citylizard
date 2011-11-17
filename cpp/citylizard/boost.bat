@@ -4,7 +4,8 @@ rem cd C:\Users\Sergey\Downloads\boost_1_45_0\
 rem cd C:\Users\Sergey\Downloads\boost_1_46_0\
 rem cd C:\Users\sshandar\Downloads\boost_1_46_1\
 rem cd C:\Users\sshandar\Downloads\boost_1_47_0\
-cd C:\Users\Sergey\Downloads\boost_1_47_0\
+rem cd C:\Users\Sergey\Downloads\boost_1_47_0\
+cd "C:\Documents and Settings\Sergey\My Documents\Downloads\boost_1_47_0"
 
 rem set VSINSTALLDIR=C:\Program Files (x86)\Microsoft Visual Studio 10.0\
 

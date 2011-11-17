@@ -84,7 +84,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>C:\Users\Sergey\Downloads\boost_1_46_1;..</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Documents and Settings\Sergey\My Documents\Downloads\boost_1_47_0;..</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -129,7 +129,7 @@
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>C:\Users\Sergey\Downloads\boost_1_46_1;..</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Documents and Settings\Sergey\My Documents\Downloads\boost_1_47_0;..</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -248,10 +248,10 @@
     <ClInclude Include="com\query_interface.hpp" />
     <ClInclude Include="com\query_interface_cast.hpp" />
     <ClInclude Include="main.hpp" />
+    <ClInclude Include="meta\tuple.h" />
     <ClInclude Include="meta\_detail\if_c.hpp" />
     <ClInclude Include="meta\_detail\list_config.hpp" />
     <ClInclude Include="meta\_detail\op.hpp" />
-    <ClInclude Include="tuple\list.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="binary\b.test.cpp" />
@@ -287,7 +287,6 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="meta\is_same.test.cpp" />
     <ClCompile Include="meta\list.test.cpp" />
-    <ClCompile Include="tuple\list.test.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

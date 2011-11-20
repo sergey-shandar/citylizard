@@ -37,6 +37,9 @@
     <Filter Include="binary">
       <UniqueIdentifier>{55b58ed6-4ac5-4dad-b38b-bcf7bb18f90e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="tuple">
+      <UniqueIdentifier>{170ae49b-35e5-44a7-9d76-79cc73216155}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="meta\eval_if.hpp">
@@ -169,8 +172,8 @@
     <ClInclude Include="meta\is_same_fwd.hpp">
       <Filter>meta</Filter>
     </ClInclude>
-    <ClInclude Include="meta\tuple.h">
-      <Filter>meta</Filter>
+    <ClInclude Include="tuple\list.hpp">
+      <Filter>tuple</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

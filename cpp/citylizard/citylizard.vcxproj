@@ -248,10 +248,10 @@
     <ClInclude Include="com\query_interface.hpp" />
     <ClInclude Include="com\query_interface_cast.hpp" />
     <ClInclude Include="main.hpp" />
-    <ClInclude Include="meta\tuple.h" />
     <ClInclude Include="meta\_detail\if_c.hpp" />
     <ClInclude Include="meta\_detail\list_config.hpp" />
     <ClInclude Include="meta\_detail\op.hpp" />
+    <ClInclude Include="tuple\list.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="binary\b.test.cpp" />

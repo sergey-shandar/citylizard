@@ -141,3 +141,5 @@ static_assert(::std::is_same<L4_2, L4_3>::value, "");
 
 typedef L0::push_back<int>::push_back<void>::type x;
 // static_assert(::std::is_same<int_type, int>::value, "");
+
+typedef L0::push_back<void>::type V0;

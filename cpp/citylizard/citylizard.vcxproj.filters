@@ -274,5 +274,8 @@
     <ClCompile Include="cast\implicit.test.cpp">
       <Filter>cast</Filter>
     </ClCompile>
+    <ClCompile Include="tuple\list.test.cpp">
+      <Filter>tuple</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

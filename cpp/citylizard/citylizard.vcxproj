@@ -251,6 +251,7 @@
     <ClInclude Include="meta\_detail\if_c.hpp" />
     <ClInclude Include="meta\_detail\list_config.hpp" />
     <ClInclude Include="meta\_detail\op.hpp" />
+    <ClInclude Include="tuple\idea.hpp" />
     <ClInclude Include="tuple\list.hpp" />
   </ItemGroup>
   <ItemGroup>

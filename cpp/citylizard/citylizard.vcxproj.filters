@@ -175,6 +175,9 @@
     <ClInclude Include="tuple\list.hpp">
       <Filter>tuple</Filter>
     </ClInclude>
+    <ClInclude Include="tuple\idea.hpp">
+      <Filter>tuple</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="meta\eval_if.test.cpp">

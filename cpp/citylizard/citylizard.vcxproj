@@ -223,6 +223,7 @@
     <ClInclude Include="com\_detail\ignore.test.hpp" />
     <ClInclude Include="com\_detail\query_interface_handled.hpp" />
     <ClInclude Include="config\_detail\config.hpp" />
+    <ClInclude Include="containers\tuple.hpp" />
     <ClInclude Include="intrusive\_detail\assume.hpp" />
     <ClInclude Include="intrusive\_detail\holder.hpp" />
     <ClInclude Include="meta\bool.hpp" />

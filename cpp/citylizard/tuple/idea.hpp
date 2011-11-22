@@ -1,24 +1,18 @@
 namespace _detail
 {
     template<class Config>
-    class tuple_traits
+    class tuple_config
     {
     public:
 
-        class struct_t
+        tuple<typename Config::pop_back> pop_back_value;
+
+        back_t back_value;
+
+        front_t const &front() const
         {
-        public:
-
-            tuple<typename Config::pop_back> pop_back_value;
-
-            back_t back_value;
-
-            front_t const &front() const
-            {
-                ...
-            }
-
-        };
+            ...
+        }
 
         template<class T>
         static typename push_back_t<T>::type push_back(tuple const &this_, T const &value)
@@ -80,6 +74,11 @@ public:
         return traits_t::push_back(*this, value);
     }
 
+	template<class T>
+	typename push_back_t<T>::type operator()(T value) const
+	{
+		return traits_t::push_back(*this, value);
+	}
 };
 
 typedef tuple_t<meta::_detail::null> tuple;

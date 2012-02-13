@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+# Visual Web Developer Express 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Xml", "Xml\CityLizard.Xml.csproj", "{270D7B7A-75BC-49BF-AE8E-ABB2FBC8D117}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.NUnit", "NUnit\CityLizard.NUnit.csproj", "{717D3E99-EFCF-46BE-BF30-8E970D2AE9D0}"
@@ -42,6 +42,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Xml.Utf8", "Xml\Utf8\CityLizard.Xml.Utf8.csproj", "{5AEC4610-6486-4ED4-B944-775C77E8CC32}"
 EndProject
 Project("{EDCC3B85-0BAD-11DB-BC1A-00112FDE8B61}") = "CityLizard.Start", "Start\CityLizard.Start.nproj", "{C2419534-48CB-418F-9679-25B58800215C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Xml.Silverlight5", "Xml\Silverlight5\CityLizard.Xml.Silverlight5.csproj", "{972E5D11-8824-401A-9778-40EED467240B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -261,6 +263,16 @@ Global
 		{C2419534-48CB-418F-9679-25B58800215C}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{C2419534-48CB-418F-9679-25B58800215C}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{C2419534-48CB-418F-9679-25B58800215C}.Release|x86.ActiveCfg = Release|Any CPU
+		{972E5D11-8824-401A-9778-40EED467240B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{972E5D11-8824-401A-9778-40EED467240B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{972E5D11-8824-401A-9778-40EED467240B}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{972E5D11-8824-401A-9778-40EED467240B}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{972E5D11-8824-401A-9778-40EED467240B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{972E5D11-8824-401A-9778-40EED467240B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{972E5D11-8824-401A-9778-40EED467240B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{972E5D11-8824-401A-9778-40EED467240B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{972E5D11-8824-401A-9778-40EED467240B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{972E5D11-8824-401A-9778-40EED467240B}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

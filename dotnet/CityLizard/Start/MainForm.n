@@ -1,0 +1,103 @@
+﻿using Nemerle.Collections;
+using Nemerle.Text;
+using Nemerle.Utility;
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace CityLizard.Start
+{
+  using IO = System.IO;
+  using D = System.Diagnostics;
+  
+  /// <summary>
+  /// Description of MainForm.
+  /// </summary>
+  public partial class MainForm : Form
+  {
+    private folderIcon: int;
+    
+    public this()
+    {
+      InitializeComponent();
+      //
+      this.folderIcon = AddIcon(@"C:\Windows\explorer.exe");
+    }
+    
+    private AddIcon(path: string): int
+    {
+      def icon = Icon.ExtractAssociatedIcon(path);
+      def iconIndex = this.imageList.Images.Count;
+      this.imageList.Images.Add(icon.ToBitmap());
+      iconIndex;
+    }
+    
+    private sealed class Node: TreeNode
+    {
+      public Path: string;
+      
+      public this(name: string, path: string, imageIndex: int)
+      {
+        base(name, imageIndex, imageIndex);
+        this.Path = path;
+      }
+    }
+       
+    private AddNode(nodes: TreeNodeCollection, path: string, iconIndex: int): 
+      TreeNode
+    {
+      def name = IO.Path.GetFileNameWithoutExtension(path);
+      def child = nodes.OfType().FirstOrDefault(node => node.Text == name);
+      if(child == null)
+      {
+        def node = Node(name, path, iconIndex);
+        _ = nodes.Add(node);
+        node;
+      }
+      else
+      {
+        child;
+      }
+    }
+    
+    private AddNodes(nodes: TreeNodeCollection, path: string): void
+    {
+      foreach(dir in IO.Directory.EnumerateDirectories(path))
+      {
+        def node = this.AddNode(nodes, dir, this.folderIcon);
+        this.AddNodes(node.Nodes, dir);
+      }
+      foreach(file in IO.Directory.EnumerateFiles(path))
+      {
+        _ = this.AddNode(nodes, file, this.AddIcon(file));
+      }
+    }
+  
+    private MainForm_Load (_ : object,  _ : System.EventArgs) : void
+    {
+      def nodes = this.treeView.Nodes;
+      this.AddNodes(
+        nodes,
+        IO.Path.Combine(
+          @"C:\Users",
+          System.Environment.UserName,
+          @"AppData\Roaming\Microsoft\Windows\Start Menu"));      
+      this.AddNodes(nodes, @"C:\ProgramData\Microsoft\Windows\Start Menu");
+    }
+  
+    private treeView_DoubleClick (_ : object,  _ : System.EventArgs) : void
+    {      
+      def node = this.treeView.SelectedNode;
+      when(node != null)
+      {
+        _ = D.Process.Start((node :> Node).Path);
+      }
+    }
+  }
+}

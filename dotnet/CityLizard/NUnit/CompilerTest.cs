@@ -10,7 +10,7 @@
     [N.TestFixture]
     public static class CompilerTest
     {
-        private const string thirdParty = "../../../../third_party/";
+        private const string thirdParty = "../../../../../third_party/";
 
         [N.Test]
         public static void Load()

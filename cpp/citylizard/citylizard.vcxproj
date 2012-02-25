@@ -223,6 +223,7 @@
     <ClInclude Include="com\_detail\ignore.test.hpp" />
     <ClInclude Include="com\_detail\query_interface_handled.hpp" />
     <ClInclude Include="config\_detail\config.hpp" />
+    <ClInclude Include="container\tuple.hpp" />
     <ClInclude Include="intrusive\_detail\assume.hpp" />
     <ClInclude Include="intrusive\_detail\holder.hpp" />
     <ClInclude Include="meta\bool.hpp" />
@@ -251,6 +252,7 @@
     <ClInclude Include="meta\_detail\if_c.hpp" />
     <ClInclude Include="meta\_detail\list_config.hpp" />
     <ClInclude Include="meta\_detail\op.hpp" />
+    <ClInclude Include="shared\idea.hpp" />
     <ClInclude Include="tuple\idea.hpp" />
     <ClInclude Include="tuple\list.hpp" />
   </ItemGroup>

@@ -40,8 +40,11 @@
     <Filter Include="tuple">
       <UniqueIdentifier>{170ae49b-35e5-44a7-9d76-79cc73216155}</UniqueIdentifier>
     </Filter>
-    <Filter Include="containers">
+    <Filter Include="container">
       <UniqueIdentifier>{2d0b27d4-b50c-4568-8562-4527d3499ed7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shared">
+      <UniqueIdentifier>{1c007a5f-084f-40b3-bbdf-5ab643a97f41}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -181,8 +184,11 @@
     <ClInclude Include="tuple\idea.hpp">
       <Filter>tuple</Filter>
     </ClInclude>
-    <ClInclude Include="containers\tuple.hpp">
-      <Filter>containers</Filter>
+    <ClInclude Include="container\tuple.hpp">
+      <Filter>container</Filter>
+    </ClInclude>
+    <ClInclude Include="shared\idea.hpp">
+      <Filter>shared</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

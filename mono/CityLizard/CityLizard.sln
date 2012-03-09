@@ -1,35 +1,51 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+# Visual C++ Express 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.PInvoke", "PInvoke\CityLizard.PInvoke.csproj", "{6DC57DB5-83E9-4778-BD3A-020FCC96C7D1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.PInvoke.Console", "PInvoke\Console\CityLizard.PInvoke.Console.csproj", "{CDC10F4A-FFDB-4A38-8C43-6ED0E11DEFFF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.PInvoke.Test", "PInvoke\Test\CityLizard.PInvoke.Test.csproj", "{23D19C7F-E7D8-4B6D-862B-064FFE867C4F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "citylizard_pinvoke_test_cpp", "citylizard_pinvoke_test_cpp\citylizard_pinvoke_test_cpp.vcxproj", "{07EFD53E-48B5-454D-B4C5-96A2C10C642D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|Win32 = Debug|Win32
 		Release|Any CPU = Release|Any CPU
+		Release|Win32 = Release|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{23D19C7F-E7D8-4B6D-862B-064FFE867C4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{23D19C7F-E7D8-4B6D-862B-064FFE867C4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{23D19C7F-E7D8-4B6D-862B-064FFE867C4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{23D19C7F-E7D8-4B6D-862B-064FFE867C4F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6DC57DB5-83E9-4778-BD3A-020FCC96C7D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6DC57DB5-83E9-4778-BD3A-020FCC96C7D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DC57DB5-83E9-4778-BD3A-020FCC96C7D1}.Debug|Win32.ActiveCfg = Debug|Any CPU
 		{6DC57DB5-83E9-4778-BD3A-020FCC96C7D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6DC57DB5-83E9-4778-BD3A-020FCC96C7D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DC57DB5-83E9-4778-BD3A-020FCC96C7D1}.Release|Win32.ActiveCfg = Release|Any CPU
 		{CDC10F4A-FFDB-4A38-8C43-6ED0E11DEFFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CDC10F4A-FFDB-4A38-8C43-6ED0E11DEFFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDC10F4A-FFDB-4A38-8C43-6ED0E11DEFFF}.Debug|Win32.ActiveCfg = Debug|Any CPU
 		{CDC10F4A-FFDB-4A38-8C43-6ED0E11DEFFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CDC10F4A-FFDB-4A38-8C43-6ED0E11DEFFF}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = PInvoke\Console\CityLizard.PInvoke.Console.csproj
+		{CDC10F4A-FFDB-4A38-8C43-6ED0E11DEFFF}.Release|Win32.ActiveCfg = Release|Any CPU
+		{23D19C7F-E7D8-4B6D-862B-064FFE867C4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23D19C7F-E7D8-4B6D-862B-064FFE867C4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23D19C7F-E7D8-4B6D-862B-064FFE867C4F}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{23D19C7F-E7D8-4B6D-862B-064FFE867C4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23D19C7F-E7D8-4B6D-862B-064FFE867C4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23D19C7F-E7D8-4B6D-862B-064FFE867C4F}.Release|Win32.ActiveCfg = Release|Any CPU
+		{07EFD53E-48B5-454D-B4C5-96A2C10C642D}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{07EFD53E-48B5-454D-B4C5-96A2C10C642D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{07EFD53E-48B5-454D-B4C5-96A2C10C642D}.Debug|Win32.Build.0 = Debug|Win32
+		{07EFD53E-48B5-454D-B4C5-96A2C10C642D}.Release|Any CPU.ActiveCfg = Release|Win32
+		{07EFD53E-48B5-454D-B4C5-96A2C10C642D}.Release|Win32.ActiveCfg = Release|Win32
+		{07EFD53E-48B5-454D-B4C5-96A2C10C642D}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = PInvoke\Console\CityLizard.PInvoke.Console.csproj
 	EndGlobalSection
 EndGlobal

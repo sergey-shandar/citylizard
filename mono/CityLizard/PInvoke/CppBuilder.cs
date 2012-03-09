@@ -30,12 +30,12 @@ namespace CityLizard.PInvoke
 			{ typeof(ulong), "uint64_t" },
 			{ typeof(long), "int64_t" },
 
-            { typeof(string), "::citylizard::pinvoke::bstr" },
+            { typeof(string), "BSTR *" },
 		};
 
         private const string tab = "    ";
 		
-		private string GetCppType(S.Type type)
+		private static string GetCppType(S.Type type)
 		{
             string value;
             if (cppTypeMap.TryGetValue(type, out value))
@@ -45,6 +45,43 @@ namespace CityLizard.PInvoke
             return "::" + type.ToString().Replace(".", "::");
 		}
 
+        class Parameter
+        {
+            public readonly S.Type Type;
+            public readonly bool IsIn;
+            public readonly bool IsOut;
+
+            public Parameter(S.Type type, bool isIn, bool isOut)
+            {
+                this.Type = type;
+                this.IsIn = isIn;
+                this.IsOut = isOut;
+            }
+
+            public Parameter(R.ParameterInfo parameter): 
+                this(parameter.ParameterType, parameter.IsIn, parameter.IsOut)
+            {
+            }
+
+            public string GetCpp()
+            {
+                return GetCppType(this.Type) + (this.IsOut ? " *" : "");
+            }
+        }
+
+        private static C.IEnumerable<Parameter> GetCppParameters(R.MethodInfo method)
+        {
+            foreach (var p in method.GetParameters())
+            {
+                yield return new Parameter(p);
+            }
+            var type = method.ReturnType;
+            if (type != typeof(void))
+            {
+                yield return new Parameter(type, false, true);
+            }
+        }
+
         private string GetCppMethod(R.MethodInfo method)
         {
             return
@@ -52,11 +89,12 @@ namespace CityLizard.PInvoke
                 " " +
                 method.Name +
                 "(" +
-                string.Join(", ", method.GetParameters().Select(p => GetCppType(p.ParameterType))) +
+                string.Join(
+                    ", ", GetCppParameters(method).Select(p => p.GetCpp())) +
                 ");\n";
         }
 		
-		public string Build(R.Assembly assembly)
+		public T.StringBuilder Build(R.Assembly assembly)
 		{
             var result = new T.StringBuilder();
 
@@ -69,7 +107,7 @@ namespace CityLizard.PInvoke
                 {
                     result.Append("enum " + type.Name + "\n");
                     result.Append("{\n");
-                    result.AppendConcat(type.GetEnumItems().Select(e => tab + e.Name + " = " + e.Value + "\n"));
+                    result.AppendConcat(type.GetEnumItems().Select(e => tab + e.Name + " = " + e.Value + ",\n"));
                     result.Append("};\n");
                 }
                 else if (type.IsValueType)
@@ -97,7 +135,7 @@ namespace CityLizard.PInvoke
                     Where(method => (method.Attributes & R.MethodAttributes.PinvokeImpl) != 0).
                     Select(method => GetCppMethod(method)));
 
-            return result.ToString();
+            return result;
 		}
 	}
 }

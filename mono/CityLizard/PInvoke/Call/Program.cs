@@ -45,6 +45,12 @@
 
             int d = Test.MyClass.D(127, 12);
             var ee = Test.MyClass.E(Test.MyEnum.C, Test.MyEnum.B);
+
+            Test.MyClass.CheckBool(true, true, true, true, 0x1111);
+            Test.MyClass.CheckBool(true, false, true, true, 0x1011);
+            Test.MyClass.CheckBool(true, false, false, true, 0x1001);
+            Test.MyClass.CheckBool(false, false, false, true, 0x0001);
+            Test.MyClass.CheckBool(false, false, false, false, 0x0000);
         }
     }
 }

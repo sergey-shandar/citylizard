@@ -26,6 +26,7 @@ relre:\.nupkg$
 relre:\.nsuo$
 syntax: glob
 CityLizard/Policy/Base.cs
+mono/citylizard_pinvoke_test_cpp/interface.hpp
 syntax: regexp
 /build/
 /private/

@@ -10,7 +10,7 @@ namespace CityLizard.PInvoke.Console
 		{
 			var builder = new CppBuilder();
             var sb = builder.Build(typeof(Test.MyClass).Assembly);
-            using (var outfile = new IO.StreamWriter("../../../../../citylizard_pinvoke_test_cpp/interface.hpp"))
+            using (var outfile = new IO.StreamWriter("../../../../../../citylizard_pinvoke_test_cpp/interface.hpp"))
             {
                 outfile.Write(sb.ToString());
             }

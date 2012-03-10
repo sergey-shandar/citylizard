@@ -34,6 +34,8 @@ namespace CityLizard.PInvoke
 		};
 
         private const string tab = "    ";
+
+        private const string eol = "\r\n";
 		
 		private static string GetCppType(S.Type type)
 		{
@@ -85,50 +87,57 @@ namespace CityLizard.PInvoke
         private string GetCppMethod(R.MethodInfo method)
         {
             return
-                GetCppType(method.ReturnType) +
-                " " +
+                "HRESULT " +
                 method.Name +
                 "(" +
                 string.Join(
                     ", ", GetCppParameters(method).Select(p => p.GetCpp())) +
-                ");\n";
+                ");";
         }
 		
 		public T.StringBuilder Build(R.Assembly assembly)
 		{
             var result = new T.StringBuilder();
 
+            result.AppendLine("#pragma once");
+            result.AppendLine("#include <Windows.h>");
+            result.AppendLine("#include <boost/cstdint.hpp>");
+
             // enumerations, structures and interfaces.
             foreach (var type in assembly.GetTypes())
             {
                 var namespaces = type.Namespace.Split('.');
-                result.AppendConcat(namespaces.Select(name => "namespace " + name + "\n" + "{\n"));
+                result.AppendLineConcat(namespaces.Select(name => "namespace " + name + eol + "{"));
+
+                // enum
                 if (type.IsEnum)
                 {
-                    result.Append("enum " + type.Name + "\n");
-                    result.Append("{\n");
-                    result.AppendConcat(type.GetEnumItems().Select(e => tab + e.Name + " = " + e.Value + ",\n"));
-                    result.Append("};\n");
+                    result.AppendLine("enum " + type.Name);
+                    result.AppendLine("{");
+                    result.AppendLineConcat(type.GetEnumItems().Select(e => tab + e.Name + " = " + e.Value + ","));
+                    result.AppendLine("};");
                 }
+                // struct
                 else if (type.IsValueType)
                 {
-                    result.Append("struct " + type.Name + "\n");
-                    result.Append("{\n");
-                    result.AppendConcat(type.GetFields().Select(f => tab + GetCppType(f.FieldType) + " " + f.Name + ";\n"));
-                    result.Append("};\n");
+                    result.AppendLine("struct " + type.Name);
+                    result.AppendLine("{");
+                    result.AppendLineConcat(type.GetFields().Select(f => tab + GetCppType(f.FieldType) + " " + f.Name + ";"));
+                    result.AppendLine("};");
                 }
+                // interface
                 else if (type.IsInterface)
                 {
-                    result.Append("class " + type.Name + "\n");
-                    result.Append("{\n");
-                    result.AppendConcat(type.GetMethods().Select(m => tab + GetCppMethod(m)));
-                    result.Append("};\n");
+                    result.AppendLine("class " + type.Name);
+                    result.AppendLine("{");
+                    result.AppendLineConcat(type.GetMethods().Select(m => tab + GetCppMethod(m)));
+                    result.AppendLine("};");
                 }
-                result.AppendConcat(namespaces.Select(name => "}\n"));
+                result.AppendLineConcat(namespaces.Select(name => "}"));
             }
 
             // extern methods.
-            result.AppendConcat(
+            result.AppendLineConcat(
                 assembly.
                     GetTypes().
                     SelectMany(t => t.GetMethods()).

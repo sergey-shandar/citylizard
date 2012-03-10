@@ -12,5 +12,13 @@
                 builder.Append(v);
             }
         }
+
+        public static void AppendLineConcat(this T.StringBuilder builder, C.IEnumerable<string> strings)
+        {
+            foreach (var v in strings)
+            {
+                builder.AppendLine(v);
+            }
+        }
     }
 }

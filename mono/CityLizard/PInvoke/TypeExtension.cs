@@ -11,9 +11,14 @@
 
     static class TypeExtension
     {
+        public static S.Type GetEnumValueType(this S.Type type)
+        {
+            return type.GetField("value__").FieldType;
+        }
+
         public static C.IEnumerable<EnumValue> GetEnumItems(this S.Type type)
         {
-            var valueType = type.GetField("value__").FieldType;
+            var valueType = type.GetEnumValueType();
             var names = type.GetEnumNames();
             var values = type.GetEnumValues();
             for (int i = 0; i < names.Length; ++i)

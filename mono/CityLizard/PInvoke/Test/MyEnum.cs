@@ -1,6 +1,6 @@
 ﻿namespace CityLizard.PInvoke.Test
 {
-    enum MyEnum
+    public enum MyEnum: byte
     {
         A = 3,
         B = 4,

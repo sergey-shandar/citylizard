@@ -1,21 +1,16 @@
 #include <interface.hpp>
 
-HRESULT A(::CityLizard::PInvoke::Test::MyStruct)
-{
-	return S_OK;
-}
+int32_t __stdcall A() { return 0xA; }
 
-HRESULT C(int32_t *)
-{
-	return S_OK;
-}
+::HRESULT __cdecl B(int32_t *p) { *p = 0xB; return S_OK; }
 
-HRESULT D(int32_t, int32_t, wchar_t, int32_t *)
-{
-	return S_OK;
-}
+::HRESULT WINAPI C() { return E_FAIL; }
 
-HRESULT GetInterface(BSTR *, ::CityLizard::PInvoke::Test::IMyInterface *)
-{
-	return S_OK;
+int32_t WINAPI D(uint8_t a, int16_t b) { return a + b; }
+
+::CityLizard::PInvoke::Test::MyEnum WINAPI E(
+	::CityLizard::PInvoke::Test::MyEnum a,
+	::CityLizard::PInvoke::Test::MyEnum b)
+{ 
+	return static_cast<::CityLizard::PInvoke::Test::MyEnum>(a - b); 
 }

@@ -10,28 +10,41 @@ namespace CityLizard.PInvoke
 	
 	public class CppBuilder
 	{
-		private static readonly C.Dictionary<S.Type, string> cppTypeMap = new C.Dictionary<S.Type, string>()
-		{
-			{ typeof(void), "void" },
+		private static readonly C.Dictionary<S.Type, string> cppTypeMap = 
+            new C.Dictionary<S.Type, string>()
+		    {
+			    { typeof(void), "void" },
 			
-			{ typeof(bool), "bool" },
+			    { typeof(bool), "bool" },
 			
-			{ typeof(char), "wchar_t" },
+			    { typeof(char), "wchar_t" },
 			
-			{ typeof(float), "float" },
-			{ typeof(double), "double" },
+			    { typeof(float), "float" },
+			    { typeof(double), "double" },
 			
-			{ typeof(byte), "uint8_t" },
-			{ typeof(sbyte), "int8_t" },
-			{ typeof(ushort), "uint16_t" },
-			{ typeof(short), "int16_t" },
-			{ typeof(uint), "uint32_t" },
-			{ typeof(int), "int32_t" },
-			{ typeof(ulong), "uint64_t" },
-			{ typeof(long), "int64_t" },
+			    { typeof(byte), "uint8_t" },
+			    { typeof(sbyte), "int8_t" },
+			    { typeof(ushort), "uint16_t" },
+			    { typeof(short), "int16_t" },
+			    { typeof(uint), "uint32_t" },
+			    { typeof(int), "int32_t" },
+			    { typeof(ulong), "uint64_t" },
+			    { typeof(long), "int64_t" },
 
-            { typeof(string), "BSTR *" },
-		};
+                { typeof(string), "BSTR *" },
+		    };
+
+        private static readonly C.Dictionary<I.CallingConvention, string> cppCallingConventionMap =
+            new C.Dictionary<I.CallingConvention, string>()
+            {
+                // TODO: Winapi is not actually a calling convention, but 
+                // instead uses the default platform calling convention. For
+                // example, on Windows the default is StdCall and on Windows 
+                // CE.NET it is Cdecl.
+                { I.CallingConvention.Winapi, "WINAPI" },
+                { I.CallingConvention.Cdecl, "__cdecl" },
+                { I.CallingConvention.StdCall, "__stdcall" },
+            };
 
         private const string tab = "    ";
 
@@ -71,23 +84,47 @@ namespace CityLizard.PInvoke
             }
         }
 
+        private static bool IsPreserveSig(R.MethodInfo method)
+        {
+            return (method.GetMethodImplementationFlags() & R.MethodImplAttributes.PreserveSig) != 0;
+        }
+
         private static C.IEnumerable<Parameter> GetCppParameters(R.MethodInfo method)
         {
             foreach (var p in method.GetParameters())
             {
                 yield return new Parameter(p);
             }
-            var type = method.ReturnType;
-            if (type != typeof(void))
+            if (!IsPreserveSig(method))
             {
-                yield return new Parameter(type, false, true);
+                var type = method.ReturnType;
+                if (type != typeof(void))
+                {
+                    yield return new Parameter(type, false, true);
+                }
             }
+        }
+
+        private static string GetCppReturnType(R.MethodInfo method)
+        {
+            return IsPreserveSig(method) ? GetCppType(method.ReturnType): "::HRESULT";
+        }
+
+        private I.CallingConvention GetCallingConvention(R.MethodInfo method)
+        {
+            var attributes = method.GetCustomAttributes(typeof(I.DllImportAttribute), true);
+            return attributes.Length == 0 ?
+                I.CallingConvention.StdCall :
+                ((I.DllImportAttribute)attributes[0]).CallingConvention;
         }
 
         private string GetCppMethod(R.MethodInfo method)
         {
             return
-                "HRESULT " +
+                GetCppReturnType(method) +
+                " " + 
+                cppCallingConventionMap[GetCallingConvention(method)] + 
+                " " +
                 method.Name +
                 "(" +
                 string.Join(
@@ -112,10 +149,12 @@ namespace CityLizard.PInvoke
                 // enum
                 if (type.IsEnum)
                 {
-                    result.AppendLine("enum " + type.Name);
+                    var valueType = GetCppType(type.GetEnumValueType());
+                    result.AppendLine("typedef " + valueType + " " + type.Name + ";");
+                    result.AppendLine("namespace " + type.Name + "_");
                     result.AppendLine("{");
-                    result.AppendLineConcat(type.GetEnumItems().Select(e => tab + e.Name + " = " + e.Value + ","));
-                    result.AppendLine("};");
+                    result.AppendLineConcat(type.GetEnumItems().Select(e => tab + valueType + " const " + e.Name + " = " + e.Value + ";"));
+                    result.AppendLine("}");
                 }
                 // struct
                 else if (type.IsValueType)
@@ -142,7 +181,7 @@ namespace CityLizard.PInvoke
                     GetTypes().
                     SelectMany(t => t.GetMethods()).
                     Where(method => (method.Attributes & R.MethodAttributes.PinvokeImpl) != 0).
-                    Select(method => GetCppMethod(method)));
+                    Select(method => "extern \"C\" __declspec(dllexport) " + GetCppMethod(method)));
 
             return result;
 		}

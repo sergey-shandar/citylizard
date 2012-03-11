@@ -76,6 +76,27 @@
             Test.MyClass.SetStruct(s2);
 
             Test.MyClass.SetStructBool(new Test.MyStructBool());
+
+            Test.MyClass.CheckBools(new Test.MyBools() { A = true, B = true, C = true, D = true }, 0x1111);
+            Test.MyClass.CheckBools(new Test.MyBools() { A = true, B = false, C = true, D = true }, 0x1011);
+            Test.MyClass.CheckBools(new Test.MyBools() { A = true, B = false, C = false, D = true }, 0x1001);
+            Test.MyClass.CheckBools(new Test.MyBools() { A = false, B = false, C = false, D = true }, 0x0001);
+            Test.MyClass.CheckBools(new Test.MyBools() { A = false, B = false, C = false, D = false }, 0x0000);
+
+            Test.MyClass.CheckBools2(new Test.MyBools2() { A = true, B = true, C = true, D = true }, 0x1111);
+            Test.MyClass.CheckBools2(new Test.MyBools2() { A = true, B = false, C = true, D = true }, 0x1011);
+            Test.MyClass.CheckBools2(new Test.MyBools2() { A = true, B = false, C = false, D = true }, 0x1001);
+            Test.MyClass.CheckBools2(new Test.MyBools2() { A = false, B = false, C = false, D = true }, 0x0001);
+            Test.MyClass.CheckBools2(new Test.MyBools2() { A = false, B = false, C = false, D = false }, 0x0000);
+
+            Test.MyClass.CheckBools3(new Test.MyBools3() { A = true, B = true, C = true, D = true }, 0x1111);
+            Test.MyClass.CheckBools3(new Test.MyBools3() { A = true, B = false, C = true, D = true }, 0x1011);
+            Test.MyClass.CheckBools3(new Test.MyBools3() { A = true, B = false, C = false, D = true }, 0x1001);
+            Test.MyClass.CheckBools3(new Test.MyBools3() { A = false, B = false, C = false, D = true }, 0x0001);
+            Test.MyClass.CheckBools3(new Test.MyBools3() { A = false, B = false, C = false, D = false }, 0x0000);
+
+            Test.MyBools3 r;
+            Test.MyClass.RetBoolOut(out r);
         }
     }
 }

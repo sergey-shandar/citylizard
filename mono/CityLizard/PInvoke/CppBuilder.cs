@@ -10,62 +10,6 @@ namespace CityLizard.PInvoke
 	
 	public class CppBuilder
 	{
-        /*
-		private static readonly C.Dictionary<S.Type, string> cppTypeMap = 
-            new C.Dictionary<S.Type, string>()
-		    {
-			    { typeof(void), "void" },
-			
-                // BOOL vs. VARIANT_BOOL vs. BOOLEAN vs. bool
-                // http://blogs.msdn.com/b/oldnewthing/archive/2004/12/22/329884.aspx 
-                //
-                // type: BOOL 
-                // size: 4
-                // typedef: int
-                //
-                // type: BOOLEAN
-                // size: 1
-                // typedef BYTE
-                //
-                // type: VARIANT_BOOL
-                // size: 2
-                // typedef short
-                //
-                // type: bool
-                // size: 1
-                // typedef
-                //
-                // .NET marshal C array of VARIANT_BOOL as a C array of BOOL
-                // http://connect.microsoft.com/VisualStudio/feedback/details/470491/net-marshal-c-array-of-variant-bool-as-a-c-array-of-bool
-                //
-                // tlbimp converts the VARIANT_BOOL structure field to .NET ushort structure field
-                // https://connect.microsoft.com/VisualStudio/feedback/details/344203/tlbimp-converts-the-variant-bool-structure-field-to-net-ushort-structure-field
-                //
-                // Incorrect marshalling of VARIANT_BOOL
-                // http://clrinterop.codeplex.com/workitem/3009?ProjectName=clrinterop
-                //
-                // TLBIMP converting C array of VARIANT_BOOL as C array of BOOL.
-                // http://clrinterop.codeplex.com/workitem/3803
-			    { typeof(bool), "::BOOL" },
-			
-			    { typeof(char), "wchar_t" },
-			
-			    { typeof(float), "float" },
-			    { typeof(double), "double" },
-			
-			    { typeof(byte), "::uint8_t" },
-			    { typeof(sbyte), "::int8_t" },
-			    { typeof(ushort), "::uint16_t" },
-			    { typeof(short), "::int16_t" },
-			    { typeof(uint), "::uint32_t" },
-			    { typeof(int), "::int32_t" },
-			    { typeof(ulong), "::uint64_t" },
-			    { typeof(long), "::int64_t" },
-
-                { typeof(string), "::BSTR *" },
-		    };
-         * */
-
         private static readonly C.Dictionary<I.CallingConvention, string> cppCallingConventionMap =
             new C.Dictionary<I.CallingConvention, string>()
             {
@@ -81,31 +25,6 @@ namespace CityLizard.PInvoke
         private const string tab = "    ";
 
         private const string eol = "\r\n";
-		
-        /*
-		private static string GetCppType(S.Type type)
-		{
-            string value;
-            if (cppTypeMap.TryGetValue(type, out value))
-            {
-                return value;
-            }
-            if (type == typeof(void))
-            {
-                return "void";
-            }
-            if (type.IsArray)
-            {
-                return "::SAFEARRAY *";
-            }
-            value = "::" + type.ToString().Replace(".", "::");
-            if (type.IsEnum)
-            {
-                value += "::value_type";
-            }
-            return value;
-		}
-         * */
 
         class Parameter
         {

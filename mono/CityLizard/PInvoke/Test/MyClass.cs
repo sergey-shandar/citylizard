@@ -69,6 +69,18 @@ namespace CityLizard.PInvoke.Test
 
         [I.DllImport("citylizard_pinvoke_test_cpp.dll", PreserveSig = false)]
         public static extern void SetStructBool(MyStructBool s);
+
+        [I.DllImport("citylizard_pinvoke_test_cpp.dll", PreserveSig = false)]
+        public static extern void CheckBools(MyBools y, int x);
+
+        [I.DllImport("citylizard_pinvoke_test_cpp.dll", PreserveSig = false)]
+        public static extern void CheckBools2(MyBools2 y, int x);
+
+        [I.DllImport("citylizard_pinvoke_test_cpp.dll", PreserveSig = false)]
+        public static extern void CheckBools3(MyBools3 y, int x);
+
+        [I.DllImport("citylizard_pinvoke_test_cpp.dll")]
+        public static extern void RetBoolOut(out MyBools3 result);
 	}
 }
 

@@ -4,13 +4,13 @@ static_assert(::CityLizard::PInvoke::Test::MyBigEnum::MaxValue == LLONG_MAX, "xx
 static_assert(::CityLizard::PInvoke::Test::MyBigEnum::MinValue == LLONG_MIN, "xxx");
 static_assert(::CityLizard::PInvoke::Test::MyPBigEnum::MaxValue == ULLONG_MAX, "xxx");
 
-int32_t __stdcall A() { return 0xA; }
+::LONG __stdcall A() { return 0xA; }
 
-::HRESULT __cdecl B(int32_t *p) { *p = 0xB; return S_OK; }
+::HRESULT __cdecl B(::LONG *p) { *p = 0xB; return S_OK; }
 
 ::HRESULT WINAPI C() { return E_FAIL; }
 
-int32_t WINAPI D(uint8_t a, int16_t b) { return a + b; }
+::LONG WINAPI D(::BYTE a, ::SHORT b) { return a + b; }
 
 ::CityLizard::PInvoke::Test::MyEnum::value_type WINAPI E(
 	::CityLizard::PInvoke::Test::MyEnum::value_type a,
@@ -56,7 +56,7 @@ static_assert(sizeof(bool) == 1, "bool");
 static_assert(true == 1, "true");
 static_assert(false == 0, "false");
 
-::HRESULT WINAPI CheckBool(BOOL a, BOOL b, BOOL c, BOOL d, int32_t x)
+::HRESULT WINAPI CheckBool(BOOL a, BOOL b, BOOL c, BOOL d, ::LONG x)
 {
     return 
         (((x >> 12) & 1) == a) && 
@@ -67,4 +67,60 @@ static_assert(false == 0, "false");
         E_FAIL;
 }
 
-::SAFEARRAY *p = 0;
+::HRESULT WINAPI CheckBool2(CHAR a, CHAR b, CHAR c, CHAR d, ::LONG x)
+{
+    return 
+        (((x >> 12) & 1) == a) && 
+        (((x >>  8) & 1) == b) &&
+        (((x >>  4) & 1) == c) &&
+        (((x >>  0) & 1) == d) ?
+        S_OK:
+        E_FAIL;
+}
+
+::HRESULT WINAPI CheckBool3(::VARIANT_BOOL a, ::VARIANT_BOOL b, ::VARIANT_BOOL c, ::VARIANT_BOOL d, ::LONG x)
+{
+    return 
+        (((x >> 12) & 1) == (a == VARIANT_TRUE)) && 
+        (((x >>  8) & 1) == (b == VARIANT_TRUE)) &&
+        (((x >>  4) & 1) == (c == VARIANT_TRUE)) &&
+        (((x >>  0) & 1) == (d == VARIANT_TRUE)) ?
+        S_OK:
+        E_FAIL;
+}
+
+::BOOL WINAPI RetBool()
+{
+    return TRUE;
+}
+
+::VARIANT_BOOL WINAPI RetBool3()
+{
+    return VARIANT_TRUE;
+}
+
+
+::HRESULT WINAPI RetStructP(::CityLizard::PInvoke::Test::MyStruct *p)
+{
+    p->A = 0x0A;
+    p->B = 0x0B;
+    return S_OK;
+}
+
+::CityLizard::PInvoke::Test::MyStruct WINAPI RetStruct()
+{
+    ::CityLizard::PInvoke::Test::MyStruct a;
+    a.A = 0x0A;
+    a.B = 0x0B;
+    return a;
+}
+
+::HRESULT WINAPI SetStruct(::CityLizard::PInvoke::Test::MyStruct s)
+{
+    return S_OK;
+}
+
+::HRESULT WINAPI SetStructBool(::CityLizard::PInvoke::Test::MyStructBool)
+{
+    return S_OK;
+}

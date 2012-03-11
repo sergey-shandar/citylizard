@@ -34,21 +34,41 @@ namespace CityLizard.PInvoke.Test
         [I.DllImport("citylizard_pinvoke_test_cpp.dll", PreserveSig = false)]
         public static extern void CheckBool(bool a, bool b, bool c, bool d, int x);
 
-        /*
-		[I.DllImport("citylizard_pinvoke_test_cpp.dll")]
-		public static extern void A(MyStruct s);
+        [I.DllImport("citylizard_pinvoke_test_cpp.dll", PreserveSig = false)]
+        public static extern void CheckBool2(
+            [I.MarshalAs(I.UnmanagedType.I1)] bool a,
+            [I.MarshalAs(I.UnmanagedType.I1)] bool b,
+            [I.MarshalAs(I.UnmanagedType.I1)] bool c,
+            [I.MarshalAs(I.UnmanagedType.I1)] bool d, 
+            int x);
+
+        [I.DllImport("citylizard_pinvoke_test_cpp.dll", PreserveSig = false)]
+        public static extern void CheckBool3(
+            [I.MarshalAs(I.UnmanagedType.VariantBool)] bool a,
+            [I.MarshalAs(I.UnmanagedType.VariantBool)] bool b,
+            [I.MarshalAs(I.UnmanagedType.VariantBool)] bool c,
+            [I.MarshalAs(I.UnmanagedType.VariantBool)] bool d,
+            int x);
 
         [I.DllImport("citylizard_pinvoke_test_cpp.dll")]
-        public static extern int C();
+        public static extern bool RetBool();
 
         [I.DllImport("citylizard_pinvoke_test_cpp.dll")]
-        public static extern int D(int a, int b, char f);
-		
-		[I.DllImport("citylizard_pinvoke_test_cpp.dll")]
-		public static extern IMyInterface GetInterface(string x);
+        [return: I.MarshalAs(I.UnmanagedType.VariantBool)]
+        public static extern bool RetBool3();
 
-        public static void B() { }
-         * */
+        // // does not work: "Method's type signature is not PInvoke compatible."
+        // [I.DllImport("citylizard_pinvoke_test_cpp.dll", PreserveSig = false)]
+        // public static extern MyStruct RetStructP();
+
+        [I.DllImport("citylizard_pinvoke_test_cpp.dll")]
+        public static extern MyStruct RetStruct();
+
+        [I.DllImport("citylizard_pinvoke_test_cpp.dll", PreserveSig = false)]
+        public static extern void SetStruct(MyStruct s);
+
+        [I.DllImport("citylizard_pinvoke_test_cpp.dll", PreserveSig = false)]
+        public static extern void SetStructBool(MyStructBool s);
 	}
 }
 

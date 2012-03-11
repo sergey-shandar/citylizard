@@ -60,6 +60,7 @@
     <Compile Include="CppBuilder.cs" />
     <Compile Include="StringBuilderExtensions.cs" />
     <Compile Include="TypeExtension.cs" />
+    <Compile Include="TypeMap.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

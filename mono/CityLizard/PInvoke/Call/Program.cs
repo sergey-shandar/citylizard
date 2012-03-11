@@ -51,6 +51,31 @@
             Test.MyClass.CheckBool(true, false, false, true, 0x1001);
             Test.MyClass.CheckBool(false, false, false, true, 0x0001);
             Test.MyClass.CheckBool(false, false, false, false, 0x0000);
+
+            Test.MyClass.CheckBool2(true, true, true, true, 0x1111);
+            Test.MyClass.CheckBool2(true, false, true, true, 0x1011);
+            Test.MyClass.CheckBool2(true, false, false, true, 0x1001);
+            Test.MyClass.CheckBool2(false, false, false, true, 0x0001);
+            Test.MyClass.CheckBool2(false, false, false, false, 0x0000);
+
+            Test.MyClass.CheckBool3(true, true, true, true, 0x1111);
+            Test.MyClass.CheckBool3(true, false, true, true, 0x1011);
+            Test.MyClass.CheckBool3(true, false, false, true, 0x1001);
+            Test.MyClass.CheckBool3(false, false, false, true, 0x0001);
+            Test.MyClass.CheckBool3(false, false, false, false, 0x0000);
+
+            bool x = Test.MyClass.RetBool();
+            bool x3 = Test.MyClass.RetBool3();
+
+            // Method's type signature is not PInvoke compatible.
+            // var s = Test.MyClass.RetStructP();
+
+            // Method's type signature is not PInvoke compatible.
+            var s2 = Test.MyClass.RetStruct();
+
+            Test.MyClass.SetStruct(s2);
+
+            Test.MyClass.SetStructBool(new Test.MyStructBool());
         }
     }
 }

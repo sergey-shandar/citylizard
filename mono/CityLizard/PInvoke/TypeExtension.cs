@@ -2,6 +2,9 @@
 {
     using S = System;
     using C = System.Collections.Generic;
+    using R = System.Reflection;
+
+    using System.Linq;
 
     struct EnumValue
     {
@@ -29,6 +32,12 @@
                     Value = S.Convert.ChangeType(values.GetValue(i), valueType),
                 };
             }
+        }
+
+        public static T GetCustomAttribute<T>(this R.ICustomAttributeProvider p, bool inherit) 
+            where T: S.Attribute
+        {
+            return (T)p.GetCustomAttributes(typeof(T), inherit).FirstOrDefault();
         }
     }
 }

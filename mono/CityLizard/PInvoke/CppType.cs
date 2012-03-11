@@ -34,6 +34,10 @@
 
         public static string ToCppType(this S.Type type, R.ICustomAttributeProvider provider)
         {
+            if (type.IsByRef)
+            {
+                type = type.GetElementType();
+            }
             var marshalAs = provider.GetCustomAttribute<I.MarshalAsAttribute>(true);
             if (marshalAs != null)
             {

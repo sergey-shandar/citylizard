@@ -124,3 +124,26 @@ static_assert(false == 0, "false");
 {
     return S_OK;
 }
+
+::HRESULT WINAPI CheckBools(::CityLizard::PInvoke::Test::MyBools y, ::LONG x)
+{
+    return ::CheckBool(y.A, y.B, y.C, y.D, x);
+}
+
+::HRESULT WINAPI CheckBools2(::CityLizard::PInvoke::Test::MyBools2 y, ::LONG x)
+{
+    return ::CheckBool2(y.A, y.B, y.C, y.D, x);
+}
+
+::HRESULT WINAPI CheckBools3(::CityLizard::PInvoke::Test::MyBools3 y, ::LONG x)
+{
+    return ::CheckBool3(y.A, y.B, y.C, y.D, x);
+}
+
+void WINAPI RetBoolOut(::CityLizard::PInvoke::Test::MyBools3 *p)
+{
+    p->A = true;
+    p->B = false;
+    p->C = true;
+    p->D = true;
+}

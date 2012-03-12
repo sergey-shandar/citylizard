@@ -10,7 +10,8 @@ namespace CityLizard.PInvoke
 	
 	public class CppBuilder
 	{
-        private static readonly C.Dictionary<I.CallingConvention, string> cppCallingConventionMap =
+        private static readonly C.Dictionary<I.CallingConvention, string> 
+            cppCallingConventionMap = 
             new C.Dictionary<I.CallingConvention, string>()
             {
                 // Winapi is not actually a calling convention, but instead uses
@@ -50,38 +51,38 @@ namespace CityLizard.PInvoke
             }
         }
 
-        private static bool IsPreserveSig(R.MethodInfo method)
-        {
-            return (method.GetMethodImplementationFlags() & R.MethodImplAttributes.PreserveSig) != 0;
-        }
-
-        private static C.IEnumerable<Parameter> GetCppParameters(R.MethodInfo method)
+        private static C.IEnumerable<Parameter> GetCppParameters(
+            R.MethodInfo method)
         {
             foreach (var p in method.GetParameters())
             {
                 yield return new Parameter(p);
             }
-            if (!IsPreserveSig(method))
+            if (!method.IsPreserveSig())
             {
                 var type = method.ReturnType;
                 if (type != typeof(void))
                 {
-                    yield return new Parameter(method.ReturnParameter, false, true);
+                    yield return new Parameter(
+                        method.ReturnParameter, false, true);
                 }
             }
         }
 
         private static string GetCppReturnType(R.MethodInfo method)
         {
-            return IsPreserveSig(method) ? method.ReturnParameter.ToCppType(): CppType.HResult;
+            return method.IsPreserveSig() ? 
+                method.ReturnParameter.ToCppType() : 
+                CppType.HResult;
         }
 
         private I.CallingConvention GetCallingConvention(R.MethodInfo method)
         {
-            var attributes = method.GetCustomAttributes(typeof(I.DllImportAttribute), true);
-            return attributes.Length == 0 ?
-                I.CallingConvention.StdCall :
-                ((I.DllImportAttribute)attributes[0]).CallingConvention;
+            var attribute = 
+                method.GetCustomAttribute<I.DllImportAttribute>(true);
+            return attribute != null ? 
+                attribute.CallingConvention : 
+                I.CallingConvention.StdCall;
         }
 
         private string GetCppMethod(R.MethodInfo method)
@@ -105,14 +106,16 @@ namespace CityLizard.PInvoke
             result.AppendLine("#pragma once");
             result.AppendLine("#include <Windows.h>");
             result.AppendLine("#pragma warning(push)");
-            // warning C4146: unary minus operator applied to unsigned type, result still unsigned
+            // warning C4146: unary minus operator applied to unsigned type, 
+            // result still unsigned
             result.AppendLine("#pragma warning(disable: 4146)");
 
             // enumerations, structures and interfaces.
             foreach (var type in assembly.GetTypes())
             {
                 var namespaces = type.Namespace.Split('.');
-                result.AppendLineConcat(namespaces.Select(name => "namespace " + name + eol + "{"));
+                result.AppendLineConcat(
+                    namespaces.Select(name => "namespace " + name + eol + "{"));
 
                 // enum
                 if (type.IsEnum)
@@ -121,7 +124,18 @@ namespace CityLizard.PInvoke
                     result.AppendLine("namespace " + type.Name);
                     result.AppendLine("{");
                     result.AppendLine(tab + "typedef " + valueType + " value_type;");
-                    result.AppendLineConcat(type.GetEnumItems().Select(e => tab + valueType + " const " + e.Name + " = " + e.Value + ";"));
+                    result.AppendLineConcat(
+                        type.
+                            GetEnumItems().
+                            Select(
+                                e => 
+                                    tab + 
+                                    valueType + 
+                                    " const " + 
+                                    e.Name + 
+                                    " = " + 
+                                    e.Value + 
+                                    ";"));
                     result.AppendLine("}");
                 }
                 // struct
@@ -129,7 +143,11 @@ namespace CityLizard.PInvoke
                 {
                     result.AppendLine("struct " + type.Name);
                     result.AppendLine("{");
-                    result.AppendLineConcat(type.GetFields().Select(f => tab + f.ToCppType() + " " + f.Name + ";"));
+                    result.AppendLineConcat(
+                        type.
+                            GetFields().
+                            Select(
+                                f => tab + f.ToCppType() + " " + f.Name + ";"));
                     result.AppendLine("};");
                 }
                 // interface
@@ -137,7 +155,8 @@ namespace CityLizard.PInvoke
                 {
                     result.AppendLine("class " + type.Name);
                     result.AppendLine("{");
-                    result.AppendLineConcat(type.GetMethods().Select(m => tab + GetCppMethod(m)));
+                    result.AppendLineConcat(
+                        type.GetMethods().Select(m => tab + GetCppMethod(m)));
                     result.AppendLine("};");
                 }
                 result.AppendLineConcat(namespaces.Select(name => "}"));

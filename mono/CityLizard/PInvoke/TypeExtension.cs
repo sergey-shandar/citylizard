@@ -39,5 +39,11 @@
         {
             return (T)p.GetCustomAttributes(typeof(T), inherit).FirstOrDefault();
         }
+
+        public static bool IsPreserveSig(this R.MethodInfo method)
+        {
+            var f = method.GetMethodImplementationFlags();
+            return (f & R.MethodImplAttributes.PreserveSig) != 0;
+        }
     }
 }

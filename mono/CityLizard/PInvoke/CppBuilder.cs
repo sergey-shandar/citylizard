@@ -76,21 +76,12 @@ namespace CityLizard.PInvoke
                 CppType.HResult;
         }
 
-        private I.CallingConvention GetCallingConvention(R.MethodInfo method)
-        {
-            var attribute = 
-                method.GetCustomAttribute<I.DllImportAttribute>(true);
-            return attribute != null ? 
-                attribute.CallingConvention : 
-                I.CallingConvention.StdCall;
-        }
-
         private string GetCppMethod(R.MethodInfo method)
         {
             return
                 GetCppReturnType(method) +
                 " " + 
-                cppCallingConventionMap[GetCallingConvention(method)] + 
+                cppCallingConventionMap[method.GetCallingConvention()] + 
                 " " +
                 method.Name +
                 "(" +
@@ -124,51 +115,65 @@ namespace CityLizard.PInvoke
                     result.AppendLine("namespace " + type.Name);
                     result.AppendLine("{");
                     result.AppendLine(tab + "typedef " + valueType + " value_type;");
-                    result.AppendLineConcat(
-                        type.
-                            GetEnumItems().
-                            Select(
-                                e => 
-                                    tab + 
-                                    valueType + 
-                                    " const " + 
-                                    e.Name + 
-                                    " = " + 
-                                    e.Value + 
-                                    ";"));
+                    foreach (var e in type.GetEnumItems())
+                    {
+                        result.AppendLine(
+                            tab + 
+                            valueType + 
+                            " const " + 
+                            e.Name + 
+                            " = " + 
+                            e.Value + 
+                            ";");
+                    }
                     result.AppendLine("}");
                 }
                 // struct
                 else if (type.IsValueType)
                 {
+                    var pack = 8;
+                    var layout = 
+                        type.GetCustomAttribute<I.StructLayoutAttribute>(true);
+                    if (layout != null)
+                    {
+                        pack = layout.Pack;
+                    }
+                    result.AppendLine("#pragma pack(push, " + pack + ")");
                     result.AppendLine("struct " + type.Name);
                     result.AppendLine("{");
-                    result.AppendLineConcat(
-                        type.
-                            GetFields().
-                            Select(
-                                f => tab + f.ToCppType() + " " + f.Name + ";"));
+                    foreach(var f in type.GetFields())
+                    {
+                        result.AppendLine(
+                            tab + f.ToCppType() + " " + f.Name + ";");
+                    }
                     result.AppendLine("};");
+                    result.AppendLine("#pragma pack(pop)");
                 }
                 // interface
                 else if (type.IsInterface)
                 {
                     result.AppendLine("class " + type.Name);
                     result.AppendLine("{");
-                    result.AppendLineConcat(
-                        type.GetMethods().Select(m => tab + GetCppMethod(m)));
+                    foreach (var m in type.GetMethods())
+                    {
+                        result.AppendLine(tab + GetCppMethod(m));
+                    }
                     result.AppendLine("};");
                 }
                 result.AppendLineConcat(namespaces.Select(name => "}"));
             }
 
             // extern methods.
-            result.AppendLineConcat(
-                assembly.
-                    GetTypes().
-                    SelectMany(t => t.GetMethods()).
-                    Where(method => (method.Attributes & R.MethodAttributes.PinvokeImpl) != 0).
-                    Select(method => "extern \"C\" __declspec(dllexport) " + GetCppMethod(method)));
+            foreach (var method in 
+                assembly.GetTypes().SelectMany(t => t.GetMethods()))
+            {
+                if ((method.Attributes & R.MethodAttributes.PinvokeImpl) != 0)
+                {
+                    result.AppendLine(
+                        "extern \"C\" __declspec(dllexport) " + 
+                        GetCppMethod(method));
+                }
+            }
 
             result.AppendLine("#pragma warning(pop)");
 

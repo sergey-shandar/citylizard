@@ -81,6 +81,9 @@ namespace CityLizard.PInvoke.Test
 
         [I.DllImport("citylizard_pinvoke_test_cpp.dll")]
         public static extern void RetBoolOut(out MyBools3 result);
+
+        [I.DllImport("citylizard_pinvoke_test_cpp.dll", PreserveSig = false)]
+        public static extern void PackTest(NoPack noPackm, Pack1 pack1);
 	}
 }
 

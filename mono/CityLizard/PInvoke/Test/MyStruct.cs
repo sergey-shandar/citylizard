@@ -62,4 +62,15 @@
         public byte A;
         public long B;
     }
+
+    /* // not supported.
+    [I.StructLayout(I.LayoutKind.Explicit)]
+    public struct EPack
+    {
+        [I.FieldOffset(0)]
+        public byte A;
+        [I.FieldOffset(1)]
+        public long B;
+    }
+     * */
 }

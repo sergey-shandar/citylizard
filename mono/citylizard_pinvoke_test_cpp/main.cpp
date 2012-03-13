@@ -147,3 +147,10 @@ void WINAPI RetBoolOut(::CityLizard::PInvoke::Test::MyBools3 *p)
     p->C = true;
     p->D = true;
 }
+
+::HRESULT WINAPI PackTest(::CityLizard::PInvoke::Test::NoPack n, ::CityLizard::PInvoke::Test::Pack1 p1)
+{
+    return 
+        n.A == 0x12 && n.B == 0x3456789A &&
+        p1.A == 0x12 && p1.B == 0x3456789A ? S_OK: E_FAIL;
+}

@@ -49,4 +49,17 @@
         [I.MarshalAs(I.UnmanagedType.VariantBool)]
         public bool D;
     }
+
+    public struct NoPack
+    {
+        public byte A;
+        public long B;
+    }
+
+    [I.StructLayout(I.LayoutKind.Sequential, Pack = 1)]
+    public struct Pack1
+    {
+        public byte A;
+        public long B;
+    }
 }

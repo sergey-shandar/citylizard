@@ -131,14 +131,12 @@ namespace CityLizard.PInvoke
                 // struct
                 else if (type.IsValueType)
                 {
-                    var pack = 8;
-                    var layout = 
-                        type.GetCustomAttribute<I.StructLayoutAttribute>(true);
-                    if (layout != null)
+                    if (!type.IsLayoutSequential)
                     {
-                        pack = layout.Pack;
+                        throw new S.Exception("not sequential layout");
                     }
-                    result.AppendLine("#pragma pack(push, " + pack + ")");
+                    var layout = type.StructLayoutAttribute;
+                    result.AppendLine("#pragma pack(push, " + layout.Pack + ")");
                     result.AppendLine("struct " + type.Name);
                     result.AppendLine("{");
                     foreach(var f in type.GetFields())

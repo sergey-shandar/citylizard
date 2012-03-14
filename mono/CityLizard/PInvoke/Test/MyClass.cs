@@ -90,6 +90,20 @@ namespace CityLizard.PInvoke.Test
 
         [I.DllImport("citylizard_pinvoke_test_cpp.dll", PreserveSig = false)]
         public static extern void StringStruct(String s);
+
+        [I.DllImport("citylizard_pinvoke_test_cpp.dll", PreserveSig = false)]
+        public static extern void StringStructAnsi(StringAnsi s);
+
+        [I.DllImport("citylizard_pinvoke_test_cpp.dll", PreserveSig = false)]
+        public static extern void CheckBStr(BStr s);
+
+        [I.DllImport("citylizard_pinvoke_test_cpp.dll", PreserveSig = false)]
+        public static extern void MyLPTStr([I.MarshalAs(I.UnmanagedType.LPTStr)] string x);
+
+        [I.DllImport("citylizard_pinvoke_test_cpp.dll", PreserveSig = false, CharSet = I.CharSet.Ansi)]
+        public static extern void AnsiMyLPTStr(
+            [I.MarshalAs(I.UnmanagedType.LPTStr)] string x,
+            [I.MarshalAs(I.UnmanagedType.BStr)]string y);
 	}
 }
 

@@ -79,14 +79,41 @@
         }
     }
 
+    public struct BStr
+    {
+        [I.MarshalAs(I.UnmanagedType.BStr)]
+        public string A;
+    }
+
+    [I.StructLayout(I.LayoutKind.Sequential, CharSet = I.CharSet.Unicode)]
     public struct String
     {
+        // LPSTR or LPWSTR
+        public string def;
         [I.MarshalAs(I.UnmanagedType.LPStr)]
         public string lpstr;
         [I.MarshalAs(I.UnmanagedType.LPWStr)]
         public string lpwstr;
         [I.MarshalAs(I.UnmanagedType.LPTStr)]
         public string lptstr;
+        [I.MarshalAs(I.UnmanagedType.ByValTStr, SizeConst = 10)]
+        public string x;
+    }
+
+    // by default it is ANSI.
+    [I.StructLayout(I.LayoutKind.Sequential /*, CharSet = I.CharSet.Ansi*/)]
+    public struct StringAnsi
+    {
+        // LPSTR or LPWSTR
+        public string def;
+        [I.MarshalAs(I.UnmanagedType.LPStr)]
+        public string lpstr;
+        [I.MarshalAs(I.UnmanagedType.LPWStr)]
+        public string lpwstr;
+        [I.MarshalAs(I.UnmanagedType.LPTStr)]
+        public string lptstr;
+        [I.MarshalAs(I.UnmanagedType.ByValTStr, SizeConst = 10)]
+        public string x;
     }
 
     /* // not supported.

@@ -1,5 +1,6 @@
 #include <interface.hpp>
 
+#include <iostream>
 #include <windows.hpp>
 
 static_assert(::CityLizard::PInvoke::Test::MyBigEnum::MaxValue == LLONG_MAX, "xxx");
@@ -162,20 +163,50 @@ void WINAPI RetBoolOut(::CityLizard::PInvoke::Test::MyBools3 *p)
     return s.B == 0 ? S_OK: E_FAIL;
 }
 
-::HRESULT WINAPI StringStruct(::CityLizard::PInvoke::Test::String *p)
+::HRESULT WINAPI StringStructAnsi(::CityLizard::PInvoke::Test::StringAnsi x)
 {
-    p->lpstr = "Hello world!";
-    p->lpwstr = L"Hello world!";
-    p->lptstr = L"Hello world!";
-    return S_OK;
+    return
+        (::strcmp(x.def, "def") == 0) &&
+        (::strcmp(x.lpstr, "lpstr") == 0) &&
+        (::wcscmp(x.lpwstr, L"lpwstr") == 0) &&
+        (::wcscmp(x.lptstr, L"lptstr") == 0) &&
+        (::strcmp(x.x, "::TCHAR[1") == 0) ?
+        S_OK :
+        E_FAIL;
 }
 
 ::HRESULT WINAPI StringStruct(::CityLizard::PInvoke::Test::String x)
 {
+    //::UINT const len = ::SysStringLen(x.def);
+    //::std::cout << len << ::std::endl;
     return
+        (::wcscmp(x.def, L"def") == 0) &&
         (::strcmp(x.lpstr, "lpstr") == 0) &&
         (::wcscmp(x.lpwstr, L"lpwstr") == 0) &&
-        (::wcscmp(x.lptstr, L"lptstr") == 0) ?
+        (::wcscmp(x.lptstr, L"lptstr") == 0) &&
+        (::wcscmp(x.x, L"::TCHAR[1") == 0) ?
         S_OK :
         E_FAIL;
+}
+
+::HRESULT WINAPI MyLPTStr(::LPTSTR s)
+{
+    return ::wcscmp(s, L"Hello world!") == 0 ? S_OK: E_FAIL;
+}
+
+::HRESULT WINAPI AnsiMyLPTStr(::LPTSTR s, ::BSTR s2)
+{
+    ::UINT const len = ::SysStringLen(s2);
+    return 
+        (len == 12) &&
+        (::wcscmp(s, L"Hello world!") == 0) &&
+        (::wcscmp(s2, L"Hello world!") == 0) ? 
+        S_OK: 
+        E_FAIL;
+}
+
+::HRESULT WINAPI CheckBStr(::CityLizard::PInvoke::Test::BStr s)
+{
+    ::UINT const len = ::SysStringLen(s.A);
+    return len == 3 ? S_OK : E_FAIL;
 }

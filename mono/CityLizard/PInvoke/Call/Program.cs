@@ -104,7 +104,14 @@
 
             Test.MyClass.PrivateStruct(new Test.Private(int.MinValue));
 
-            Test.MyClass.StringStruct(new Test.String() { lpstr = "lpstr", lpwstr = "lpwstr", lptstr = "lptstr" });
+            Test.MyClass.StringStruct(new Test.String() { def = "def", lpstr = "lpstr", lpwstr = "lpwstr", lptstr = "lptstr", x = "::TCHAR[10]" });
+            Test.MyClass.StringStructAnsi(new Test.StringAnsi() { def = "def", lpstr = "lpstr", lpwstr = "lpwstr", lptstr = "lptstr", x = "::TCHAR[10]" });
+
+            Test.MyClass.MyLPTStr("Hello world!");
+
+            Test.MyClass.AnsiMyLPTStr("Hello world!", "Hello world!");
+
+            Test.MyClass.CheckBStr(new Test.BStr() { A = "XXX" });
         }
     }
 }

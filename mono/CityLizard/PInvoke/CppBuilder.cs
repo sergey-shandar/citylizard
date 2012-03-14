@@ -47,7 +47,8 @@ namespace CityLizard.PInvoke
 
             public string GetCpp()
             {
-                return this.Info.ToCppType() + (this.IsOut ? " *" : "");
+                var cppType = this.Info.ToCppType();
+                return cppType.Prefix + (this.IsOut ? "(*)" : "") + cppType.Suffix;
             }
         }
 
@@ -72,7 +73,7 @@ namespace CityLizard.PInvoke
         private static string GetCppReturnType(R.MethodInfo method)
         {
             return method.IsPreserveSig() ? 
-                method.ReturnParameter.ToCppType() : 
+                method.ReturnParameter.ToCppType().Prefix :
                 CppType.HResult;
         }
 
@@ -111,7 +112,7 @@ namespace CityLizard.PInvoke
                 // enum
                 if (type.IsEnum)
                 {
-                    var valueType = type.GetEnumValueType().ToCppType(type);
+                    var valueType = type.GetEnumValueType().ToCppType(type, I.CharSet.Auto).Prefix;
                     result.AppendLine("namespace " + type.Name);
                     result.AppendLine("{");
                     result.AppendLine(tab + "typedef " + valueType + " value_type;");
@@ -145,8 +146,9 @@ namespace CityLizard.PInvoke
                             R.BindingFlags.Public | 
                             R.BindingFlags.Instance))
                     {
+                        var cppType = f.ToCppType();
                         result.AppendLine(
-                            tab + f.ToCppType() + " " + f.Name + ";");
+                            tab + cppType.Prefix + " " + f.Name + cppType.Suffix + ";");
                     }
                     result.AppendLine("};");
                     result.AppendLine("#pragma pack(pop)");

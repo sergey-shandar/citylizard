@@ -11,6 +11,8 @@
         private const string Bool = "::BOOL";
         
         private const string BStr = "::BSTR";
+        private const string LPStr = "::LPSTR";
+        private const string LPWStr = "::LPWSTR";
 
         private const string Char = "::CHAR";
         private const string Short = "::SHORT";
@@ -32,7 +34,19 @@
 
         public const string HResult = "::HRESULT";
 
-        public static string ToCppType(this S.Type type, R.ICustomAttributeProvider provider)
+        public struct Type
+        {
+            public readonly string Prefix;
+            public readonly string Suffix;
+
+            public Type(string prefix, string suffix = "")
+            {
+                this.Prefix = prefix;
+                this.Suffix = suffix;
+            }
+        }
+
+        public static Type ToCppType(this S.Type type, R.ICustomAttributeProvider provider, I.CharSet charSet)
         {
             if (type.IsByRef)
             {
@@ -45,55 +59,59 @@
                 switch (unmanagedType)
                 {
                     case I.UnmanagedType.AsAny:
-                        return "::VARIANT";
+                        return new Type("::VARIANT");
                     case I.UnmanagedType.Bool:
-                        return Bool;
+                        return new Type(Bool);
                     case I.UnmanagedType.BStr:
-                        return BStr;
+                        return new Type(BStr);
                     case I.UnmanagedType.Currency:
-                        return "::CY";
+                        return new Type("::CY");
                     case I.UnmanagedType.Error:
-                        return HResult;
+                        return new Type(HResult);
                     case I.UnmanagedType.I1:
-                        return Char;
+                        return new Type(Char);
                     case I.UnmanagedType.I2:
-                        return Short;
+                        return new Type(Short);
                     case I.UnmanagedType.I4:
-                        return Long;
+                        return new Type(Long);
                     case I.UnmanagedType.I8:
-                        return LongLong;
+                        return new Type(LongLong);
                     case I.UnmanagedType.IDispatch:
-                        return "::IDispatch *";
+                        return new Type("::IDispatch *");
                     case I.UnmanagedType.IUnknown:
-                        return "::IUnknown *";
+                        return new Type("::IUnknown *");
                     case I.UnmanagedType.LPStr:
-                        return "::LPSTR";
+                        return new Type(LPStr);
+                    // depends on platform
                     case I.UnmanagedType.LPTStr:
-                        return "::LPTSTR";
+                        return new Type("::LPTSTR");
                     case I.UnmanagedType.LPWStr:
-                        return "::LPWSTR";
+                        return new Type(LPWStr);
                     case I.UnmanagedType.R4:
-                        return Float;
+                        return new Type(Float);
                     case I.UnmanagedType.R8:
-                        return Double;
+                        return new Type(Double);
                     case I.UnmanagedType.SafeArray:
-                        return SafeArrayPtr;
+                        return new Type(SafeArrayPtr);
                     case I.UnmanagedType.SysInt:
-                        return IntPtr;
+                        return new Type(IntPtr);
                     case I.UnmanagedType.SysUInt:
-                        return UIntPtr;
+                        return new Type(UIntPtr);
                     case I.UnmanagedType.U1:
-                        return Byte;
+                        return new Type(Byte);
                     case I.UnmanagedType.U2:
-                        return UShort;
+                        return new Type(UShort);
                     case I.UnmanagedType.U4:
-                        return ULong;
+                        return new Type(ULong);
                     case I.UnmanagedType.U8:
-                        return ULongLong;
+                        return new Type(ULongLong);
                     case I.UnmanagedType.VariantBool:
-                        return "::VARIANT_BOOL";
-                    //case I.UnmanagedType.ByValTStr:
-                    //   return 
+                        return new Type("::VARIANT_BOOL");
+                    // depends on charset configuratin
+                    case I.UnmanagedType.ByValTStr:
+                        return new Type(
+                            charSet == I.CharSet.Ansi ? Char: "::WCHAR", 
+                            "[" + marshalAs.SizeConst + "]");
                     default:
                         throw new S.Exception("Unsupported native type: " + unmanagedType);
                 }
@@ -101,14 +119,14 @@
             
             if (type == typeof(void))
             {
-                return "void";
+                return new Type("void");
             }
 
             var name = "::" + type.ToString().Replace(".", "::");
 
             if (type.IsEnum)
             {
-                return name + "::value_type";
+                return new Type(name + "::value_type");
             }
 
             if (type.IsValueType)
@@ -148,86 +166,87 @@
                 // http://stackoverflow.com/questions/4845128/marshaling-byval-c-structure-as-return-value-in-c-sharp
                 if (type == typeof(bool))
                 {
-                    return Bool;
+                    return new Type(Bool);
                 }
                 else if (type == typeof(char))
                 {
-                    return "::WCHAR";
-                }
-                else if (type == typeof(string))
-                {
-                    return BStr;
+                    return new Type("::WCHAR");
                 }
                 else if (type == typeof(sbyte))
                 {
-                    return Char;
+                    return new Type(Char);
                 }
                 else if (type == typeof(short))
                 {
-                    return Short;
+                    return new Type(Short);
                 }
                 else if (type == typeof(int))
                 {
-                    return Long;
+                    return new Type(Long);
                 }
                 else if (type == typeof(long))
                 {
-                    return LongLong;
+                    return new Type(LongLong);
                 }
                 else if (type == typeof(byte))
                 {
-                    return Byte;
+                    return new Type(Byte);
                 }
                 else if (type == typeof(ushort))
                 {
-                    return UShort;
+                    return new Type(UShort);
                 }
                 else if (type == typeof(uint))
                 {
-                    return ULong;
+                    return new Type(ULong);
                 }
                 else if (type == typeof(ulong))
                 {
-                    return ULongLong;
+                    return new Type(ULongLong);
                 }
                 else if (type == typeof(float))
                 {
-                    return Float;
+                    return new Type(Float);
                 }
                 else if (type == typeof(double))
                 {
-                    return Double;
+                    return new Type(Double);
                 }
                 else if (type == typeof(S.IntPtr))
                 {
-                    return IntPtr;
+                    return new Type(IntPtr);
                 }
                 else if (type == typeof(S.UIntPtr))
                 {
-                    return UIntPtr;
+                    return new Type(UIntPtr);
                 }
                 else
                 {
-                    return name;
+                    return new Type(name);
                 }
+            }
+
+            if (type == typeof(string))
+            {
+                return new Type(charSet == I.CharSet.Ansi ? LPStr: LPWStr);
             }
 
             if (type.IsArray)
             {
-                return SafeArrayPtr;
+                return new Type(SafeArrayPtr);
             }
 
             throw new S.Exception("unsupported type: " + type);
         }
 
-        public static string ToCppType(this R.ParameterInfo p)
+        public static Type ToCppType(this R.ParameterInfo p)
         {
-            return p.ParameterType.ToCppType(p);
+            return p.ParameterType.ToCppType(p, p.Member.GetCustomAttribute<I.DllImportAttribute>(true).CharSet);
         }
 
-        public static string ToCppType(this R.FieldInfo f)
+        public static Type ToCppType(this R.FieldInfo f)
         {
-            return f.FieldType.ToCppType(f);
+            return f.FieldType.ToCppType(f, f.DeclaringType.StructLayoutAttribute.CharSet);
         }
     }
 }

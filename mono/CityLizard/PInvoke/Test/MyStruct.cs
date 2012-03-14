@@ -63,6 +63,22 @@
         public long B;
     }
 
+    public class CX
+    {
+    }
+
+    public struct Private
+    {
+        private int A;
+        public int B;
+
+        public Private(int a)
+        {
+            this.A = a;
+            this.B = 0;
+        }
+    }
+
     /* // not supported.
     [I.StructLayout(I.LayoutKind.Explicit)]
     public struct EPack
@@ -71,6 +87,14 @@
         public byte A;
         [I.FieldOffset(1)]
         public long B;
+    }
+     * */
+
+    /*
+    public struct X
+    {
+        [I.MarshalAs(I.UnmanagedType.AnsiBStr)]
+        public int a;
     }
      * */
 }

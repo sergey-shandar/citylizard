@@ -139,7 +139,11 @@ namespace CityLizard.PInvoke
                     result.AppendLine("#pragma pack(push, " + layout.Pack + ")");
                     result.AppendLine("struct " + type.Name);
                     result.AppendLine("{");
-                    foreach(var f in type.GetFields())
+                    foreach(var f in 
+                        type.GetFields(
+                            R.BindingFlags.NonPublic | 
+                            R.BindingFlags.Public | 
+                            R.BindingFlags.Instance))
                     {
                         result.AppendLine(
                             tab + f.ToCppType() + " " + f.Name + ";");

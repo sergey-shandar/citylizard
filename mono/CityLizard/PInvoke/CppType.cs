@@ -41,7 +41,8 @@
             var marshalAs = provider.GetCustomAttribute<I.MarshalAsAttribute>(true);
             if (marshalAs != null)
             {
-                switch (marshalAs.Value)
+                var unmanagedType = marshalAs.Value;
+                switch (unmanagedType)
                 {
                     case I.UnmanagedType.AsAny:
                         return "::VARIANT";
@@ -91,6 +92,8 @@
                         return ULongLong;
                     case I.UnmanagedType.VariantBool:
                         return "::VARIANT_BOOL";
+                    default:
+                        throw new S.Exception("Unsupported native type: " + unmanagedType);
                 }
             }
             
@@ -212,7 +215,7 @@
                 return SafeArrayPtr;
             }
 
-            throw new S.Exception("unknown type");
+            throw new S.Exception("unsupported type: " + type);
         }
 
         public static string ToCppType(this R.ParameterInfo p)

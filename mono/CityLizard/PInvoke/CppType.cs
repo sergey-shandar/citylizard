@@ -92,6 +92,8 @@
                         return ULongLong;
                     case I.UnmanagedType.VariantBool:
                         return "::VARIANT_BOOL";
+                    //case I.UnmanagedType.ByValTStr:
+                    //   return 
                     default:
                         throw new S.Exception("Unsupported native type: " + unmanagedType);
                 }

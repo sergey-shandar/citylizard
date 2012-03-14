@@ -79,6 +79,16 @@
         }
     }
 
+    public struct String
+    {
+        [I.MarshalAs(I.UnmanagedType.LPStr)]
+        public string lpstr;
+        [I.MarshalAs(I.UnmanagedType.LPWStr)]
+        public string lpwstr;
+        [I.MarshalAs(I.UnmanagedType.LPTStr)]
+        public string lptstr;
+    }
+
     /* // not supported.
     [I.StructLayout(I.LayoutKind.Explicit)]
     public struct EPack

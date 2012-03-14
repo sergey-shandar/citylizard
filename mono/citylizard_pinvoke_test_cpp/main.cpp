@@ -1,5 +1,7 @@
 #include <interface.hpp>
 
+#include <windows.hpp>
+
 static_assert(::CityLizard::PInvoke::Test::MyBigEnum::MaxValue == LLONG_MAX, "xxx");
 static_assert(::CityLizard::PInvoke::Test::MyBigEnum::MinValue == LLONG_MIN, "xxx");
 static_assert(::CityLizard::PInvoke::Test::MyPBigEnum::MaxValue == ULLONG_MAX, "xxx");
@@ -158,4 +160,22 @@ void WINAPI RetBoolOut(::CityLizard::PInvoke::Test::MyBools3 *p)
 ::HRESULT WINAPI PrivateStruct(::CityLizard::PInvoke::Test::Private s)
 {
     return s.B == 0 ? S_OK: E_FAIL;
+}
+
+::HRESULT WINAPI StringStruct(::CityLizard::PInvoke::Test::String *p)
+{
+    p->lpstr = "Hello world!";
+    p->lpwstr = L"Hello world!";
+    p->lptstr = L"Hello world!";
+    return S_OK;
+}
+
+::HRESULT WINAPI StringStruct(::CityLizard::PInvoke::Test::String x)
+{
+    return
+        (::strcmp(x.lpstr, "lpstr") == 0) &&
+        (::wcscmp(x.lpwstr, L"lpwstr") == 0) &&
+        (::wcscmp(x.lptstr, L"lptstr") == 0) ?
+        S_OK :
+        E_FAIL;
 }

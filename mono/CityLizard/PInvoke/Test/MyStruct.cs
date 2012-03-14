@@ -79,6 +79,21 @@
         }
     }
 
+    [I.StructLayout(I.LayoutKind.Sequential, CharSet = I.CharSet.Auto)]
+    public struct Chars
+    {
+        public char A;
+        public char B;
+        public char C;
+    }
+
+    public struct AnsiChars
+    {
+        public char A;
+        public char B;
+        public char C;
+    }
+
     public struct BStr
     {
         [I.MarshalAs(I.UnmanagedType.BStr)]

@@ -13,6 +13,7 @@
         private const string BStr = "::BSTR";
         private const string LPStr = "::LPSTR";
         private const string LPWStr = "::LPWSTR";
+        private const string LPTStr = "::LPTSTR";
 
         private const string Char = "::CHAR";
         private const string Short = "::SHORT";
@@ -43,6 +44,36 @@
             {
                 this.Prefix = prefix;
                 this.Suffix = suffix;
+            }
+        }
+
+        private static string CharType(I.CharSet charSet)
+        {
+            switch(charSet)
+            {
+                case I.CharSet.Ansi:
+                    return Char;
+                case I.CharSet.Auto:
+                    return "::TCHAR";
+                case I.CharSet.Unicode:
+                    return "::WCHAR";
+                default:
+                    throw new S.Exception("unknown charser: " + charSet);
+            }
+        }
+
+        private static string StringType(I.CharSet charSet)
+        {
+            switch (charSet)
+            {
+                case I.CharSet.Ansi:
+                    return LPStr;
+                case I.CharSet.Auto:
+                    return LPTStr;
+                case I.CharSet.Unicode:
+                    return LPWStr;
+                default:
+                    throw new S.Exception("unknown charser: " + charSet);
             }
         }
 
@@ -84,7 +115,7 @@
                         return new Type(LPStr);
                     // depends on platform
                     case I.UnmanagedType.LPTStr:
-                        return new Type("::LPTSTR");
+                        return new Type(LPTStr);
                     case I.UnmanagedType.LPWStr:
                         return new Type(LPWStr);
                     case I.UnmanagedType.R4:
@@ -109,9 +140,7 @@
                         return new Type("::VARIANT_BOOL");
                     // depends on charset configuratin
                     case I.UnmanagedType.ByValTStr:
-                        return new Type(
-                            charSet == I.CharSet.Ansi ? Char: "::WCHAR", 
-                            "[" + marshalAs.SizeConst + "]");
+                        return new Type(CharType(charSet), "[" + marshalAs.SizeConst + "]");
                     default:
                         throw new S.Exception("Unsupported native type: " + unmanagedType);
                 }
@@ -170,7 +199,7 @@
                 }
                 else if (type == typeof(char))
                 {
-                    return new Type("::WCHAR");
+                    return new Type(CharType(charSet));
                 }
                 else if (type == typeof(sbyte))
                 {

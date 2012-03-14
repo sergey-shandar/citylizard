@@ -210,3 +210,13 @@ void WINAPI RetBoolOut(::CityLizard::PInvoke::Test::MyBools3 *p)
     ::UINT const len = ::SysStringLen(s.A);
     return len == 3 ? S_OK : E_FAIL;
 }
+
+::HRESULT WINAPI CheckChars(::CityLizard::PInvoke::Test::Chars chars)
+{
+    return (chars.A == L'A') && (chars.B == L'B') && (chars.C == L'C') ? S_OK: E_FAIL;
+}
+
+::HRESULT WINAPI CheckAnsiChars(::CityLizard::PInvoke::Test::AnsiChars chars)
+{
+    return (chars.A == 'A') && (chars.B == 'B') && (chars.C == 'C') ? S_OK: E_FAIL;
+}

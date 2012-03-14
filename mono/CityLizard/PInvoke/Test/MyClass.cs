@@ -104,6 +104,12 @@ namespace CityLizard.PInvoke.Test
         public static extern void AnsiMyLPTStr(
             [I.MarshalAs(I.UnmanagedType.LPTStr)] string x,
             [I.MarshalAs(I.UnmanagedType.BStr)]string y);
+
+        [I.DllImport("citylizard_pinvoke_test_cpp.dll", PreserveSig = false)]
+        public static extern void CheckChars(Chars chars);
+
+        [I.DllImport("citylizard_pinvoke_test_cpp.dll", PreserveSig = false)]
+        public static extern void CheckAnsiChars(AnsiChars chars);
 	}
 }
 

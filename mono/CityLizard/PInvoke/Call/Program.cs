@@ -112,6 +112,10 @@
             Test.MyClass.AnsiMyLPTStr("Hello world!", "Hello world!");
 
             Test.MyClass.CheckBStr(new Test.BStr() { A = "XXX" });
+
+            Test.MyClass.CheckChars(new Test.Chars() { A = 'A', B = 'B', C = 'C' });
+
+            Test.MyClass.CheckAnsiChars(new Test.AnsiChars() { A = 'A', B = 'B', C = 'C' });
         }
     }
 }

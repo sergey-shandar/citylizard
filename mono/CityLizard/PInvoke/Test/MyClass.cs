@@ -84,6 +84,9 @@ namespace CityLizard.PInvoke.Test
 
         [I.DllImport("citylizard_pinvoke_test_cpp.dll", PreserveSig = false)]
         public static extern void PackTest(NoPack noPackm, Pack1 pack1);
+
+        [I.DllImport("citylizard_pinvoke_test_cpp.dll", PreserveSig = false)]
+        public static extern void PrivateStruct(Private p);
 	}
 }
 

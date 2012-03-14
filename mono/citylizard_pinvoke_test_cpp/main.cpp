@@ -154,3 +154,8 @@ void WINAPI RetBoolOut(::CityLizard::PInvoke::Test::MyBools3 *p)
         n.A == 0x12 && n.B == 0x3456789A &&
         p1.A == 0x12 && p1.B == 0x3456789A ? S_OK: E_FAIL;
 }
+
+::HRESULT WINAPI PrivateStruct(::CityLizard::PInvoke::Test::Private s)
+{
+    return s.B == 0 ? S_OK: E_FAIL;
+}

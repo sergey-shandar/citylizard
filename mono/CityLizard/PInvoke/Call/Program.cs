@@ -103,6 +103,8 @@
                 new Test.Pack1 { A = 0x12, B = 0x3456789A });
 
             Test.MyClass.PrivateStruct(new Test.Private(int.MinValue));
+
+            Test.MyClass.StringStruct(new Test.String() { lpstr = "lpstr", lpwstr = "lpwstr", lptstr = "lptstr" });
         }
     }
 }

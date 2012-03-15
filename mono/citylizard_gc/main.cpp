@@ -1,24 +1,25 @@
 #include <iostream>
 
+class as_prior { };
+
+class as_next { };
+
+template<class T>
 class node
 {
 public:
-    
-    class as_prior { };
-
-    class as_next { };
 
     node() throw()
     {
-        this->_prior = this->_next = this;
+        this->_prior = this->_next = &this->_this();
     }
 
-    node(node &list, as_prior): _prior(list._prior), _next(&list)
+    node(T &list, as_prior): _prior(list._prior), _next(&list)
     {
         this->_norm();
     }
 
-    node(node &list, as_next): _prior(&list), _next(list._next)
+    node(T &list, as_next): _prior(&list), _next(list._next)
     {
         this->_norm();
     }
@@ -26,38 +27,38 @@ public:
     void disconnect() throw()
     {
         this->_disconnect();
-        this->_prior = this->_next = this;
+        this->_prior = this->_next = &this->_this();
     }
 
-    void set_prior(node &prior) throw()
+    void set_prior(T &prior) throw()
     {
-        prior._reconnect(*this->_prior, *this);
+        prior._reconnect(*this->_prior, this->_this());
     }
 
-    void set_next(node &next) throw()
+    void set_next(T &next) throw()
     {
-        next._reconnect(*this, *this->_next);
+        next._reconnect(this->_this(), *this->_next);
     }
 
-    node &get_prior() const throw()
+    T &get_prior() const throw()
     {
         return *this->_prior;
     }
 
-    node &get_next() const throw()
+    T &get_next() const throw()
     {
         return *this->_next;
     }
 
     bool empty() const throw()
     {
-        return this->_prior == this;
+        return this->_prior == this->_next;
     }
 
 private:
 
-    node *_prior;
-    node *_next;
+    T *_prior;
+    T *_next;
 
     /// disconnect from old list.
     void _disconnect() throw()
@@ -66,7 +67,7 @@ private:
         this->_next->_prior = this->_prior;
     }
 
-    void _reconnect(node &before, node &after) throw()
+    void _reconnect(T &before, T &after) throw()
     {
         // disconnect from old list.
         this->_disconnect();
@@ -78,7 +79,12 @@ private:
 
     void _norm() throw()
     {
-        this->_prior->_next = this->_next->_prior = this;
+        this->_prior->_next = this->_next->_prior = &this->_this();
+    }
+
+    T &_this() throw()
+    {
+        return *static_cast<T *>(this);
     }
 
     node(node const &);
@@ -138,20 +144,41 @@ Node list[4];
 // if object A start referencing to object B:
 //  if A is in empty_list and B is in current_list then add B to list_to_check.
 
+class my: public node<my>
+{
+public:
+
+    my() throw(): _id() {}
+
+    template<class T>
+    my(my &x, T tag) throw(): node<my>(x, tag), _id(x._id) {}
+
+    virtual ~my() {}
+
+    virtual my *get(int i) const throw() { return nullptr; }
+
+    int get_id() const throw() { return this->_id; }
+
+private:
+
+    int _id;
+
+};
+
 int main(int argc, char **argv)
 {
-    node x;
+    my x;
 
-    for(int i = 0; i < 100000; ++i)
+    for(int i = 0; i < 10000; ++i)
     {
-        new node(x, node::as_prior());
+        new my(x, as_prior());
         //new node(x, node::as_next());
         //::std::cout << i << ::std::endl;
     }
 
     while(!x.empty())
     {
-        node &r = x.get_next();
+        my &r = x.get_next();
         r.disconnect();
         delete &r;
     }

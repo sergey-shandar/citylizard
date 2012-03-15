@@ -132,17 +132,66 @@ public:
 Node list[4];
 */
 
-// 1. current_list = list_a | list_b, empty_list = list_b | list_a
-// 2. scan root_list and add all children to list_to_check
-// 3. scan list_to_check and add all children to list_to_check, after checking
-//    children the particular node, add this node to empty_list.
-// 4. kill all nodes in current_list.
-// 5. swap current_list and empty_list definitions.
+// 1. checked_list = list_a | list_b, unchecked_list = list_b | list_a
+// 2. scan root_list and add all children to to_check_list
+// 3. scan to_check_list and add all children to to_check_list, after checking
+//    children the particular node, add this node to checked_list.
+//
+//      while(!to_check.empty())
+//      {
+//          node &n = to_check_list.get_next();
+//          for(int i = n.get_size(); i > 0;)
+//          {
+//              --i;
+//              //
+//              node *p = n.get_node(i);
+//              if(p && p->state == uncheked)
+//              {
+//                  lock
+//                  {
+//                      to_check_list.set_next(*p);
+//                  }
+//              }
+//          }
+//          lock
+//          {
+//              checked_list.set_next(n);
+//          }
+//      }
+//
+// 4. kill all nodes in uncheked_list.
+//
+//      // no lock is required because the objects are not accessible.
+//      while(!unchecked_list.empty())
+//      {
+//          node &n = unchecked_list.get_next();
+//          n.diconnect();
+//          delete &n;
+//      }
+//
+// 5. swap checked_list and uncked_list definitions.
+//
 // 6. goto 2.
 
 // when object is created, it is added to to_check list.
 // if object A start referencing to object B:
-//  if A is in empty_list and B is in current_list then add B to list_to_check.
+//  if B is unchecked_list then add B to to_check_list.
+//
+//  // new
+//  lock
+//  {
+//      object.field = new node(checked_list, as_next);
+//  }
+//
+//  // assignment
+//  A.field = B;
+//  if(B.state == unchecked)
+//  {
+//      lock
+//      {
+//          to_check_list.set_next(B);
+//      }
+//  }
 
 class my: public node<my>
 {
@@ -155,6 +204,7 @@ public:
 
     virtual ~my() {}
 
+    virtual int get_size() const throw() { return 0; }
     virtual my *get(int i) const throw() { return nullptr; }
 
     int get_id() const throw() { return this->_id; }

@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual C++ Express 2010
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "citylizard_pinvoke_test_cpp", "citylizard_pinvoke_test_cpp.vcxproj", "{31EBAA15-6074-4EDF-BE21-1B74BED862B6}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "citylizard_gc", "..\citylizard_gc\citylizard_gc.vcxproj", "{8A350430-B5A9-4AFA-BA4A-F90D366322D4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Itanium = Debug|Itanium
@@ -25,6 +27,14 @@ Global
 		{31EBAA15-6074-4EDF-BE21-1B74BED862B6}.Release|Win32.Build.0 = Release|Win32
 		{31EBAA15-6074-4EDF-BE21-1B74BED862B6}.Release|x64.ActiveCfg = Release|x64
 		{31EBAA15-6074-4EDF-BE21-1B74BED862B6}.Release|x64.Build.0 = Release|x64
+		{8A350430-B5A9-4AFA-BA4A-F90D366322D4}.Debug|Itanium.ActiveCfg = Debug|Win32
+		{8A350430-B5A9-4AFA-BA4A-F90D366322D4}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8A350430-B5A9-4AFA-BA4A-F90D366322D4}.Debug|Win32.Build.0 = Debug|Win32
+		{8A350430-B5A9-4AFA-BA4A-F90D366322D4}.Debug|x64.ActiveCfg = Debug|Win32
+		{8A350430-B5A9-4AFA-BA4A-F90D366322D4}.Release|Itanium.ActiveCfg = Release|Win32
+		{8A350430-B5A9-4AFA-BA4A-F90D366322D4}.Release|Win32.ActiveCfg = Release|Win32
+		{8A350430-B5A9-4AFA-BA4A-F90D366322D4}.Release|Win32.Build.0 = Release|Win32
+		{8A350430-B5A9-4AFA-BA4A-F90D366322D4}.Release|x64.ActiveCfg = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>Untitled Page</title>
+    <style type="text/css">
+body { font-family: Monospace; }        
+th { background-color: #C0C0C0; }
+td { background-color: #E0E0E0; }
+    </style>
+</head>
+<body>
+    <table>
+        <tr><th>C# Type</th><th>UnmanagedType</th><th>CharSet</th><th>C Type</th></tr>
+        <tr><th colspan="4">Integers</th></tr>
+        <tr><td>sbyte</td><td>I1</td><td rowspan="8">(any)</td><td>CHAR</td></tr>
+        <tr><td>short</td><td>I2</td><td>SHORT</td></tr>
+        <tr><td>int</td><td>I4</td><td>LONG</td></tr>
+        <tr><td>long</td><td>I8</td><td>LONGLONG</td></tr>
+        <tr><td>byte</td><td>U1</td><td>BYTE</td></tr>
+        <tr><td>ushort</td><td>U2</td><td>USHORT</td></tr>
+        <tr><td>uint</td><td>U4</td><td>ULONG</td></tr>
+        <tr><td>ulong</td><td>U8</td><td>ULONGLONG</td></tr>
+        <tr><th colspan="4">Platform Integers</th></tr>
+        <tr><td>IntPtr</td><td>SysInt</td><td rowspan="2">(any)</td><td>INT_PTR</td></tr>
+        <tr><td>UIntPtr</td><td>SysUInt</td><td>UINT_PTR</td></tr>
+        <tr><th colspan="4">Booleans</th></tr>
+        <tr><td rowspan="2">bool</td><td>Bool</td><td rowspan="2">(any)</td><td>BOOL</td></tr>
+        <tr><td>VariantBool</td><td>VARIANT_BOOL</td></tr>
+        <tr><th colspan="4">Floating-Point Numbers</th></tr>
+        <tr><td>float</td><td>R4</td><td rowspan="2">(any)</td><td>FLOAT</td></tr>
+        <tr><td>double</td><td>R8</td><td>DOUBLE</td></tr>
+        <tr><th colspan="4">Chars</th></tr>
+        <tr><td rowspan="3">char</td><td rowspan="3">(none)</td><td>Ansi</td><td>CHAR</td></tr>
+        <tr><td>Unicode</td><td>WCHAR</td></tr>
+        <tr><td>Auto</td><td>TCHAR</td></tr>
+        <tr><th colspan="4">Strings</th></tr>
+        <tr><td rowspan="10">string</td><td>BStr</td><td rowspan="4">(any)</td><td>BSTR</td></tr>
+        <tr><td>LPStr</td><td>LPSTR</td></tr>
+        <tr><td>LPWStr</td><td>LPWSTR</td></tr>
+        <tr><td>LPTStr</td><td>LPTSTR</td></tr>
+        <tr><td rowspan="3">ByValTStr</td><td>Ansi</td><td>CHAR[SizeConst]</td></tr>
+        <tr><td>Unicode</td><td>WCHAR[SizeConst]</td></tr>
+        <tr><td>Auto</td><td>TCHAR[SizeConst]</td></tr>
+        <tr><td rowspan="3">(none)</td><td>Ansi</td><td>LPSTR</td></tr>
+        <tr><td>Unicode</td><td>LPWSTR</td></tr>
+        <tr><td>Auto</td><td>LPTSTR</td></tr>
+        <tr><th colspan="5">Interfaces</th></tr>
+        <tr><td rowspan="2">object</td><td>IDispatch</td><td rowspan="2">(any)</td><td>IDispatch *</td></tr>
+        <tr><td>IUnknown</td><td>IUnknown *</td></tr>
+        <tr><th colspan="4">Arrays</th></tr>
+        <tr><td rowspan="2">CSharpType[]</td><td>SafeArray</td><td rowspan="2">(any)</td><td>SAFEARRAY *</td></tr>
+        <tr><td>ByValArray</td><td>CType[SizeConst]</td></tr>
+        <tr><th colspan="4">Others</th></tr>
+        <tr><td></td><td>AsAny</td><td></td><td>VARIANT</td></tr>
+        <tr><td></td><td>Currency</td><td></td><td>CY</td></tr>
+        <tr><td></td><td>Error</td><td></td><td>HRESULT</td></tr>
+        <tr><td>UserCSharpType</td><td>(none)</td><td></td><td>UserCType</td></tr>
+    </table>
+</body>
+</html>

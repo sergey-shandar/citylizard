@@ -110,6 +110,9 @@ namespace CityLizard.PInvoke.Test
 
         [I.DllImport("citylizard_pinvoke_test_cpp.dll", PreserveSig = false)]
         public static extern void CheckAnsiChars(AnsiChars chars);
+
+        [I.DllImport("citylizard_pinvoke_test_cpp.dll", PreserveSig = false)]
+        public static extern void CheckArray(ByValArray x);
 	}
 }
 

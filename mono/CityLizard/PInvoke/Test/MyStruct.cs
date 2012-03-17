@@ -149,4 +149,11 @@
         public int a;
     }
      * */
+
+    public struct ByValArray
+    {
+        // [I.MarshalAs(I.UnmanagedType.ByValArray, ArraySubType=I.UnmanagedType.ByValArray)]
+        [I.MarshalAs(I.UnmanagedType.ByValArray, ArraySubType = I.UnmanagedType.I2, SizeConst = 100)]
+        public byte[] X;
+    }
 }

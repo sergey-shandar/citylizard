@@ -116,6 +116,8 @@
             Test.MyClass.CheckChars(new Test.Chars() { A = 'A', B = 'B', C = 'C' });
 
             Test.MyClass.CheckAnsiChars(new Test.AnsiChars() { A = 'A', B = 'B', C = 'C' });
+
+            Test.MyClass.CheckArray(new Test.ByValArray() { });
         }
     }
 }

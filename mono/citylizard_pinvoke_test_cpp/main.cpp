@@ -220,3 +220,12 @@ void WINAPI RetBoolOut(::CityLizard::PInvoke::Test::MyBools3 *p)
 {
     return (chars.A == 'A') && (chars.B == 'B') && (chars.C == 'C') ? S_OK: E_FAIL;
 }
+
+::HRESULT WINAPI CheckArray(::CityLizard::PInvoke::Test::ByValArray x)
+{
+    for(int i = 0; i < 10; ++i)
+    {
+        ::std::cout << x.X[i] << ::std::endl;
+    }
+    return S_OK;
+}

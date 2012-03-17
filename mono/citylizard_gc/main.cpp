@@ -173,15 +173,16 @@ Node list[4];
 //
 // 6. goto 2.
 
-// when object is created, it is added to to_check list.
-// if object A start referencing to object B:
-//  if B is unchecked_list then add B to to_check_list.
+// when object is created, it is added to checked_list.
 //
 //  // new
 //  lock
 //  {
 //      object.field = new node(checked_list, as_next);
 //  }
+//
+// if object A start referencing to object B:
+// if B is unchecked_list then add B to to_check_list.
 //
 //  // assignment
 //  A.field = B;

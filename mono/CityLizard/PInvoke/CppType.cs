@@ -3,11 +3,134 @@
     using S = System;
     using I = System.Runtime.InteropServices;
     using R = System.Reflection;
+    using C = System.Collections.Generic;
 
     using System.Linq;
 
     static class CppType
     {
+        private class Map
+        {
+            private class Value
+            {
+                private readonly C.Dictionary<I.UnmanagedType?, string> dictionary =
+                    new C.Dictionary<I.UnmanagedType?, string>();
+
+                public Value Add(I.UnmanagedType? unmanagedType, string value)
+                {
+                    this.dictionary.Add(unmanagedType, value);
+                    return this;
+                }
+            }
+
+            private readonly C.Dictionary<S.Type, Value> dictionary =
+                new C.Dictionary<S.Type, Value>();
+
+            public Map()
+            {
+                this.AddOptional<sbyte>(I.UnmanagedType.I1, "::CHAR");
+                this.AddOptional<short>(I.UnmanagedType.I2, "::SHORT");
+                this.AddOptional<int>(I.UnmanagedType.I4, "::LONG");
+                this.AddOptional<long>(I.UnmanagedType.I8, "::LONGLONG");
+                this.AddOptional<byte>(I.UnmanagedType.U1, "::BYTE");
+                this.AddOptional<ushort>(I.UnmanagedType.U2, "::USHORT");
+                this.AddOptional<uint>(I.UnmanagedType.U4, "::ULONG");
+                this.AddOptional<ulong>(I.UnmanagedType.U8, "::ULONGLONG");
+                this.AddOptional<S.IntPtr>(I.UnmanagedType.SysInt, "::INT_PTR");
+                this.AddOptional<S.UIntPtr>(I.UnmanagedType.SysUInt, "::UINT_PTR");
+            }
+
+            private Value Add<T>()
+            {
+                var value = new Value();
+                this.dictionary.Add(typeof(T), value);
+                return value;
+            }
+
+            private void AddOptional<T>(I.UnmanagedType unmanagedType, string cType)
+            {
+                var value = this.Add<T>();
+                value.Add(null, cType);
+                value.Add(unmanagedType, cType);
+            }
+        }
+
+        /*
+        private static C.Dictionary<S.Type, string> dictonary = 
+            new C.Dictionary<S.Type, string>()
+        {
+            // integers
+            { typeof(sbyte), "::CHAR" },
+            { typeof(short), "::SHORT" },
+            { typeof(int), "::LONG" },
+            { typeof(long), "::LONGLONG" },
+            { typeof(byte), "::BYTE" },
+            { typeof(ushort), "::USHORT" },
+            { typeof(uint), "::ULONG" },
+            { typeof(ulong), "ULONGLONG" },
+
+            // system integers
+            { typeof(S.IntPtr), "INT_PTR" },
+            { typeof(S.UIntPtr), "UINT_PTR" },
+
+            // floating-point numbers
+            { typeof(float), "::FLOAT" },
+            { typeof(double), "::DOUBLE" },
+        };
+
+        public const string HResult = "::HRESULT";
+
+        public struct Type
+        {
+            public readonly string Prefix;
+            public readonly string Suffix;
+
+            public Type(string prefix, string suffix = "")
+            {
+                this.Prefix = prefix;
+                this.Suffix = suffix;
+            }
+        }
+
+        public static Type ToCppType(this S.Type type, R.ICustomAttributeProvider provider,
+            I.CharSet charSet)
+        {
+            var marshalAs = provider.GetCustomAttribute<I.MarshalAsAttribute>(true);
+            string value;
+            if (dictonary.TryGetValue(type, out value))
+            {
+                if (marshalAs != null)
+                {
+                    throw new S.Exception("MarshalAs attribute is not supported for " + type.ToString());
+                }
+                return new Type(value, "");
+            }
+            else if(type == typeof(bool))
+            {
+                if (marshalAs == null)
+                {
+                    return new Type("::BOOL", "");
+                }
+                else
+                {
+                    switch (marshalAs.Value)
+                    {
+                        case I.UnmanagedType.Bool:
+                            return new Type("::BOOL", "");
+                        case I.UnmanagedType.VariantBool:
+                            return new Type("::VARIANT_BOOL", "");
+                        default:
+                            throw new S.Exception("Can't marshal bool as " + marshalAs.Value.ToString());
+                    }
+                }
+            }
+            else if (type == typeof(object))
+            {
+            }
+        }
+        */
+
+        /*
         private const string Bool = "::BOOL";
         
         private const string BStr = "::BSTR";
@@ -278,6 +401,7 @@
 
             throw new S.Exception("unsupported type: " + type);
         }
+         * */
 
         public static Type ToCppType(this R.ParameterInfo p)
         {
@@ -288,5 +412,6 @@
         {
             return f.FieldType.ToCppType(f, f.DeclaringType.StructLayoutAttribute.CharSet);
         }
+
     }
 }

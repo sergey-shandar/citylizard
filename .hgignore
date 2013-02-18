@@ -31,3 +31,4 @@ syntax: regexp
 /build/
 /private/
 \.jar$
+/obj/

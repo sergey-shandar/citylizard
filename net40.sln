@@ -1,42 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 2012 for Windows Desktop
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Xml.net40", "CityLizard.Xml\CityLizard.Xml.net40.csproj", "{8F739628-3DB9-40B2-BE72-247575DA4DD1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Xml.Schema.net40", "CityLizard.Xml.Schema\CityLizard.Xml.Schema.net40.csproj", "{CE8ADA8F-65ED-415F-AA24-01AC610102CA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.CodeDom.net40", "CityLizard.CodeDom\CityLizard.CodeDom.net40.csproj", "{47862EE8-9CCF-4FB1-98D4-F6FB3019B1C1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Collections.net40", "CityLizard.Collections\CityLizard.Collections.net40.csproj", "{88B3ED47-9798-4ABA-A58C-B27E90CD4F19}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Fsm.net40", "CityLizard.Fsm\CityLizard.Fsm.net40.csproj", "{47C312CE-8135-4A30-88E1-F419CF65D267}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Xml", "CityLizard.Xml\CityLizard.Xml.csproj", "{CD63BFEF-6B22-4FF2-A672-F68B04FCA199}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug.net40|Any CPU = Debug.net40|Any CPU
-		Release.net40|Any CPU = Release.net40|Any CPU
+		net40|Any CPU = net40|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8F739628-3DB9-40B2-BE72-247575DA4DD1}.Debug.net40|Any CPU.ActiveCfg = Debug.net40|Any CPU
-		{8F739628-3DB9-40B2-BE72-247575DA4DD1}.Debug.net40|Any CPU.Build.0 = Debug.net40|Any CPU
-		{8F739628-3DB9-40B2-BE72-247575DA4DD1}.Release.net40|Any CPU.ActiveCfg = Release.net40|Any CPU
-		{8F739628-3DB9-40B2-BE72-247575DA4DD1}.Release.net40|Any CPU.Build.0 = Release.net40|Any CPU
-		{CE8ADA8F-65ED-415F-AA24-01AC610102CA}.Debug.net40|Any CPU.ActiveCfg = Debug.net40|Any CPU
-		{CE8ADA8F-65ED-415F-AA24-01AC610102CA}.Debug.net40|Any CPU.Build.0 = Debug.net40|Any CPU
-		{CE8ADA8F-65ED-415F-AA24-01AC610102CA}.Release.net40|Any CPU.ActiveCfg = Release.net40|Any CPU
-		{CE8ADA8F-65ED-415F-AA24-01AC610102CA}.Release.net40|Any CPU.Build.0 = Release.net40|Any CPU
-		{47862EE8-9CCF-4FB1-98D4-F6FB3019B1C1}.Debug.net40|Any CPU.ActiveCfg = Debug.net40|Any CPU
-		{47862EE8-9CCF-4FB1-98D4-F6FB3019B1C1}.Debug.net40|Any CPU.Build.0 = Debug.net40|Any CPU
-		{47862EE8-9CCF-4FB1-98D4-F6FB3019B1C1}.Release.net40|Any CPU.ActiveCfg = Release.net40|Any CPU
-		{47862EE8-9CCF-4FB1-98D4-F6FB3019B1C1}.Release.net40|Any CPU.Build.0 = Release.net40|Any CPU
-		{88B3ED47-9798-4ABA-A58C-B27E90CD4F19}.Debug.net40|Any CPU.ActiveCfg = Debug.net40|Any CPU
-		{88B3ED47-9798-4ABA-A58C-B27E90CD4F19}.Debug.net40|Any CPU.Build.0 = Debug.net40|Any CPU
-		{88B3ED47-9798-4ABA-A58C-B27E90CD4F19}.Release.net40|Any CPU.ActiveCfg = Release.net40|Any CPU
-		{88B3ED47-9798-4ABA-A58C-B27E90CD4F19}.Release.net40|Any CPU.Build.0 = Release.net40|Any CPU
-		{47C312CE-8135-4A30-88E1-F419CF65D267}.Debug.net40|Any CPU.ActiveCfg = Debug.net40|Any CPU
-		{47C312CE-8135-4A30-88E1-F419CF65D267}.Debug.net40|Any CPU.Build.0 = Debug.net40|Any CPU
-		{47C312CE-8135-4A30-88E1-F419CF65D267}.Release.net40|Any CPU.ActiveCfg = Release.net40|Any CPU
-		{47C312CE-8135-4A30-88E1-F419CF65D267}.Release.net40|Any CPU.Build.0 = Release.net40|Any CPU
+		{CD63BFEF-6B22-4FF2-A672-F68B04FCA199}.net40|Any CPU.ActiveCfg = net40|Any CPU
+		{CD63BFEF-6B22-4FF2-A672-F68B04FCA199}.net40|Any CPU.Build.0 = net40|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

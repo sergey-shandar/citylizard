@@ -20,18 +20,12 @@
             this.ErrorHandler = (n, e) => { /*throw e;*/ };
         }
 
-        /// <summary>
-        /// Creates a comment node.
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
         public Linked.Comment Comment(string value)
         {
-            return new Linked.Comment
-            {
-                Implementation = this,
-                Value = value,
-            };
+            var result = new Linked.Comment();
+            result.Implementation = this;
+            result.Value = value;
+            return result;
         }
     }
 }

@@ -5,13 +5,6 @@
     /// </summary>
     public abstract class Simple: Element, ICharacterData
     {
-        /// <summary>
-        /// Set up the simple element.
-        /// </summary>
-        /// <param name="implementation"></param>
-        /// <param name="namespace"></param>
-        /// <param name="name"></param>
-        /// <param name="value"></param>
         protected void SetUp(
             Implementation implementation, 
             string @namespace, 

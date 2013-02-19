@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2012 for Web
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Xml.sl4", "CityLizard.Xml\CityLizard.Xml.sl4.csproj", "{8A82D861-13C1-4A70-B512-D4EF5CC7119D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Xml.sl5", "CityLizard.Xml\CityLizard.Xml.sl5.csproj", "{556BDD46-7884-40AD-9FA5-D0182C66AFF0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8A82D861-13C1-4A70-B512-D4EF5CC7119D}.Debug|Any CPU.ActiveCfg = sl4|Any CPU
+		{8A82D861-13C1-4A70-B512-D4EF5CC7119D}.Debug|Any CPU.Build.0 = sl4|Any CPU
+		{8A82D861-13C1-4A70-B512-D4EF5CC7119D}.Release|Any CPU.ActiveCfg = sl4|Any CPU
+		{8A82D861-13C1-4A70-B512-D4EF5CC7119D}.Release|Any CPU.Build.0 = sl4|Any CPU
+		{556BDD46-7884-40AD-9FA5-D0182C66AFF0}.Debug|Any CPU.ActiveCfg = sl5|Any CPU
+		{556BDD46-7884-40AD-9FA5-D0182C66AFF0}.Debug|Any CPU.Build.0 = sl5|Any CPU
+		{556BDD46-7884-40AD-9FA5-D0182C66AFF0}.Release|Any CPU.ActiveCfg = sl5|Any CPU
+		{556BDD46-7884-40AD-9FA5-D0182C66AFF0}.Release|Any CPU.Build.0 = sl5|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -13,6 +13,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Collections.net3
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.CodeDom.net35-client", "CityLizard.CodeDom\CityLizard.CodeDom.net35-client.csproj", "{AAC22FC1-CD07-4F14-A2E6-5819BC3C23AD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.CodeDom.net40-client", "CityLizard.CodeDom\CityLizard.CodeDom.net40-client.csproj", "{8B538BF6-5F3C-4D6F-B9B7-7DE68F7F63F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Collections.net40-client", "CityLizard.Collections\CityLizard.Collections.net40-client.csproj", "{E9BEBB37-91E4-4A0B-BD71-60C76038BB3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Fsm.net40-client", "CityLizard.Fsm\CityLizard.Fsm.net40-client.csproj", "{498CC501-2B9E-4181-B76F-B8DD71990A9F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Xml.Schema.net40-client", "CityLizard.Xml.Schema\CityLizard.Xml.Schema.net40-client.csproj", "{F002BE3C-9874-41FA-ABDC-35A056496334}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +51,22 @@ Global
 		{AAC22FC1-CD07-4F14-A2E6-5819BC3C23AD}.Debug|Any CPU.Build.0 = net35-client|Any CPU
 		{AAC22FC1-CD07-4F14-A2E6-5819BC3C23AD}.Release|Any CPU.ActiveCfg = net35-client|Any CPU
 		{AAC22FC1-CD07-4F14-A2E6-5819BC3C23AD}.Release|Any CPU.Build.0 = net35-client|Any CPU
+		{8B538BF6-5F3C-4D6F-B9B7-7DE68F7F63F3}.Debug|Any CPU.ActiveCfg = net40-client|Any CPU
+		{8B538BF6-5F3C-4D6F-B9B7-7DE68F7F63F3}.Debug|Any CPU.Build.0 = net40-client|Any CPU
+		{8B538BF6-5F3C-4D6F-B9B7-7DE68F7F63F3}.Release|Any CPU.ActiveCfg = net40-client|Any CPU
+		{8B538BF6-5F3C-4D6F-B9B7-7DE68F7F63F3}.Release|Any CPU.Build.0 = net40-client|Any CPU
+		{E9BEBB37-91E4-4A0B-BD71-60C76038BB3B}.Debug|Any CPU.ActiveCfg = net40-client|Any CPU
+		{E9BEBB37-91E4-4A0B-BD71-60C76038BB3B}.Debug|Any CPU.Build.0 = net40-client|Any CPU
+		{E9BEBB37-91E4-4A0B-BD71-60C76038BB3B}.Release|Any CPU.ActiveCfg = net40-client|Any CPU
+		{E9BEBB37-91E4-4A0B-BD71-60C76038BB3B}.Release|Any CPU.Build.0 = net40-client|Any CPU
+		{498CC501-2B9E-4181-B76F-B8DD71990A9F}.Debug|Any CPU.ActiveCfg = net40-client|Any CPU
+		{498CC501-2B9E-4181-B76F-B8DD71990A9F}.Debug|Any CPU.Build.0 = net40-client|Any CPU
+		{498CC501-2B9E-4181-B76F-B8DD71990A9F}.Release|Any CPU.ActiveCfg = net40-client|Any CPU
+		{498CC501-2B9E-4181-B76F-B8DD71990A9F}.Release|Any CPU.Build.0 = net40-client|Any CPU
+		{F002BE3C-9874-41FA-ABDC-35A056496334}.Debug|Any CPU.ActiveCfg = net40-client|Any CPU
+		{F002BE3C-9874-41FA-ABDC-35A056496334}.Debug|Any CPU.Build.0 = net40-client|Any CPU
+		{F002BE3C-9874-41FA-ABDC-35A056496334}.Release|Any CPU.ActiveCfg = net40-client|Any CPU
+		{F002BE3C-9874-41FA-ABDC-35A056496334}.Release|Any CPU.Build.0 = net40-client|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

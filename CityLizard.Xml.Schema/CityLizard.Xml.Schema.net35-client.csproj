@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8592942E-F928-460E-9360-628CB38DA4F6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CityLizard.Xml.Schema</RootNamespace>
+    <AssemblyName>CityLizard.Xml.Schema</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'net35-client|AnyCPU'">
+    <OutputPath>bin\net35-client\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Compiler.cs" />
+    <Compile Include="ComplexTypeToDfa.cs" />
+    <Compile Include="ElementSet.cs" />
+    <Compile Include="Extension.XmlSchemaExtension.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CityLizard.CodeDom\CityLizard.CodeDom.net35-client.csproj">
+      <Project>{aac22fc1-cd07-4f14-a2e6-5819bc3c23ad}</Project>
+      <Name>CityLizard.CodeDom.net35-client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CityLizard.Collections\CityLizard.Collections.net35-client.csproj">
+      <Project>{4c351f49-00e7-433b-b321-5a8a44b6cf9f}</Project>
+      <Name>CityLizard.Collections.net35-client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CityLizard.Fsm\CityLizard.Fsm.net35-client.csproj">
+      <Project>{c0c63a4a-1a5a-4df3-9c8d-a1bcd27b791a}</Project>
+      <Name>CityLizard.Fsm.net35-client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CityLizard.Xml\CityLizard.Xml.net35-client.csproj">
+      <Project>{6934b143-1f96-46f5-83ad-a1cb58eb9c1f}</Project>
+      <Name>CityLizard.Xml.net35-client</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -33,3 +33,4 @@ syntax: regexp
 \.jar$
 /obj/
 /bin/
+\.pri$

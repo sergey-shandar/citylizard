@@ -33,7 +33,6 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Code.cs" />
     <Compile Include="CSharp.Keyword.cs" />
     <Compile Include="CSharp.Name.cs" />

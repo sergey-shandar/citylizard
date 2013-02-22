@@ -33,7 +33,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Compiler.cs" />
     <Compile Include="ComplexTypeToDfa.cs" />
     <Compile Include="ElementSet.cs" />

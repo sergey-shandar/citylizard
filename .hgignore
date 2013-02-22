@@ -34,3 +34,4 @@ syntax: regexp
 /obj/
 /bin/
 \.pri$
+\.mdb$

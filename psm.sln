@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Xml.psm", "CityLizard.Xml\CityLizard.Xml.psm.csproj", "{85684F00-3F86-4F77-B79E-5CCBC96CB998}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Collections.psm", "CityLizard.Collections\CityLizard.Collections.psm.csproj", "{EBAE7AC1-AC68-42A1-A531-D6523F6EF862}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{85684F00-3F86-4F77-B79E-5CCBC96CB998}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{85684F00-3F86-4F77-B79E-5CCBC96CB998}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{85684F00-3F86-4F77-B79E-5CCBC96CB998}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBAE7AC1-AC68-42A1-A531-D6523F6EF862}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBAE7AC1-AC68-42A1-A531-D6523F6EF862}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBAE7AC1-AC68-42A1-A531-D6523F6EF862}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBAE7AC1-AC68-42A1-A531-D6523F6EF862}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = CityLizard.Xml\CityLizard.Xml.psm.csproj

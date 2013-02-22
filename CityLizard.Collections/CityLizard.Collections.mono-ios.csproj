@@ -42,7 +42,6 @@
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Compile Include="ArrayCache.cs" />
-    <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Cache.cs" />
     <Compile Include="DictionaryCache.cs" />
     <Compile Include="Extension.IDictionaryExtension.cs" />

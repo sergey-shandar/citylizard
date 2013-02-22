@@ -33,7 +33,6 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Dfa.cs" />
     <Compile Include="Fsm.cs" />
     <Compile Include="Name.cs" />

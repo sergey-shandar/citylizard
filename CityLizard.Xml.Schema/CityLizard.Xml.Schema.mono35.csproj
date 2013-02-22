@@ -34,7 +34,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Compiler.cs" />
     <Compile Include="ComplexTypeToDfa.cs" />
     <Compile Include="ElementSet.cs" />
@@ -49,6 +48,14 @@
     <ProjectReference Include="..\CityLizard.Fsm\CityLizard.Fsm.mono35.csproj">
       <Project>{C58E49A1-0999-4690-9331-96FF11C8B9E8}</Project>
       <Name>CityLizard.Fsm.mono35</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CityLizard.Collections\CityLizard.Collections.mono35.csproj">
+      <Project>{C2261C51-90F8-4CE9-BB9A-ADF5C47A5BB5}</Project>
+      <Name>CityLizard.Collections.mono35</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CityLizard.Xml\CityLizard.Xml.mono35.csproj">
+      <Project>{DD44B016-79B2-4DBB-80E1-EF8A39F15A03}</Project>
+      <Name>CityLizard.Xml.mono35</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

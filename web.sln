@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Fsm.sl5", "CityL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Fsm.sl4", "CityLizard.Fsm\CityLizard.Fsm.sl4.csproj", "{820A7391-F82A-4C9A-BA2C-DAB329AB0B27}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Policy.sl4", "CityLizard.Policy\CityLizard.Policy.sl4.csproj", "{F2481CB5-4080-42F4-A26A-26743CE805E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Policy.sl5", "CityLizard.Policy\CityLizard.Policy.sl5.csproj", "{98F82D33-C28A-47DA-BB01-664753194E64}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +47,14 @@ Global
 		{820A7391-F82A-4C9A-BA2C-DAB329AB0B27}.Debug|Any CPU.Build.0 = sl4|Any CPU
 		{820A7391-F82A-4C9A-BA2C-DAB329AB0B27}.Release|Any CPU.ActiveCfg = sl4|Any CPU
 		{820A7391-F82A-4C9A-BA2C-DAB329AB0B27}.Release|Any CPU.Build.0 = sl4|Any CPU
+		{F2481CB5-4080-42F4-A26A-26743CE805E3}.Debug|Any CPU.ActiveCfg = sl4|Any CPU
+		{F2481CB5-4080-42F4-A26A-26743CE805E3}.Debug|Any CPU.Build.0 = sl4|Any CPU
+		{F2481CB5-4080-42F4-A26A-26743CE805E3}.Release|Any CPU.ActiveCfg = sl4|Any CPU
+		{F2481CB5-4080-42F4-A26A-26743CE805E3}.Release|Any CPU.Build.0 = sl4|Any CPU
+		{98F82D33-C28A-47DA-BB01-664753194E64}.Debug|Any CPU.ActiveCfg = sl5|Any CPU
+		{98F82D33-C28A-47DA-BB01-664753194E64}.Debug|Any CPU.Build.0 = sl5|Any CPU
+		{98F82D33-C28A-47DA-BB01-664753194E64}.Release|Any CPU.ActiveCfg = sl5|Any CPU
+		{98F82D33-C28A-47DA-BB01-664753194E64}.Release|Any CPU.Build.0 = sl5|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

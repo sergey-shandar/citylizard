@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Collections.wind
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Fsm.windows8", "CityLizard.Fsm\CityLizard.Fsm.windows8.csproj", "{0CBC81F3-4BA0-45EA-A1B1-825CEE6918CF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Policy.windows8", "CityLizard.Policy\CityLizard.Policy.windows8.csproj", "{1D037CD8-02DD-4499-88BD-2CBF5C48B7A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,16 @@ Global
 		{0CBC81F3-4BA0-45EA-A1B1-825CEE6918CF}.Release|ARM.ActiveCfg = windows8|Any CPU
 		{0CBC81F3-4BA0-45EA-A1B1-825CEE6918CF}.Release|x64.ActiveCfg = windows8|Any CPU
 		{0CBC81F3-4BA0-45EA-A1B1-825CEE6918CF}.Release|x86.ActiveCfg = windows8|Any CPU
+		{1D037CD8-02DD-4499-88BD-2CBF5C48B7A2}.Debug|Any CPU.ActiveCfg = windows8|Any CPU
+		{1D037CD8-02DD-4499-88BD-2CBF5C48B7A2}.Debug|Any CPU.Build.0 = windows8|Any CPU
+		{1D037CD8-02DD-4499-88BD-2CBF5C48B7A2}.Debug|ARM.ActiveCfg = windows8|Any CPU
+		{1D037CD8-02DD-4499-88BD-2CBF5C48B7A2}.Debug|x64.ActiveCfg = windows8|Any CPU
+		{1D037CD8-02DD-4499-88BD-2CBF5C48B7A2}.Debug|x86.ActiveCfg = windows8|Any CPU
+		{1D037CD8-02DD-4499-88BD-2CBF5C48B7A2}.Release|Any CPU.ActiveCfg = windows8|Any CPU
+		{1D037CD8-02DD-4499-88BD-2CBF5C48B7A2}.Release|Any CPU.Build.0 = windows8|Any CPU
+		{1D037CD8-02DD-4499-88BD-2CBF5C48B7A2}.Release|ARM.ActiveCfg = windows8|Any CPU
+		{1D037CD8-02DD-4499-88BD-2CBF5C48B7A2}.Release|x64.ActiveCfg = windows8|Any CPU
+		{1D037CD8-02DD-4499-88BD-2CBF5C48B7A2}.Release|x86.ActiveCfg = windows8|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

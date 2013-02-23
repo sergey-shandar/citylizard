@@ -14,6 +14,7 @@
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidResgenClass>Resource</AndroidResgenClass>
     <AssemblyName>CityLizard.Policy</AssemblyName>
+    <TargetFrameworkVersion>v1.6</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
@@ -45,15 +46,15 @@
   <ItemGroup>
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="INumeric.cs" />
-    <Compile Include="x.cs">
-      <DependentUpon>x.tt</DependentUpon>
+    <Compile Include="All.cs">
+      <DependentUpon>All.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
-    <None Include="x.tt">
+    <None Include="All.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>x.cs</LastGenOutput>
+      <LastGenOutput>All.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>

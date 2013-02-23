@@ -5,15 +5,15 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{BA410143-2FFB-43FC-A8D7-804EB9381ADB}</ProjectGuid>
+    <ProjectGuid>{150ECE92-D8BE-4399-921F-DA71BAE531A1}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
-    <RootNamespace>CityLizard.Fsm</RootNamespace>
+    <RootNamespace>CityLizard.Policy</RootNamespace>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidResgenClass>Resource</AndroidResgenClass>
-    <AssemblyName>CityLizard.Fsm</AssemblyName>
+    <AssemblyName>CityLizard.Policy</AssemblyName>
     <TargetFrameworkVersion>v1.6</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -45,21 +45,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Resources\Resource.designer.cs" />
-    <Compile Include="Dfa.cs" />
-    <Compile Include="Fsm.cs" />
-    <Compile Include="Name.cs" />
+    <Compile Include="INumeric.cs" />
+    <Compile Include="All.cs">
+      <DependentUpon>All.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
+    <None Include="All.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>All.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
-  <ItemGroup>
-    <ProjectReference Include="..\CityLizard.Collections\CityLizard.Collections.mono-android16.csproj">
-      <Project>{03BBBCBD-99E0-4FC1-A01F-FF6E175F21A4}</Project>
-      <Name>CityLizard.Collections.mono-android16</Name>
-    </ProjectReference>
-  </ItemGroup>
 </Project>

@@ -9,9 +9,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: Android.Runtime.ResourceDesignerAttribute("CityLizard.Fsm.Resource", IsApplication=false)]
+[assembly: Android.Runtime.ResourceDesignerAttribute("CityLizard.Policy.Resource", IsApplication=false)]
 
-namespace CityLizard.Fsm
+namespace CityLizard.Policy
 {
 	
 	

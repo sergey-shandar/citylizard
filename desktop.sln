@@ -25,6 +25,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Policy.net40-cli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Policy.net35-client", "CityLizard.Policy\CityLizard.Policy.net35-client.csproj", "{90B817EC-E19E-4EEB-9C70-5BCFAB8D98F4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Binary.net40-client", "CityLizard.Binary\CityLizard.Binary.net40-client.csproj", "{338E520D-1BA6-49B3-8DCA-BE3516002808}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Binary.net35-client", "CityLizard.Binary\CityLizard.Binary.net35-client.csproj", "{9EFF29BC-6351-487F-8406-D6EAA042489F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,10 +79,18 @@ Global
 		{ADE86FAF-3166-46F2-B8B2-6EADD4107BEC}.Debug|Any CPU.Build.0 = net40-client|Any CPU
 		{ADE86FAF-3166-46F2-B8B2-6EADD4107BEC}.Release|Any CPU.ActiveCfg = net40-client|Any CPU
 		{ADE86FAF-3166-46F2-B8B2-6EADD4107BEC}.Release|Any CPU.Build.0 = net40-client|Any CPU
-		{90B817EC-E19E-4EEB-9C70-5BCFAB8D98F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{90B817EC-E19E-4EEB-9C70-5BCFAB8D98F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{90B817EC-E19E-4EEB-9C70-5BCFAB8D98F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{90B817EC-E19E-4EEB-9C70-5BCFAB8D98F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90B817EC-E19E-4EEB-9C70-5BCFAB8D98F4}.Debug|Any CPU.ActiveCfg = net35-client|Any CPU
+		{90B817EC-E19E-4EEB-9C70-5BCFAB8D98F4}.Debug|Any CPU.Build.0 = net35-client|Any CPU
+		{90B817EC-E19E-4EEB-9C70-5BCFAB8D98F4}.Release|Any CPU.ActiveCfg = net35-client|Any CPU
+		{90B817EC-E19E-4EEB-9C70-5BCFAB8D98F4}.Release|Any CPU.Build.0 = net35-client|Any CPU
+		{338E520D-1BA6-49B3-8DCA-BE3516002808}.Debug|Any CPU.ActiveCfg = net40-client|Any CPU
+		{338E520D-1BA6-49B3-8DCA-BE3516002808}.Debug|Any CPU.Build.0 = net40-client|Any CPU
+		{338E520D-1BA6-49B3-8DCA-BE3516002808}.Release|Any CPU.ActiveCfg = net40-client|Any CPU
+		{338E520D-1BA6-49B3-8DCA-BE3516002808}.Release|Any CPU.Build.0 = net40-client|Any CPU
+		{9EFF29BC-6351-487F-8406-D6EAA042489F}.Debug|Any CPU.ActiveCfg = net35-client|Any CPU
+		{9EFF29BC-6351-487F-8406-D6EAA042489F}.Debug|Any CPU.Build.0 = net35-client|Any CPU
+		{9EFF29BC-6351-487F-8406-D6EAA042489F}.Release|Any CPU.ActiveCfg = net35-client|Any CPU
+		{9EFF29BC-6351-487F-8406-D6EAA042489F}.Release|Any CPU.Build.0 = net35-client|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -5,17 +5,20 @@
   - **net40-client** - .NET 4.0 Client Profile (runtime 4.0).
 - **mono-android** - Mono for Android, open in Xamarin Studio for Windows or Mac. Project platforms:
   - **mono-android16** - Mono for Android 1.6.
+  - optional: **mono40**, **mono35**.
 - **mono-mac** - Mono for Mac and iOS, open in Xamarin Studio for Mac. Project platforms:
   - **mono35** - Mono for .NET 3.5 (runtime 2.0).
   - **mono40** - Mono for .NET 4.0 (runtime 4.0).
   - **mono-ios** - Mono for iOS.
-- **psm** - PlayStation Mobile. Project platforms:
+  - optional **mono-android16**.
+- **psm** - PlayStation Mobile. Open in PlayStation Mobile Studio. Project platforms:
   - **psm** - PlayStation Mobile.
 - **web** - For web, open in Visual Studion 2012 Express for Web. Project platforms:
   - **sl4** - Silverlight 4.
   - **sl5** - Silverlight 5.
+  - optional: **net35**, **net40**.
 - **windows8** - Windows 8, open in Visual Studio 2012 Express for Windows 8. Project platforms:
   - **windows8** - Windows 8.
-- **wp** - Windows Phone, open in Visual Studio 2012 Express for Windows Phone.
+- **wp** - Windows Phone, open in Visual Studio 2012 Express for Windows Phone. Project platforms:
   - **wp71** - Windows Phone 7.1.
   - **wp8** - Windows Phone 8.0.

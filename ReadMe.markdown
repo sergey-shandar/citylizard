@@ -1,0 +1,21 @@
+# Solutions And Platforms
+
+- **desktop** - .NET, open in Visual Studio 2012 Express for Desktop. Project platforms:
+  - **net35-client** - .NET 3.5 Client Profile (runtime 2.0).
+  - **net40-client** - .NET 4.0 Client Profile (runtime 4.0).
+- **mono-android** - Mono for Android, open in Xamarin Studio for Windows or Mac. Project platforms:
+  - **mono-android16** - Mono for Android 1.6.
+- **mono-mac** - Mono for Mac and iOS, open in Xamarin Studio for Mac. Project platforms:
+  - **mono35** - Mono for .NET 3.5 (runtime 2.0).
+  - **mono40** - Mono for .NET 4.0 (runtime 4.0).
+  - **mono-ios** - Mono for iOS.
+- **psm** - PlayStation Mobile. Project platforms:
+  - **psm** - PlayStation Mobile.
+- **web** - For web, open in Visual Studion 2012 Express for Web. Project platforms:
+  - **sl4** - Silverlight 4.
+  - **sl5** - Silverlight 5.
+- **windows8** - Windows 8, open in Visual Studio 2012 Express for Windows 8. Project platforms:
+  - **windows8** - Windows 8.
+- **wp** - Windows Phone, open in Visual Studio 2012 Express for Windows Phone.
+  - **wp71** - Windows Phone 7.1.
+  - **wp8** - Windows Phone 8.0.

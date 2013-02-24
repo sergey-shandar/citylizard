@@ -5,16 +5,28 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Xml.psm", "CityL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Collections.psm", "CityLizard.Collections\CityLizard.Collections.psm.csproj", "{EBAE7AC1-AC68-42A1-A531-D6523F6EF862}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Fsm.psm", "CityLizard.Fsm\CityLizard.Fsm.psm.csproj", "{80A650D7-E7F5-4F52-A172-97985BACDBDC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Policy.psm", "CityLizard.Policy\CityLizard.Policy.psm.csproj", "{92698E6C-64B3-442E-A0E9-B53A0B7E04C3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{80A650D7-E7F5-4F52-A172-97985BACDBDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80A650D7-E7F5-4F52-A172-97985BACDBDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80A650D7-E7F5-4F52-A172-97985BACDBDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80A650D7-E7F5-4F52-A172-97985BACDBDC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{85684F00-3F86-4F77-B79E-5CCBC96CB998}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{85684F00-3F86-4F77-B79E-5CCBC96CB998}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{85684F00-3F86-4F77-B79E-5CCBC96CB998}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{85684F00-3F86-4F77-B79E-5CCBC96CB998}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92698E6C-64B3-442E-A0E9-B53A0B7E04C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92698E6C-64B3-442E-A0E9-B53A0B7E04C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92698E6C-64B3-442E-A0E9-B53A0B7E04C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92698E6C-64B3-442E-A0E9-B53A0B7E04C3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EBAE7AC1-AC68-42A1-A531-D6523F6EF862}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EBAE7AC1-AC68-42A1-A531-D6523F6EF862}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBAE7AC1-AC68-42A1-A531-D6523F6EF862}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -4,17 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{90B817EC-E19E-4EEB-9C70-5BCFAB8D98F4}</ProjectGuid>
+    <ProjectGuid>{9EFF29BC-6351-487F-8406-D6EAA042489F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CityLizard.Policy</RootNamespace>
-    <AssemblyName>CityLizard.Policy</AssemblyName>
+    <RootNamespace>CityLizard.Binary</RootNamespace>
+    <AssemblyName>CityLizard.Binary</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'net35-client|AnyCPU' ">
-    <OutputPath>bin\net40-client\</OutputPath>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'net35-client|AnyCPU'">
+    <OutputPath>bin\net35-client\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
@@ -31,22 +31,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="All.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>All.tt</DependentUpon>
-    </Compile>
-    <Compile Include="INumeric.cs" />
+    <Compile Include="B.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="All.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>All.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

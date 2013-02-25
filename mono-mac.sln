@@ -1,0 +1,98 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Xml.mono40", "CityLizard.Xml\CityLizard.Xml.mono40.csproj", "{A1865517-C55E-45C5-947D-8A6B330B7D41}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Xml.mono35", "CityLizard.Xml\CityLizard.Xml.mono35.csproj", "{DD44B016-79B2-4DBB-80E1-EF8A39F15A03}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Xml.mono-ios", "CityLizard.Xml\CityLizard.Xml.mono-ios.csproj", "{E437B996-D96A-49A2-8E95-8D945207B0AC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Collections.mono40", "CityLizard.Collections\CityLizard.Collections.mono40.csproj", "{CBC8F732-266F-4052-A320-F04F91FEB479}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Collections.mono35", "CityLizard.Collections\CityLizard.Collections.mono35.csproj", "{C2261C51-90F8-4CE9-BB9A-ADF5C47A5BB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Collections.mono-ios", "CityLizard.Collections\CityLizard.Collections.mono-ios.csproj", "{49A1A225-FCE7-4813-BF17-3E5AD3AA1BD2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.CodeDom.mono40", "CityLizard.CodeDom\CityLizard.CodeDom.mono40.csproj", "{A7510344-65A0-4981-A9F3-F49AEE2DB71E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.CodeDom.mono35", "CityLizard.CodeDom\CityLizard.CodeDom.mono35.csproj", "{451F9250-F427-40B5-A2FB-540FA268D7FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Fsm.mono40", "CityLizard.Fsm\CityLizard.Fsm.mono40.csproj", "{EB44E01F-4D00-4404-BD54-21A90A89D3F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Fsm.mono35", "CityLizard.Fsm\CityLizard.Fsm.mono35.csproj", "{C58E49A1-0999-4690-9331-96FF11C8B9E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Fsm.mono-ios", "CityLizard.Fsm\CityLizard.Fsm.mono-ios.csproj", "{A4FA91EF-E74B-4224-B195-8275B35C1621}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Xml.Schema.mono40", "CityLizard.Xml.Schema\CityLizard.Xml.Schema.mono40.csproj", "{9F3B7767-891E-48D4-8AB9-3BBE59B9C053}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Xml.Schema.mono35", "CityLizard.Xml.Schema\CityLizard.Xml.Schema.mono35.csproj", "{D88726C3-FC3D-4BE5-A403-7646918EA400}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Policy.mono40", "CityLizard.Policy\CityLizard.Policy.mono40.csproj", "{99DE4EC5-EEA4-46A3-A345-F5937F92AE90}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{451F9250-F427-40B5-A2FB-540FA268D7FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{451F9250-F427-40B5-A2FB-540FA268D7FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{451F9250-F427-40B5-A2FB-540FA268D7FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{451F9250-F427-40B5-A2FB-540FA268D7FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49A1A225-FCE7-4813-BF17-3E5AD3AA1BD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49A1A225-FCE7-4813-BF17-3E5AD3AA1BD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49A1A225-FCE7-4813-BF17-3E5AD3AA1BD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49A1A225-FCE7-4813-BF17-3E5AD3AA1BD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99DE4EC5-EEA4-46A3-A345-F5937F92AE90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99DE4EC5-EEA4-46A3-A345-F5937F92AE90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99DE4EC5-EEA4-46A3-A345-F5937F92AE90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99DE4EC5-EEA4-46A3-A345-F5937F92AE90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F3B7767-891E-48D4-8AB9-3BBE59B9C053}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F3B7767-891E-48D4-8AB9-3BBE59B9C053}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F3B7767-891E-48D4-8AB9-3BBE59B9C053}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F3B7767-891E-48D4-8AB9-3BBE59B9C053}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1865517-C55E-45C5-947D-8A6B330B7D41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1865517-C55E-45C5-947D-8A6B330B7D41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1865517-C55E-45C5-947D-8A6B330B7D41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1865517-C55E-45C5-947D-8A6B330B7D41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4FA91EF-E74B-4224-B195-8275B35C1621}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4FA91EF-E74B-4224-B195-8275B35C1621}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4FA91EF-E74B-4224-B195-8275B35C1621}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4FA91EF-E74B-4224-B195-8275B35C1621}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7510344-65A0-4981-A9F3-F49AEE2DB71E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7510344-65A0-4981-A9F3-F49AEE2DB71E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7510344-65A0-4981-A9F3-F49AEE2DB71E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7510344-65A0-4981-A9F3-F49AEE2DB71E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2261C51-90F8-4CE9-BB9A-ADF5C47A5BB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2261C51-90F8-4CE9-BB9A-ADF5C47A5BB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2261C51-90F8-4CE9-BB9A-ADF5C47A5BB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2261C51-90F8-4CE9-BB9A-ADF5C47A5BB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C58E49A1-0999-4690-9331-96FF11C8B9E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C58E49A1-0999-4690-9331-96FF11C8B9E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C58E49A1-0999-4690-9331-96FF11C8B9E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C58E49A1-0999-4690-9331-96FF11C8B9E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBC8F732-266F-4052-A320-F04F91FEB479}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBC8F732-266F-4052-A320-F04F91FEB479}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBC8F732-266F-4052-A320-F04F91FEB479}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBC8F732-266F-4052-A320-F04F91FEB479}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D88726C3-FC3D-4BE5-A403-7646918EA400}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D88726C3-FC3D-4BE5-A403-7646918EA400}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D88726C3-FC3D-4BE5-A403-7646918EA400}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D88726C3-FC3D-4BE5-A403-7646918EA400}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD44B016-79B2-4DBB-80E1-EF8A39F15A03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD44B016-79B2-4DBB-80E1-EF8A39F15A03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD44B016-79B2-4DBB-80E1-EF8A39F15A03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD44B016-79B2-4DBB-80E1-EF8A39F15A03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E437B996-D96A-49A2-8E95-8D945207B0AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E437B996-D96A-49A2-8E95-8D945207B0AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E437B996-D96A-49A2-8E95-8D945207B0AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E437B996-D96A-49A2-8E95-8D945207B0AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB44E01F-4D00-4404-BD54-21A90A89D3F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB44E01F-4D00-4404-BD54-21A90A89D3F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB44E01F-4D00-4404-BD54-21A90A89D3F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB44E01F-4D00-4404-BD54-21A90A89D3F1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = CityLizard.Xml\CityLizard.Xml.mono40.csproj
+	EndGlobalSection
+EndGlobal

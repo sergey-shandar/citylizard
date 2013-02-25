@@ -6,7 +6,6 @@ relre:\.cache$
 relre:\.FileListAbsolute\.txt$
 relre:\.tlog$
 relre:\.resources$
-glob:CityLizard/NUnit/bin/Debug/nunit.framework.xml
 relre:\.VisualState\.xml$
 relre:TestResult\.xml$
 relre:\.user$
@@ -15,7 +14,6 @@ relre:\.opensdf$
 relre:\.sdf$
 relre:/Debug/
 relre:/Release/
-relre:AssemblyInfo.cs$
 relre:\.zip$
 relre:\.orig$
 relre:\.log$
@@ -24,9 +22,6 @@ relre:\.pidb$
 relre:\.userprefs$
 relre:\.nupkg$
 relre:\.nsuo$
-syntax: glob
-CityLizard/Policy/Base.cs
-mono/citylizard_pinvoke_test_cpp/interface.hpp
 syntax: regexp
 /build/
 /private/

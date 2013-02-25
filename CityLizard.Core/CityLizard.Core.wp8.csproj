@@ -5,12 +5,12 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{601F3E3B-BA85-4B63-B41F-CE5F717487FB}</ProjectGuid>
+    <ProjectGuid>{76A3713B-4DE5-4220-A10F-1FED35118405}</ProjectGuid>
     <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CityLizard.Fsm</RootNamespace>
-    <AssemblyName>CityLizard.Fsm</AssemblyName>
+    <RootNamespace>CityLizard.Core</RootNamespace>
+    <AssemblyName>CityLizard.Core</AssemblyName>
     <TargetFrameworkIdentifier>WindowsPhone</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
     <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
@@ -30,19 +30,33 @@
     <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Dfa.cs" />
-    <Compile Include="Fsm.cs" />
-    <Compile Include="Name.cs" />
+    <Compile Include="Binary.cs" />
+    <Compile Include="Collections.ArrayCache.cs" />
+    <Compile Include="Collections.Cache.cs" />
+    <Compile Include="Collections.DictionaryCache.cs" />
+    <Compile Include="Collections.Extension.IDictionaryExtension.cs" />
+    <Compile Include="Collections.Optional.cs" />
+    <Compile Include="Policy.All.cs" />
+    <Compile Include="Policy.INumeric.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ReadMe.markdown" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CityLizard.Core\CityLizard.Core.wp8.csproj">
-      <Project>{76A3713B-4DE5-4220-A10F-1FED35118405}</Project>
-      <Name>CityLizard.Core.wp8</Name>
-    </ProjectReference>
+    <Compile Include="Xml.Attribute.cs" />
+    <Compile Include="Xml.ICharacterData.cs" />
+    <Compile Include="Xml.Implementation.cs" />
+    <Compile Include="Xml.IQName.cs" />
+    <Compile Include="Xml.Linked.Comment.cs" />
+    <Compile Include="Xml.Linked.Element.Complex.cs" />
+    <Compile Include="Xml.Linked.Element.Element.cs" />
+    <Compile Include="Xml.Linked.Element.Empty.cs" />
+    <Compile Include="Xml.Linked.Element.Mixed.cs" />
+    <Compile Include="Xml.Linked.Element.NotEmpty.cs" />
+    <Compile Include="Xml.Linked.Element.NotMixed.cs" />
+    <Compile Include="Xml.Linked.Element.Simple.cs" />
+    <Compile Include="Xml.Linked.Element.Type.cs" />
+    <Compile Include="Xml.Linked.LinkedNode.cs" />
+    <Compile Include="Xml.Linked.Text.cs" />
+    <Compile Include="Xml.Node.cs" />
+    <Compile Include="Xml.QName.cs" />
+    <Compile Include="Xml.Untyped.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />

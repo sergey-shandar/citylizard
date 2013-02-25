@@ -35,3 +35,4 @@ syntax: regexp
 /bin/
 \.pri$
 \.mdb$
+\/Bin\/

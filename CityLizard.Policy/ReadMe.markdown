@@ -1,1 +1,0 @@
-T4 is not supported in Visual Studio 2012 Express for Windows 8 and Visual Studio 2012 Express for Windows Phone.

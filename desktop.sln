@@ -1,33 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 2012 for Windows Desktop
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Xml.net35-client", "CityLizard.Xml\CityLizard.Xml.net35-client.csproj", "{6934B143-1F96-46F5-83AD-A1CB58EB9C1F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Xml.net40-client", "CityLizard.Xml\CityLizard.Xml.net40-client.csproj", "{F8F72331-BF4C-4B61-B0D7-BFDBA3039430}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Xml.Schema.net35-client", "CityLizard.Xml.Schema\CityLizard.Xml.Schema.net35-client.csproj", "{8592942E-F928-460E-9360-628CB38DA4F6}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Fsm.net35-client", "CityLizard.Fsm\CityLizard.Fsm.net35-client.csproj", "{C0C63A4A-1A5A-4DF3-9C8D-A1BCD27B791A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Collections.net35-client", "CityLizard.Collections\CityLizard.Collections.net35-client.csproj", "{4C351F49-00E7-433B-B321-5A8A44B6CF9F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.CodeDom.net35-client", "CityLizard.CodeDom\CityLizard.CodeDom.net35-client.csproj", "{AAC22FC1-CD07-4F14-A2E6-5819BC3C23AD}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.CodeDom.net40-client", "CityLizard.CodeDom\CityLizard.CodeDom.net40-client.csproj", "{8B538BF6-5F3C-4D6F-B9B7-7DE68F7F63F3}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Collections.net40-client", "CityLizard.Collections\CityLizard.Collections.net40-client.csproj", "{E9BEBB37-91E4-4A0B-BD71-60C76038BB3B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Fsm.net40-client", "CityLizard.Fsm\CityLizard.Fsm.net40-client.csproj", "{498CC501-2B9E-4181-B76F-B8DD71990A9F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Xml.Schema.net40-client", "CityLizard.Xml.Schema\CityLizard.Xml.Schema.net40-client.csproj", "{F002BE3C-9874-41FA-ABDC-35A056496334}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Core.net40-client", "CityLizard.Core\CityLizard.Core.net40-client.csproj", "{BDF87D9E-E5AE-4F76-95E2-1F7067E080B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Policy.net40-client", "CityLizard.Policy\CityLizard.Policy.net40-client.csproj", "{ADE86FAF-3166-46F2-B8B2-6EADD4107BEC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Core.net35-client", "CityLizard.Core\CityLizard.Core.net35-client.csproj", "{040CCD03-8B4C-4526-95CD-9A28CD824C0B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Policy.net35-client", "CityLizard.Policy\CityLizard.Policy.net35-client.csproj", "{90B817EC-E19E-4EEB-9C70-5BCFAB8D98F4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Meta.net40-client", "CityLizard.Meta\CityLizard.Meta.net40-client.csproj", "{E5B4AFC5-6A0E-4E0B-8529-E8FCB17873EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Binary.net40-client", "CityLizard.Binary\CityLizard.Binary.net40-client.csproj", "{338E520D-1BA6-49B3-8DCA-BE3516002808}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Binary.net35-client", "CityLizard.Binary\CityLizard.Binary.net35-client.csproj", "{9EFF29BC-6351-487F-8406-D6EAA042489F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Meta.net35-client", "CityLizard.Meta\CityLizard.Meta.net35-client.csproj", "{F099A90D-BE5E-4E10-988B-32C3E846BCED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,62 +19,30 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6934B143-1F96-46F5-83AD-A1CB58EB9C1F}.Debug|Any CPU.ActiveCfg = net35-client|Any CPU
-		{6934B143-1F96-46F5-83AD-A1CB58EB9C1F}.Debug|Any CPU.Build.0 = net35-client|Any CPU
-		{6934B143-1F96-46F5-83AD-A1CB58EB9C1F}.Release|Any CPU.ActiveCfg = net35-client|Any CPU
-		{6934B143-1F96-46F5-83AD-A1CB58EB9C1F}.Release|Any CPU.Build.0 = net35-client|Any CPU
-		{F8F72331-BF4C-4B61-B0D7-BFDBA3039430}.Debug|Any CPU.ActiveCfg = net40-client|Any CPU
-		{F8F72331-BF4C-4B61-B0D7-BFDBA3039430}.Debug|Any CPU.Build.0 = net40-client|Any CPU
-		{F8F72331-BF4C-4B61-B0D7-BFDBA3039430}.Release|Any CPU.ActiveCfg = net40-client|Any CPU
-		{F8F72331-BF4C-4B61-B0D7-BFDBA3039430}.Release|Any CPU.Build.0 = net40-client|Any CPU
-		{8592942E-F928-460E-9360-628CB38DA4F6}.Debug|Any CPU.ActiveCfg = net35-client|Any CPU
-		{8592942E-F928-460E-9360-628CB38DA4F6}.Debug|Any CPU.Build.0 = net35-client|Any CPU
-		{8592942E-F928-460E-9360-628CB38DA4F6}.Release|Any CPU.ActiveCfg = net35-client|Any CPU
-		{8592942E-F928-460E-9360-628CB38DA4F6}.Release|Any CPU.Build.0 = net35-client|Any CPU
 		{C0C63A4A-1A5A-4DF3-9C8D-A1BCD27B791A}.Debug|Any CPU.ActiveCfg = net35-client|Any CPU
 		{C0C63A4A-1A5A-4DF3-9C8D-A1BCD27B791A}.Debug|Any CPU.Build.0 = net35-client|Any CPU
 		{C0C63A4A-1A5A-4DF3-9C8D-A1BCD27B791A}.Release|Any CPU.ActiveCfg = net35-client|Any CPU
 		{C0C63A4A-1A5A-4DF3-9C8D-A1BCD27B791A}.Release|Any CPU.Build.0 = net35-client|Any CPU
-		{4C351F49-00E7-433B-B321-5A8A44B6CF9F}.Debug|Any CPU.ActiveCfg = net35-client|Any CPU
-		{4C351F49-00E7-433B-B321-5A8A44B6CF9F}.Debug|Any CPU.Build.0 = net35-client|Any CPU
-		{4C351F49-00E7-433B-B321-5A8A44B6CF9F}.Release|Any CPU.ActiveCfg = net35-client|Any CPU
-		{4C351F49-00E7-433B-B321-5A8A44B6CF9F}.Release|Any CPU.Build.0 = net35-client|Any CPU
-		{AAC22FC1-CD07-4F14-A2E6-5819BC3C23AD}.Debug|Any CPU.ActiveCfg = net35-client|Any CPU
-		{AAC22FC1-CD07-4F14-A2E6-5819BC3C23AD}.Debug|Any CPU.Build.0 = net35-client|Any CPU
-		{AAC22FC1-CD07-4F14-A2E6-5819BC3C23AD}.Release|Any CPU.ActiveCfg = net35-client|Any CPU
-		{AAC22FC1-CD07-4F14-A2E6-5819BC3C23AD}.Release|Any CPU.Build.0 = net35-client|Any CPU
-		{8B538BF6-5F3C-4D6F-B9B7-7DE68F7F63F3}.Debug|Any CPU.ActiveCfg = net40-client|Any CPU
-		{8B538BF6-5F3C-4D6F-B9B7-7DE68F7F63F3}.Debug|Any CPU.Build.0 = net40-client|Any CPU
-		{8B538BF6-5F3C-4D6F-B9B7-7DE68F7F63F3}.Release|Any CPU.ActiveCfg = net40-client|Any CPU
-		{8B538BF6-5F3C-4D6F-B9B7-7DE68F7F63F3}.Release|Any CPU.Build.0 = net40-client|Any CPU
-		{E9BEBB37-91E4-4A0B-BD71-60C76038BB3B}.Debug|Any CPU.ActiveCfg = net40-client|Any CPU
-		{E9BEBB37-91E4-4A0B-BD71-60C76038BB3B}.Debug|Any CPU.Build.0 = net40-client|Any CPU
-		{E9BEBB37-91E4-4A0B-BD71-60C76038BB3B}.Release|Any CPU.ActiveCfg = net40-client|Any CPU
-		{E9BEBB37-91E4-4A0B-BD71-60C76038BB3B}.Release|Any CPU.Build.0 = net40-client|Any CPU
 		{498CC501-2B9E-4181-B76F-B8DD71990A9F}.Debug|Any CPU.ActiveCfg = net40-client|Any CPU
 		{498CC501-2B9E-4181-B76F-B8DD71990A9F}.Debug|Any CPU.Build.0 = net40-client|Any CPU
 		{498CC501-2B9E-4181-B76F-B8DD71990A9F}.Release|Any CPU.ActiveCfg = net40-client|Any CPU
 		{498CC501-2B9E-4181-B76F-B8DD71990A9F}.Release|Any CPU.Build.0 = net40-client|Any CPU
-		{F002BE3C-9874-41FA-ABDC-35A056496334}.Debug|Any CPU.ActiveCfg = net40-client|Any CPU
-		{F002BE3C-9874-41FA-ABDC-35A056496334}.Debug|Any CPU.Build.0 = net40-client|Any CPU
-		{F002BE3C-9874-41FA-ABDC-35A056496334}.Release|Any CPU.ActiveCfg = net40-client|Any CPU
-		{F002BE3C-9874-41FA-ABDC-35A056496334}.Release|Any CPU.Build.0 = net40-client|Any CPU
-		{ADE86FAF-3166-46F2-B8B2-6EADD4107BEC}.Debug|Any CPU.ActiveCfg = net40-client|Any CPU
-		{ADE86FAF-3166-46F2-B8B2-6EADD4107BEC}.Debug|Any CPU.Build.0 = net40-client|Any CPU
-		{ADE86FAF-3166-46F2-B8B2-6EADD4107BEC}.Release|Any CPU.ActiveCfg = net40-client|Any CPU
-		{ADE86FAF-3166-46F2-B8B2-6EADD4107BEC}.Release|Any CPU.Build.0 = net40-client|Any CPU
-		{90B817EC-E19E-4EEB-9C70-5BCFAB8D98F4}.Debug|Any CPU.ActiveCfg = net35-client|Any CPU
-		{90B817EC-E19E-4EEB-9C70-5BCFAB8D98F4}.Debug|Any CPU.Build.0 = net35-client|Any CPU
-		{90B817EC-E19E-4EEB-9C70-5BCFAB8D98F4}.Release|Any CPU.ActiveCfg = net35-client|Any CPU
-		{90B817EC-E19E-4EEB-9C70-5BCFAB8D98F4}.Release|Any CPU.Build.0 = net35-client|Any CPU
-		{338E520D-1BA6-49B3-8DCA-BE3516002808}.Debug|Any CPU.ActiveCfg = net40-client|Any CPU
-		{338E520D-1BA6-49B3-8DCA-BE3516002808}.Debug|Any CPU.Build.0 = net40-client|Any CPU
-		{338E520D-1BA6-49B3-8DCA-BE3516002808}.Release|Any CPU.ActiveCfg = net40-client|Any CPU
-		{338E520D-1BA6-49B3-8DCA-BE3516002808}.Release|Any CPU.Build.0 = net40-client|Any CPU
-		{9EFF29BC-6351-487F-8406-D6EAA042489F}.Debug|Any CPU.ActiveCfg = net35-client|Any CPU
-		{9EFF29BC-6351-487F-8406-D6EAA042489F}.Debug|Any CPU.Build.0 = net35-client|Any CPU
-		{9EFF29BC-6351-487F-8406-D6EAA042489F}.Release|Any CPU.ActiveCfg = net35-client|Any CPU
-		{9EFF29BC-6351-487F-8406-D6EAA042489F}.Release|Any CPU.Build.0 = net35-client|Any CPU
+		{BDF87D9E-E5AE-4F76-95E2-1F7067E080B8}.Debug|Any CPU.ActiveCfg = net40-client|Any CPU
+		{BDF87D9E-E5AE-4F76-95E2-1F7067E080B8}.Debug|Any CPU.Build.0 = net40-client|Any CPU
+		{BDF87D9E-E5AE-4F76-95E2-1F7067E080B8}.Release|Any CPU.ActiveCfg = net40-client|Any CPU
+		{BDF87D9E-E5AE-4F76-95E2-1F7067E080B8}.Release|Any CPU.Build.0 = net40-client|Any CPU
+		{040CCD03-8B4C-4526-95CD-9A28CD824C0B}.Debug|Any CPU.ActiveCfg = net35-client|Any CPU
+		{040CCD03-8B4C-4526-95CD-9A28CD824C0B}.Debug|Any CPU.Build.0 = net35-client|Any CPU
+		{040CCD03-8B4C-4526-95CD-9A28CD824C0B}.Release|Any CPU.ActiveCfg = net35-client|Any CPU
+		{040CCD03-8B4C-4526-95CD-9A28CD824C0B}.Release|Any CPU.Build.0 = net35-client|Any CPU
+		{E5B4AFC5-6A0E-4E0B-8529-E8FCB17873EF}.Debug|Any CPU.ActiveCfg = net40-client|Any CPU
+		{E5B4AFC5-6A0E-4E0B-8529-E8FCB17873EF}.Debug|Any CPU.Build.0 = net40-client|Any CPU
+		{E5B4AFC5-6A0E-4E0B-8529-E8FCB17873EF}.Release|Any CPU.ActiveCfg = net40-client|Any CPU
+		{E5B4AFC5-6A0E-4E0B-8529-E8FCB17873EF}.Release|Any CPU.Build.0 = net40-client|Any CPU
+		{F099A90D-BE5E-4E10-988B-32C3E846BCED}.Debug|Any CPU.ActiveCfg = net35-client|Any CPU
+		{F099A90D-BE5E-4E10-988B-32C3E846BCED}.Debug|Any CPU.Build.0 = net35-client|Any CPU
+		{F099A90D-BE5E-4E10-988B-32C3E846BCED}.Release|Any CPU.ActiveCfg = net35-client|Any CPU
+		{F099A90D-BE5E-4E10-988B-32C3E846BCED}.Release|Any CPU.Build.0 = net35-client|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

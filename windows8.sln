@@ -1,15 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 2012 for Windows 8
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Xml.windows8", "CityLizard.Xml\CityLizard.Xml.windows8.csproj", "{5C8B4BF2-3426-4AC0-B5C7-251EA120499B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Collections.windows8", "CityLizard.Collections\CityLizard.Collections.windows8.csproj", "{46EA82CE-31DB-4D2A-87C3-AC18718B384E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Fsm.windows8", "CityLizard.Fsm\CityLizard.Fsm.windows8.csproj", "{0CBC81F3-4BA0-45EA-A1B1-825CEE6918CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Policy.windows8", "CityLizard.Policy\CityLizard.Policy.windows8.csproj", "{1D037CD8-02DD-4499-88BD-2CBF5C48B7A2}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Binary.windows8", "CityLizard.Binary\CityLizard.Binary.windows8.csproj", "{AADC8F39-577C-4CD6-8C19-B854C295239F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Core.windows8", "CityLizard.Core\CityLizard.Core.windows8.csproj", "{8135C29C-2E1E-4D17-9395-6C218D2FE1C2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,26 +17,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5C8B4BF2-3426-4AC0-B5C7-251EA120499B}.Debug|Any CPU.ActiveCfg = windows8|Any CPU
-		{5C8B4BF2-3426-4AC0-B5C7-251EA120499B}.Debug|Any CPU.Build.0 = windows8|Any CPU
-		{5C8B4BF2-3426-4AC0-B5C7-251EA120499B}.Debug|ARM.ActiveCfg = windows8|Any CPU
-		{5C8B4BF2-3426-4AC0-B5C7-251EA120499B}.Debug|x64.ActiveCfg = windows8|Any CPU
-		{5C8B4BF2-3426-4AC0-B5C7-251EA120499B}.Debug|x86.ActiveCfg = windows8|Any CPU
-		{5C8B4BF2-3426-4AC0-B5C7-251EA120499B}.Release|Any CPU.ActiveCfg = windows8|Any CPU
-		{5C8B4BF2-3426-4AC0-B5C7-251EA120499B}.Release|Any CPU.Build.0 = windows8|Any CPU
-		{5C8B4BF2-3426-4AC0-B5C7-251EA120499B}.Release|ARM.ActiveCfg = windows8|Any CPU
-		{5C8B4BF2-3426-4AC0-B5C7-251EA120499B}.Release|x64.ActiveCfg = windows8|Any CPU
-		{5C8B4BF2-3426-4AC0-B5C7-251EA120499B}.Release|x86.ActiveCfg = windows8|Any CPU
-		{46EA82CE-31DB-4D2A-87C3-AC18718B384E}.Debug|Any CPU.ActiveCfg = windows8|Any CPU
-		{46EA82CE-31DB-4D2A-87C3-AC18718B384E}.Debug|Any CPU.Build.0 = windows8|Any CPU
-		{46EA82CE-31DB-4D2A-87C3-AC18718B384E}.Debug|ARM.ActiveCfg = windows8|Any CPU
-		{46EA82CE-31DB-4D2A-87C3-AC18718B384E}.Debug|x64.ActiveCfg = windows8|Any CPU
-		{46EA82CE-31DB-4D2A-87C3-AC18718B384E}.Debug|x86.ActiveCfg = windows8|Any CPU
-		{46EA82CE-31DB-4D2A-87C3-AC18718B384E}.Release|Any CPU.ActiveCfg = windows8|Any CPU
-		{46EA82CE-31DB-4D2A-87C3-AC18718B384E}.Release|Any CPU.Build.0 = windows8|Any CPU
-		{46EA82CE-31DB-4D2A-87C3-AC18718B384E}.Release|ARM.ActiveCfg = windows8|Any CPU
-		{46EA82CE-31DB-4D2A-87C3-AC18718B384E}.Release|x64.ActiveCfg = windows8|Any CPU
-		{46EA82CE-31DB-4D2A-87C3-AC18718B384E}.Release|x86.ActiveCfg = windows8|Any CPU
 		{0CBC81F3-4BA0-45EA-A1B1-825CEE6918CF}.Debug|Any CPU.ActiveCfg = windows8|Any CPU
 		{0CBC81F3-4BA0-45EA-A1B1-825CEE6918CF}.Debug|Any CPU.Build.0 = windows8|Any CPU
 		{0CBC81F3-4BA0-45EA-A1B1-825CEE6918CF}.Debug|ARM.ActiveCfg = windows8|Any CPU
@@ -53,26 +27,16 @@ Global
 		{0CBC81F3-4BA0-45EA-A1B1-825CEE6918CF}.Release|ARM.ActiveCfg = windows8|Any CPU
 		{0CBC81F3-4BA0-45EA-A1B1-825CEE6918CF}.Release|x64.ActiveCfg = windows8|Any CPU
 		{0CBC81F3-4BA0-45EA-A1B1-825CEE6918CF}.Release|x86.ActiveCfg = windows8|Any CPU
-		{1D037CD8-02DD-4499-88BD-2CBF5C48B7A2}.Debug|Any CPU.ActiveCfg = windows8|Any CPU
-		{1D037CD8-02DD-4499-88BD-2CBF5C48B7A2}.Debug|Any CPU.Build.0 = windows8|Any CPU
-		{1D037CD8-02DD-4499-88BD-2CBF5C48B7A2}.Debug|ARM.ActiveCfg = windows8|Any CPU
-		{1D037CD8-02DD-4499-88BD-2CBF5C48B7A2}.Debug|x64.ActiveCfg = windows8|Any CPU
-		{1D037CD8-02DD-4499-88BD-2CBF5C48B7A2}.Debug|x86.ActiveCfg = windows8|Any CPU
-		{1D037CD8-02DD-4499-88BD-2CBF5C48B7A2}.Release|Any CPU.ActiveCfg = windows8|Any CPU
-		{1D037CD8-02DD-4499-88BD-2CBF5C48B7A2}.Release|Any CPU.Build.0 = windows8|Any CPU
-		{1D037CD8-02DD-4499-88BD-2CBF5C48B7A2}.Release|ARM.ActiveCfg = windows8|Any CPU
-		{1D037CD8-02DD-4499-88BD-2CBF5C48B7A2}.Release|x64.ActiveCfg = windows8|Any CPU
-		{1D037CD8-02DD-4499-88BD-2CBF5C48B7A2}.Release|x86.ActiveCfg = windows8|Any CPU
-		{AADC8F39-577C-4CD6-8C19-B854C295239F}.Debug|Any CPU.ActiveCfg = windows8|Any CPU
-		{AADC8F39-577C-4CD6-8C19-B854C295239F}.Debug|Any CPU.Build.0 = windows8|Any CPU
-		{AADC8F39-577C-4CD6-8C19-B854C295239F}.Debug|ARM.ActiveCfg = windows8|Any CPU
-		{AADC8F39-577C-4CD6-8C19-B854C295239F}.Debug|x64.ActiveCfg = windows8|Any CPU
-		{AADC8F39-577C-4CD6-8C19-B854C295239F}.Debug|x86.ActiveCfg = windows8|Any CPU
-		{AADC8F39-577C-4CD6-8C19-B854C295239F}.Release|Any CPU.ActiveCfg = windows8|Any CPU
-		{AADC8F39-577C-4CD6-8C19-B854C295239F}.Release|Any CPU.Build.0 = windows8|Any CPU
-		{AADC8F39-577C-4CD6-8C19-B854C295239F}.Release|ARM.ActiveCfg = windows8|Any CPU
-		{AADC8F39-577C-4CD6-8C19-B854C295239F}.Release|x64.ActiveCfg = windows8|Any CPU
-		{AADC8F39-577C-4CD6-8C19-B854C295239F}.Release|x86.ActiveCfg = windows8|Any CPU
+		{8135C29C-2E1E-4D17-9395-6C218D2FE1C2}.Debug|Any CPU.ActiveCfg = windows8|Any CPU
+		{8135C29C-2E1E-4D17-9395-6C218D2FE1C2}.Debug|Any CPU.Build.0 = windows8|Any CPU
+		{8135C29C-2E1E-4D17-9395-6C218D2FE1C2}.Debug|ARM.ActiveCfg = windows8|Any CPU
+		{8135C29C-2E1E-4D17-9395-6C218D2FE1C2}.Debug|x64.ActiveCfg = windows8|Any CPU
+		{8135C29C-2E1E-4D17-9395-6C218D2FE1C2}.Debug|x86.ActiveCfg = windows8|Any CPU
+		{8135C29C-2E1E-4D17-9395-6C218D2FE1C2}.Release|Any CPU.ActiveCfg = windows8|Any CPU
+		{8135C29C-2E1E-4D17-9395-6C218D2FE1C2}.Release|Any CPU.Build.0 = windows8|Any CPU
+		{8135C29C-2E1E-4D17-9395-6C218D2FE1C2}.Release|ARM.ActiveCfg = windows8|Any CPU
+		{8135C29C-2E1E-4D17-9395-6C218D2FE1C2}.Release|x64.ActiveCfg = windows8|Any CPU
+		{8135C29C-2E1E-4D17-9395-6C218D2FE1C2}.Release|x86.ActiveCfg = windows8|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

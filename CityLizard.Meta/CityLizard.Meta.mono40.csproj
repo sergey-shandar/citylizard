@@ -5,18 +5,16 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{A4FA91EF-E74B-4224-B195-8275B35C1621}</ProjectGuid>
-    <ProjectTypeGuids>{6BC8ED88-2882-458C-8E55-DFD12B67127B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{46C5B52A-9A3A-4B77-81F0-55F348C921A2}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>CityLizard.Fsm</RootNamespace>
-    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>CityLizard.Fsm</AssemblyName>
+    <RootNamespace>CityLizard.Meta</RootNamespace>
+    <AssemblyName>CityLizard.Meta</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>False</Optimize>
-    <OutputPath>bin\Debug.mono-ios</OutputPath>
+    <OutputPath>bin\Debug</OutputPath>
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -25,7 +23,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>none</DebugType>
     <Optimize>True</Optimize>
-    <OutputPath>bin\Release.mono-ios</OutputPath>
+    <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>False</ConsolePause>
@@ -33,22 +31,27 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
-    <Reference Include="System.Core" />
-    <Reference Include="monotouch" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="CodeDom.Code.cs" />
+    <Compile Include="CodeDom.CSharp.Keyword.cs" />
+    <Compile Include="CodeDom.CSharp.Name.cs" />
+    <Compile Include="CodeDom.CSharp.Namespace.cs" />
+    <Compile Include="Xml.Schema.Compiler.cs" />
+    <Compile Include="Xml.Schema.ComplexTypeToDfa.cs" />
+    <Compile Include="Xml.Schema.ElementSet.cs" />
+    <Compile Include="Xml.Schema.XmlSchemaExtension.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <Compile Include="Dfa.cs" />
-    <Compile Include="Fsm.cs" />
-    <Compile Include="Name.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CityLizard.Core\CityLizard.Core.mono-ios.csproj">
-      <Project>{DFD44C8D-0B12-4CBD-B9D0-54C9CA3A5980}</Project>
-      <Name>CityLizard.Core.mono-ios</Name>
+    <ProjectReference Include="..\CityLizard.Fsm\CityLizard.Fsm.mono40.csproj">
+      <Project>{EB44E01F-4D00-4404-BD54-21A90A89D3F1}</Project>
+      <Name>CityLizard.Fsm.mono40</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CityLizard.Core\CityLizard.Core.mono40.csproj">
+      <Project>{5B37A654-C47E-4C15-8128-9AC3A85C1B8C}</Project>
+      <Name>CityLizard.Core.mono40</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

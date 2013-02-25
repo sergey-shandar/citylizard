@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{36151F9F-B2C5-438D-B06A-E2BC728B8906}</ProjectGuid>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>CityLizard.Core</RootNamespace>
+    <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
+    <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+    <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+    <AndroidResgenClass>Resource</AndroidResgenClass>
+    <AssemblyName>CityLizard.Core</AssemblyName>
+    <TargetFrameworkVersion>v1.6</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\Debug.mono-android16</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <AndroidLinkMode>None</AndroidLinkMode>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\Release.mono-android16</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
+    <AndroidLinkMode>SdkOnly</AndroidLinkMode>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Mono.Android" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Resources\Resource.designer.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Binary.cs" />
+    <Compile Include="Collections.ArrayCache.cs" />
+    <Compile Include="Collections.Cache.cs" />
+    <Compile Include="Collections.DictionaryCache.cs" />
+    <Compile Include="Collections.Extension.IDictionaryExtension.cs" />
+    <Compile Include="Collections.Optional.cs" />
+    <Compile Include="Policy.INumeric.cs" />
+    <Compile Include="Xml.Attribute.cs" />
+    <Compile Include="Xml.ICharacterData.cs" />
+    <Compile Include="Xml.Implementation.cs" />
+    <Compile Include="Xml.IQName.cs" />
+    <Compile Include="Xml.Linked.Comment.cs" />
+    <Compile Include="Xml.Linked.Element.Complex.cs" />
+    <Compile Include="Xml.Linked.Element.Element.cs" />
+    <Compile Include="Xml.Linked.Element.Empty.cs" />
+    <Compile Include="Xml.Linked.Element.Mixed.cs" />
+    <Compile Include="Xml.Linked.Element.NotEmpty.cs" />
+    <Compile Include="Xml.Linked.Element.NotMixed.cs" />
+    <Compile Include="Xml.Linked.Element.Simple.cs" />
+    <Compile Include="Xml.Linked.Element.Type.cs" />
+    <Compile Include="Xml.Linked.LinkedNode.cs" />
+    <Compile Include="Xml.Linked.Text.cs" />
+    <Compile Include="Xml.Node.cs" />
+    <Compile Include="Xml.QName.cs" />
+    <Compile Include="Xml.Untyped.cs" />
+    <Compile Include="Policy.All.cs">
+      <DependentUpon>Policy.All.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AboutResources.txt" />
+    <None Include="Policy.All.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Policy.All.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values\Strings.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
+</Project>

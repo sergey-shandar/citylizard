@@ -42,9 +42,9 @@
     <Compile Include="Name.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CityLizard.Collections\CityLizard.Collections.psm.csproj">
-      <Project>{EBAE7AC1-AC68-42A1-A531-D6523F6EF862}</Project>
-      <Name>CityLizard.Collections.psm</Name>
+    <ProjectReference Include="..\CityLizard.Core\CityLizard.Core.psm.csproj">
+      <Project>{016F3459-2F85-4BB5-878A-140AF423D4C9}</Project>
+      <Name>CityLizard.Core.psm</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

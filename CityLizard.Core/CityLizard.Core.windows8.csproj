@@ -6,26 +6,43 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{0CBC81F3-4BA0-45EA-A1B1-825CEE6918CF}</ProjectGuid>
+    <ProjectGuid>{8135C29C-2E1E-4D17-9395-6C218D2FE1C2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CityLizard.Fsm</RootNamespace>
-    <AssemblyName>CityLizard.Fsm</AssemblyName>
+    <RootNamespace>CityLizard.Core</RootNamespace>
+    <AssemblyName>CityLizard.Core</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Dfa.cs" />
-    <Compile Include="Fsm.cs" />
-    <Compile Include="Name.cs" />
+    <Compile Include="Binary.cs" />
+    <Compile Include="Collections.ArrayCache.cs" />
+    <Compile Include="Collections.Cache.cs" />
+    <Compile Include="Collections.DictionaryCache.cs" />
+    <Compile Include="Collections.Extension.IDictionaryExtension.cs" />
+    <Compile Include="Collections.Optional.cs" />
+    <Compile Include="Policy.All.cs" />
+    <Compile Include="Policy.INumeric.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CityLizard.Core\CityLizard.Core.windows8.csproj">
-      <Project>{8135c29c-2e1e-4d17-9395-6c218d2fe1c2}</Project>
-      <Name>CityLizard.Core.windows8</Name>
-    </ProjectReference>
+    <Compile Include="Xml.Attribute.cs" />
+    <Compile Include="Xml.ICharacterData.cs" />
+    <Compile Include="Xml.Implementation.cs" />
+    <Compile Include="Xml.IQName.cs" />
+    <Compile Include="Xml.Linked.Comment.cs" />
+    <Compile Include="Xml.Linked.Element.Complex.cs" />
+    <Compile Include="Xml.Linked.Element.Element.cs" />
+    <Compile Include="Xml.Linked.Element.Empty.cs" />
+    <Compile Include="Xml.Linked.Element.Mixed.cs" />
+    <Compile Include="Xml.Linked.Element.NotEmpty.cs" />
+    <Compile Include="Xml.Linked.Element.NotMixed.cs" />
+    <Compile Include="Xml.Linked.Element.Simple.cs" />
+    <Compile Include="Xml.Linked.Element.Type.cs" />
+    <Compile Include="Xml.Linked.LinkedNode.cs" />
+    <Compile Include="Xml.Linked.Text.cs" />
+    <Compile Include="Xml.Node.cs" />
+    <Compile Include="Xml.QName.cs" />
+    <Compile Include="Xml.Untyped.cs" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
     <VisualStudioVersion>11.0</VisualStudioVersion>

@@ -53,9 +53,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CityLizard.Collections\CityLizard.Collections.sl5.csproj">
-      <Project>{d86045a4-ab0c-443a-9fe4-4550fadce746}</Project>
-      <Name>CityLizard.Collections.sl5</Name>
+    <ProjectReference Include="..\CityLizard.Core\CityLizard.Core.sl5.csproj">
+      <Project>{6ddaccbc-a5c1-4474-aa55-9004dda8bdb6}</Project>
+      <Name>CityLizard.Core.sl5</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />

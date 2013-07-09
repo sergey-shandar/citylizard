@@ -54,10 +54,10 @@
     <Compile Include="Collections.DictionaryCache.cs" />
     <Compile Include="Collections.Extension.IDictionaryExtension.cs" />
     <Compile Include="Collections.Optional.cs" />
-    <Compile Include="Policy.All.cs">
+    <Compile Include="Policy.I.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Policy.All.tt</DependentUpon>
+      <DependentUpon>Policy.I.tt</DependentUpon>
     </Compile>
     <Compile Include="Policy.INumeric.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -81,13 +81,13 @@
     <Compile Include="Xml.Untyped.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Policy.All.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Policy.All.cs</LastGenOutput>
-    </None>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <None Include="Policy.I.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Policy.I.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <ProjectExtensions>

@@ -29,7 +29,7 @@ namespace CityLizard.Policy
     }
 #>
 	{
-		public static readonly I P = new I();
+		public static readonly I V = new I();
 <#  
     var boList = new BinaryOperation[]
     {

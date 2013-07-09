@@ -63,7 +63,14 @@
     <Compile Include="Xml.Node.cs" />
     <Compile Include="Xml.QName.cs" />
     <Compile Include="Xml.Untyped.cs" />
-    <Compile Include="Policy.I.tt" />
-    <Compile Include="Policy.I.cs" />
+    <Compile Include="Policy.I.cs">
+      <DependentUpon>Policy.I.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Policy.I.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Policy.I.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 </Project>

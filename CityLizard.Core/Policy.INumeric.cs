@@ -1,7 +1,7 @@
 ﻿namespace CityLizard.Policy
 {
     public interface INumeric<T>
-        where T: System.IComparable<T>
+        where T: struct, System.IComparable<T>
     {
         T _0 { get; }
         T _1 { get; }

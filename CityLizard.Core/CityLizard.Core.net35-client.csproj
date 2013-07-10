@@ -37,6 +37,9 @@
     <Compile Include="Collections.DictionaryCache.cs" />
     <Compile Include="Collections.Extension.IDictionaryExtension.cs" />
     <Compile Include="Collections.Optional.cs" />
+    <Compile Include="CompactMatrix4D.cs" />
+    <Compile Include="IMatrix4D.cs" />
+    <Compile Include="Matrix4D.cs" />
     <Compile Include="Policy.I.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

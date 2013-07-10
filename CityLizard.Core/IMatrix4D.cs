@@ -5,10 +5,8 @@ using System.Text;
 
 namespace CityLizard
 {
-    public interface IMatrix4D<I, T>
-        where T: struct, IComparable<T>
-        where I: struct, Policy.INumeric<T>
+    public interface IMatrix4D<T> where T: struct, IComparable<T>
     {
-        Matrix4D<I, T> Matrix { get; }
+        Matrix4D<T> Matrix { get; }
     }
 }

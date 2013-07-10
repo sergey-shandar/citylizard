@@ -5,17 +5,19 @@ using System.Text;
 
 namespace CityLizard
 {
-    public struct Vector2D<I, T>
-        where T : struct, IComparable<T>
+    public struct Vector3D<I, T>
+        where T: struct, IComparable<T>
         where I: struct, Policy.INumeric<T>
     {
         public T X;
         public T Y;
+        public T Z;
 
-        public Vector2D(T x, T y)
+        public Vector3D(T x, T y, T z)
         {
             this.X = x;
             this.Y = y;
+            this.Z = z;
         }
     }
 }

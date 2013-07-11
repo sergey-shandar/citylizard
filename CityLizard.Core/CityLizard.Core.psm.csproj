@@ -66,6 +66,14 @@
     <Compile Include="Policy.I.cs">
       <DependentUpon>Policy.I.tt</DependentUpon>
     </Compile>
+    <Compile Include="Graphics.Color.cs" />
+    <Compile Include="Graphics.CompactMatrix4D.cs" />
+    <Compile Include="Graphics.IMatrix4D.cs" />
+    <Compile Include="Graphics.Matrix4D.cs" />
+    <Compile Include="Graphics.Quaternion.cs" />
+    <Compile Include="Graphics.Vector2D.cs" />
+    <Compile Include="Graphics.Vector3D.cs" />
+    <Compile Include="Graphics.Vector4D.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Policy.I.tt">

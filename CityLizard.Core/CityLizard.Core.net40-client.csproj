@@ -38,6 +38,14 @@
     <Compile Include="Collections.DictionaryCache.cs" />
     <Compile Include="Collections.Extension.IDictionaryExtension.cs" />
     <Compile Include="Collections.Optional.cs" />
+    <Compile Include="Graphics.Color.cs" />
+    <Compile Include="Graphics.CompactMatrix4D.cs" />
+    <Compile Include="Graphics.IMatrix4D.cs" />
+    <Compile Include="Graphics.Matrix4D.cs" />
+    <Compile Include="Graphics.Quaternion.cs" />
+    <Compile Include="Graphics.Vector2D.cs" />
+    <Compile Include="Graphics.Vector3D.cs" />
+    <Compile Include="Graphics.Vector4D.cs" />
     <Compile Include="Policy.I.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

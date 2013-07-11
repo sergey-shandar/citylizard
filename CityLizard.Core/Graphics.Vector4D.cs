@@ -3,17 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CityLizard
+namespace CityLizard.Graphics
 {
-    public struct Vector2D<T> where T : struct, IComparable<T>
+    public struct Vector4D<T> where T: struct, IComparable<T>
     {
         public T X;
         public T Y;
+        public T Z;
+        public T W;
 
-        public Vector2D(T x, T y)
+        public Vector4D(T x, T y, T z, T w)
         {
             this.X = x;
             this.Y = y;
+            this.Z = z;
+            this.W = w;
         }
     }
 }

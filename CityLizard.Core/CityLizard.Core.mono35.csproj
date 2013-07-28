@@ -61,15 +61,15 @@
     <Compile Include="Xml.Node.cs" />
     <Compile Include="Xml.QName.cs" />
     <Compile Include="Xml.Untyped.cs" />
-    <Compile Include="Policy.All.cs">
-      <DependentUpon>Policy.All.tt</DependentUpon>
+    <Compile Include="Policy.I.cs">
+      <DependentUpon>Policy.I.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <None Include="Policy.All.tt">
+    <None Include="Policy.I.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Policy.All.cs</LastGenOutput>
+      <LastGenOutput>Policy.I.cs</LastGenOutput>
     </None>
   </ItemGroup>
 </Project>

@@ -2,12 +2,9 @@
 {
     public class Dfa<Symbol>
     {
-        public class State : System.IEquatable<State>
+        public abstract class State: System.IEquatable<State>
         {
-            public bool Equals(State other)
-            {
-                return true;
-            }
+            public abstract bool Equals(State other);
         }
     }
 }

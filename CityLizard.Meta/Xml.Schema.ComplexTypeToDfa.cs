@@ -18,19 +18,19 @@
         {
             this.ToDo = toDo;
         }
-
+        /*
         public F.Dfa<X.XmlQualifiedName> Apply(XS.XmlSchemaComplexType type)
         {
             var set = new Fsm.Name { 0 };
             this.Apply(set, type.Particle);
             return new F.Dfa<X.XmlQualifiedName>(this.Fsm, set);
         }
-
+        */
         private readonly F.Fsm<X.XmlQualifiedName> Fsm =
             new F.Fsm<X.XmlQualifiedName>();
 
         private readonly ElementSet ToDo;
-
+        /*
         private void ApplyOne(Fsm.Name set, XS.XmlSchemaParticle p)
         {
             // sequence
@@ -136,7 +136,8 @@
             throw new S.Exception(
                 "unknown XmlSchemaObject type: " + p.ToString());
         }
-
+        */
+        /*
         private void Apply(Fsm.Name set, XS.XmlSchemaParticle p)
         {
             // group ref
@@ -162,7 +163,7 @@
 
             this.Fsm.Loop(set, x => this.ApplyOne(x, p), min, max);
         }
-
+        */
 
     }
 }

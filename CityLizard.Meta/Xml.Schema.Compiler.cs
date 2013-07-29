@@ -7,14 +7,12 @@
     using S = System;
     using A = System.CodeDom.MemberAttributes;
 
-    using CS = CodeDom.CSharp;
-    using D = CodeDom.Code;
     using E = Xml.Linked.Element;
     using F = Fsm;
 
     using System.Linq;
 
-    public class Compiler: D
+    public class Compiler //: D
     {
         C.Dictionary<int, Fsm.Dfa<int>.State> dictionaryX = null;
     }

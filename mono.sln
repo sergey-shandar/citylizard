@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Core.mono40", "CityLizard.Core\CityLizard.Core.mono40.csproj", "{5B37A654-C47E-4C15-8128-9AC3A85C1B8C}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Fsm.mono40", "CityLizard.Fsm\CityLizard.Fsm.mono40.csproj", "{EB44E01F-4D00-4404-BD54-21A90A89D3F1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Meta.mono40", "CityLizard.Meta\CityLizard.Meta.mono40.csproj", "{46C5B52A-9A3A-4B77-81F0-55F348C921A2}"
@@ -17,16 +15,12 @@ Global
 		{46C5B52A-9A3A-4B77-81F0-55F348C921A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46C5B52A-9A3A-4B77-81F0-55F348C921A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46C5B52A-9A3A-4B77-81F0-55F348C921A2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5B37A654-C47E-4C15-8128-9AC3A85C1B8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5B37A654-C47E-4C15-8128-9AC3A85C1B8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5B37A654-C47E-4C15-8128-9AC3A85C1B8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5B37A654-C47E-4C15-8128-9AC3A85C1B8C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EB44E01F-4D00-4404-BD54-21A90A89D3F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EB44E01F-4D00-4404-BD54-21A90A89D3F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB44E01F-4D00-4404-BD54-21A90A89D3F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB44E01F-4D00-4404-BD54-21A90A89D3F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = CityLizard.Core\CityLizard.Core.mono40.csproj
+		StartupItem = CityLizard.Fsm\CityLizard.Fsm.mono40.csproj
 	EndGlobalSection
 EndGlobal

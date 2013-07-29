@@ -5,40 +5,35 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{46C5B52A-9A3A-4B77-81F0-55F348C921A2}</ProjectGuid>
+    <ProjectGuid>{9DF61B76-8D23-465F-BE85-FAA6369CD88C}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>CityLizard.Meta</RootNamespace>
-    <AssemblyName>CityLizard.Meta</AssemblyName>
+    <RootNamespace>A</RootNamespace>
+    <AssemblyName>A</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>True</DebugSymbols>
+    <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>False</Optimize>
+    <Optimize>false</Optimize>
     <OutputPath>bin\Debug</OutputPath>
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <ConsolePause>False</ConsolePause>
+    <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>none</DebugType>
-    <Optimize>True</Optimize>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
     <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <ConsolePause>False</ConsolePause>
+    <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Compiler.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="B.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <ItemGroup>
-    <ProjectReference Include="..\CityLizard.Fsm\CityLizard.Fsm.mono40.csproj">
-      <Project>{EB44E01F-4D00-4404-BD54-21A90A89D3F1}</Project>
-      <Name>CityLizard.Fsm.mono40</Name>
-    </ProjectReference>
-  </ItemGroup>
 </Project>

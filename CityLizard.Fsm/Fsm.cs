@@ -50,7 +50,6 @@
         /// </summary>
         public Fsm()
         {
-            this.AddState();
         }
 
         /// <summary>
@@ -59,8 +58,6 @@
         /// <returns>State id.</returns>
         private int AddState()
         {
-            this.StateList.Add(new State());
-            return this.StateList.Count - 1;
         }
 
         /// <summary>
@@ -72,8 +69,6 @@
         /// <returns>To.</returns>
         private int Add(int state, T symbol, int to)
         {
-            this.StateList[state].Add(
-                new Transition { Symbol = symbol, State = to });
             return to;
         }
 
@@ -86,10 +81,6 @@
         /// <returns>To.</returns>
         private int Add(Name set, T symbol, int to)
         {
-            foreach (var state in set)
-            {
-                Add(state, symbol, to);
-            }
             return to;
         }
 
@@ -116,35 +107,6 @@
         /// </param>
         public void Loop(Name set, S.Action<Name> transform, int min, int max)
         {
-            // min
-            for (var i = 0; i < min; ++i)
-            {
-                transform(set);
-            }
-            // max
-            if (max < int.MaxValue)
-            {
-                var copy = new Name(set);
-                for (var i = min; i < max; ++i)
-                {
-                    transform(copy);
-                    set.UnionWith(copy);
-                }
-            }
-            // infinity
-            else
-            {
-                var label = this.AddState();
-                var copy = new Name(set);
-                set.Add(label);
-                transform(set);
-                var labelTransactionList = this.StateList[label];
-                foreach (var state in set)
-                {
-                    this.StateList[state].UnionWith(labelTransactionList);
-                }
-                set.UnionWith(copy);
-            }
         }
     }
 }

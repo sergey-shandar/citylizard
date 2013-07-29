@@ -51,14 +51,5 @@
         /// Instance of the dictionary.
         /// </summary>
         public C.Dictionary<Name, State> D = new C.Dictionary<Name, State>();
-
-        /// <summary>
-        /// The constructor builds DFA.
-        /// </summary>
-        /// <param name="fsm">Finite-state machine.</param>
-        /// <param name="accept">Accept state.</param>
-        public Dfa(Fsm<Symbol> fsm, C.HashSet<int> accept)
-        {
-        }
     }
 }

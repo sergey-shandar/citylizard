@@ -58,6 +58,7 @@
         /// <returns>State id.</returns>
         private int AddState()
         {
+            return 0;
         }
 
         /// <summary>

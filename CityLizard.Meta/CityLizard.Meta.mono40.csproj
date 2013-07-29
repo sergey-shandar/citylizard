@@ -34,10 +34,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="CodeDom.Code.cs" />
-    <Compile Include="CodeDom.CSharp.Keyword.cs" />
-    <Compile Include="CodeDom.CSharp.Name.cs" />
-    <Compile Include="CodeDom.CSharp.Namespace.cs" />
     <Compile Include="Xml.Schema.Compiler.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

@@ -41,16 +41,6 @@
     <Compile Include="Collections.DictionaryCache.cs" />
     <Compile Include="Collections.Extension.IDictionaryExtension.cs" />
     <Compile Include="Collections.Optional.cs" />
-    <Compile Include="Policy.INumeric.cs" />
-    <Compile Include="Policy.I.cs">
-      <DependentUpon>Policy.I.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <ItemGroup>
-    <None Include="Policy.I.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Policy.I.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
 </Project>

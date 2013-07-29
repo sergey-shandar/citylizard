@@ -7,7 +7,6 @@
     using S = System;
     using A = System.CodeDom.MemberAttributes;
 
-    using E = Xml.Linked.Element;
     using F = Fsm;
 
     using System.Linq;

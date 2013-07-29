@@ -10,6 +10,7 @@
     /// </summary>
     public static class XmlSchemaExtension
     {
+        /*
         public static C.IEnumerable<XS.XmlSchemaElement> GlobalElementsTyped(
             this XS.XmlSchemaSet x)
         {
@@ -50,5 +51,6 @@
         {
             return char.IsDigit(x);
         }
+*/
     }
 }

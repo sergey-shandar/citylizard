@@ -12,7 +12,6 @@
     using E = Xml.Linked.Element;
     using F = Fsm;
 
-    using Extension;
     using System.Linq;
 
     public class Compiler: D

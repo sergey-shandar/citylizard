@@ -41,7 +41,6 @@
     <Compile Include="Xml.Schema.Compiler.cs" />
     <Compile Include="Xml.Schema.ComplexTypeToDfa.cs" />
     <Compile Include="Xml.Schema.ElementSet.cs" />
-    <Compile Include="Xml.Schema.XmlSchemaExtension.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

@@ -5,5 +5,5 @@ msbuild web.sln
 msbuild windows8.sln
 msbuild wp.sln
 msbuild psm.sln
-nuget
+nuget pack CityLizard.nuspec
 endlocal

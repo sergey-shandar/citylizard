@@ -30,6 +30,9 @@
     <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="..\CityLizard.AssemblyInfo.cs">
+      <Link>CityLizard.AssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="Dfa.cs" />
     <Compile Include="Fsm.cs" />
     <Compile Include="Name.cs" />

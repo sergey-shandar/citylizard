@@ -31,3 +31,4 @@ syntax: regexp
 \.pri$
 \.mdb$
 \/Bin\/
+\/key\.snk$

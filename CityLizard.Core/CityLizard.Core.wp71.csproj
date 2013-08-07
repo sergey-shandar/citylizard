@@ -39,6 +39,9 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\CityLizard.AssemblyInfo.cs">
+      <Link>CityLizard.AssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="Binary.cs" />
     <Compile Include="Collections.ArrayCache.cs" />
     <Compile Include="Collections.Cache.cs" />

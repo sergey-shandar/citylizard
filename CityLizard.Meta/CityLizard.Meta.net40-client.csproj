@@ -38,6 +38,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\CityLizard.AssemblyInfo.cs">
+      <Link>CityLizard.AssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="CodeDom.Code.cs" />
     <Compile Include="CodeDom.CSharp.Keyword.cs" />
     <Compile Include="CodeDom.CSharp.Name.cs" />

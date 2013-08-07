@@ -37,6 +37,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\CityLizard.AssemblyInfo.cs">
+      <Link>CityLizard.AssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="Binary.cs" />
     <Compile Include="Collections.ArrayCache.cs" />
     <Compile Include="Collections.Cache.cs" />
@@ -83,7 +86,6 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Policy.I.cs</LastGenOutput>
     </None>
-    <None Include="public.snk" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

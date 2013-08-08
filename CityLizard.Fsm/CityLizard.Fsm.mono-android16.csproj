@@ -15,6 +15,8 @@
     <AndroidResgenClass>Resource</AndroidResgenClass>
     <AssemblyName>CityLizard.Fsm</AssemblyName>
     <TargetFrameworkVersion>v1.6</TargetFrameworkVersion>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\key.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>

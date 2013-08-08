@@ -5,7 +5,10 @@
     using C = System.Collections.Generic;
     using CD = System.CodeDom;
     using S = System;
+    using CDC = System.CodeDom.Compiler;
     using A = System.CodeDom.MemberAttributes;
+    using IO = System.IO;
+    using MCS = Microsoft.CSharp;
 
     using CS = CodeDom.CSharp;
     using D = CodeDom.Code;
@@ -456,6 +459,15 @@
             {
                 return this.Load(xmlReader);
             }
+        }
+
+        public static string Compile(string fileName)
+        {
+            var unit = new Compiler().Load(fileName);
+            var t = new IO.StringWriter();
+            new MCS.CSharpCodeProvider().GenerateCodeFromCompileUnit(
+                unit, t, new CDC.CodeGeneratorOptions());
+            return t.ToString();
         }
     }
 }

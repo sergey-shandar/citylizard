@@ -9,6 +9,8 @@
     <OutputType>Library</OutputType>
     <RootNamespace>CityLizard.Core</RootNamespace>
     <AssemblyName>CityLizard.Core</AssemblyName>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\key.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>

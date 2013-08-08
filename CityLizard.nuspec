@@ -11,7 +11,7 @@
         <copyright>CityLizard</copyright>
     </metadata>
     <files>
-        <file src="lib\native\_._" target="lib\native\_._" />
+        <file src="lib\native\" target="lib\native\_._"/>
         <file src="CityLizard.Meta\bin\net35-client\CityLizard.Core.dll" target="lib\net35-client\CityLizard.Core.dll" />
         <file src="CityLizard.Meta\bin\net35-client\CityLizard.Fsm.dll" target="lib\net35-client\CityLizard.Fsm.dll" />
         <file src="CityLizard.Meta\bin\net35-client\CityLizard.Meta.dll" target="lib\net35-client\CityLizard.Meta.dll" />

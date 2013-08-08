@@ -11,6 +11,8 @@
     <RootNamespace>CityLizard.Core</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AssemblyName>CityLizard.Core</AssemblyName>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\key.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
@@ -39,10 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="Properties\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Binary.cs" />
     <Compile Include="Collections.ArrayCache.cs" />
     <Compile Include="Collections.Cache.cs" />
@@ -70,6 +72,10 @@
     <Compile Include="Xml.Untyped.cs" />
     <Compile Include="Policy.I.cs">
       <DependentUpon>Policy.I.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="..\CityLizard.AssemblyInfo.cs">
+      <Link>CityLizard.AssemblyInfo.cs</Link>
     </Compile>
   </ItemGroup>
   <ItemGroup>

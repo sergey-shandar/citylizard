@@ -9,6 +9,8 @@
     <OutputType>Library</OutputType>
     <RootNamespace>CityLizard.Fsm</RootNamespace>
     <AssemblyName>CityLizard.Fsm</AssemblyName>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\key.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
@@ -35,6 +37,10 @@
     <Compile Include="Dfa.cs" />
     <Compile Include="Fsm.cs" />
     <Compile Include="Name.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="..\CityLizard.AssemblyInfo.cs">
+      <Link>CityLizard.AssemblyInfo.cs</Link>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -42,5 +48,8 @@
       <Project>{5B37A654-C47E-4C15-8128-9AC3A85C1B8C}</Project>
       <Name>CityLizard.Core.mono40</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
   </ItemGroup>
 </Project>

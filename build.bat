@@ -1,7 +1,7 @@
 setlocal
 set PATH=%PATH%C:\Windows\Microsoft.NET\Framework\v4.0.30319;C:\programs;
 
-set VERSION=2.1.4.0
+set VERSION=2.1.5.0
 
 echo using System.Reflection; > CityLizard.AssemblyInfo.cs
 echo [assembly: AssemblyCompany("CityLizard")] >> CityLizard.AssemblyInfo.cs

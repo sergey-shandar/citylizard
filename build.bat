@@ -1,5 +1,5 @@
 setlocal
-set PATH=%PATH%C:\Windows\Microsoft.NET\Framework\v4.0.30319;C:\programs;
+set PATH=%PATH%C:\Windows\Microsoft.NET\Framework\v4.0.30319;C:\programs;C:\Program Files\7-Zip
 
 set VERSION=2.1.6.0
 

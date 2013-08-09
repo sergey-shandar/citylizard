@@ -1,11 +1,11 @@
 setlocal
 set PATH=%PATH%C:\Windows\Microsoft.NET\Framework\v4.0.30319;C:\programs;C:\Program Files\7-Zip
 
-set VERSION=2.1.7.0
+set VERSION=2.1.8.0
 
 echo using System.Reflection; > CityLizard.AssemblyInfo.cs
 echo [assembly: AssemblyCompany("CityLizard")] >> CityLizard.AssemblyInfo.cs
-echo [assembly: AssemblyCopyright("Copyright © CityLizard 2013")] >> CityLizard.AssemblyInfo.cs
+echo [assembly: AssemblyCopyright("Copyright Â© CityLizard 2013")] >> CityLizard.AssemblyInfo.cs
 echo [assembly: AssemblyVersion("%VERSION%")] >> CityLizard.AssemblyInfo.cs
 echo [assembly: AssemblyFileVersion("%VERSION%")] >> CityLizard.AssemblyInfo.cs
 
@@ -15,6 +15,8 @@ msbuild windows8.sln
 msbuild wp.sln
 msbuild psm.sln /p:Configuration=Release
 
+mkdir lib\native\
+echo > lib\native\_._
 nuget pack CityLizard.nuspec -Version %VERSION%
 
 rmdir /S /Q lib

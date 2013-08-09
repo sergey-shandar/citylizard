@@ -9,11 +9,11 @@ echo [assembly: AssemblyCopyright("Copyright © CityLizard 2013")] >> CityLizard.
 echo [assembly: AssemblyVersion("%VERSION%")] >> CityLizard.AssemblyInfo.cs
 echo [assembly: AssemblyFileVersion("%VERSION%")] >> CityLizard.AssemblyInfo.cs
 
-msbuild desktop.sln /p:Configuration=Release
-msbuild web.sln /p:Configuration=Release
-msbuild windows8.sln /p:Configuration=Release
-msbuild wp.sln /p:Configuration=Release
-msbuild psm.sln /p:Configuration=Release
+msbuild desktop.sln
+msbuild web.sln
+msbuild windows8.sln
+msbuild wp.sln
+msbuild psm.sln
 
 nuget pack CityLizard.nuspec -Version %VERSION%
 

@@ -1,4 +1,4 @@
-VERSION="2.1.7.0"
+VERSION=$(<version.txt)
 echo "using System.Reflection;" > CityLizard.AssemblyInfo.cs
 echo "[assembly: AssemblyCompany(\"CityLizard\")]" >> CityLizard.AssemblyInfo.cs
 echo "[assembly: AssemblyCopyright(\"Copyright © CityLizard 2013\")]" >> CityLizard.AssemblyInfo.cs

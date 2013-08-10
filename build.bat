@@ -1,7 +1,7 @@
 setlocal
 set PATH=%PATH%C:\Windows\Microsoft.NET\Framework\v4.0.30319;C:\programs;C:\Program Files\7-Zip
 
-set VERSION=2.1.8.0
+for /F %%I in (version.txt) do set VERSION=%%I
 
 echo using System.Reflection; > CityLizard.AssemblyInfo.cs
 echo [assembly: AssemblyCompany("CityLizard")] >> CityLizard.AssemblyInfo.cs

@@ -25,9 +25,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CityLizard.Core\CityLizard.Core.windows8.csproj">
+    <ProjectReference Include="..\CityLizard.Core\CityLizard.Core.netcore45.csproj">
       <Project>{8135c29c-2e1e-4d17-9395-6c218d2fe1c2}</Project>
-      <Name>CityLizard.Core.windows8</Name>
+      <Name>CityLizard.Core.netcore45</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -36,8 +36,8 @@
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
     <VisualStudioVersion>11.0</VisualStudioVersion>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'windows8|AnyCPU'">
-    <OutputPath>bin\windows8\</OutputPath>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'netcore45|AnyCPU' ">
+    <OutputPath>bin\netcore45\</OutputPath>
     <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
     <Optimize>true</Optimize>
     <NoStdLib>true</NoStdLib>

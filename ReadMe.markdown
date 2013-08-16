@@ -22,18 +22,18 @@
 
 # API Levels
 
-	- net35-client: 2
-	- net40-client: 2
-	- windows8: 1
-	- sl4: 1
-	- sl5: 1
-	- wp71: 0
-	- wp8: 1
-	- mono40: 2
-	- mono35: 2
-	- mono-ios: 1
-	- mono-android16: 1
-	- psm: 1
+- net35-client: 2
+- net40-client: 2
+- windows8: 1
+- sl4: 1
+- sl5: 1
+- wp71: 0
+- wp8: 1
+- mono40: 2
+- mono35: 2
+- mono-ios: 1
+- mono-android16: 1
+- psm: 1
 
 - CityLizard.Core: Binary, Collections, Xml, Policy
 	- net35-client
@@ -98,6 +98,15 @@
 	- net40-client
 	- mono40
 	- mono35
+
+# Features
+
+- Binary
+- Policy
+- Graphics
+- FSM, DFA
+- XSD structure
+- XSD to C# builder
 
 <table>
 	<tr><th></th><th>Core</th><th>Fsm</th><th>Meta</th></tr>

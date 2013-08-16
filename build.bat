@@ -11,7 +11,7 @@ echo [assembly: AssemblyFileVersion("%VERSION%")] >> CityLizard.AssemblyInfo.cs
 
 msbuild desktop.sln
 msbuild web.sln
-msbuild windows8.sln
+msbuild netcore45.sln
 msbuild wp.sln
 msbuild psm.sln /p:Configuration=Release
 
@@ -25,7 +25,7 @@ xcopy CityLizard.Meta\bin\net40-client\*.dll lib\net40-client\
 xcopy CityLizard.Meta\bin\net35-client\*.dll lib\net35-client\
 xcopy CityLizard.Fsm\bin\sl4\CityLizard.*.dll lib\sl4\
 xcopy CityLizard.Fsm\bin\sl5\CityLizard.*.dll lib\sl5\
-xcopy CityLizard.Fsm\bin\windows8\*.dll lib\netcore45\
+xcopy CityLizard.Fsm\bin\netcore45\*.dll lib\netcore45\
 xcopy CityLizard.Fsm\bin\wp8\*.dll lib\wp8\
 xcopy CityLizard.Fsm\bin\Release.psm\*.dll lib\psm\
 xcopy CityLizard.Core\bin\sl4-wp71\*.dll lib\sl4-wp71\ 

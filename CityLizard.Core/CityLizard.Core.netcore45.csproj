@@ -61,8 +61,8 @@
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
     <VisualStudioVersion>11.0</VisualStudioVersion>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'windows8|AnyCPU'">
-    <OutputPath>bin\windows8\</OutputPath>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'netcore45|AnyCPU' ">
+    <OutputPath>bin\netcor45\</OutputPath>
     <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
     <Optimize>true</Optimize>
     <NoStdLib>true</NoStdLib>

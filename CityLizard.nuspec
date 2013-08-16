@@ -18,8 +18,8 @@
         <file src="CityLizard.Meta\bin\net40-client\CityLizard.Core.dll" target="lib\net40-client\CityLizard.Core.dll" />
         <file src="CityLizard.Meta\bin\net40-client\CityLizard.Fsm.dll" target="lib\net40-client\CityLizard.Fsm.dll" />
         <file src="CityLizard.Meta\bin\net40-client\CityLizard.Meta.dll" target="lib\net40-client\CityLizard.Meta.dll" />
-        <file src="CityLizard.Fsm\Bin\windows8\CityLizard.Core.dll" target="lib\netcore45\CityLizard.Core.dll" />
-        <file src="CityLizard.Fsm\Bin\windows8\CityLizard.Fsm.dll" target="lib\netcore45\CityLizard.Fsm.dll" />
+        <file src="CityLizard.Fsm\Bin\netcore45\CityLizard.Core.dll" target="lib\netcore45\CityLizard.Core.dll" />
+        <file src="CityLizard.Fsm\Bin\netcore45\CityLizard.Fsm.dll" target="lib\netcore45\CityLizard.Fsm.dll" />
         <file src="CityLizard.Core\Bin\sl4-wp71\CityLizard.Core.dll" target="lib\sl4-wp71\CityLizard.Core.dll" />
         <file src="CityLizard.Fsm\Bin\sl4\CityLizard.Core.dll" target="lib\sl40\CityLizard.Core.dll" />
         <file src="CityLizard.Fsm\Bin\sl4\CityLizard.Fsm.dll" target="lib\sl40\CityLizard.Fsm.dll" />

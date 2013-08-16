@@ -28,7 +28,7 @@ xcopy CityLizard.Fsm\bin\sl5\CityLizard.*.dll lib\sl5\
 xcopy CityLizard.Fsm\bin\windows8\*.dll lib\netcore45\
 xcopy CityLizard.Fsm\bin\wp8\*.dll lib\wp8\
 xcopy CityLizard.Fsm\bin\Release.psm\*.dll lib\psm\
-xcopy CityLizard.Core\bin\wp71\*.dll lib\sl4-wp71\ 
+xcopy CityLizard.Core\bin\sl4-wp71\*.dll lib\sl4-wp71\ 
 
 del CityLizard.%VERSION%.zip
 7z a CityLizard.%VERSION%.zip lib

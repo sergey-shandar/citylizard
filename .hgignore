@@ -32,5 +32,6 @@ syntax: regexp
 \.mdb$
 \/Bin\/
 \/key\.snk$
+\/packages\/
 syntax: glob
 *.tar

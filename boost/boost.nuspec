@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>boost</id>
-        <version>1.54.0.2</version>
+        <version>1.54.0.3</version>
         <authors>Sergey</authors>
         <owners>Sergey</owners>
         <licenseUrl>http://www.boost.org/LICENSE_1_0.txt</licenseUrl>

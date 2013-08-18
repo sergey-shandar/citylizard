@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>boost</id>
-        <version>1.54.0</version>
+        <version>1.54.0.1</version>
         <authors>Sergey</authors>
         <owners>Sergey</owners>
         <licenseUrl>http://www.boost.org/LICENSE_1_0.txt</licenseUrl>
@@ -12,5 +12,6 @@
     </metadata>
     <files>
         <file src="..\..\..\Downloads\boost_1_54_0\boost\**\*.*" target="lib\native\include\boost" />
+	<file src="boost.targets" target="\build\native\boost.targets" />
     </files>
 </package>

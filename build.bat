@@ -11,7 +11,7 @@ echo [assembly: AssemblyFileVersion("%VERSION%")] >> CityLizard.AssemblyInfo.cs
 
 msbuild desktop.sln
 msbuild web.sln
-msbuild netcore45.sln
+msbuild netcore.sln
 msbuild wp.sln
 msbuild psm.sln /p:Configuration=Release
 

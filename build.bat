@@ -1,5 +1,5 @@
 setlocal
-set PATH=%PATH%C:\Windows\Microsoft.NET\Framework\v4.0.30319;C:\programs;C:\Program Files\7-Zip;
+set PATH=%PATH%%WINDIR%\Microsoft.NET\Framework\v4.0.30319;C:\programs;C:\Program Files\7-Zip;
 
 for /F %%I in (version.txt) do set VERSION=%%I
 

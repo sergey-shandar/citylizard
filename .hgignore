@@ -33,5 +33,6 @@ syntax: regexp
 \/Bin\/
 \/key\.snk$
 \/packages\/
+\.snk$
 syntax: glob
 *.tar

@@ -1,3 +1,10 @@
+2.1.19.0
+	
+	NuGet:
+		- native CLR support.
+		- monotouch
+		- monoandroid
+
 2.1.9.0
 	CityLizard.2.1.9.0.huget
 		- .NET 3.5 client

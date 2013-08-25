@@ -103,5 +103,6 @@
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\CityLizard.2.1.19.0\build\native\CityLizard.targets" Condition="Exists('..\packages\CityLizard.2.1.19.0\build\native\CityLizard.targets')" />
   </ImportGroup>
 </Project>

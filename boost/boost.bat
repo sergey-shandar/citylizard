@@ -1,4 +1,4 @@
-cd C:\Users\Sergey\Downloads\boost_1_54_0\
+cd ..\..\boost_1_54_0\
 
 call bootstrap.bat
 

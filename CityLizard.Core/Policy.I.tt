@@ -8,7 +8,7 @@ namespace CityLizard.Policy
 <#
 	var typeList = new Type[]
 	{
-		typeof(System.SByte),
+        typeof(System.SByte),
 	    typeof(System.Byte),
 		typeof(System.Int16),
 		typeof(System.UInt16),

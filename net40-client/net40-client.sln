@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2012 for Windows Desktop
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Core", "CityLizard.Core\CityLizard.Core.csproj", "{4FE2FEB2-31CA-4597-96AD-15DDB10E6765}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Fsm", "CityLizard.Fsm\CityLizard.Fsm.csproj", "{5D81D86C-424A-4302-B8B6-796751753681}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Meta", "CityLizard.Meta\CityLizard.Meta.csproj", "{5714A853-7A3C-46FE-B8CB-9904CA86B190}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4FE2FEB2-31CA-4597-96AD-15DDB10E6765}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FE2FEB2-31CA-4597-96AD-15DDB10E6765}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FE2FEB2-31CA-4597-96AD-15DDB10E6765}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FE2FEB2-31CA-4597-96AD-15DDB10E6765}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D81D86C-424A-4302-B8B6-796751753681}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D81D86C-424A-4302-B8B6-796751753681}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D81D86C-424A-4302-B8B6-796751753681}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D81D86C-424A-4302-B8B6-796751753681}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5714A853-7A3C-46FE-B8CB-9904CA86B190}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5714A853-7A3C-46FE-B8CB-9904CA86B190}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5714A853-7A3C-46FE-B8CB-9904CA86B190}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5714A853-7A3C-46FE-B8CB-9904CA86B190}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

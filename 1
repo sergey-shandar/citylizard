@@ -1,0 +1,354 @@
+
+C:\Users\Sergey\Desktop\citylizard>setlocal
+
+C:\Users\Sergey\Desktop\citylizard>set PATH=C:\Program Files\Far Manager\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Microsoft\Web Platform Installer\;C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v1.0\;C:\Program Files (x86)\Windows Kits\8.0\Windows Performance Toolkit\;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\Intel\OpenCL SDK\2.0\bin\x86;C:\Program Files (x86)\Intel\OpenCL SDK\2.0\bin\x64;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Program Files\TortoiseHg\;C:\Program Files (x86)\Windows Live\Shared;C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319;C:\programs;C:\Program Files (x86)\Microsoft SDKs\Windows\v8.0A\bin\NETFX 4.0 Tools;C:\Program Files\7-Zip; 
+
+C:\Users\Sergey\Desktop\citylizard>for /F %I in (version.txt) do set VERSION=%I 
+
+C:\Users\Sergey\Desktop\citylizard>set VERSION=2.1.17.0 
+
+C:\Users\Sergey\Desktop\citylizard>call assembly_info.bat CityLizard.Core 
+
+C:\Users\Sergey\Desktop\citylizard>cd CityLizard.Core 
+
+C:\Users\Sergey\Desktop\citylizard\CityLizard.Core>echo using System.Reflection;  1>AssemblyInfo.cs 
+
+C:\Users\Sergey\Desktop\citylizard\CityLizard.Core>echo [assembly: AssemblyCompany("CityLizard")]  1>>AssemblyInfo.cs 
+
+C:\Users\Sergey\Desktop\citylizard\CityLizard.Core>echo [assembly: AssemblyCopyright("Copyright © CityLizard 2013")]  1>>AssemblyInfo.cs 
+
+C:\Users\Sergey\Desktop\citylizard\CityLizard.Core>echo [assembly: AssemblyVersion("2.1.17.0")]  1>>AssemblyInfo.cs 
+
+C:\Users\Sergey\Desktop\citylizard\CityLizard.Core>echo [assembly: AssemblyFileVersion("2.1.17.0")]  1>>AssemblyInfo.cs 
+
+C:\Users\Sergey\Desktop\citylizard\CityLizard.Core>echo [assembly: AssemblyTitle("CityLizard.Core")]  1>>AssemblyInfo.cs 
+
+C:\Users\Sergey\Desktop\citylizard\CityLizard.Core>echo [assembly: AssemblyProduct("CityLizard.Core")]  1>>AssemblyInfo.cs 
+
+C:\Users\Sergey\Desktop\citylizard\CityLizard.Core>cd .. 
+
+C:\Users\Sergey\Desktop\citylizard>call assembly_info.bat CityLizard.Fsm 
+
+C:\Users\Sergey\Desktop\citylizard>cd CityLizard.Fsm 
+
+C:\Users\Sergey\Desktop\citylizard\CityLizard.Fsm>echo using System.Reflection;  1>AssemblyInfo.cs 
+
+C:\Users\Sergey\Desktop\citylizard\CityLizard.Fsm>echo [assembly: AssemblyCompany("CityLizard")]  1>>AssemblyInfo.cs 
+
+C:\Users\Sergey\Desktop\citylizard\CityLizard.Fsm>echo [assembly: AssemblyCopyright("Copyright © CityLizard 2013")]  1>>AssemblyInfo.cs 
+
+C:\Users\Sergey\Desktop\citylizard\CityLizard.Fsm>echo [assembly: AssemblyVersion("2.1.17.0")]  1>>AssemblyInfo.cs 
+
+C:\Users\Sergey\Desktop\citylizard\CityLizard.Fsm>echo [assembly: AssemblyFileVersion("2.1.17.0")]  1>>AssemblyInfo.cs 
+
+C:\Users\Sergey\Desktop\citylizard\CityLizard.Fsm>echo [assembly: AssemblyTitle("CityLizard.Fsm")]  1>>AssemblyInfo.cs 
+
+C:\Users\Sergey\Desktop\citylizard\CityLizard.Fsm>echo [assembly: AssemblyProduct("CityLizard.Fsm")]  1>>AssemblyInfo.cs 
+
+C:\Users\Sergey\Desktop\citylizard\CityLizard.Fsm>cd .. 
+
+C:\Users\Sergey\Desktop\citylizard>call assembly_info.bat CityLizard.Meta 
+
+C:\Users\Sergey\Desktop\citylizard>cd CityLizard.Meta 
+
+C:\Users\Sergey\Desktop\citylizard\CityLizard.Meta>echo using System.Reflection;  1>AssemblyInfo.cs 
+
+C:\Users\Sergey\Desktop\citylizard\CityLizard.Meta>echo [assembly: AssemblyCompany("CityLizard")]  1>>AssemblyInfo.cs 
+
+C:\Users\Sergey\Desktop\citylizard\CityLizard.Meta>echo [assembly: AssemblyCopyright("Copyright © CityLizard 2013")]  1>>AssemblyInfo.cs 
+
+C:\Users\Sergey\Desktop\citylizard\CityLizard.Meta>echo [assembly: AssemblyVersion("2.1.17.0")]  1>>AssemblyInfo.cs 
+
+C:\Users\Sergey\Desktop\citylizard\CityLizard.Meta>echo [assembly: AssemblyFileVersion("2.1.17.0")]  1>>AssemblyInfo.cs 
+
+C:\Users\Sergey\Desktop\citylizard\CityLizard.Meta>echo [assembly: AssemblyTitle("CityLizard.Meta")]  1>>AssemblyInfo.cs 
+
+C:\Users\Sergey\Desktop\citylizard\CityLizard.Meta>echo [assembly: AssemblyProduct("CityLizard.Meta")]  1>>AssemblyInfo.cs 
+
+C:\Users\Sergey\Desktop\citylizard\CityLizard.Meta>cd .. 
+
+C:\Users\Sergey\Desktop\citylizard>call platform_build.bat net35-client 
+
+C:\Users\Sergey\Desktop\citylizard>msbuild net35-client/net35-client.sln /p:Configuration=Release /p:KeyOriginatorFile="../../keypair.snc" 
+Microsoft (R) Build Engine version 4.0.30319.17929
+[Microsoft .NET Framework, version 4.0.30319.18051]
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Building the projects in this solution one at a time. To enable parallel build, please add the "/m" switch.
+Build started 8/24/2013 11:43:12 PM.
+Project "C:\Users\Sergey\Desktop\citylizard\net35-client\net35-client.sln" on node 1 (default targets).
+ValidateSolutionConfiguration:
+  Building solution configuration "Release|Any CPU".
+Project "C:\Users\Sergey\Desktop\citylizard\net35-client\net35-client.sln" (1) is building "C:\Users\Sergey\Desktop\citylizard\net35-client\CityLizard.Core\CityLizard.Core.csproj" (2) on node 1 (default targets).
+ResolveAssemblyReferences:
+  A TargetFramework profile exclusion list will be generated.
+CoreCompile:
+  C:\Windows\Microsoft.NET\Framework\v4.0.30319\Csc.exe /noconfig /nowarn:1701,1702 /nostdlib+ /errorreport:prompt /warn:4 /define:TRACE /highentropyva- /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v3.5\Profile\Client\mscorlib.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v3.5\Profile\Client\System.Core.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v3.5\Profile\Client\System.Data.DataSetExtensions.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v3.5\Profile\Client\System.Data.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v3.5\Profile\Client\System.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v3.5\Profile\Client\System.Xml.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v3.5\Profile\Client\System.Xml.Linq.dll" /debug:pdbonly /filealign:512 /keyfile:../../keypair.snc /optimize+ /out:obj\Release\CityLizard.Core.dll /target:library /utf8output ..\..\CityLizard.Core\AssemblyInfo.cs ..\..\CityLizard.Core\Binary.cs ..\..\CityLizard.Core\Collections.ArrayCache.cs ..\..\CityLizard.Core\Collections.Cache.cs ..\..\CityLizard.Core\Collections.DictionaryCache.cs ..\..\CityLizard.Core\Collections.Extension.IDictionaryExtension.cs ..\..\CityLizard.Core\Collections.Optional.cs ..\..\CityLizard.Core\Graphics.Color.cs ..\..\CityLizard.Core\Graphics.CompactMatrix4D.cs ..\..\CityLizard.Core\Graphics.IMatrix4D.cs ..\..\CityLizard.Core\Graphics.Matrix4D.cs ..\..\CityLizard.Core\Graphics.Quaternion.cs ..\..\CityLizard.Core\Graphics.Vector2D.cs ..\..\CityLizard.Core\Graphics.Vector3D.cs ..\..\CityLizard.Core\Graphics.Vector4D.cs ..\..\CityLizard.Core\Policy.I.cs ..\..\CityLizard.Core\Policy.INumeric.cs ..\..\CityLizard.Core\Xml.Attribute.cs ..\..\CityLizard.Core\Xml.ICharacterData.cs ..\..\CityLizard.Core\Xml.Implementation.cs ..\..\CityLizard.Core\Xml.IQName.cs ..\..\CityLizard.Core\Xml.Linked.Comment.cs ..\..\CityLizard.Core\Xml.Linked.Element.Complex.cs ..\..\CityLizard.Core\Xml.Linked.Element.Element.cs ..\..\CityLizard.Core\Xml.Linked.Element.Empty.cs ..\..\CityLizard.Core\Xml.Linked.Element.Mixed.cs ..\..\CityLizard.Core\Xml.Linked.Element.NotEmpty.cs ..\..\CityLizard.Core\Xml.Linked.Element.NotMixed.cs ..\..\CityLizard.Core\Xml.Linked.Element.Simple.cs ..\..\CityLizard.Core\Xml.Linked.Element.Type.cs ..\..\CityLizard.Core\Xml.Linked.LinkedNode.cs ..\..\CityLizard.Core\Xml.Linked.Text.cs ..\..\CityLizard.Core\Xml.Node.cs ..\..\CityLizard.Core\Xml.QName.cs ..\..\CityLizard.Core\Xml.Untyped.cs
+CSC : error CS1548: Cryptographic failure while signing assembly 'c:\Users\Sergey\Desktop\citylizard\net35-client\CityLizard.Core\obj\Release\CityLizard.Core.dll' -- 'Error reading key file 'c:\Users\Sergey\Desktop\citylizard\keypair.snc' -- The system cannot find the file specified. ' [C:\Users\Sergey\Desktop\citylizard\net35-client\CityLizard.Core\CityLizard.Core.csproj]
+Done Building Project "C:\Users\Sergey\Desktop\citylizard\net35-client\CityLizard.Core\CityLizard.Core.csproj" (default targets) -- FAILED.
+Done Building Project "C:\Users\Sergey\Desktop\citylizard\net35-client\net35-client.sln" (default targets) -- FAILED.
+
+Build FAILED.
+
+"C:\Users\Sergey\Desktop\citylizard\net35-client\net35-client.sln" (default target) (1) ->
+"C:\Users\Sergey\Desktop\citylizard\net35-client\CityLizard.Core\CityLizard.Core.csproj" (default target) (2) ->
+(CoreCompile target) -> 
+  CSC : error CS1548: Cryptographic failure while signing assembly 'c:\Users\Sergey\Desktop\citylizard\net35-client\CityLizard.Core\obj\Release\CityLizard.Core.dll' -- 'Error reading key file 'c:\Users\Sergey\Desktop\citylizard\keypair.snc' -- The system cannot find the file specified. ' [C:\Users\Sergey\Desktop\citylizard\net35-client\CityLizard.Core\CityLizard.Core.csproj]
+
+    0 Warning(s)
+    1 Error(s)
+
+Time Elapsed 00:00:00.22
+
+C:\Users\Sergey\Desktop\citylizard>call platform_build.bat net40-client 
+
+C:\Users\Sergey\Desktop\citylizard>msbuild net40-client/net40-client.sln /p:Configuration=Release /p:KeyOriginatorFile="../../keypair.snc" 
+Microsoft (R) Build Engine version 4.0.30319.17929
+[Microsoft .NET Framework, version 4.0.30319.18051]
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Building the projects in this solution one at a time. To enable parallel build, please add the "/m" switch.
+Build started 8/24/2013 11:43:13 PM.
+Project "C:\Users\Sergey\Desktop\citylizard\net40-client\net40-client.sln" on node 1 (default targets).
+ValidateSolutionConfiguration:
+  Building solution configuration "Release|Any CPU".
+Project "C:\Users\Sergey\Desktop\citylizard\net40-client\net40-client.sln" (1) is building "C:\Users\Sergey\Desktop\citylizard\net40-client\CityLizard.Core\CityLizard.Core.csproj" (2) on node 1 (default targets).
+ResolveAssemblyReferences:
+  A TargetFramework profile exclusion list will be generated.
+GenerateTargetFrameworkMonikerAttribute:
+Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.
+CoreCompile:
+  C:\Windows\Microsoft.NET\Framework\v4.0.30319\Csc.exe /noconfig /nowarn:1701,1702 /nostdlib+ /errorreport:prompt /warn:4 /define:TRACE /highentropyva- /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\Profile\Client\Microsoft.CSharp.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\Profile\Client\mscorlib.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\Profile\Client\System.Core.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\Profile\Client\System.Data.DataSetExtensions.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\Profile\Client\System.Data.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\Profile\Client\System.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\Profile\Client\System.Xml.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\Profile\Client\System.Xml.Linq.dll" /debug:pdbonly /filealign:512 /keyfile:../../keypair.snc /optimize+ /out:obj\Release\CityLizard.Core.dll /target:library /utf8output ..\..\CityLizard.Core\AssemblyInfo.cs ..\..\CityLizard.Core\Binary.cs ..\..\CityLizard.Core\Collections.ArrayCache.cs ..\..\CityLizard.Core\Collections.Cache.cs ..\..\CityLizard.Core\Collections.DictionaryCache.cs ..\..\CityLizard.Core\Collections.Extension.IDictionaryExtension.cs ..\..\CityLizard.Core\Collections.Optional.cs ..\..\CityLizard.Core\Graphics.Color.cs ..\..\CityLizard.Core\Graphics.CompactMatrix4D.cs ..\..\CityLizard.Core\Graphics.IMatrix4D.cs ..\..\CityLizard.Core\Graphics.Matrix4D.cs ..\..\CityLizard.Core\Graphics.Quaternion.cs ..\..\CityLizard.Core\Graphics.Vector2D.cs ..\..\CityLizard.Core\Graphics.Vector3D.cs ..\..\CityLizard.Core\Graphics.Vector4D.cs ..\..\CityLizard.Core\Policy.I.cs ..\..\CityLizard.Core\Policy.INumeric.cs ..\..\CityLizard.Core\Xml.Attribute.cs ..\..\CityLizard.Core\Xml.ICharacterData.cs ..\..\CityLizard.Core\Xml.Implementation.cs ..\..\CityLizard.Core\Xml.IQName.cs ..\..\CityLizard.Core\Xml.Linked.Comment.cs ..\..\CityLizard.Core\Xml.Linked.Element.Complex.cs ..\..\CityLizard.Core\Xml.Linked.Element.Element.cs ..\..\CityLizard.Core\Xml.Linked.Element.Empty.cs ..\..\CityLizard.Core\Xml.Linked.Element.Mixed.cs ..\..\CityLizard.Core\Xml.Linked.Element.NotEmpty.cs ..\..\CityLizard.Core\Xml.Linked.Element.NotMixed.cs ..\..\CityLizard.Core\Xml.Linked.Element.Simple.cs ..\..\CityLizard.Core\Xml.Linked.Element.Type.cs ..\..\CityLizard.Core\Xml.Linked.LinkedNode.cs ..\..\CityLizard.Core\Xml.Linked.Text.cs ..\..\CityLizard.Core\Xml.Node.cs ..\..\CityLizard.Core\Xml.QName.cs ..\..\CityLizard.Core\Xml.Untyped.cs "C:\Users\Sergey\AppData\Local\Temp\.NETFramework,Version=v4.0,Profile=Client.AssemblyAttributes.cs"
+CSC : error CS1548: Cryptographic failure while signing assembly 'c:\Users\Sergey\Desktop\citylizard\net40-client\CityLizard.Core\obj\Release\CityLizard.Core.dll' -- 'Error reading key file 'c:\Users\Sergey\Desktop\citylizard\keypair.snc' -- The system cannot find the file specified. ' [C:\Users\Sergey\Desktop\citylizard\net40-client\CityLizard.Core\CityLizard.Core.csproj]
+Done Building Project "C:\Users\Sergey\Desktop\citylizard\net40-client\CityLizard.Core\CityLizard.Core.csproj" (default targets) -- FAILED.
+Done Building Project "C:\Users\Sergey\Desktop\citylizard\net40-client\net40-client.sln" (default targets) -- FAILED.
+
+Build FAILED.
+
+"C:\Users\Sergey\Desktop\citylizard\net40-client\net40-client.sln" (default target) (1) ->
+"C:\Users\Sergey\Desktop\citylizard\net40-client\CityLizard.Core\CityLizard.Core.csproj" (default target) (2) ->
+(CoreCompile target) -> 
+  CSC : error CS1548: Cryptographic failure while signing assembly 'c:\Users\Sergey\Desktop\citylizard\net40-client\CityLizard.Core\obj\Release\CityLizard.Core.dll' -- 'Error reading key file 'c:\Users\Sergey\Desktop\citylizard\keypair.snc' -- The system cannot find the file specified. ' [C:\Users\Sergey\Desktop\citylizard\net40-client\CityLizard.Core\CityLizard.Core.csproj]
+
+    0 Warning(s)
+    1 Error(s)
+
+Time Elapsed 00:00:00.22
+
+C:\Users\Sergey\Desktop\citylizard>call platform_build.bat sl4 
+
+C:\Users\Sergey\Desktop\citylizard>msbuild sl4/sl4.sln /p:Configuration=Release /p:KeyOriginatorFile="../../keypair.snc" 
+Microsoft (R) Build Engine version 4.0.30319.17929
+[Microsoft .NET Framework, version 4.0.30319.18051]
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Building the projects in this solution one at a time. To enable parallel build, please add the "/m" switch.
+Build started 8/24/2013 11:43:13 PM.
+Project "C:\Users\Sergey\Desktop\citylizard\sl4\sl4.sln" on node 1 (default targets).
+ValidateSolutionConfiguration:
+  Building solution configuration "Release|Any CPU".
+Project "C:\Users\Sergey\Desktop\citylizard\sl4\sl4.sln" (1) is building "C:\Users\Sergey\Desktop\citylizard\sl4\CityLizard.Core\CityLizard.Core.csproj" (2) on node 1 (default targets).
+GenerateTargetFrameworkMonikerAttribute:
+Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.
+CoreCompile:
+  C:\Windows\Microsoft.NET\Framework\v4.0.30319\Csc.exe /noconfig /nowarn:1701,1702 /nostdlib+ /errorreport:prompt /warn:4 /define:TRACE;SILVERLIGHT /highentropyva- /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\Silverlight\v4.0\mscorlib.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\Silverlight\v4.0\System.Core.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\Silverlight\v4.0\System.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\Silverlight\v4.0\System.Net.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\Silverlight\v4.0\System.Windows.Browser.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\Silverlight\v4.0\System.Windows.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\Silverlight\v4.0\System.Xml.dll" /reference:"C:\Program Files (x86)\Microsoft SDKs\Silverlight\v4.0\Libraries\Client\System.Xml.Linq.dll" /debug:pdbonly /keyfile:../../keypair.snc /optimize+ /out:obj\Release\CityLizard.Core.dll /target:library /utf8output ..\..\CityLizard.Core\AssemblyInfo.cs ..\..\CityLizard.Core\Binary.cs ..\..\CityLizard.Core\Collections.ArrayCache.cs ..\..\CityLizard.Core\Collections.Cache.cs ..\..\CityLizard.Core\Collections.DictionaryCache.cs ..\..\CityLizard.Core\Collections.Extension.IDictionaryExtension.cs ..\..\CityLizard.Core\Collections.Optional.cs ..\..\CityLizard.Core\Graphics.Color.cs ..\..\CityLizard.Core\Graphics.CompactMatrix4D.cs ..\..\CityLizard.Core\Graphics.IMatrix4D.cs ..\..\CityLizard.Core\Graphics.Matrix4D.cs ..\..\CityLizard.Core\Graphics.Quaternion.cs ..\..\CityLizard.Core\Graphics.Vector2D.cs ..\..\CityLizard.Core\Graphics.Vector3D.cs ..\..\CityLizard.Core\Graphics.Vector4D.cs ..\..\CityLizard.Core\Policy.I.cs ..\..\CityLizard.Core\Policy.INumeric.cs ..\..\CityLizard.Core\Xml.Attribute.cs ..\..\CityLizard.Core\Xml.ICharacterData.cs ..\..\CityLizard.Core\Xml.Implementation.cs ..\..\CityLizard.Core\Xml.IQName.cs ..\..\CityLizard.Core\Xml.Linked.Comment.cs ..\..\CityLizard.Core\Xml.Linked.Element.Complex.cs ..\..\CityLizard.Core\Xml.Linked.Element.Element.cs ..\..\CityLizard.Core\Xml.Linked.Element.Empty.cs ..\..\CityLizard.Core\Xml.Linked.Element.Mixed.cs ..\..\CityLizard.Core\Xml.Linked.Element.NotEmpty.cs ..\..\CityLizard.Core\Xml.Linked.Element.NotMixed.cs ..\..\CityLizard.Core\Xml.Linked.Element.Simple.cs ..\..\CityLizard.Core\Xml.Linked.Element.Type.cs ..\..\CityLizard.Core\Xml.Linked.LinkedNode.cs ..\..\CityLizard.Core\Xml.Linked.Text.cs ..\..\CityLizard.Core\Xml.Node.cs ..\..\CityLizard.Core\Xml.QName.cs ..\..\CityLizard.Core\Xml.Untyped.cs "C:\Users\Sergey\AppData\Local\Temp\Silverlight,Version=v4.0.AssemblyAttributes.cs"
+CSC : error CS1548: Cryptographic failure while signing assembly 'c:\Users\Sergey\Desktop\citylizard\sl4\CityLizard.Core\obj\Release\CityLizard.Core.dll' -- 'Error reading key file 'c:\Users\Sergey\Desktop\citylizard\keypair.snc' -- The system cannot find the file specified. ' [C:\Users\Sergey\Desktop\citylizard\sl4\CityLizard.Core\CityLizard.Core.csproj]
+Done Building Project "C:\Users\Sergey\Desktop\citylizard\sl4\CityLizard.Core\CityLizard.Core.csproj" (default targets) -- FAILED.
+Done Building Project "C:\Users\Sergey\Desktop\citylizard\sl4\sl4.sln" (default targets) -- FAILED.
+
+Build FAILED.
+
+"C:\Users\Sergey\Desktop\citylizard\sl4\sl4.sln" (default target) (1) ->
+"C:\Users\Sergey\Desktop\citylizard\sl4\CityLizard.Core\CityLizard.Core.csproj" (default target) (2) ->
+(CoreCompile target) -> 
+  CSC : error CS1548: Cryptographic failure while signing assembly 'c:\Users\Sergey\Desktop\citylizard\sl4\CityLizard.Core\obj\Release\CityLizard.Core.dll' -- 'Error reading key file 'c:\Users\Sergey\Desktop\citylizard\keypair.snc' -- The system cannot find the file specified. ' [C:\Users\Sergey\Desktop\citylizard\sl4\CityLizard.Core\CityLizard.Core.csproj]
+
+    0 Warning(s)
+    1 Error(s)
+
+Time Elapsed 00:00:00.21
+
+C:\Users\Sergey\Desktop\citylizard>call platform_build.bat sl5 
+
+C:\Users\Sergey\Desktop\citylizard>msbuild sl5/sl5.sln /p:Configuration=Release /p:KeyOriginatorFile="../../keypair.snc" 
+Microsoft (R) Build Engine version 4.0.30319.17929
+[Microsoft .NET Framework, version 4.0.30319.18051]
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Building the projects in this solution one at a time. To enable parallel build, please add the "/m" switch.
+Build started 8/24/2013 11:43:13 PM.
+Project "C:\Users\Sergey\Desktop\citylizard\sl5\sl5.sln" on node 1 (default targets).
+ValidateSolutionConfiguration:
+  Building solution configuration "Release|Any CPU".
+Project "C:\Users\Sergey\Desktop\citylizard\sl5\sl5.sln" (1) is building "C:\Users\Sergey\Desktop\citylizard\sl5\CityLizard.Core\CityLizard.Core.csproj" (2) on node 1 (default targets).
+GenerateTargetFrameworkMonikerAttribute:
+Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.
+CoreCompile:
+  C:\Windows\Microsoft.NET\Framework\v4.0.30319\Csc.exe /noconfig /nowarn:1701,1702 /nostdlib+ /errorreport:prompt /warn:4 /define:TRACE;SILVERLIGHT /highentropyva- /reference:"c:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\Silverlight\v5.0\mscorlib.dll" /reference:"c:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\Silverlight\v5.0\System.Core.dll" /reference:"c:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\Silverlight\v5.0\System.dll" /reference:"c:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\Silverlight\v5.0\System.Net.dll" /reference:"c:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\Silverlight\v5.0\System.Windows.Browser.dll" /reference:"c:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\Silverlight\v5.0\System.Windows.dll" /reference:"c:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\Silverlight\v5.0\System.Xml.dll" /reference:"c:\Program Files (x86)\Microsoft SDKs\Silverlight\v5.0\Libraries\Client\System.Xml.Linq.dll" /debug:pdbonly /keyfile:../../keypair.snc /optimize+ /out:obj\Release\CityLizard.Core.dll /target:library /utf8output ..\..\CityLizard.Core\AssemblyInfo.cs ..\..\CityLizard.Core\Binary.cs ..\..\CityLizard.Core\Collections.ArrayCache.cs ..\..\CityLizard.Core\Collections.Cache.cs ..\..\CityLizard.Core\Collections.DictionaryCache.cs ..\..\CityLizard.Core\Collections.Extension.IDictionaryExtension.cs ..\..\CityLizard.Core\Collections.Optional.cs ..\..\CityLizard.Core\Graphics.Color.cs ..\..\CityLizard.Core\Graphics.CompactMatrix4D.cs ..\..\CityLizard.Core\Graphics.IMatrix4D.cs ..\..\CityLizard.Core\Graphics.Matrix4D.cs ..\..\CityLizard.Core\Graphics.Quaternion.cs ..\..\CityLizard.Core\Graphics.Vector2D.cs ..\..\CityLizard.Core\Graphics.Vector3D.cs ..\..\CityLizard.Core\Graphics.Vector4D.cs ..\..\CityLizard.Core\Policy.I.cs ..\..\CityLizard.Core\Policy.INumeric.cs ..\..\CityLizard.Core\Xml.Attribute.cs ..\..\CityLizard.Core\Xml.ICharacterData.cs ..\..\CityLizard.Core\Xml.Implementation.cs ..\..\CityLizard.Core\Xml.IQName.cs ..\..\CityLizard.Core\Xml.Linked.Comment.cs ..\..\CityLizard.Core\Xml.Linked.Element.Complex.cs ..\..\CityLizard.Core\Xml.Linked.Element.Element.cs ..\..\CityLizard.Core\Xml.Linked.Element.Empty.cs ..\..\CityLizard.Core\Xml.Linked.Element.Mixed.cs ..\..\CityLizard.Core\Xml.Linked.Element.NotEmpty.cs ..\..\CityLizard.Core\Xml.Linked.Element.NotMixed.cs ..\..\CityLizard.Core\Xml.Linked.Element.Simple.cs ..\..\CityLizard.Core\Xml.Linked.Element.Type.cs ..\..\CityLizard.Core\Xml.Linked.LinkedNode.cs ..\..\CityLizard.Core\Xml.Linked.Text.cs ..\..\CityLizard.Core\Xml.Node.cs ..\..\CityLizard.Core\Xml.QName.cs ..\..\CityLizard.Core\Xml.Untyped.cs "C:\Users\Sergey\AppData\Local\Temp\Silverlight,Version=v5.0.AssemblyAttributes.cs"
+CSC : error CS1548: Cryptographic failure while signing assembly 'c:\Users\Sergey\Desktop\citylizard\sl5\CityLizard.Core\obj\Release\CityLizard.Core.dll' -- 'Error reading key file 'c:\Users\Sergey\Desktop\citylizard\keypair.snc' -- The system cannot find the file specified. ' [C:\Users\Sergey\Desktop\citylizard\sl5\CityLizard.Core\CityLizard.Core.csproj]
+Done Building Project "C:\Users\Sergey\Desktop\citylizard\sl5\CityLizard.Core\CityLizard.Core.csproj" (default targets) -- FAILED.
+Done Building Project "C:\Users\Sergey\Desktop\citylizard\sl5\sl5.sln" (default targets) -- FAILED.
+
+Build FAILED.
+
+"C:\Users\Sergey\Desktop\citylizard\sl5\sl5.sln" (default target) (1) ->
+"C:\Users\Sergey\Desktop\citylizard\sl5\CityLizard.Core\CityLizard.Core.csproj" (default target) (2) ->
+(CoreCompile target) -> 
+  CSC : error CS1548: Cryptographic failure while signing assembly 'c:\Users\Sergey\Desktop\citylizard\sl5\CityLizard.Core\obj\Release\CityLizard.Core.dll' -- 'Error reading key file 'c:\Users\Sergey\Desktop\citylizard\keypair.snc' -- The system cannot find the file specified. ' [C:\Users\Sergey\Desktop\citylizard\sl5\CityLizard.Core\CityLizard.Core.csproj]
+
+    0 Warning(s)
+    1 Error(s)
+
+Time Elapsed 00:00:01.09
+
+C:\Users\Sergey\Desktop\citylizard>call platform_build.bat netcore45 
+
+C:\Users\Sergey\Desktop\citylizard>msbuild netcore45/netcore45.sln /p:Configuration=Release /p:KeyOriginatorFile="../../keypair.snc" 
+Microsoft (R) Build Engine version 4.0.30319.17929
+[Microsoft .NET Framework, version 4.0.30319.18051]
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Building the projects in this solution one at a time. To enable parallel build, please add the "/m" switch.
+Build started 8/24/2013 11:43:15 PM.
+Project "C:\Users\Sergey\Desktop\citylizard\netcore45\netcore45.sln" on node 1 (default targets).
+ValidateSolutionConfiguration:
+  Building solution configuration "Release|Any CPU".
+Project "C:\Users\Sergey\Desktop\citylizard\netcore45\netcore45.sln" (1) is building "C:\Users\Sergey\Desktop\citylizard\netcore45\CityLizard.Core\CityLizard.Core.csproj" (2) on node 1 (default targets).
+GenerateTargetFrameworkMonikerAttribute:
+Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.
+CoreCompile:
+  C:\Windows\Microsoft.NET\Framework\v4.0.30319\Csc.exe /noconfig /nowarn:1701,1702 /nostdlib+ /errorreport:prompt /warn:4 /define:TRACE;NETFX_CORE /highentropyva+ /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\Microsoft.CSharp.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\Microsoft.VisualBasic.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\mscorlib.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Collections.Concurrent.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Collections.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.ComponentModel.Annotations.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.ComponentModel.DataAnnotations.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.ComponentModel.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.ComponentModel.EventBasedAsync.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Core.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Diagnostics.Contracts.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Diagnostics.Debug.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Diagnostics.Tools.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Diagnostics.Tracing.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Dynamic.Runtime.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Globalization.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.IO.Compression.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.IO.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Linq.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Linq.Expressions.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Linq.Parallel.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Linq.Queryable.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Net.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Net.Http.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Net.Http.Rtc.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Net.NetworkInformation.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Net.Primitives.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Net.Requests.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Numerics.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.ObjectModel.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Reflection.Context.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Reflection.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Reflection.Extensions.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Reflection.Primitives.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Resources.ResourceManager.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Runtime.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Runtime.Extensions.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Runtime.InteropServices.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Runtime.InteropServices.WindowsRuntime.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Runtime.Numerics.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Runtime.Serialization.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Runtime.Serialization.Json.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Runtime.Serialization.Primitives.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Runtime.Serialization.Xml.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Runtime.WindowsRuntime.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Runtime.WindowsRuntime.UI.Xaml.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Security.Principal.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.ServiceModel.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.ServiceModel.Duplex.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.ServiceModel.Http.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.ServiceModel.NetTcp.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.ServiceModel.Primitives.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.ServiceModel.Security.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.ServiceModel.Web.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Text.Encoding.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Text.Encoding.Extensions.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Text.RegularExpressions.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Threading.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Threading.Tasks.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Threading.Tasks.Parallel.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Windows.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Xml.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Xml.Linq.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Xml.ReaderWriter.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Xml.Serialization.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Xml.XDocument.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Xml.XmlSerializer.dll" /reference:"C:\Program Files (x86)\Windows Kits\8.0\References\CommonConfiguration\Neutral\Windows.winmd" /debug:pdbonly /filealign:512 /keyfile:../../keypair.snc /optimize+ /out:obj\Release\CityLizard.Core.dll /subsystemversion:6.00 /target:library /utf8output ..\..\CityLizard.Core\AssemblyInfo.cs ..\..\CityLizard.Core\Binary.cs ..\..\CityLizard.Core\Collections.ArrayCache.cs ..\..\CityLizard.Core\Collections.Cache.cs ..\..\CityLizard.Core\Collections.DictionaryCache.cs ..\..\CityLizard.Core\Collections.Extension.IDictionaryExtension.cs ..\..\CityLizard.Core\Collections.Optional.cs ..\..\CityLizard.Core\Graphics.Color.cs ..\..\CityLizard.Core\Graphics.CompactMatrix4D.cs ..\..\CityLizard.Core\Graphics.IMatrix4D.cs ..\..\CityLizard.Core\Graphics.Matrix4D.cs ..\..\CityLizard.Core\Graphics.Quaternion.cs ..\..\CityLizard.Core\Graphics.Vector2D.cs ..\..\CityLizard.Core\Graphics.Vector3D.cs ..\..\CityLizard.Core\Graphics.Vector4D.cs ..\..\CityLizard.Core\Policy.I.cs ..\..\CityLizard.Core\Policy.INumeric.cs ..\..\CityLizard.Core\Xml.Attribute.cs ..\..\CityLizard.Core\Xml.ICharacterData.cs ..\..\CityLizard.Core\Xml.Implementation.cs ..\..\CityLizard.Core\Xml.IQName.cs ..\..\CityLizard.Core\Xml.Linked.Comment.cs ..\..\CityLizard.Core\Xml.Linked.Element.Complex.cs ..\..\CityLizard.Core\Xml.Linked.Element.Element.cs ..\..\CityLizard.Core\Xml.Linked.Element.Empty.cs ..\..\CityLizard.Core\Xml.Linked.Element.Mixed.cs ..\..\CityLizard.Core\Xml.Linked.Element.NotEmpty.cs ..\..\CityLizard.Core\Xml.Linked.Element.NotMixed.cs ..\..\CityLizard.Core\Xml.Linked.Element.Simple.cs ..\..\CityLizard.Core\Xml.Linked.Element.Type.cs ..\..\CityLizard.Core\Xml.Linked.LinkedNode.cs ..\..\CityLizard.Core\Xml.Linked.Text.cs ..\..\CityLizard.Core\Xml.Node.cs ..\..\CityLizard.Core\Xml.QName.cs ..\..\CityLizard.Core\Xml.Untyped.cs "C:\Users\Sergey\AppData\Local\Temp\.NETCore,Version=v4.5.AssemblyAttributes.cs"
+CSC : error CS1548: Cryptographic failure while signing assembly 'c:\Users\Sergey\Desktop\citylizard\netcore45\CityLizard.Core\obj\Release\CityLizard.Core.dll' -- 'Error reading key file 'c:\Users\Sergey\Desktop\citylizard\keypair.snc' -- The system cannot find the file specified. ' [C:\Users\Sergey\Desktop\citylizard\netcore45\CityLizard.Core\CityLizard.Core.csproj]
+Done Building Project "C:\Users\Sergey\Desktop\citylizard\netcore45\CityLizard.Core\CityLizard.Core.csproj" (default targets) -- FAILED.
+Done Building Project "C:\Users\Sergey\Desktop\citylizard\netcore45\netcore45.sln" (default targets) -- FAILED.
+
+Build FAILED.
+
+"C:\Users\Sergey\Desktop\citylizard\netcore45\netcore45.sln" (default target) (1) ->
+"C:\Users\Sergey\Desktop\citylizard\netcore45\CityLizard.Core\CityLizard.Core.csproj" (default target) (2) ->
+(CoreCompile target) -> 
+  CSC : error CS1548: Cryptographic failure while signing assembly 'c:\Users\Sergey\Desktop\citylizard\netcore45\CityLizard.Core\obj\Release\CityLizard.Core.dll' -- 'Error reading key file 'c:\Users\Sergey\Desktop\citylizard\keypair.snc' -- The system cannot find the file specified. ' [C:\Users\Sergey\Desktop\citylizard\netcore45\CityLizard.Core\CityLizard.Core.csproj]
+
+    0 Warning(s)
+    1 Error(s)
+
+Time Elapsed 00:00:00.24
+
+C:\Users\Sergey\Desktop\citylizard>call platform_build.bat wp8 
+
+C:\Users\Sergey\Desktop\citylizard>msbuild wp8/wp8.sln /p:Configuration=Release /p:KeyOriginatorFile="../../keypair.snc" 
+Microsoft (R) Build Engine version 4.0.30319.17929
+[Microsoft .NET Framework, version 4.0.30319.18051]
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Building the projects in this solution one at a time. To enable parallel build, please add the "/m" switch.
+Build started 8/24/2013 11:43:15 PM.
+Project "C:\Users\Sergey\Desktop\citylizard\wp8\wp8.sln" on node 1 (default targets).
+ValidateSolutionConfiguration:
+  Building solution configuration "Release|Any CPU".
+Project "C:\Users\Sergey\Desktop\citylizard\wp8\wp8.sln" (1) is building "C:\Users\Sergey\Desktop\citylizard\wp8\CityLizard.Core\CityLizard.Core.csproj" (2) on node 1 (default targets).
+GenerateTargetFrameworkMonikerAttribute:
+Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.
+CoreCompile:
+  C:\Windows\Microsoft.NET\Framework\v4.0.30319\Csc.exe /noconfig /nowarn:1701,1702 /nostdlib+ /errorreport:prompt /warn:4 /define:TRACE;SILVERLIGHT;WINDOWS_PHONE /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\Microsoft.CSharp.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\Microsoft.Devices.Sensors.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\Microsoft.Phone.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\Microsoft.Phone.Interop.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\Microsoft.Phone.Maps.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\Microsoft.Phone.Reactive.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\Microsoft.Xna.Framework.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\Microsoft.Xna.Framework.GamerServices.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\Microsoft.Xna.Framework.GamerServicesExtensions.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\Microsoft.Xna.Framework.Input.Touch.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\Microsoft.Xna.Framework.MediaLibraryExtensions.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\mscorlib.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\mscorlib.extensions.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.Collections.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.ComponentModel.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.ComponentModel.EventBasedAsync.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.Core.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.Data.Linq.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.Device.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.Diagnostics.Contracts.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.Diagnostics.Debug.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.Diagnostics.Tools.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.Dynamic.Runtime.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.Globalization.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.IO.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.Linq.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.Linq.Expressions.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.Linq.Queryable.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.Net.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.Net.NetworkInformation.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.Net.Primitives.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.Net.Requests.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.ObjectModel.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.Observable.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.Reflection.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.Reflection.Emit.IlGeneration.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.Reflection.Emit.Lightweight.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.Reflection.Extensions.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.Reflection.Primitives.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.Resources.ResourceManager.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.Runtime.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.Runtime.Extensions.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.Runtime.InteropServices.WindowsRuntime.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.Runtime.Serialization.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.Runtime.Serialization.Json.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.Runtime.Serialization.Primitives.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.Runtime.Serialization.Xml.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.Runtime.WindowsRuntime.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.Security.Principal.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.ServiceModel.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.ServiceModel.Http.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.ServiceModel.Primitives.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.ServiceModel.Security.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.ServiceModel.Web.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.Text.Encoding.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.Text.Encoding.Extensions.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.Text.RegularExpressions.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.Threading.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.Threading.Tasks.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.Windows.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.Xml.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.Xml.Linq.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.Xml.ReaderWriter.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.Xml.Serialization.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.Xml.XDocument.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\System.Xml.XmlSerializer.dll" /reference:"C:\Program Files (x86)\Windows Phone Kits\8.0\\Windows Metadata\Windows.winmd" /debug:pdbonly /keyfile:../../keypair.snc /optimize+ /out:obj\Release\CityLizard.Core.dll /target:library /utf8output ..\..\CityLizard.Core\AssemblyInfo.cs ..\..\CityLizard.Core\Binary.cs ..\..\CityLizard.Core\Collections.ArrayCache.cs ..\..\CityLizard.Core\Collections.Cache.cs ..\..\CityLizard.Core\Collections.DictionaryCache.cs ..\..\CityLizard.Core\Collections.Extension.IDictionaryExtension.cs ..\..\CityLizard.Core\Collections.Optional.cs ..\..\CityLizard.Core\Graphics.Color.cs ..\..\CityLizard.Core\Graphics.CompactMatrix4D.cs ..\..\CityLizard.Core\Graphics.IMatrix4D.cs ..\..\CityLizard.Core\Graphics.Matrix4D.cs ..\..\CityLizard.Core\Graphics.Quaternion.cs ..\..\CityLizard.Core\Graphics.Vector2D.cs ..\..\CityLizard.Core\Graphics.Vector3D.cs ..\..\CityLizard.Core\Graphics.Vector4D.cs ..\..\CityLizard.Core\Policy.I.cs ..\..\CityLizard.Core\Policy.INumeric.cs ..\..\CityLizard.Core\Xml.Attribute.cs ..\..\CityLizard.Core\Xml.ICharacterData.cs ..\..\CityLizard.Core\Xml.Implementation.cs ..\..\CityLizard.Core\Xml.IQName.cs ..\..\CityLizard.Core\Xml.Linked.Comment.cs ..\..\CityLizard.Core\Xml.Linked.Element.Complex.cs ..\..\CityLizard.Core\Xml.Linked.Element.Element.cs ..\..\CityLizard.Core\Xml.Linked.Element.Empty.cs ..\..\CityLizard.Core\Xml.Linked.Element.Mixed.cs ..\..\CityLizard.Core\Xml.Linked.Element.NotEmpty.cs ..\..\CityLizard.Core\Xml.Linked.Element.NotMixed.cs ..\..\CityLizard.Core\Xml.Linked.Element.Simple.cs ..\..\CityLizard.Core\Xml.Linked.Element.Type.cs ..\..\CityLizard.Core\Xml.Linked.LinkedNode.cs ..\..\CityLizard.Core\Xml.Linked.Text.cs ..\..\CityLizard.Core\Xml.Node.cs ..\..\CityLizard.Core\Xml.QName.cs ..\..\CityLizard.Core\Xml.Untyped.cs "C:\Users\Sergey\AppData\Local\Temp\WindowsPhone,Version=v8.0.AssemblyAttributes.cs"
+CSC : error CS1548: Cryptographic failure while signing assembly 'c:\Users\Sergey\Desktop\citylizard\wp8\CityLizard.Core\obj\Release\CityLizard.Core.dll' -- 'Error reading key file 'c:\Users\Sergey\Desktop\citylizard\keypair.snc' -- The system cannot find the file specified. ' [C:\Users\Sergey\Desktop\citylizard\wp8\CityLizard.Core\CityLizard.Core.csproj]
+Done Building Project "C:\Users\Sergey\Desktop\citylizard\wp8\CityLizard.Core\CityLizard.Core.csproj" (default targets) -- FAILED.
+Done Building Project "C:\Users\Sergey\Desktop\citylizard\wp8\wp8.sln" (default targets) -- FAILED.
+
+Build FAILED.
+
+"C:\Users\Sergey\Desktop\citylizard\wp8\wp8.sln" (default target) (1) ->
+"C:\Users\Sergey\Desktop\citylizard\wp8\CityLizard.Core\CityLizard.Core.csproj" (default target) (2) ->
+(CoreCompile target) -> 
+  CSC : error CS1548: Cryptographic failure while signing assembly 'c:\Users\Sergey\Desktop\citylizard\wp8\CityLizard.Core\obj\Release\CityLizard.Core.dll' -- 'Error reading key file 'c:\Users\Sergey\Desktop\citylizard\keypair.snc' -- The system cannot find the file specified. ' [C:\Users\Sergey\Desktop\citylizard\wp8\CityLizard.Core\CityLizard.Core.csproj]
+
+    0 Warning(s)
+    1 Error(s)
+
+Time Elapsed 00:00:00.34
+
+C:\Users\Sergey\Desktop\citylizard>call platform_build.bat sl4-wp7 
+
+C:\Users\Sergey\Desktop\citylizard>msbuild sl4-wp7/sl4-wp7.sln /p:Configuration=Release /p:KeyOriginatorFile="../../keypair.snc" 
+Microsoft (R) Build Engine version 4.0.30319.17929
+[Microsoft .NET Framework, version 4.0.30319.18051]
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+MSBUILD : error MSB1009: Project file does not exist.
+Switch: sl4-wp7/sl4-wp7.sln
+
+C:\Users\Sergey\Desktop\citylizard>call platform_build.bat psm 
+
+C:\Users\Sergey\Desktop\citylizard>msbuild psm/psm.sln /p:Configuration=Release /p:KeyOriginatorFile="../../keypair.snc" 
+Microsoft (R) Build Engine version 4.0.30319.17929
+[Microsoft .NET Framework, version 4.0.30319.18051]
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Building the projects in this solution one at a time. To enable parallel build, please add the "/m" switch.
+Build started 8/24/2013 11:43:16 PM.
+Project "C:\Users\Sergey\Desktop\citylizard\psm\psm.sln" on node 1 (default targets).
+ValidateSolutionConfiguration:
+  Building solution configuration "Release|Any CPU".
+Project "C:\Users\Sergey\Desktop\citylizard\psm\psm.sln" (1) is building "C:\Users\Sergey\Desktop\citylizard\psm\CityLizard.Core\CityLizard.Core.csproj" (2) on node 1 (default targets).
+_CompileShaderPrograms:
+Skipping target "_CompileShaderPrograms" because it has no outputs.
+_CompileEmbeddedShaderPrograms:
+Skipping target "_CompileEmbeddedShaderPrograms" because it has no outputs.
+GenerateTargetFrameworkMonikerAttribute:
+Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.
+CoreCompile:
+  C:\Windows\Microsoft.NET\Framework\v4.0.30319\Csc.exe /noconfig /nostdlib+ /errorreport:prompt /warn:4 /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\Psm\v1.0\mscorlib.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\Psm\v1.0\Sce.PlayStation.Core.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\Psm\v1.0\System.Core.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\Psm\v1.0\System.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\Psm\v1.0\System.Xml.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\Psm\v1.0\System.Xml.Linq.dll" /debug- /keyfile:../../keypair.snc /optimize- /out:obj\Release\CityLizard.Core.dll /target:library /utf8output ..\..\CityLizard.Core\AssemblyInfo.cs ..\..\CityLizard.Core\Binary.cs ..\..\CityLizard.Core\Collections.ArrayCache.cs ..\..\CityLizard.Core\Collections.Cache.cs ..\..\CityLizard.Core\Collections.DictionaryCache.cs ..\..\CityLizard.Core\Collections.Extension.IDictionaryExtension.cs ..\..\CityLizard.Core\Collections.Optional.cs ..\..\CityLizard.Core\Graphics.Color.cs ..\..\CityLizard.Core\Graphics.CompactMatrix4D.cs ..\..\CityLizard.Core\Graphics.IMatrix4D.cs ..\..\CityLizard.Core\Graphics.Matrix4D.cs ..\..\CityLizard.Core\Graphics.Quaternion.cs ..\..\CityLizard.Core\Graphics.Vector2D.cs ..\..\CityLizard.Core\Graphics.Vector3D.cs ..\..\CityLizard.Core\Graphics.Vector4D.cs ..\..\CityLizard.Core\Policy.I.cs ..\..\CityLizard.Core\Policy.INumeric.cs ..\..\CityLizard.Core\Xml.Attribute.cs ..\..\CityLizard.Core\Xml.ICharacterData.cs ..\..\CityLizard.Core\Xml.Implementation.cs ..\..\CityLizard.Core\Xml.IQName.cs ..\..\CityLizard.Core\Xml.Linked.Comment.cs ..\..\CityLizard.Core\Xml.Linked.Element.Complex.cs ..\..\CityLizard.Core\Xml.Linked.Element.Element.cs ..\..\CityLizard.Core\Xml.Linked.Element.Empty.cs ..\..\CityLizard.Core\Xml.Linked.Element.Mixed.cs ..\..\CityLizard.Core\Xml.Linked.Element.NotEmpty.cs ..\..\CityLizard.Core\Xml.Linked.Element.NotMixed.cs ..\..\CityLizard.Core\Xml.Linked.Element.Simple.cs ..\..\CityLizard.Core\Xml.Linked.Element.Type.cs ..\..\CityLizard.Core\Xml.Linked.LinkedNode.cs ..\..\CityLizard.Core\Xml.Linked.Text.cs ..\..\CityLizard.Core\Xml.Node.cs ..\..\CityLizard.Core\Xml.QName.cs ..\..\CityLizard.Core\Xml.Untyped.cs "C:\Users\Sergey\AppData\Local\Temp\Psm,Version=v1.0.AssemblyAttributes.cs"
+CSC : error CS1548: Cryptographic failure while signing assembly 'c:\Users\Sergey\Desktop\citylizard\psm\CityLizard.Core\obj\Release\CityLizard.Core.dll' -- 'Error reading key file 'c:\Users\Sergey\Desktop\citylizard\keypair.snc' -- The system cannot find the file specified. ' [C:\Users\Sergey\Desktop\citylizard\psm\CityLizard.Core\CityLizard.Core.csproj]
+Done Building Project "C:\Users\Sergey\Desktop\citylizard\psm\CityLizard.Core\CityLizard.Core.csproj" (default targets) -- FAILED.
+Done Building Project "C:\Users\Sergey\Desktop\citylizard\psm\psm.sln" (default targets) -- FAILED.
+
+Build FAILED.
+
+"C:\Users\Sergey\Desktop\citylizard\psm\psm.sln" (default target) (1) ->
+"C:\Users\Sergey\Desktop\citylizard\psm\CityLizard.Core\CityLizard.Core.csproj" (default target) (2) ->
+(CoreCompile target) -> 
+  CSC : error CS1548: Cryptographic failure while signing assembly 'c:\Users\Sergey\Desktop\citylizard\psm\CityLizard.Core\obj\Release\CityLizard.Core.dll' -- 'Error reading key file 'c:\Users\Sergey\Desktop\citylizard\keypair.snc' -- The system cannot find the file specified. ' [C:\Users\Sergey\Desktop\citylizard\psm\CityLizard.Core\CityLizard.Core.csproj]
+
+    0 Warning(s)
+    1 Error(s)
+
+Time Elapsed 00:00:00.19
+
+C:\Users\Sergey\Desktop\citylizard>rem call platform_build.bat monoandroid 
+
+C:\Users\Sergey\Desktop\citylizard>rem call platform_build.bat monotouch 
+
+C:\Users\Sergey\Desktop\citylizard>rem call platfrom_build.bat monomac 
+
+C:\Users\Sergey\Desktop\citylizard>rem sn -R net35-client\CityLizard.Core\bin\Release\CityLizard.Core.dll keypair.snk 
+
+C:\Users\Sergey\Desktop\citylizard>mkdir lib\native\ 
+
+C:\Users\Sergey\Desktop\citylizard>echo  1>lib\native\_._ 
+
+C:\Users\Sergey\Desktop\citylizard>nuget pack CityLizard.nuspec -Version 2.1.17.0 
+Attempting to build package from 'CityLizard.nuspec'.
+Successfully created package 'C:\Users\Sergey\Desktop\citylizard\CityLizard.2.1.17.0.nupkg'.
+
+C:\Users\Sergey\Desktop\citylizard>rmdir /S /Q lib 
+
+C:\Users\Sergey\Desktop\citylizard>xcopy psm\CityLizard.Fsm\bin\Release\*.dll lib\psm\ 
+psm\CityLizard.Fsm\bin\Release\CityLizard.Core.dll
+psm\CityLizard.Fsm\bin\Release\CityLizard.Fsm.dll
+2 File(s) copied
+
+C:\Users\Sergey\Desktop\citylizard>del CityLizard.psm.2.1.17.0.zip 
+
+C:\Users\Sergey\Desktop\citylizard>7z a CityLizard.psm.2.1.17.0.zip lib 
+
+7-Zip [64] 9.20  Copyright (c) 1999-2010 Igor Pavlov  2010-11-18
+Scanning
+
+Creating archive CityLizard.psm.2.1.17.0.zip
+
+Compressing  lib\psm\CityLizard.Core.dll
+Compressing  lib\psm\CityLizard.Fsm.dll
+
+Everything is Ok
+
+C:\Users\Sergey\Desktop\citylizard>endlocal

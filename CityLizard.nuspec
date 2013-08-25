@@ -11,7 +11,10 @@
         <copyright>CityLizard</copyright>
     </metadata>
     <files>
+
         <file src="lib\native\_._" target="lib\native\_._"/>
+
+	<file src="CityLizard.targets" target="\build\native" />
 
 	<!-- Core -->
 	<file src="net35-client\CityLizard.Core\bin\Release\CityLizard.Core.dll" target="lib\net35-client\CityLizard.Core.dll"/>

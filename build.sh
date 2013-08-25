@@ -1,9 +1,4 @@
 VERSION=$(<version.txt)
-echo "using System.Reflection;" > CityLizard.AssemblyInfo.cs
-echo "[assembly: AssemblyCompany(\"CityLizard\")]" >> CityLizard.AssemblyInfo.cs
-echo "[assembly: AssemblyCopyright(\"Copyright © CityLizard 2013\")]" >> CityLizard.AssemblyInfo.cs
-echo "[assembly: AssemblyVersion(\"$VERSION\")]" >> CityLizard.AssemblyInfo.cs
-echo "[assembly: AssemblyFileVersion(\"$VERSION\")]" >> CityLizard.AssemblyInfo.cs
 echo "Load 'mono.sln', build 'Release', exit from 'Xamarin Studio'."
 open "/Applications/Xamarin Studio.app" -W
 rm -f -r lib/

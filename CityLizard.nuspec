@@ -23,10 +23,9 @@
 	<file src="sl4-wp71\CityLizard.Core\bin\Release\CityLizard.Core.dll" target="lib\sl4-wp71\CityLizard.Core.dll"/>
 
 	<!-- android, ios, mac, psm -->
-	<!-- 
-	<file src="monoandroid\CityLizard.Core\bin\Release\CityLizard.Core.dll" target="lib\monoandroid\CityLizard.Core.dll"/>
-	<file src="monotouch\CityLizard.Core\bin\Release\CityLizard.Core.dll" target="lib\monotouch\CityLizard.Core.dll"/>
-	<file src="monomac\CityLizard.Core\bin\Release\CityLizard.Core.dll" target="lib\monomac\CityLizard.Core.dll"/>
+	<file src="monoandroid\CityLizard.Fsm\bin\Release\CityLizard.Core.dll" target="lib\monoandroid\CityLizard.Core.dll"/>
+	<file src="monotouch\CityLizard.Fsm\bin\Release\CityLizard.Core.dll" target="lib\monotouch\CityLizard.Core.dll"/>
+	<!--
 	<file src="psm\CityLizard.Core\bin\Release\CityLizard.Core.dll" target="lib\psm\CityLizard.Core.dll"/>
 	-->
 
@@ -39,21 +38,15 @@
 	<file src="wp8\CityLizard.Fsm\bin\Release\CityLizard.Fsm.dll" target="lib\wp8\CityLizard.Fsm.dll"/>
 
 	<!-- android, ios, mac, psm -->
-	<!--
 	<file src="monoandroid\CityLizard.Fsm\bin\Release\CityLizard.Fsm.dll" target="lib\monoandroid\CityLizard.Fsm.dll"/>
 	<file src="monotouch\CityLizard.Fsm\bin\Release\CityLizard.Fsm.dll" target="lib\monotouch\CityLizard.Fsm.dll"/>
-	<file src="monomac\CityLizard.Fsm\bin\Release\CityLizard.Fsm.dll" target="lib\monomac\CityLizard.Fsm.dll"/>
+	<!--
 	<file src="psm\CityLizard.Fsm\bin\Release\CityLizard.Fsm.dll" target="lib\psm\CityLizard.Fsm.dll"/>
 	-->
 
 	<!-- Meta -->
 	<file src="net35-client\CityLizard.Meta\bin\Release\CityLizard.Meta.dll" target="lib\net35-client\CityLizard.Meta.dll"/>
 	<file src="net40-client\CityLizard.Meta\bin\Release\CityLizard.Meta.dll" target="lib\net40-client\CityLizard.Meta.dll"/>
-
-	<!-- mac -->
-	<!--
-	<file src="monomac\CityLizard.Meta\bin\Release\CityLizard.Meta.dll" target="lib\monomac\CityLizard.Meta.dll"/>
-	-->
 
     </files>
 </package>

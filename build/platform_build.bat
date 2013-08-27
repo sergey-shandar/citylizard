@@ -1,0 +1,1 @@
+msbuild ..\platforms\%1\%1.sln /p:Configuration=Release

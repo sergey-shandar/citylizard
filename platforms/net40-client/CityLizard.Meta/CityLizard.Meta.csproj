@@ -46,31 +46,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\CityLizard.Meta\AssemblyInfo.cs">
+    <Compile Include="..\..\..\source\CityLizard.Meta\AssemblyInfo.cs">
       <Link>AssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="..\..\CityLizard.Meta\CodeDom.Code.cs">
+    <Compile Include="..\..\..\source\CityLizard.Meta\CodeDom.Code.cs">
       <Link>CodeDom.Code.cs</Link>
     </Compile>
-    <Compile Include="..\..\CityLizard.Meta\CodeDom.CSharp.Keyword.cs">
+    <Compile Include="..\..\..\source\CityLizard.Meta\CodeDom.CSharp.Keyword.cs">
       <Link>CodeDom.CSharp.Keyword.cs</Link>
     </Compile>
-    <Compile Include="..\..\CityLizard.Meta\CodeDom.CSharp.Name.cs">
+    <Compile Include="..\..\..\source\CityLizard.Meta\CodeDom.CSharp.Name.cs">
       <Link>CodeDom.CSharp.Name.cs</Link>
     </Compile>
-    <Compile Include="..\..\CityLizard.Meta\CodeDom.CSharp.Namespace.cs">
+    <Compile Include="..\..\..\source\CityLizard.Meta\CodeDom.CSharp.Namespace.cs">
       <Link>CodeDom.CSharp.Namespace.cs</Link>
     </Compile>
-    <Compile Include="..\..\CityLizard.Meta\Xml.Schema.Compiler.cs">
+    <Compile Include="..\..\..\source\CityLizard.Meta\Xml.Schema.Compiler.cs">
       <Link>Xml.Schema.Compiler.cs</Link>
     </Compile>
-    <Compile Include="..\..\CityLizard.Meta\Xml.Schema.ComplexTypeToDfa.cs">
+    <Compile Include="..\..\..\source\CityLizard.Meta\Xml.Schema.ComplexTypeToDfa.cs">
       <Link>Xml.Schema.ComplexTypeToDfa.cs</Link>
     </Compile>
-    <Compile Include="..\..\CityLizard.Meta\Xml.Schema.ElementSet.cs">
+    <Compile Include="..\..\..\source\CityLizard.Meta\Xml.Schema.ElementSet.cs">
       <Link>Xml.Schema.ElementSet.cs</Link>
     </Compile>
-    <Compile Include="..\..\CityLizard.Meta\Xml.Schema.XmlSchemaExtension.cs">
+    <Compile Include="..\..\..\source\CityLizard.Meta\Xml.Schema.XmlSchemaExtension.cs">
       <Link>Xml.Schema.XmlSchemaExtension.cs</Link>
     </Compile>
   </ItemGroup>

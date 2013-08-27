@@ -13,7 +13,7 @@ call platform_build.bat sl4
 call platform_build.bat sl5
 call platform_build.bat netcore45
 call platform_build.bat wp8
-call platform_build.bat sl4-wp7
+call platform_build.bat sl4-wp71
 call platform_build.bat psm
 rem call platform_build.bat monoandroid
 rem call platform_build.bat monotouch
@@ -21,16 +21,13 @@ rem call platfrom_build.bat monomac
 
 rem sn -R net35-client\CityLizard.Core\bin\Release\CityLizard.Core.dll keypair.snk
 
-mkdir lib\native\
-echo > lib\native\_._
-
 nuget pack CityLizard.nuspec -Version %VERSION%
 
-rmdir /S /Q lib
+rem rmdir /S /Q lib
 
-xcopy psm\CityLizard.Fsm\bin\Release\*.dll lib\psm\
+rem xcopy ..\platforms\psm\CityLizard.Fsm\bin\Release\*.dll lib\psm\
 
 del CityLizard.psm.%VERSION%.zip
-7z a CityLizard.psm.%VERSION%.zip lib
+7z a CityLizard.psm.%VERSION%.zip ..\platforms\psm\CityLizard.Fsm\bin\Release\*.dll
 
 endlocal

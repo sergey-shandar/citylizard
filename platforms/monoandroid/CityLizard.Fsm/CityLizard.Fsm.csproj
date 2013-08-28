@@ -66,7 +66,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\source\CityLizard.Core\CityLizard.Core.csproj">
+    <ProjectReference Include="..\CityLizard.Core\CityLizard.Core.csproj">
       <Project>{792CCD24-1014-46D9-85E4-9DE7EC561EBC}</Project>
       <Name>CityLizard.Core</Name>
     </ProjectReference>

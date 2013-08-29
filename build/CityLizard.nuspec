@@ -14,7 +14,7 @@
     </metadata>
     <files>
 
-        <file src="_._" target="lib\native\_._"/>
+        <file src="..\cpp\**.h" target="lib\native\include\"/>
         <file src="CityLizard.targets" target="build\native" />
 
         <!-- Core -->

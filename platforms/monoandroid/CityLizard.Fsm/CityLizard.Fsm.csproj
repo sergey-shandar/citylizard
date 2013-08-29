@@ -45,16 +45,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Resources\Resource.designer.cs" />
-    <Compile Include="..\..\..\csharp\CityLizard.Fsm\AssemblyInfo.cs">
+    <Compile Include="..\..\..\source\CityLizard.Fsm\AssemblyInfo.cs">
       <Link>AssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="..\..\..\csharp\CityLizard.Fsm\Dfa.cs">
+    <Compile Include="..\..\..\source\CityLizard.Fsm\Dfa.cs">
       <Link>Dfa.cs</Link>
     </Compile>
-    <Compile Include="..\..\..\csharp\CityLizard.Fsm\Fsm.cs">
+    <Compile Include="..\..\..\source\CityLizard.Fsm\Fsm.cs">
       <Link>Fsm.cs</Link>
     </Compile>
-    <Compile Include="..\..\..\csharp\CityLizard.Fsm\Name.cs">
+    <Compile Include="..\..\..\source\CityLizard.Fsm\Name.cs">
       <Link>Name.cs</Link>
     </Compile>
   </ItemGroup>
@@ -66,7 +66,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\csharp\CityLizard.Core\CityLizard.Core.csproj">
+    <ProjectReference Include="..\CityLizard.Core\CityLizard.Core.csproj">
       <Project>{792CCD24-1014-46D9-85E4-9DE7EC561EBC}</Project>
       <Name>CityLizard.Core</Name>
     </ProjectReference>

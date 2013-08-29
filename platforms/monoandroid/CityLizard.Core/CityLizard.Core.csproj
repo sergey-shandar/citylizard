@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>12.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{792CCD24-1014-46D9-85E4-9DE7EC561EBC}</ProjectGuid>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>CityLizard.Core</RootNamespace>
+    <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
+    <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+    <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+    <AndroidResgenClass>Resource</AndroidResgenClass>
+    <AssemblyName>CityLizard.Core</AssemblyName>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\..\keypair.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidLinkMode>None</AndroidLinkMode>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Mono.Android" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Resources\Resource.designer.cs" />
+    <Compile Include="..\..\..\source\CityLizard.Core\AssemblyInfo.cs">
+      <Link>AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\source\CityLizard.Core\Binary.cs">
+      <Link>Binary.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\source\CityLizard.Core\Collections.ArrayCache.cs">
+      <Link>Collections.ArrayCache.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\source\CityLizard.Core\Collections.Cache.cs">
+      <Link>Collections.Cache.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\source\CityLizard.Core\Collections.DictionaryCache.cs">
+      <Link>Collections.DictionaryCache.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\source\CityLizard.Core\Collections.Extension.IDictionaryExtension.cs">
+      <Link>Collections.Extension.IDictionaryExtension.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\source\CityLizard.Core\Collections.Optional.cs">
+      <Link>Collections.Optional.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\source\CityLizard.Core\Graphics.Color.cs">
+      <Link>Graphics.Color.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\source\CityLizard.Core\Graphics.CompactMatrix4D.cs">
+      <Link>Graphics.CompactMatrix4D.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\source\CityLizard.Core\Graphics.IMatrix4D.cs">
+      <Link>Graphics.IMatrix4D.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\source\CityLizard.Core\Graphics.Matrix4D.cs">
+      <Link>Graphics.Matrix4D.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\source\CityLizard.Core\Graphics.Quaternion.cs">
+      <Link>Graphics.Quaternion.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\source\CityLizard.Core\Graphics.Vector2D.cs">
+      <Link>Graphics.Vector2D.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\source\CityLizard.Core\Graphics.Vector3D.cs">
+      <Link>Graphics.Vector3D.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\source\CityLizard.Core\Graphics.Vector4D.cs">
+      <Link>Graphics.Vector4D.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\source\CityLizard.Core\Policy.INumeric.cs">
+      <Link>Policy.INumeric.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\source\CityLizard.Core\Xml.Attribute.cs">
+      <Link>Xml.Attribute.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\source\CityLizard.Core\Xml.ICharacterData.cs">
+      <Link>Xml.ICharacterData.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\source\CityLizard.Core\Xml.Implementation.cs">
+      <Link>Xml.Implementation.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\source\CityLizard.Core\Xml.IQName.cs">
+      <Link>Xml.IQName.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\source\CityLizard.Core\Xml.Linked.Comment.cs">
+      <Link>Xml.Linked.Comment.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\source\CityLizard.Core\Xml.Linked.Element.Complex.cs">
+      <Link>Xml.Linked.Element.Complex.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\source\CityLizard.Core\Xml.Linked.Element.Element.cs">
+      <Link>Xml.Linked.Element.Element.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\source\CityLizard.Core\Xml.Linked.Element.Empty.cs">
+      <Link>Xml.Linked.Element.Empty.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\source\CityLizard.Core\Xml.Linked.Element.Mixed.cs">
+      <Link>Xml.Linked.Element.Mixed.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\source\CityLizard.Core\Xml.Linked.Element.NotEmpty.cs">
+      <Link>Xml.Linked.Element.NotEmpty.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\source\CityLizard.Core\Xml.Linked.Element.NotMixed.cs">
+      <Link>Xml.Linked.Element.NotMixed.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\source\CityLizard.Core\Xml.Linked.Element.Simple.cs">
+      <Link>Xml.Linked.Element.Simple.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\source\CityLizard.Core\Xml.Linked.Element.Type.cs">
+      <Link>Xml.Linked.Element.Type.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\source\CityLizard.Core\Xml.Linked.LinkedNode.cs">
+      <Link>Xml.Linked.LinkedNode.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\source\CityLizard.Core\Xml.Linked.Text.cs">
+      <Link>Xml.Linked.Text.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\source\CityLizard.Core\Xml.Node.cs">
+      <Link>Xml.Node.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\source\CityLizard.Core\Xml.QName.cs">
+      <Link>Xml.QName.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\source\CityLizard.Core\Xml.Untyped.cs">
+      <Link>Xml.Untyped.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\source\CityLizard.Core\Policy.I.cs">
+      <Link>Policy.I.cs</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Policy.I.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\source\CityLizard.Core\Policy.I.tt">
+      <Link>Policy.I.tt</Link>
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Policy.I.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AboutResources.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values\Strings.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
+</Project>

@@ -58,31 +58,31 @@
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\..\source\CityLizard.Meta\AssemblyInfo.cs">
+    <Compile Include="..\..\..\csharp\CityLizard.Meta\AssemblyInfo.cs">
       <Link>AssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="..\..\..\source\CityLizard.Meta\CodeDom.Code.cs">
+    <Compile Include="..\..\..\csharp\CityLizard.Meta\CodeDom.Code.cs">
       <Link>CodeDom.Code.cs</Link>
     </Compile>
-    <Compile Include="..\..\..\source\CityLizard.Meta\CodeDom.CSharp.Keyword.cs">
+    <Compile Include="..\..\..\csharp\CityLizard.Meta\CodeDom.CSharp.Keyword.cs">
       <Link>CodeDom.CSharp.Keyword.cs</Link>
     </Compile>
-    <Compile Include="..\..\..\source\CityLizard.Meta\CodeDom.CSharp.Name.cs">
+    <Compile Include="..\..\..\csharp\CityLizard.Meta\CodeDom.CSharp.Name.cs">
       <Link>CodeDom.CSharp.Name.cs</Link>
     </Compile>
-    <Compile Include="..\..\..\source\CityLizard.Meta\CodeDom.CSharp.Namespace.cs">
+    <Compile Include="..\..\..\csharp\CityLizard.Meta\CodeDom.CSharp.Namespace.cs">
       <Link>CodeDom.CSharp.Namespace.cs</Link>
     </Compile>
-    <Compile Include="..\..\..\source\CityLizard.Meta\Xml.Schema.Compiler.cs">
+    <Compile Include="..\..\..\csharp\CityLizard.Meta\Xml.Schema.Compiler.cs">
       <Link>Xml.Schema.Compiler.cs</Link>
     </Compile>
-    <Compile Include="..\..\..\source\CityLizard.Meta\Xml.Schema.ComplexTypeToDfa.cs">
+    <Compile Include="..\..\..\csharp\CityLizard.Meta\Xml.Schema.ComplexTypeToDfa.cs">
       <Link>Xml.Schema.ComplexTypeToDfa.cs</Link>
     </Compile>
-    <Compile Include="..\..\..\source\CityLizard.Meta\Xml.Schema.ElementSet.cs">
+    <Compile Include="..\..\..\csharp\CityLizard.Meta\Xml.Schema.ElementSet.cs">
       <Link>Xml.Schema.ElementSet.cs</Link>
     </Compile>
-    <Compile Include="..\..\..\source\CityLizard.Meta\Xml.Schema.XmlSchemaExtension.cs">
+    <Compile Include="..\..\..\csharp\CityLizard.Meta\Xml.Schema.XmlSchemaExtension.cs">
       <Link>Xml.Schema.XmlSchemaExtension.cs</Link>
     </Compile>
   </ItemGroup>

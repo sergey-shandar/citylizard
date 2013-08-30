@@ -33,10 +33,10 @@ namespace clr
         template<class Native>
         operator Native()
         {
-            auto value = managed_cast(_managed, tag<Native>());
+            auto const value = managed_cast(_managed, tag<Native>());
             // usually means that there is no better overload found.
             static_assert(
-                is_same<decltype(value), Native>::value,
+                is_same<decltype(value), Native const>::value,
                 "decltype(value) != Native");
             return value;
         }

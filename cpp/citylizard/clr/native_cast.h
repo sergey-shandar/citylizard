@@ -7,6 +7,7 @@ namespace citylizard
 namespace clr
 {
 
+    // enumerations.
     template<class Native, class Managed>
     Managed native_cast(Native const &native, tag<Managed>)
     {
@@ -15,12 +16,14 @@ namespace clr
         return static_cast<Managed>(native);
     }
 
+    // no cast.
     template<class Native>
     Native native_cast(Native const &native, tag<Native>)
     {
         return native;
     }
 
+    // holder.
     template<class Native>
     class native_cast_t
     {
@@ -44,6 +47,7 @@ namespace clr
 
     };
 
+    // native_cast with type inference
     template<class Native>
     native_cast_t<Native> native_cast(Native native)
     {

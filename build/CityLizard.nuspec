@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>CityLizard</id>
+        <version>0.0</version>
+        <authors>Sergey Shandar</authors>
+        <licenseUrl>http://citylizard.codeplex.com/license</licenseUrl>
+        <projectUrl>http://citylizard.codeplex.com/</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>CityLizard Framework allows developers to design strongly typed XML and HTML using .NET languages, such as C#, VB, F#, Nemerle. The project inspired by LINQ to XSD and Sharp DOM.</description>
+        <copyright>CityLizard</copyright>
+        <releaseNotes>Android, iOS and C++/CLR support.</releaseNotes>
+        <tags>XML XMLBuilder DSL XMLSchema INumeric FSM DFA .NET Silverlight Windows8 WindowsPhone Android iOS</tags>
+    </metadata>
+    <files>
+
+        <file src="..\cpp\**.h" target="lib\native\include\"/>
+        <file src="CityLizard.targets" target="build\native" />
+
+        <!-- Core -->
+        <file src="..\platforms\net35-client\CityLizard.Core\bin\Release\CityLizard.Core.dll" target="lib\net35-client\CityLizard.Core.dll"/>
+        <file src="..\platforms\net40-client\CityLizard.Core\bin\Release\CityLizard.Core.dll" target="lib\net40-client\CityLizard.Core.dll"/>
+        <file src="..\platforms\sl4\CityLizard.Core\bin\Release\CityLizard.Core.dll" target="lib\sl4\CityLizard.Core.dll"/>
+        <file src="..\platforms\sl5\CityLizard.Core\bin\Release\CityLizard.Core.dll" target="lib\sl5\CityLizard.Core.dll"/>  
+        <file src="..\platforms\netcore45\CityLizard.Core\bin\Release\CityLizard.Core.dll" target="lib\netcore45\CityLizard.Core.dll"/>
+        <file src="..\platforms\wp8\CityLizard.Core\bin\Release\CityLizard.Core.dll" target="lib\wp8\CityLizard.Core.dll"/>
+        <file src="..\platforms\sl4-wp71\CityLizard.Core\bin\Release\CityLizard.Core.dll" target="lib\sl4-wp71\CityLizard.Core.dll"/>
+
+        <!-- android, ios, mac, psm -->
+        <file src="..\platforms\monoandroid\CityLizard.Core\bin\Release\CityLizard.Core.dll" target="lib\monoandroid\CityLizard.Core.dll"/>
+        <file src="..\platforms\monotouch\CityLizard.Core\bin\Release\CityLizard.Core.dll" target="lib\monotouch\CityLizard.Core.dll"/>
+        <!--
+        <file src="psm\CityLizard.Core\bin\Release\CityLizard.Core.dll" target="lib\psm\CityLizard.Core.dll"/>
+        -->
+
+        <!-- Fsm -->
+        <file src="..\platforms\net35-client\CityLizard.Fsm\bin\Release\CityLizard.Fsm.dll" target="lib\net35-client\CityLizard.Fsm.dll"/>
+        <file src="..\platforms\net40-client\CityLizard.Fsm\bin\Release\CityLizard.Fsm.dll" target="lib\net40-client\CityLizard.Fsm.dll"/>
+        <file src="..\platforms\sl4\CityLizard.Fsm\bin\Release\CityLizard.Fsm.dll" target="lib\sl4\CityLizard.Fsm.dll"/>
+        <file src="..\platforms\sl5\CityLizard.Fsm\bin\Release\CityLizard.Fsm.dll" target="lib\sl5\CityLizard.Fsm.dll"/> 
+        <file src="..\platforms\netcore45\CityLizard.Fsm\bin\Release\CityLizard.Fsm.dll" target="lib\netcore45\CityLizard.Fsm.dll"/>
+        <file src="..\platforms\wp8\CityLizard.Fsm\bin\Release\CityLizard.Fsm.dll" target="lib\wp8\CityLizard.Fsm.dll"/>
+
+        <!-- android, ios, mac, psm -->
+        <file src="..\platforms\monoandroid\CityLizard.Fsm\bin\Release\CityLizard.Fsm.dll" target="lib\monoandroid\CityLizard.Fsm.dll"/>
+        <file src="..\platforms\monotouch\CityLizard.Fsm\bin\Release\CityLizard.Fsm.dll" target="lib\monotouch\CityLizard.Fsm.dll"/>
+        <!--
+        <file src="psm\CityLizard.Fsm\bin\Release\CityLizard.Fsm.dll" target="lib\psm\CityLizard.Fsm.dll"/>
+        -->
+
+        <!-- Meta -->
+        <file src="..\platforms\net35-client\CityLizard.Meta\bin\Release\CityLizard.Meta.dll" target="lib\net35-client\CityLizard.Meta.dll"/>
+        <file src="..\platforms\net40-client\CityLizard.Meta\bin\Release\CityLizard.Meta.dll" target="lib\net40-client\CityLizard.Meta.dll"/>
+
+    </files>
+</package>

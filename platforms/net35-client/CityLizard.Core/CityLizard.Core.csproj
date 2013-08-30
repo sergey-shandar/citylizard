@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E384BF5F-21F5-4CB2-8AA6-B0751A981BD1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CityLizard.Core</RootNamespace>
+    <AssemblyName>CityLizard.Core</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>keypair.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DelaySign>false</DelaySign>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\csharp\CityLizard.Core\Policy.I.tt">
+      <Link>Policy.I.tt</Link>
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Policy.I.cs</LastGenOutput>
+    </None>
+    <None Include="keypair.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\AssemblyInfo.cs">
+      <Link>AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\Binary.cs">
+      <Link>Binary.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\Collections.ArrayCache.cs">
+      <Link>Collections.ArrayCache.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\Collections.Cache.cs">
+      <Link>Collections.Cache.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\Collections.DictionaryCache.cs">
+      <Link>Collections.DictionaryCache.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\Collections.Extension.IDictionaryExtension.cs">
+      <Link>Collections.Extension.IDictionaryExtension.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\Collections.Optional.cs">
+      <Link>Collections.Optional.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\Graphics.Color.cs">
+      <Link>Graphics.Color.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\Graphics.CompactMatrix4D.cs">
+      <Link>Graphics.CompactMatrix4D.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\Graphics.IMatrix4D.cs">
+      <Link>Graphics.IMatrix4D.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\Graphics.Matrix4D.cs">
+      <Link>Graphics.Matrix4D.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\Graphics.Quaternion.cs">
+      <Link>Graphics.Quaternion.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\Graphics.Vector2D.cs">
+      <Link>Graphics.Vector2D.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\Graphics.Vector3D.cs">
+      <Link>Graphics.Vector3D.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\Graphics.Vector4D.cs">
+      <Link>Graphics.Vector4D.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\Policy.I.cs">
+      <Link>Policy.I.cs</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Policy.I.tt</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\Policy.INumeric.cs">
+      <Link>Policy.INumeric.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\Xml.Attribute.cs">
+      <Link>Xml.Attribute.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\Xml.ICharacterData.cs">
+      <Link>Xml.ICharacterData.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\Xml.Implementation.cs">
+      <Link>Xml.Implementation.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\Xml.IQName.cs">
+      <Link>Xml.IQName.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\Xml.Linked.Comment.cs">
+      <Link>Xml.Linked.Comment.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\Xml.Linked.Element.Complex.cs">
+      <Link>Xml.Linked.Element.Complex.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\Xml.Linked.Element.Element.cs">
+      <Link>Xml.Linked.Element.Element.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\Xml.Linked.Element.Empty.cs">
+      <Link>Xml.Linked.Element.Empty.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\Xml.Linked.Element.Mixed.cs">
+      <Link>Xml.Linked.Element.Mixed.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\Xml.Linked.Element.NotEmpty.cs">
+      <Link>Xml.Linked.Element.NotEmpty.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\Xml.Linked.Element.NotMixed.cs">
+      <Link>Xml.Linked.Element.NotMixed.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\Xml.Linked.Element.Simple.cs">
+      <Link>Xml.Linked.Element.Simple.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\Xml.Linked.Element.Type.cs">
+      <Link>Xml.Linked.Element.Type.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\Xml.Linked.LinkedNode.cs">
+      <Link>Xml.Linked.LinkedNode.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\Xml.Linked.Text.cs">
+      <Link>Xml.Linked.Text.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\Xml.Node.cs">
+      <Link>Xml.Node.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\Xml.QName.cs">
+      <Link>Xml.QName.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\Xml.Untyped.cs">
+      <Link>Xml.Untyped.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -10,8 +10,9 @@ namespace clr
 {
     using namespace std;
 
-    template<class NativeVector, class Managed>
-    NativeVector managed_array_cast(array<Managed>^ managed)
+    // managed_cast overload from a managed array to a native vector.
+    template<class Managed, class Native>
+    vector<Native> managed_cast(array<Managed>^ managed, tag<vector<Native>>)
     {
         auto size = managed == nullptr ? 0: managed->Length;
         NativeVector result(size);
@@ -23,20 +24,5 @@ namespace clr
         return result;
     }
 
-    template<class Managed, class Native>
-    vector<Native> managed_cast(array<Managed>^ managed, tag<vector<Native>>)
-    {
-        return managed_array_cast<vector<Native>>(managed);
-    }
-
-    template<class NativeVector, class Managed>
-    void copy(NativeVector const &from, array<Managed>^ to)
-    {
-        auto size = static_cast<int>(from.size());
-        for(auto i = 0; i < size; ++i)
-        {
-            to[i] = native_cast(from[i], tag<Managed>());
-        }
-    }
 }
 }

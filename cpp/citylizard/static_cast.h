@@ -4,6 +4,7 @@ namespace citylizard
 {
 namespace clr
 {
+    // value holder.
     template<class Native>
     class static_cast_t
     {
@@ -27,8 +28,9 @@ namespace clr
 
     };
 
+    // static cast with type inference.
     template<class Native>
-    static_cast_t<Native> static_cast_(Native const &native)
+    static_cast_t<Native> static_cast_(Native native)
     {
         return static_cast_t<Native>(native);
     }

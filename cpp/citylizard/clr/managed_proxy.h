@@ -15,13 +15,9 @@ namespace clr
     {
     private:
 
-        initonly Native *_native;
+        Native *_native;
 
     internal:
-
-        explicit managed_proxy(Native *native): _native(native)
-        {
-        }
 
         explicit managed_proxy(ctor): _native(new Native())
         {
@@ -52,7 +48,7 @@ namespace clr
         {
         }
 
-    public:
+    private protected:
 
         virtual Native *native(tag<Native>) = managed_interface<Native>::native
         {

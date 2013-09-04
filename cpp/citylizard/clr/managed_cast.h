@@ -6,13 +6,23 @@ namespace citylizard
 {
 namespace clr
 {
+    template<class Managed, class Native>
+    class managed_cast_traits
+    {
+    public:
+    
+        static Native cast(Managed managed)
+        {
+            typedef typename std::underlying_type<Managed>::type underlying_t;
+            static_assert(is_same<underlying_t, Native>::value, "invalid cast");
+            return static_cast<Native>(managed);            
+        }
+    };
 
     template<class Managed, class Native>
     Native managed_cast(Managed managed, tag<Native>)
     {
-        typedef typename std::underlying_type<Managed>::type underlying_t;
-        static_assert(is_same<underlying_t, Native>::value, "invalid cast");
-        return static_cast<Native>(managed);
+        return managed_cast_traits<Managed, Native>::cast(managed);
     }
 
     template<class Managed>

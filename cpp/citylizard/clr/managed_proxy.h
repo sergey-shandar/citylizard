@@ -87,6 +87,12 @@ namespace clr
     }
 
     template<class Managed, class Native>
+    Native const *managed_cast(Managed^ managed, tag<Native const *>)
+    {
+        return managed_cast(managed, tag<Native *>());
+    }
+
+    template<class Managed, class Native>
     Native managed_cast(Managed^ managed, tag<Native>)
     {
         auto const result = managed_cast(managed, tag<Native *>());

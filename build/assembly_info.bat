@@ -1,5 +1,5 @@
 setlocal
-set info=..\source\%1\AssemblyInfo.cs
+set info=..\csharp\%1\AssemblyInfo.cs
 echo using System.Reflection; > %info%
 echo [assembly: AssemblyCompany("CityLizard")] >> %info%
 echo [assembly: AssemblyCopyright("Copyright © CityLizard 2013")] >> %info%

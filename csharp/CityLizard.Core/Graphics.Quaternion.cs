@@ -21,4 +21,14 @@ namespace CityLizard.Graphics
             this.W = w;
         }
     }
+
+    public static class Quaternion
+    {
+        public static Quaternion<T> New<T>(T x, T y, T z, T w)
+            where T: struct, IComparable<T>
+        {
+            return new Quaternion<T>(x, y, z, w);
+        }
+    };
+
 }

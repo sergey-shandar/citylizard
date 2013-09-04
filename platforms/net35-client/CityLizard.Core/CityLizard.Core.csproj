@@ -89,6 +89,9 @@
     <Compile Include="..\..\..\csharp\CityLizard.Core\Graphics.IMatrix4D.cs">
       <Link>Graphics.IMatrix4D.cs</Link>
     </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\Graphics.Matrix.cs">
+      <Link>Graphics.Matrix.cs</Link>
+    </Compile>
     <Compile Include="..\..\..\csharp\CityLizard.Core\Graphics.Matrix4D.cs">
       <Link>Graphics.Matrix4D.cs</Link>
     </Compile>

@@ -17,7 +17,7 @@ namespace clr
 
         static Vector4D<Managed> cast(NativeVector4D native)
         {
-            return Vector4D<Managed>(native.x, native.y, native.z, native.w);
+            return Vector::New(native.x, native.y, native.z, native.w);
         }
     };
 

@@ -6,14 +6,25 @@ namespace citylizard
 {
 namespace clr
 {
+    // as a workaround for vc bug.
+    template<class Native, class Managed>
+    class native_cast_traits
+    {
+    public:
+
+        static Managed cast(Native native)
+        {
+            typedef typename std::underlying_type<Managed>::type underlying_t;
+            static_assert(is_same<underlying_t, Native>::value, "invalid cast");
+            return static_cast<Managed>(native);
+        }
+    };
 
     // enumerations.
     template<class Native, class Managed>
-    Managed native_cast(Native const &native, tag<Managed>)
+    Managed native_cast(Native native, tag<Managed>)
     {
-        typedef typename std::underlying_type<Managed>::type underlying_t;
-        static_assert(is_same<underlying_t, Native>::value, "invalid cast");
-        return static_cast<Managed>(native);
+        return native_cast_traits<Native, Managed>::cast(native);
     }
 
     // no cast.

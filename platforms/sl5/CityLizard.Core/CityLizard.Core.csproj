@@ -108,6 +108,9 @@
     <Compile Include="..\..\..\csharp\CityLizard.Core\Graphics.Quaternion.cs">
       <Link>Graphics.Quaternion.cs</Link>
     </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\Graphics.Vector.cs">
+      <Link>Graphics.Vector.cs</Link>
+    </Compile>
     <Compile Include="..\..\..\csharp\CityLizard.Core\Graphics.Vector2D.cs">
       <Link>Graphics.Vector2D.cs</Link>
     </Compile>

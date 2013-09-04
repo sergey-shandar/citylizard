@@ -154,6 +154,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Policy.I.tt</DependentUpon>
     </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\Graphics.Vector.cs">
+      <Link>Graphics.Vector.cs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\csharp\CityLizard.Core\Policy.I.tt">

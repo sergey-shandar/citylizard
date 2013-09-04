@@ -162,5 +162,8 @@
     <Compile Include="..\..\..\csharp\CityLizard.Core\Graphics.Vector.cs">
       <Link>Graphics.Vector.cs</Link>
     </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\Graphics.Matrix.cs">
+      <Link>Graphics.Matrix.cs</Link>
+    </Compile>
   </ItemGroup>
 </Project>

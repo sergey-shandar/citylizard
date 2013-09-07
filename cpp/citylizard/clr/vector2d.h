@@ -17,7 +17,7 @@ namespace clr
 
         static Vector2D<Managed> cast(NativeVector2D native)
         {
-            return Vector::New(native.x, native.y);
+            return Vector::New(no_cast(native.x), no_cast(native.y));
         }
     };
 
@@ -28,7 +28,7 @@ namespace clr
 
         static NativeVector2D cast(Vector2D<Managed> managed)
         {
-            return NativeVector2D(managed.X, managed.Y);
+            return NativeVector2D(no_cast(managed.X), no_cast(managed.Y));
         }
     };    
 

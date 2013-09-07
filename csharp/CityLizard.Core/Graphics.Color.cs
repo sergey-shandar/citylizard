@@ -21,4 +21,14 @@ namespace CityLizard.Graphics
             this.A = a;
         }
     }
+
+    public static class Color
+    {
+        public static Color<T> New<T>(T r, T g, T b, T a)
+            where T: struct
+        {
+            return new Color<T>(r, g, b, a);
+        }
+    }
+
 }

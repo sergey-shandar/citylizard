@@ -13,6 +13,10 @@ namespace clr
     public ref class managed_proxy abstract:
         ManagedBase, managed_interface<Native>
     {
+    internal:
+
+        typedef managed_interface<Native> interface_t;
+
     private:
 
         Native *_native;
@@ -57,8 +61,6 @@ namespace clr
         {
             Native *get() { return native(tag<Native>()); }
         }
-
-        typedef managed_interface<Native> interface_t;
 
         typedef Native native_t;
 

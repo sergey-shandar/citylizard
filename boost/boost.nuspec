@@ -11,7 +11,7 @@
         <description>Boost provides free peer-reviewed portable C++ source libraries. Unofficial nuget package.</description>
     </metadata>
     <files>
-        <file src="..\..\..\..\Downloads\boost_1_54_0\boost\**\*.*" target="lib\native\include\boost" />
-        <file src="..\boost.targets" target="\build\native\boost.targets" />
+        <file src="..\..\..\Downloads\boost_1_54_0\boost\**\*.*" target="lib\native\include\boost" />
+        <file src="boost.targets" target="\build\native\boost.targets" />
     </files>
 </package>

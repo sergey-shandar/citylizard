@@ -5,7 +5,8 @@ set VERSION=1.54.0.0
 mkdir build
 cd build
 
-rem nuget.exe pack ..\boost.nuspec
+nuget.exe pack ..\boost.nuspec -Version %VERSION%
+nuget.exe push boost.%VERSION%.nupkg
 
 call ..\lib.bat atomic
 call ..\lib.bat chrono

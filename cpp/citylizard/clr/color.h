@@ -17,11 +17,7 @@ namespace clr
 
         static Color<Managed> cast(NativeColor native)
         {
-            return Vector::New(
-                no_cast(native.r),
-                no_cast(native.g),
-                no_cast(native.b),
-                no_cast(native.a));
+            return Color::New(native.r, native.g, native.b, native.a);
         }
     };
 

@@ -5,14 +5,4 @@
       <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)..\..\lib\native\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Platform)'=='x64'">
-    <Link>
-      <AdditionalLibraryDirectories>$(MSBuildThisFileDirectory)..\..\lib\native\stage_x86_64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Platform)'=='Win32'">
-    <Link>
-      <AdditionalLibraryDirectories>$(MSBuildThisFileDirectory)..\..\lib\native\stage_x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-    </Link>
-  </ItemDefinitionGroup>
 </Project>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8" />
+    <title>XHTML 5 Resources</title>
+    <link href="../doc/resources/xmlmind.css" rel="stylesheet" type="text/css" />
+    <style>body {
+    margin: 5px;
+}
+
+span.uri,
+span.filename { 
+    font-family: monospace;
+    font-size: 90%;
+}</style>
+  </head>
+  <body><section id="introduction"><h1>XHTML 5 Resources</h1><p><a
+  href="http://www.xmlmind.com/">XMLmind</a> has developed a robust,
+  self-contained, <a href="http://www.w3.org/TR/xmlschema-1/">W3C XML
+  Schema</a> for XHTML 5 which is as faithful to <a
+  href="http://www.w3.org/TR/html5/">W3C Candidate Recommendation 17 December
+  2012</a> as an W3C XML Schema can be.</p><p>XMLmind has also developed <a
+  href="http://www.w3.org/TR/xslt20/">XSLT 2</a> stylesheets allowing —with
+  the help of the appropriate <a href="http://www.w3.org/TR/xsl/">XSL-FO</a>
+  processor— to convert XHTML 1.0, 1.1 and 5.0 documents to PostScript, PDF,
+  RTF, WordprocessingML, Office Open XML (<span class="filename"><span
+  class="filename">.docx</span></span>) and OpenOffice (<span
+  class="filename">.odt</span>).</p><p>These XSLT 2 stylesheets </p><ul>
+      <li>Support a large number of parameters. These parameters are
+      documented in <a
+      href="http://www.xmlmind.com/xmleditor/_distrib/doc/xhtml/xslt_params.html">Parameters
+      of the XSLT stylesheets used to convert XHTML to XSL-FO</a>.</li>
+      <li>Make an extensive use of <code>xsl:attribute-set</code>s.</li>
+      <li>Have been tested against the following XSL-FO processors: <a
+      href="http://xmlgraphics.apache.org/fop/">Apache FOP</a>, <a
+      href="http://www.antennahouse.com/product.htm">Antenna House
+      Formatter</a>, <a href="http://www.renderx.com/tools/xep.html">RenderX
+      XEP</a>, <a href="http://www.xmlmind.com/foconverter/">XMLmind XSL-FO
+      Converter</a>.</li>
+    </ul><p>The W3C XML Schema for XHTML 5 and the XSLT 2 stylesheets for
+  XHTML 1.0, 1.1 and 5.0 developed by XMLmind are open source software
+  licensed under the terms of the <a href="xhtml5_resources.LICENSE">MIT
+  license</a>. This means that you may freely use these resources outside
+  XMLmind products.</p></section><section id="distribution"><h1>Contents of
+  the distribution</h1><dl>
+      <dt><span class="filename">xhtml5_resources.README.html</span></dt>
+      <dd>This document.</dd>
+      <dt><span class="filename">xhtml5_resources.LICENSE</span></dt>
+      <dd>The MIT license.</dd>
+      <dt><span class="filename">xsl/</span></dt>
+      <dd>Contains the XSLT 2 stylesheets allowing to convert XHTML 1.0, 1.1
+      and 5.0 to XSL-FO. The main stylesheet is <span
+      class="filename">fo.xsl</span>.</dd>
+      <dt><span class="filename">xsd/</span></dt>
+      <dd>Contains the W3C XML Schema for XHTML 5.</dd>
+    </dl></section><section id="validate"><h1>Using the W3C XML schema to
+  validate an XHTML 5 document</h1><p>Example: validate this document (which
+  is valid XHTML 5) using <a
+  href="http://xerces.apache.org/xerces2-j/">Xerces2 Java Parser
+  2.11</a>:</p><pre>$ java -cp "<i>$XERCES_HOME</i>/xercesSamples.jar:<i>$XERCES_HOME</i>/xercesImpl.jar:<i>$XERCES_HOME</i>/resolver.jar" \
+    jaxp.SourceValidator \
+    -a xsd/xhtml5.xsd -i xhtml5_resources.README.html</pre></section><section
+  id="convert"><h1>Using the XSLT stylesheets to convert an XHTML 5 document
+  to PDF</h1><p>The XSLT stylesheets require <a
+  href="http://saxon.sourceforge.net/">Saxon 9.3+</a> in order to
+  work.</p><p>Example: convert this document (which is valid XHTML 5) to PDF
+  using <a href="http://xmlgraphics.apache.org/fop/">Apache FOP</a>:</p><pre>$ java -jar "<i>$SAXON9_HOME</i>/saxon9he.jar" -xsl:xsl/fo.xsl \
+   -s:xhtml5_resources.README.html \
+   -o:tmp.fo \
+   <b>foProcessor=FOP</b>
+
+$ fop tmp.fo xhtml5_resources.README.pdf</pre><p>Note that the XSLT
+  stylesheets must be passed a <code>foProcessor</code> parameter specifying
+  which XSL-FO processor is being used. This allows to take advantage of
+  extensions which are specific to the processor or or the contrary to
+  workaround limitations which are specific to the
+  processor.</p></section><section id="support"><h1>Support</h1><p>Please send
+  bug reports to <span class="uri">xmleditor-support@xmlmind.com</span> a
+  public, moderated, mailing list. <small>(You don't need to be a list member
+  to post a message.)</small> More information in <a
+  href="http://www.xmlmind.com/xmleditor/support.html">http://www.xmlmind.com/xmleditor/support.html</a>.</p></section><section
+  id="changes"><h1>History of changes</h1><section id="v1.1.0"><h2>1.1 (July
+  8, 2013)</h2><ul>
+      <li>Updated <span class="filename">xhtml5.xsd</span> to reflect the
+      specifications contained in <a href="http://www.w3.org/TR/html5/">W3C
+      Candidate Recommendation 17 December 2012</a>.</li>
+      <li><span class="filename">xhtml5.xsd</span> now validates against <a
+      href="http://xerces.apache.org/xerces2-j/">Xerces</a>, even when Schema
+      full checking is turned on (<code>-f</code> option of
+      <code>jaxp.SourceValidator</code>; see above)</li>
+      <li>Added XSLT stylesheet parameter <code>set-outline-level</code>. When
+      <a href="http://www.xmlmind.com/foconverter/">XMLmind XSL-FO
+      Converter</a> is used to convert the intermediate XSL-FO file to
+      <abbr>RTF</abbr>, <code>.odt</code>, <code>.docx</code>, etc, and the
+      value of this parameter is <code>'yes'</code> <small>(the default
+      value)</small>, consider the <code>h1</code>, <code>h2</code>, ...,
+      <code>h6</code> elements as being headings participating in the outline
+      of the MS-Word or OpenOffice/LibreOffice document. More information in
+      <a
+      href="http://www.xmlmind.com/xmleditor/_distrib/doc/xhtml/xslt_params.html#set-outline-level">the
+      <code>set-outline-level</code> XSLT stylesheet parameter</a>.</li>
+      <li>Bug fix: the XSL stylesheets didn't correctly process CSS styles
+      <code>text-align</code> and <code>vertical-align</code> when these
+      styles were specified on <code>thead</code>, <code>tfoot</code>,
+      <code>tbody</code> or <code>tr</code>.</li>
+    </ul></section><section id="v1.0.5"><h2>1.0.5 (February 18,
+  2013)</h2><p>Updated <span class="filename">xhtml5.xsd</span> to reflect the
+  specifications contained in <a
+  href="http://www.w3.org/TR/2012/WD-html5-20121025/">W3C Working Draft 25
+  October 2012</a>.</p></section><section id="v1.0.4"><h2>1.0.4 (January 21,
+  2013)</h2><p>Bug fix: the XSL stylesheets now add attribute
+  <code>xml:lang</code> to element <code>fo:root</code> when attribute
+  <code>lang</code> or <code>xml:lang</code> is set on the <code>html</code>
+  root element of the source document. Previously, these stylesheets added a
+  <code>language</code> attribute to element <code>fo:page-sequence</code> but
+  this <code>language</code> attribute possibly contained a combination of a
+  language code and a country code (e.g. "<code>en-US</code>"), which is
+  incorrect.</p></section><section id="v1.0.3"><h2>1.0.3 (September 11,
+  2012)</h2><p>Updated <span class="filename">xhtml5.xsd</span> to reflect the
+  specifications contained in <a href="http://www.w3.org/TR/html5/">W3C
+  Working Draft 29 March 2012</a>.</p></section><section id="v1.0.2"><h2>1.0.2
+  (June 21, 2012)</h2><p>Bug fix: table attribute <code>rules="all"</code> was
+  not correctly processed.</p></section><section id="v1.0.1"><h2>1.0.1 (April
+  3, 2012)</h2><p>Bug fix: the <code>align</code> attribute specified on
+  <code>thead</code>, <code>tfoot</code>, <code>tbody</code> or
+  <code>tr</code> was not inherited by <code>td</code>.</p></section><section
+  id="v1.0.0"><h2>1.0 (March 14, 2012)</h2><p>First release. <span
+  class="filename">Xhtml5.xsd</span>, the W3C XML Schema for XHTML 5 developed
+  by XMLmind corresponds to <a
+  href="http://www.w3.org/TR/2011/WD-html5-20110525/">W3C Working Draft 25 May
+  2011</a>.</p></section></section></body>
+</html>

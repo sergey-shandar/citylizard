@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{1F5DD054-A15A-4DA3-A21B-F8835AD477B4}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>accumulators</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="accumulators.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\boost.config.1.54.0.23\build\native\boost.config.targets" Condition="Exists('..\packages\boost.config.1.54.0.23\build\native\boost.config.targets')" />
+    <Import Project="..\packages\boost.version.1.54.0.23\build\native\boost.version.targets" Condition="Exists('..\packages\boost.version.1.54.0.23\build\native\boost.version.targets')" />
+    <Import Project="..\packages\boost.detail.1.54.0.23\build\native\boost.detail.targets" Condition="Exists('..\packages\boost.detail.1.54.0.23\build\native\boost.detail.targets')" />
+    <Import Project="..\packages\boost.preprocessor.1.54.0.23\build\native\boost.preprocessor.targets" Condition="Exists('..\packages\boost.preprocessor.1.54.0.23\build\native\boost.preprocessor.targets')" />
+    <Import Project="..\packages\boost.type_traits.1.54.0.23\build\native\boost.type_traits.targets" Condition="Exists('..\packages\boost.type_traits.1.54.0.23\build\native\boost.type_traits.targets')" />
+    <Import Project="..\packages\boost.mpl.1.54.0.23\build\native\boost.mpl.targets" Condition="Exists('..\packages\boost.mpl.1.54.0.23\build\native\boost.mpl.targets')" />
+    <Import Project="..\packages\boost.utility.1.54.0.23\build\native\boost.utility.targets" Condition="Exists('..\packages\boost.utility.1.54.0.23\build\native\boost.utility.targets')" />
+    <Import Project="..\packages\boost.parameter.1.54.0.23\build\native\boost.parameter.targets" Condition="Exists('..\packages\boost.parameter.1.54.0.23\build\native\boost.parameter.targets')" />
+    <Import Project="..\packages\boost.blank.1.54.0.23\build\native\boost.blank.targets" Condition="Exists('..\packages\boost.blank.1.54.0.23\build\native\boost.blank.targets')" />
+    <Import Project="..\packages\boost.ref.1.54.0.23\build\native\boost.ref.targets" Condition="Exists('..\packages\boost.ref.1.54.0.23\build\native\boost.ref.targets')" />
+    <Import Project="..\packages\boost.static_assert.1.54.0.23\build\native\boost.static_assert.targets" Condition="Exists('..\packages\boost.static_assert.1.54.0.23\build\native\boost.static_assert.targets')" />
+    <Import Project="..\packages\boost.fusion.1.54.0.23\build\native\boost.fusion.targets" Condition="Exists('..\packages\boost.fusion.1.54.0.23\build\native\boost.fusion.targets')" />
+    <Import Project="..\packages\boost.concept_check.1.54.0.23\build\native\boost.concept_check.targets" Condition="Exists('..\packages\boost.concept_check.1.54.0.23\build\native\boost.concept_check.targets')" />
+    <Import Project="..\packages\boost.accumulators.1.54.0.23\build\native\boost.accumulators.targets" Condition="Exists('..\packages\boost.accumulators.1.54.0.23\build\native\boost.accumulators.targets')" />
+  </ImportGroup>
+</Project>

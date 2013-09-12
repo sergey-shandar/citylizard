@@ -2,19 +2,16 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>boost</id>
-        <version>1.54.0</version>
+        <version>1.54.0.0</version>
         <authors>Sergey Shandar</authors>
         <owners>Sergey Shandar</owners>
         <licenseUrl>http://www.boost.org/LICENSE_1_0.txt</licenseUrl>
         <projectUrl>http://boost.org/</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>Boost provides free peer-reviewed portable C++ source libraries. Unofficial nuget package for Visual Studio 2012, 
-for Win32 and x64 platforms.</description>
+        <description>Boost provides free peer-reviewed portable C++ source libraries. Unofficial nuget package.</description>
     </metadata>
     <files>
-        <file src="..\..\..\Downloads\boost_1_54_0\boost\**\*.*" target="lib\native\include\boost" />
-        <file src="..\..\..\Downloads\boost_1_54_0\stage_x86\lib\*.*" target="lib\native\stage_x86" />
-        <file src="..\..\..\Downloads\boost_1_54_0\stage_x86_64\lib\*.*" target="lib\native\stage_x86_64" />
-        <file src="boost.targets" target="\build\native\boost.targets" />
+        <file src="..\..\..\..\Downloads\boost_1_54_0\boost\**\*.*" target="lib\native\include\boost" />
+        <file src="..\boost.targets" target="\build\native\boost.targets" />
     </files>
 </package>

@@ -36,3 +36,4 @@ syntax: regexp
 \.snk$
 syntax: glob
 *.tar
+xsd/CityLizard/CityLizard.Html5/CityLizard.Meta.tt.txt

@@ -1,0 +1,5 @@
+﻿<#@ include file="CityLizard.Meta.tt.txt" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".cs" #>

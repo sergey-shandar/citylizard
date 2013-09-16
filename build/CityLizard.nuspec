@@ -17,6 +17,8 @@
         <file src="..\cpp\**.h" target="lib\native\include\"/>
         <file src="CityLizard.targets" target="build\native" />
 
+        <file src="CityLizard.Meta.tt.txt" target="content"/>
+
         <!-- Core -->
         <file src="..\platforms\net35-client\CityLizard.Core\bin\Release\CityLizard.Core.dll" target="lib\net35-client\CityLizard.Core.dll"/>
         <file src="..\platforms\net40-client\CityLizard.Core\bin\Release\CityLizard.Core.dll" target="lib\net40-client\CityLizard.Core.dll"/>

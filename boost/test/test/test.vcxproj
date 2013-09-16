@@ -141,8 +141,16 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="..\packages\boost.1.54.0.0\build\native\boost.targets" Condition="Exists('..\packages\boost.1.54.0.0\build\native\boost.targets')" />
+    <Import Project="..\packages\boost_atomic.1.54.0.0\build\native\boost_atomic.targets" Condition="Exists('..\packages\boost_atomic.1.54.0.0\build\native\boost_atomic.targets')" />
+    <Import Project="..\packages\cpprestsdk.redist.1.2.0\build\native\cpprestsdk.redist.targets" Condition="Exists('..\packages\cpprestsdk.redist.1.2.0\build\native\cpprestsdk.redist.targets')" />
+    <Import Project="..\packages\cpprestsdk.1.2.0\build\native\cpprestsdk.targets" Condition="Exists('..\packages\cpprestsdk.1.2.0\build\native\cpprestsdk.targets')" />
+    <Import Project="..\packages\zlib.redist.1.2.8.6\build\native\zlib.redist.targets" Condition="Exists('..\packages\zlib.redist.1.2.8.6\build\native\zlib.redist.targets')" />
+    <Import Project="..\packages\zlib.1.2.8.6\build\native\zlib.targets" Condition="Exists('..\packages\zlib.1.2.8.6\build\native\zlib.targets')" />
   </ImportGroup>
 </Project>

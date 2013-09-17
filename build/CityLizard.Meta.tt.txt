@@ -1,3 +1,5 @@
-<#@ template debug="false" hostspecific="false" language="C#" #> 
+<#@ template debug="false" hostspecific="true" language="C#" #> 
 <#@ assembly name="System.Core" #> 
-<#@ assembly name="$(SolutionDir)\packages\CityLizard.2.1.114.0\lib\net40-client\CityLizard.Meta.dll" #> 
+<#@ assembly name="$(SolutionDir)\packages\CityLizard.2.1.118.0\lib\net40-client\CityLizard.Meta.dll" #> 
+<#@ import namespace="System.IO" #> 
+<#@ import namespace="CityLizard.Xml.Schema" #> 

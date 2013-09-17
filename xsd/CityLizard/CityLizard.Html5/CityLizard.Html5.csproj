@@ -34,17 +34,17 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CityLizard.Core, Version=2.1.114.0, Culture=neutral, PublicKeyToken=a18addb362a9cdcd, processorArchitecture=MSIL">
+    <Reference Include="CityLizard.Core, Version=2.1.118.0, Culture=neutral, PublicKeyToken=a18addb362a9cdcd, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\CityLizard.2.1.114.0\lib\net40-client\CityLizard.Core.dll</HintPath>
+      <HintPath>..\packages\CityLizard.2.1.118.0\lib\net40-client\CityLizard.Core.dll</HintPath>
     </Reference>
-    <Reference Include="CityLizard.Fsm, Version=2.1.114.0, Culture=neutral, PublicKeyToken=a18addb362a9cdcd, processorArchitecture=MSIL">
+    <Reference Include="CityLizard.Fsm, Version=2.1.118.0, Culture=neutral, PublicKeyToken=a18addb362a9cdcd, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\CityLizard.2.1.114.0\lib\net40-client\CityLizard.Fsm.dll</HintPath>
+      <HintPath>..\packages\CityLizard.2.1.118.0\lib\net40-client\CityLizard.Fsm.dll</HintPath>
     </Reference>
-    <Reference Include="CityLizard.Meta, Version=2.1.114.0, Culture=neutral, PublicKeyToken=a18addb362a9cdcd, processorArchitecture=MSIL">
+    <Reference Include="CityLizard.Meta, Version=2.1.118.0, Culture=neutral, PublicKeyToken=a18addb362a9cdcd, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\CityLizard.2.1.114.0\lib\net40-client\CityLizard.Meta.dll</HintPath>
+      <HintPath>..\packages\CityLizard.2.1.118.0\lib\net40-client\CityLizard.Meta.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

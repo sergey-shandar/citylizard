@@ -1,5 +1,4 @@
 ﻿<#@ include file="CityLizard.Meta.tt.txt" #>
-<#@ import namespace="System.Linq" #>
-<#@ import namespace="System.Text" #>
-<#@ import namespace="System.Collections.Generic" #>
-<#@ output extension=".cs" #>
+<#=Compiler.Compile(
+    Path.Combine(this.Host.ResolvePath(""),
+    @"..\..\xhtml5_resources-1_1_0\xsd\xhtml5.xsd"))#>

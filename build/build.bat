@@ -21,9 +21,11 @@ rem call platfrom_build.bat monomac
 
 rem sn -R net35-client\CityLizard.Core\bin\Release\CityLizard.Core.dll keypair.snk
 
-@echo ^<#@ template debug="false" hostspecific="false" language="C#" #^> > CityLizard.Meta.tt.txt
+@echo ^<#@ template debug="false" hostspecific="true" language="C#" #^> > CityLizard.Meta.tt.txt
 @echo ^<#@ assembly name="System.Core" #^> >> CityLizard.Meta.tt.txt
 @echo ^<#@ assembly name="$(SolutionDir)\packages\CityLizard.%VERSION%\lib\net40-client\CityLizard.Meta.dll" #^> >> CityLizard.Meta.tt.txt
+@echo ^<#@ import namespace="System.IO" #^> >> CityLizard.Meta.tt.txt
+@echo ^<#@ import namespace="CityLizard.Xml.Schema" #^> >> CityLizard.Meta.tt.txt
 
 nuget pack CityLizard.nuspec -Version %VERSION%
 

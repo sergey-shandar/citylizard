@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd"> 
 <metadata> 
 <id>boost_atomic_src</id> 
-<version>1.54.0.5</version> 
+<version>1.54.0.8</version> 
 <authors>Sergey Shandar</authors> 
 <owners>Sergey Shandar</owners> 
 <licenseUrl>http://www.boost.org/LICENSE_1_0.txt</licenseUrl> 

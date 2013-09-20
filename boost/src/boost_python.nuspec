@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?> 
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd"> 
 <metadata> 
-<id>boost_chrono_src</id> 
-<version>1.54.0.1</version> 
+<id>boost_python</id> 
+<version>1.54.0.2</version> 
 <authors>Sergey Shandar</authors> 
 <owners>Sergey Shandar</owners> 
 <licenseUrl>http://www.boost.org/LICENSE_1_0.txt</licenseUrl> 
 <projectUrl>http://boost.org/</projectUrl> 
 <requireLicenseAcceptance>false</requireLicenseAcceptance> 
-<description>C++ files for Boost.Chrono library.</description> 
+<description>Boost.Python source files.</description> 
 <dependencies> 
 <dependency id="boost" version="[1.54.0.0]" /> 
-<!-- boost_system -->
 </dependencies> 
 </metadata> 
 <files>  
-<file src="..\..\..\..\Downloads\boost_1_54_0\libs\chrono\src\*.*" target="lib\native\src\"/>
-<file src="boost_chrono_src.targets" target="build\native\"/> 
+<file src="..\..\..\..\Downloads\boost_1_54_0\libs\python\src\**.*" target="lib\native\src\"/>
+<file src="boost_python.targets" target="build\native\"/> 
 </files> 
 </package> 

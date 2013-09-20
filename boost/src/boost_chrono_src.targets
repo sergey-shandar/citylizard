@@ -2,10 +2,12 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" >
   <ItemDefinitionGroup>
     <ClCompile>
-      <PreprocessorDefinitions>BOOST_ATOMIC_SOURCE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>BOOST_CHRONO_NO_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\chrono.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\process_cpu_clocks.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\thread_clock.cpp"/>
   </ItemGroup>
 </Project>

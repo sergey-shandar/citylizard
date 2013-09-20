@@ -1,6 +1,7 @@
 setlocal
 set PATH=%PATH%;C:\programs
-set VERSION=1.54.0.1
+set MAJOR_VERSION=1.54
+set VERSION=%MAJOR_VERSION%.0.1
 
 mkdir build
 cd build

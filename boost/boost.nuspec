@@ -2,13 +2,15 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>boost</id>
-        <version>1.54.0.0</version>
+        <version>1.54.0.1</version>
         <authors>Sergey Shandar</authors>
         <owners>Sergey Shandar</owners>
         <licenseUrl>http://www.boost.org/LICENSE_1_0.txt</licenseUrl>
         <projectUrl>http://boost.org/</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>Boost provides free peer-reviewed portable C++ source libraries. Unofficial nuget package. Changes: 1.54.0.1: Boost.Coroutine autolink fix.</description>
+        <description>Boost provides free peer-reviewed portable C++ source libraries.
+Unofficial nuget package.
+Changes: 1.54.0.1: Boost.Coroutine autolink fix.</description>
     </metadata>
     <files>
         <file src="..\..\..\Downloads\boost_1_54_0\boost\**\*.*" target="lib\native\include\boost" />

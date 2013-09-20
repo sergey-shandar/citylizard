@@ -2,19 +2,20 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd"> 
 <metadata> 
 <id>boost_mpi</id> 
-<version>1.54.0.1</version> 
+<version>1.54.0.3</version> 
 <authors>Sergey Shandar</authors> 
 <owners>Sergey Shandar</owners> 
 <licenseUrl>http://www.boost.org/LICENSE_1_0.txt</licenseUrl> 
 <projectUrl>http://boost.org/</projectUrl> 
 <requireLicenseAcceptance>false</requireLicenseAcceptance> 
-<description>Boost.MPI source files.</description> 
+<description>Boost.MPI source files. No Boost.Mpi.Python.</description> 
 <dependencies> 
 <dependency id="boost" version="[1.54.0.0]" /> 
+<!-- Boost.Mpi.Python depends on Boost.Python -->
 </dependencies> 
 </metadata> 
 <files>  
-<file src="..\..\..\..\Downloads\boost_1_54_0\libs\mpi\src\**.*" target="lib\native\src\"/>
+<file src="..\..\..\..\Downloads\boost_1_54_0\libs\mpi\src\*.*" target="lib\native\src\"/>
 <file src="boost_mpi.targets" target="build\native\"/> 
 </files> 
 </package> 

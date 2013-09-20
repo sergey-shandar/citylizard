@@ -92,6 +92,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Python27\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -107,6 +108,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Python27\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -126,6 +128,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>C:\Python27\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -145,6 +148,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>C:\Python27\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -163,5 +167,6 @@
     <Import Project="..\packages\boost_date_time_src.1.54.0.1\build\native\boost_date_time_src.targets" Condition="Exists('..\packages\boost_date_time_src.1.54.0.1\build\native\boost_date_time_src.targets')" />
     <Import Project="..\packages\boost_exception_src.1.54.0.0\build\native\boost_exception_src.targets" Condition="Exists('..\packages\boost_exception_src.1.54.0.0\build\native\boost_exception_src.targets')" />
     <Import Project="..\packages\boost_python.1.54.0.2\build\native\boost_python.targets" Condition="Exists('..\packages\boost_python.1.54.0.2\build\native\boost_python.targets')" />
+    <Import Project="..\packages\boost_mpi.1.54.0.3\build\native\boost_mpi.targets" Condition="Exists('..\packages\boost_mpi.1.54.0.3\build\native\boost_mpi.targets')" />
   </ImportGroup>
 </Project>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" >
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <PreprocessorDefinitions>BOOST_SERIALIZATION_NO_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\archive_exception.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\basic_archive.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\basic_iarchive.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\basic_iserializer.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\basic_oarchive.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\basic_oserializer.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\basic_pointer_iserializer.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\basic_pointer_oserializer.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\basic_serializer_map.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\basic_text_iprimitive.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\basic_text_oprimitive.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\basic_text_wiprimitive.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\basic_text_woprimitive.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\basic_xml_archive.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\binary_iarchive.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\binary_oarchive.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\binary_wiarchive.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\binary_woarchive.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\codecvt_null.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\extended_type_info.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\extended_type_info_no_rtti.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\extended_type_info_typeid.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\polymorphic_iarchive.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\polymorphic_oarchive.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\shared_ptr_helper.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\stl_port.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\text_iarchive.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\text_oarchive.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\text_wiarchive.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\text_woarchive.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\utf8_codecvt_facet.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\void_cast.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\xml_archive_exception.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\xml_grammar.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\xml_iarchive.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\xml_oarchive.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\xml_wgrammar.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\xml_wiarchive.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\xml_woarchive.cpp"/>
+  </ItemGroup>
+</Project>

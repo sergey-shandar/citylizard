@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd"> 
 <metadata> 
 <id>boost_date_time_src</id> 
-<version>1.54.0.1</version> 
+<version>1.54.0.3</version> 
 <authors>Sergey Shandar</authors> 
 <owners>Sergey Shandar</owners> 
 <licenseUrl>http://www.boost.org/LICENSE_1_0.txt</licenseUrl> 
@@ -10,7 +10,7 @@
 <requireLicenseAcceptance>false</requireLicenseAcceptance> 
 <description>C++ files for Boost.DateTime library.</description> 
 <dependencies> 
-<dependency id="boost" version="[1.54.0.0]" /> 
+<dependency id="boost" version="[1.54,1.55)" /> 
 </dependencies> 
 </metadata> 
 <files>  

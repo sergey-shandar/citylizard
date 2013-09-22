@@ -19,9 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{1CFA9A66-B510-48BD-8B46-A906A76B434E}</ProjectGuid>
+    <ProjectGuid>{17298168-FFAC-4CEB-B0E2-1FED37AE18CE}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>test_src</RootNamespace>
+    <RootNamespace>test_regex_src</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -52,7 +52,6 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
-    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -81,96 +80,92 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <SDLCheck>false</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Program Files\Microsoft HPC Pack 2012\Inc;C:\Python27\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Python27_32\libs;C:\Program Files\Microsoft HPC Pack 2012\Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <SDLCheck>false</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Program Files\Microsoft HPC Pack 2012\Inc;C:\Python27\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Python27\libs;C:\Program Files\Microsoft HPC Pack 2012\Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <SDLCheck>false</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Program Files\Microsoft HPC Pack 2012\Inc;C:\Python27\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\Python27_32\libs;C:\Program Files\Microsoft HPC Pack 2012\Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <SDLCheck>false</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Program Files\Microsoft HPC Pack 2012\Inc;C:\Python27\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\Python27\libs;C:\Program Files\Microsoft HPC Pack 2012\Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="no_precompiled_headers.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="test_regex_src.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
-    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" />
-    <Import Project="..\packages\boost_atomic_src.1.54.0.10\build\native\boost_atomic_src.targets" Condition="Exists('..\packages\boost_atomic_src.1.54.0.10\build\native\boost_atomic_src.targets')" />
-    <Import Project="..\packages\boost_chrono_src.1.54.0.3\build\native\boost_chrono_src.targets" Condition="Exists('..\packages\boost_chrono_src.1.54.0.3\build\native\boost_chrono_src.targets')" />
-    <Import Project="..\packages\boost_date_time_src.1.54.0.3\build\native\boost_date_time_src.targets" Condition="Exists('..\packages\boost_date_time_src.1.54.0.3\build\native\boost_date_time_src.targets')" />
-    <Import Project="..\packages\boost_mpi.1.54.0.5\build\native\boost_mpi.targets" Condition="Exists('..\packages\boost_mpi.1.54.0.5\build\native\boost_mpi.targets')" />
-    <Import Project="..\packages\boost_serialization_src.1.54.0.5\build\native\boost_serialization_src.targets" Condition="Exists('..\packages\boost_serialization_src.1.54.0.5\build\native\boost_serialization_src.targets')" />
-    <Import Project="..\packages\boost_system_src.1.54.0.7\build\native\boost_system_src.targets" Condition="Exists('..\packages\boost_system_src.1.54.0.7\build\native\boost_system_src.targets')" />
     <Import Project="..\packages\boost.1.54.0.1\build\native\boost.targets" Condition="Exists('..\packages\boost.1.54.0.1\build\native\boost.targets')" />
-    <Import Project="..\packages\boost_python.1.54.0.6\build\native\boost_python.targets" Condition="Exists('..\packages\boost_python.1.54.0.6\build\native\boost_python.targets')" />
-    <Import Project="..\packages\boost_mpi_python.1.54.0.3\build\native\boost_mpi_python.targets" Condition="Exists('..\packages\boost_mpi_python.1.54.0.3\build\native\boost_mpi_python.targets')" />
-    <Import Project="..\packages\boost_filesystem_src.1.54.0.1\build\native\boost_filesystem_src.targets" Condition="Exists('..\packages\boost_filesystem_src.1.54.0.1\build\native\boost_filesystem_src.targets')" />
-    <Import Project="..\packages\boost_coroutine_src.1.54.0.4\build\native\boost_coroutine_src.targets" Condition="Exists('..\packages\boost_coroutine_src.1.54.0.4\build\native\boost_coroutine_src.targets')" />
-    <Import Project="..\packages\boost_context.1.54.0.2\build\native\boost_context.targets" Condition="Exists('..\packages\boost_context.1.54.0.2\build\native\boost_context.targets')" />
+    <Import Project="..\packages\boost_regex_src.1.54.0.1\build\native\boost_regex_src.targets" Condition="Exists('..\packages\boost_regex_src.1.54.0.1\build\native\boost_regex_src.targets')" />
   </ImportGroup>
 </Project>

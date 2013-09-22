@@ -1,13 +1,14 @@
 setlocal
 set PATH=%PATH%;C:\programs
 set MAJOR_VERSION=1.54
-set VERSION=%MAJOR_VERSION%.0.1
+set NEXT_MAJOR_VERSION=1.55
+set VERSION=%MAJOR_VERSION%.0.2
 
 mkdir build
 cd build
 
-nuget.exe pack ..\boost.nuspec -Version %VERSION%
-nuget.exe push boost.%VERSION%.nupkg
+rem nuget.exe pack ..\boost.nuspec -Version %VERSION%
+rem nuget.exe push boost.%VERSION%.nupkg
 
 rem BOOST_ATOMIC_DYN_LINK
 call ..\lib.bat atomic

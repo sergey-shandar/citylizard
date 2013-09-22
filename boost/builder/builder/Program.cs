@@ -11,7 +11,7 @@ namespace builder
 {
     class Program
     {
-        private static readonly Version version = new Version(1, 54, 0, 15);
+        private static readonly Version version = new Version(1, 54, 0, 18);
 
         private const string author = "Sergey Shandar";
 
@@ -65,7 +65,7 @@ namespace builder
             public readonly XElement NuspecFiles = nuspecNs.Element("files");
             public readonly ICollection<string> Cpp = new LinkedList<string>();
             public readonly XElement ImportGroup = 
-                msbuildNs.Element("ImportGroup");
+                msbuildNs.Element("ItemGroup");
             private string Dir;
 
             public Files(string name, string dir)
@@ -91,36 +91,50 @@ namespace builder
                     msbuildNs.Element("PrecompiledHeader").Append("NotUsing")));
             }
 
-            public void Run(string subDir = "")
-            {
-                var fullDirectory = Path.Combine(Dir, subDir);
-                var nuspecDirecotry = Path.Combine(srcPath, subDir);
-                foreach (var file in Directory.GetFiles(fullDirectory))
-                {
-                    var fileName = Path.GetFileName(file);
-                    AppendFile(file, nuspecDirecotry);
-                    Console.WriteLine("    :" + fileName);
-                    var relativePath = Path.Combine(subDir, fileName);
-                    if( Path.GetExtension(fileName) == ".cpp" && 
-                        Lib.ExcludeList.FirstOrDefault(
-                            f => f == relativePath) == 
-                            null)
-                    {
-                       Cpp.Add("#include \"" + relativePath + "\"");
-                    }
-                }
-                foreach (var d in Directory.GetDirectories(fullDirectory))
-                {
-                    this.Run(Path.Combine(subDir, Path.GetFileName(d)));
-                }
-            }
-
             public void AppendFile(string src, string target)
             {
                 NuspecFiles.Append(nuspecNs.Element(
                     "file",
                     noNs.Attribute("src", src),
                     noNs.Attribute("target", target)));
+            }
+
+            public void Run(string subDir = "")
+            {
+                var fullDirectory = Path.Combine(Dir, subDir);
+                var nuspecDirecotry = Path.Combine(srcPath, subDir);
+                var filePrefix = 
+                    "boost_" +
+                    Lib.Name + 
+                    "_" + 
+                    (subDir == "" ? "" : subDir.Replace('\\', '_') + '_');
+                foreach (var file in Directory.GetFiles(fullDirectory))
+                {
+                    var fileName = Path.GetFileName(file);
+                    var relativePath = Path.Combine(subDir, fileName);
+                    //
+                    if (Path.GetExtension(fileName) == ".cpp" &&
+                        Lib.ExcludeList.FirstOrDefault(
+                            f => f == relativePath) ==
+                            null)
+                    {
+                        var newFile = filePrefix + fileName;
+                        File.Copy(file, newFile, true);
+                        AppendFile(newFile, nuspecDirecotry);
+                        Cpp.Add(
+                            "#include \"" +
+                            Path.Combine(subDir, newFile) +
+                            "\"");
+                    }
+                    else
+                    {
+                        AppendFile(file, nuspecDirecotry);
+                    }
+                }
+                foreach (var d in Directory.GetDirectories(fullDirectory))
+                {
+                    this.Run(Path.Combine(subDir, Path.GetFileName(d)));
+                }
             }
         }
 

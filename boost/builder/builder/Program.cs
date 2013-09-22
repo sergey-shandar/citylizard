@@ -22,6 +22,8 @@ namespace builder
         private static readonly XNamespace msbuildNs = XNamespace.Get(
             "http://schemas.microsoft.com/developer/msbuild/2003");
 
+        private static readonly string srcPath = @"lib\native\src\";
+
         private static void AppendFile(XElement files, string src, string target)
         {
             files.Append(nuspecNs.Element(
@@ -39,27 +41,28 @@ namespace builder
                 "," +
                 new Version(version.Major, version.Minor + 1) +
                 ")";
-            var files = nuspecNs.Element("files");
-            var itemGroup = msbuildNs.Element("ItemGroup");
             Console.WriteLine(libraryName);
             var libraryNamePrefix = libraryName + "_";
-            var cpp = new StringBuilder();
+            var cpp = new LinkedList<String>();
+            var files = nuspecNs.Element("files");
             foreach (var file in Directory.GetFiles(srcDirectory))
             {
                 var fileName = Path.GetFileName(file);
                 Console.WriteLine("    " + libraryNamePrefix + fileName);
-                var newFileName = libraryNamePrefix + fileName;
-                File.Copy(file, newFileName, true);
-                AppendFile(files, newFileName, @"lib\native\src\");
+                // var newFileName = libraryNamePrefix + fileName;
+                // File.Copy(file, newFileName, true);
+                AppendFile(files, file, srcPath);
                 if (Path.GetExtension(fileName) == ".cpp")
                 {
+                    /*
                     itemGroup.Append(msbuildNs.Element(
                         "ClCompile",
                         noNs.Attribute(
                             "Include",
                             @"$(MSBuildThisFileDirectory)..\..\lib\native\src\" +
                                 newFileName)));
-                    cpp.AppendLine("#include \"" + fileName + "\"");
+                     * */
+                    cpp.AddLast("#include \"" + fileName + "\"");
                 }
             }
             foreach (var directory in Directory.GetDirectories(srcDirectory))
@@ -91,16 +94,26 @@ namespace builder
                 files);
             nuspec.CreateDocument().Save(id + ".nuspec");
             //
+            var libraryCpp = libraryName + ".cpp";
             var pp =
                 libraryName.ToUpper() + "_NO_LIB;%(PreprocessorDefinitions)";
-            var targets = msbuildNs.Element(
-                "Project", noNs.Attribute("ToolVersion", "4.0")).Append(
+            var targets = msbuildNs.Element("Project",
+                noNs.Attribute("ToolVersion", "4.0")).Append(
                 msbuildNs.Element("ItemDefinitionGroup").Append(
                     msbuildNs.Element("ClCompile").Append(
                         msbuildNs.Element("PreprocessorDefinitions").Append(
-                            pp))),
-                itemGroup);
+                            pp))),                            
+                msbuildNs.Element("ItemGroup").Append(
+                    msbuildNs.Element(
+                        "ClCompile",
+                        noNs.Attribute(
+                            "Include",
+                            Path.Combine(
+                                @"$(MSBuildThisFileDirectory)..\..\",
+                                srcPath,
+                                libraryCpp)))));
             targets.CreateDocument().Save(targetsFile);
+            File.WriteAllLines(libraryCpp, cpp);
         }
 
         static void Main(string[] args)

@@ -13,6 +13,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test_exception", "test_exce
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test_filesystem", "test_filesystem\test_filesystem.vcxproj", "{BFE7D230-213F-4A15-A719-10D90D29F1C4}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test_graph", "test_graph\test_graph.vcxproj", "{7A73A2B8-727E-4B53-840C-043AB0A96898}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test_graph_parallel", "test_graph_parallel\test_graph_parallel.vcxproj", "{4239BD6B-B289-4485-8DF9-29A27404236C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -55,6 +59,18 @@ Global
 		{BFE7D230-213F-4A15-A719-10D90D29F1C4}.Release|Win32.ActiveCfg = Release|Win32
 		{BFE7D230-213F-4A15-A719-10D90D29F1C4}.Release|Win32.Build.0 = Release|Win32
 		{BFE7D230-213F-4A15-A719-10D90D29F1C4}.Release|Win32.Deploy.0 = Release|Win32
+		{7A73A2B8-727E-4B53-840C-043AB0A96898}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7A73A2B8-727E-4B53-840C-043AB0A96898}.Debug|Win32.Build.0 = Debug|Win32
+		{7A73A2B8-727E-4B53-840C-043AB0A96898}.Debug|Win32.Deploy.0 = Debug|Win32
+		{7A73A2B8-727E-4B53-840C-043AB0A96898}.Release|Win32.ActiveCfg = Release|Win32
+		{7A73A2B8-727E-4B53-840C-043AB0A96898}.Release|Win32.Build.0 = Release|Win32
+		{7A73A2B8-727E-4B53-840C-043AB0A96898}.Release|Win32.Deploy.0 = Release|Win32
+		{4239BD6B-B289-4485-8DF9-29A27404236C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{4239BD6B-B289-4485-8DF9-29A27404236C}.Debug|Win32.Build.0 = Debug|Win32
+		{4239BD6B-B289-4485-8DF9-29A27404236C}.Debug|Win32.Deploy.0 = Debug|Win32
+		{4239BD6B-B289-4485-8DF9-29A27404236C}.Release|Win32.ActiveCfg = Release|Win32
+		{4239BD6B-B289-4485-8DF9-29A27404236C}.Release|Win32.Build.0 = Release|Win32
+		{4239BD6B-B289-4485-8DF9-29A27404236C}.Release|Win32.Deploy.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

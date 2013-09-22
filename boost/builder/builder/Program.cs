@@ -11,7 +11,7 @@ namespace builder
 {
     class Program
     {
-        private static readonly Version version = new Version(1, 54, 0, 0);
+        private static readonly Version version = new Version(1, 54, 0, 15);
 
         private const string author = "Sergey Shandar";
 
@@ -25,61 +25,128 @@ namespace builder
 
         private static readonly string srcPath = @"lib\native\src\";
 
-        private static void AppendFile(XElement files, string src, string target)
+        private sealed class Library
         {
-            files.Append(nuspecNs.Element(
-                "file",
-                noNs.Attribute("src", src),
-                noNs.Attribute("target", target)));
+            public readonly string Name;
+
+            public readonly bool Exclude;
+
+            public readonly string[] ExcludeList;
+
+            public Library(
+                string name, bool exclude = false, string[] excludeList = null)
+            {
+                Name = name;
+                Exclude = exclude;
+                ExcludeList = excludeList == null ? new string[0]: excludeList;
+            }
         }
 
-        private static void SrcFiles(
-            XElement nuspecFiles,
-            ICollection<String> cpp,
-            string directory,
-            string subDirectory = "")
+        private static readonly Library[] libraryList = new[]
         {
-            var fullDirectory = Path.Combine(directory, subDirectory);
-            var nuspecDirecotry = Path.Combine(srcPath, subDirectory);
-            foreach (var file in Directory.GetFiles(fullDirectory))
-            {
-                var fileName = Path.GetFileName(file);
-                AppendFile(nuspecFiles, file, nuspecDirecotry);
-                Console.WriteLine("    :" + fileName);
-                if (Path.GetExtension(fileName) == ".cpp")
+            // chrono depends on system
+            // context
+            new Library(
+                name: "context", 
+                exclude: true),
+            // coroutine depends on context
+            new Library(
+                name: "coroutine",
+                excludeList: new[]
                 {
-                    cpp.Add("#include \"" + Path.Combine(subDirectory, fileName) + "\"");
+                    @"detail\segmented_stack_allocator.cpp",
+                    @"detail\standard_stack_allocator_posix.cpp"
+                })
+        };
+
+        private sealed class Files
+        {
+            public readonly Library Lib;
+            public readonly XElement NuspecFiles = nuspecNs.Element("files");
+            public readonly ICollection<string> Cpp = new LinkedList<string>();
+            public readonly XElement ImportGroup = 
+                msbuildNs.Element("ImportGroup");
+            private string Dir;
+
+            public Files(string name, string dir)
+            {
+                Lib = libraryList.FirstOrDefault(library => library.Name == name);
+                if (Lib == null)
+                {
+                    Lib = new Library(name);
+                }
+                Dir = dir;
+            }
+
+            public void Add(string file)
+            {
+                ImportGroup.Append(msbuildNs.Element(
+                    "ClCompile",
+                    noNs.Attribute(
+                        "Include",
+                        Path.Combine(
+                            @"$(MSBuildThisFileDirectory)..\..\",
+                            srcPath,
+                            file))).Append(
+                    msbuildNs.Element("PrecompiledHeader").Append("NotUsing")));
+            }
+
+            public void Run(string subDir = "")
+            {
+                var fullDirectory = Path.Combine(Dir, subDir);
+                var nuspecDirecotry = Path.Combine(srcPath, subDir);
+                foreach (var file in Directory.GetFiles(fullDirectory))
+                {
+                    var fileName = Path.GetFileName(file);
+                    AppendFile(file, nuspecDirecotry);
+                    Console.WriteLine("    :" + fileName);
+                    var relativePath = Path.Combine(subDir, fileName);
+                    if( Path.GetExtension(fileName) == ".cpp" && 
+                        Lib.ExcludeList.FirstOrDefault(
+                            f => f == relativePath) == 
+                            null)
+                    {
+                       Cpp.Add("#include \"" + relativePath + "\"");
+                    }
+                }
+                foreach (var d in Directory.GetDirectories(fullDirectory))
+                {
+                    this.Run(Path.Combine(subDir, Path.GetFileName(d)));
                 }
             }
-            foreach (var d in Directory.GetDirectories(fullDirectory))
+
+            public void AppendFile(string src, string target)
             {
-                SrcFiles(
-                    nuspecFiles,
-                    cpp,
-                    directory,
-                    Path.Combine(subDirectory, Path.GetFileName(d)));
+                NuspecFiles.Append(nuspecNs.Element(
+                    "file",
+                    noNs.Attribute("src", src),
+                    noNs.Attribute("target", target)));
             }
         }
 
         private static void SrcDirectory(
-            string srcDirectory, string libraryName)
+            string srcDirectory, string name)
         {
+            var files = new Files(name, srcDirectory);
+            if (files.Lib.Exclude)
+            {
+                return;
+            }
+            var libraryName = "boost_" + name;
             var versionRange = 
                 "[" +
-                version +
+                new Version(version.Major, version.Minor) +
                 "," +
                 new Version(version.Major, version.Minor + 1) +
                 ")";
             Console.WriteLine(libraryName);
             var libraryNamePrefix = libraryName + "_";
-            var cpp = new LinkedList<String>();
-            var files = nuspecNs.Element("files");
-            SrcFiles(files, cpp, srcDirectory); 
+            files.Run();
             var id = libraryName + "_src";
             var targetsFile = id + ".targets";
             var libraryCpp = libraryName + ".cpp";
-            AppendFile(files, targetsFile, @"build\native\");
-            AppendFile(files, libraryCpp, srcPath);
+            files.AppendFile(targetsFile, @"build\native\");
+            files.AppendFile(libraryCpp, srcPath);
             var nuspec = nuspecNs.Element("package").Append(
                 nuspecNs.Element("metadata").Append(
                     nuspecNs.Element("id").Append(id),
@@ -98,30 +165,23 @@ namespace builder
                             "dependency",
                             noNs.Attribute("id", "boost"),
                             noNs.Attribute("version", versionRange)))),
-                files);
+                files.NuspecFiles);
             var nuspecFile = id + ".nuspec";
             nuspec.CreateDocument().Save(nuspecFile);
             //
             var pp =
                 libraryName.ToUpper() + "_NO_LIB;%(PreprocessorDefinitions)";
+            files.Add(libraryCpp);
             var targets = msbuildNs.Element("Project",
                 noNs.Attribute("ToolVersion", "4.0")).Append(
                 msbuildNs.Element("ItemDefinitionGroup").Append(
                     msbuildNs.Element("ClCompile").Append(
                         msbuildNs.Element("PreprocessorDefinitions").Append(
-                            pp))),                            
-                msbuildNs.Element("ItemGroup").Append(
-                    msbuildNs.Element(
-                        "ClCompile",
-                        noNs.Attribute(
-                            "Include",
-                            Path.Combine(
-                                @"$(MSBuildThisFileDirectory)..\..\",
-                                srcPath,
-                                libraryCpp)))));
+                            pp))),            
+                files.ImportGroup);
             targets.CreateDocument().Save(targetsFile);
             //
-            File.WriteAllLines(libraryCpp, cpp);
+            File.WriteAllLines(libraryCpp, files.Cpp);
             //
             Process.Start(
                 new ProcessStartInfo(
@@ -141,7 +201,7 @@ namespace builder
                 var src = Path.Combine(directory, "src");
                 if (Directory.Exists(src))
                 {
-                    SrcDirectory(src, "boost_" + Path.GetFileName(directory));
+                    SrcDirectory(src, Path.GetFileName(directory));
                 }
             }
         }

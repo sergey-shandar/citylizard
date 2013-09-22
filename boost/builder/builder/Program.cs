@@ -11,7 +11,7 @@ namespace builder
 {
     class Program
     {
-        private static readonly Version version = new Version(1, 54, 0, 20);
+        private static readonly Version version = new Version(1, 54, 0, 22);
 
         private const string author = "Sergey Shandar";
 
@@ -44,26 +44,31 @@ namespace builder
 
         private static readonly Library[] libraryList = new[]
         {
-            // chrono depends on system
-            // context
+            // boost.chrono depends on boost.system
+            // boost.context
             new Library(
                 name: "context", 
                 exclude: true),
-            // coroutine depends on context
+            // boost.coroutine depends on boost.context
             new Library(
                 name: "coroutine",
                 excludeList: new[]
                 {
                     @"detail\segmented_stack_allocator.cpp",
                     @"detail\standard_stack_allocator_posix.cpp"
-                })
+                }),
+            // boost.filesystem depeneds on boost.system
+            // boost.graph depends on boost.regex
+            // boost.graph_parallel depends on boost.mpi, boost.serialization.
+            // boost.mpi_python
+            new Library(
+                name: "mpi_python")
         };
 
         private sealed class Files
         {
             public readonly Library Lib;
             public readonly XElement NuspecFiles = nuspecNs.Element("files");
-            public readonly ICollection<string> Cpp = new LinkedList<string>();
             public readonly XElement ImportGroup = 
                 msbuildNs.Element("ItemGroup");
             private string Dir;
@@ -123,12 +128,6 @@ namespace builder
                             File.Copy(file, newFile, true);
                             AppendFile(newFile, nuspecDirecotry);
                             Add(Path.Combine(subDir, newFile));
-                            /*
-                            Cpp.Add(
-                                "#include \"" +
-                                Path.Combine(subDir, newFile) +
-                                "\"");
-                             * */
                         }
                         else
                         {
@@ -138,7 +137,19 @@ namespace builder
                 }
                 foreach (var d in Directory.GetDirectories(fullDirectory))
                 {
-                    this.Run(Path.Combine(subDir, Path.GetFileName(d)));
+                    var newSubDir = Path.Combine(subDir, Path.GetFileName(d));
+                    var newName = Lib.Name + "_" + newSubDir.Replace('\\', '_');
+                    if (libraryList.FirstOrDefault(
+                            lib => lib.Name == newName) ==
+                        null)
+                    {
+                        this.Run(newSubDir);
+                    }
+                    else
+                    {
+                        SrcDirectory(
+                            Path.Combine(fullDirectory, subDir), newName);
+                    }
                 }
             }
         }
@@ -163,9 +174,7 @@ namespace builder
             files.Run();
             var id = libraryName + "_src";
             var targetsFile = id + ".targets";
-            var libraryCpp = libraryName + ".cpp";
             files.AppendFile(targetsFile, @"build\native\");
-            files.AppendFile(libraryCpp, srcPath);
             var nuspec = nuspecNs.Element("package").Append(
                 nuspecNs.Element("metadata").Append(
                     nuspecNs.Element("id").Append(id),
@@ -190,7 +199,6 @@ namespace builder
             //
             var pp =
                 libraryName.ToUpper() + "_NO_LIB;%(PreprocessorDefinitions)";
-            files.Add(libraryCpp);
             var targets = msbuildNs.Element("Project",
                 noNs.Attribute("ToolVersion", "4.0")).Append(
                 msbuildNs.Element("ItemDefinitionGroup").Append(
@@ -199,8 +207,6 @@ namespace builder
                             pp))),            
                 files.ImportGroup);
             targets.CreateDocument().Save(targetsFile);
-            //
-            File.WriteAllLines(libraryCpp, files.Cpp);
             //
             Process.Start(
                 new ProcessStartInfo(

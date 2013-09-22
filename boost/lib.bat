@@ -15,7 +15,7 @@ set NUSPEC=%LIB%.nuspec
 @echo ^<requireLicenseAcceptance^>false^</requireLicenseAcceptance^> >> %NUSPEC%
 @echo ^<description^>Precompiled %LIB% libraries for Visual Studio 2012. Platforms: Win32 and x64.^</description^> >> %NUSPEC%
 @echo ^<dependencies^> >> %NUSPEC%
-@echo ^<dependency id="boost" version="[%MAJOR_VERSION%]" /^> >> %NUSPEC%
+@echo ^<dependency id="boost" version="[%MAJOR_VERSION%,%NEXT_MAJOR_VERSION%)" /^> >> %NUSPEC%
 @echo ^</dependencies^> >> %NUSPEC%
 @echo ^</metadata^> >> %NUSPEC%
 @echo ^<files^> >> %NUSPEC%

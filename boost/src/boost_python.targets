@@ -2,93 +2,37 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" >
   <ItemDefinitionGroup>
     <ClCompile>
-      <PreprocessorDefinitions>BOOST_PYTHON_NO_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>BOOST_PYTHON_SOURCE;BOOST_PYTHON_NO_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\dict.cpp">
-      <PreprocessorDefinitions>BOOST_PYTHON_SOURCE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\errors.cpp">
-      <PreprocessorDefinitions>BOOST_PYTHON_SOURCE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\exec.cpp">
-      <PreprocessorDefinitions>BOOST_PYTHON_SOURCE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\import.cpp">
-      <PreprocessorDefinitions>BOOST_PYTHON_SOURCE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\list.cpp">
-      <PreprocessorDefinitions>BOOST_PYTHON_SOURCE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\long.cpp">
-      <PreprocessorDefinitions>BOOST_PYTHON_SOURCE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\module.cpp">
-      <PreprocessorDefinitions>BOOST_PYTHON_SOURCE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\numeric.cpp">
-      <PreprocessorDefinitions>BOOST_PYTHON_SOURCE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\object_operators.cpp">
-      <PreprocessorDefinitions>BOOST_PYTHON_SOURCE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\object_protocol.cpp">
-      <PreprocessorDefinitions>BOOST_PYTHON_SOURCE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\slice.cpp">
-      <PreprocessorDefinitions>BOOST_PYTHON_SOURCE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\str.cpp">
-      <PreprocessorDefinitions>BOOST_PYTHON_SOURCE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\tuple.cpp">
-      <PreprocessorDefinitions>BOOST_PYTHON_SOURCE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\wrapper.cpp">
-      <PreprocessorDefinitions>BOOST_PYTHON_SOURCE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\converter\arg_to_python_base.cpp">
-      <PreprocessorDefinitions>BOOST_PYTHON_SOURCE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\converter\builtin_converters.cpp">
-      <PreprocessorDefinitions>BOOST_PYTHON_SOURCE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\converter\from_python.cpp">
-      <PreprocessorDefinitions>BOOST_PYTHON_SOURCE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\converter\registry.cpp">
-      <PreprocessorDefinitions>BOOST_PYTHON_SOURCE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\converter\type_id.cpp">
-      <PreprocessorDefinitions>BOOST_PYTHON_SOURCE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\object\class.cpp">
-      <PreprocessorDefinitions>BOOST_PYTHON_SOURCE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\object\enum.cpp">
-      <PreprocessorDefinitions>BOOST_PYTHON_SOURCE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\object\function.cpp">
-      <PreprocessorDefinitions>BOOST_PYTHON_SOURCE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\object\function_doc_signature.cpp">
-      <PreprocessorDefinitions>BOOST_PYTHON_SOURCE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\object\inheritance.cpp">
-      <PreprocessorDefinitions>BOOST_PYTHON_SOURCE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\object\iterator.cpp">
-      <PreprocessorDefinitions>BOOST_PYTHON_SOURCE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\object\life_support.cpp">
-      <PreprocessorDefinitions>BOOST_PYTHON_SOURCE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\object\pickle_support.cpp">
-      <PreprocessorDefinitions>BOOST_PYTHON_SOURCE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\object\stl_iterator.cpp">
-      <PreprocessorDefinitions>BOOST_PYTHON_SOURCE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\dict.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\errors.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\exec.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\import.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\list.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\long.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\module.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\numeric.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\object_operators.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\object_protocol.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\slice.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\str.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\tuple.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\wrapper.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\converter\arg_to_python_base.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\converter\builtin_converters.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\converter\from_python.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\converter\registry.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\converter\type_id.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\object\class.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\object\enum.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\object\function.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\object\function_doc_signature.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\object\inheritance.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\object\iterator.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\object\life_support.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\object\pickle_support.cpp"/>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\object\stl_iterator.cpp"/>
   </ItemGroup>
 </Project>

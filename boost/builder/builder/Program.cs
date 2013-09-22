@@ -11,7 +11,7 @@ namespace builder
 {
     class Program
     {
-        private static readonly Version version = new Version(1, 54, 0, 18);
+        private static readonly Version version = new Version(1, 54, 0, 20);
 
         private const string author = "Sergey Shandar";
 
@@ -113,22 +113,27 @@ namespace builder
                     var fileName = Path.GetFileName(file);
                     var relativePath = Path.Combine(subDir, fileName);
                     //
-                    if (Path.GetExtension(fileName) == ".cpp" &&
-                        Lib.ExcludeList.FirstOrDefault(
+                    if (Lib.ExcludeList.FirstOrDefault(
                             f => f == relativePath) ==
-                            null)
+                        null)
                     {
-                        var newFile = filePrefix + fileName;
-                        File.Copy(file, newFile, true);
-                        AppendFile(newFile, nuspecDirecotry);
-                        Cpp.Add(
-                            "#include \"" +
-                            Path.Combine(subDir, newFile) +
-                            "\"");
-                    }
-                    else
-                    {
-                        AppendFile(file, nuspecDirecotry);
+                        if (Path.GetExtension(fileName) == ".cpp")
+                        {
+                            var newFile = filePrefix + fileName;
+                            File.Copy(file, newFile, true);
+                            AppendFile(newFile, nuspecDirecotry);
+                            Add(Path.Combine(subDir, newFile));
+                            /*
+                            Cpp.Add(
+                                "#include \"" +
+                                Path.Combine(subDir, newFile) +
+                                "\"");
+                             * */
+                        }
+                        else
+                        {
+                            AppendFile(file, nuspecDirecotry);
+                        }
                     }
                 }
                 foreach (var d in Directory.GetDirectories(fullDirectory))

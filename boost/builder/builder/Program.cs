@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Xml.Linq;
+using System.Diagnostics;
 
 namespace builder
 {
@@ -32,6 +33,34 @@ namespace builder
                 noNs.Attribute("target", target)));
         }
 
+        private static void SrcFiles(
+            XElement nuspecFiles,
+            ICollection<String> cpp,
+            string directory,
+            string subDirectory = "")
+        {
+            var fullDirectory = Path.Combine(directory, subDirectory);
+            var nuspecDirecotry = Path.Combine(srcPath, subDirectory);
+            foreach (var file in Directory.GetFiles(fullDirectory))
+            {
+                var fileName = Path.GetFileName(file);
+                AppendFile(nuspecFiles, file, nuspecDirecotry);
+                Console.WriteLine("    :" + fileName);
+                if (Path.GetExtension(fileName) == ".cpp")
+                {
+                    cpp.Add("#include \"" + Path.Combine(subDirectory, fileName) + "\"");
+                }
+            }
+            foreach (var d in Directory.GetDirectories(fullDirectory))
+            {
+                SrcFiles(
+                    nuspecFiles,
+                    cpp,
+                    directory,
+                    Path.Combine(subDirectory, Path.GetFileName(d)));
+            }
+        }
+
         private static void SrcDirectory(
             string srcDirectory, string libraryName)
         {
@@ -45,21 +74,7 @@ namespace builder
             var libraryNamePrefix = libraryName + "_";
             var cpp = new LinkedList<String>();
             var files = nuspecNs.Element("files");
-            foreach (var file in Directory.GetFiles(srcDirectory))
-            {
-                var fileName = Path.GetFileName(file);
-                Console.WriteLine("    " + libraryNamePrefix + fileName);
-                AppendFile(files, file, srcPath);
-                if (Path.GetExtension(fileName) == ".cpp")
-                {
-                    cpp.AddLast("#include \"" + fileName + "\"");
-                }
-            }
-            foreach (var directory in Directory.GetDirectories(srcDirectory))
-            {
-                SrcDirectory(
-                    directory, libraryNamePrefix + Path.GetFileName(directory));
-            }
+            SrcFiles(files, cpp, srcDirectory); 
             var id = libraryName + "_src";
             var targetsFile = id + ".targets";
             var libraryCpp = libraryName + ".cpp";
@@ -68,9 +83,9 @@ namespace builder
             var nuspec = nuspecNs.Element("package").Append(
                 nuspecNs.Element("metadata").Append(
                     nuspecNs.Element("id").Append(id),
-                    nuspecNs.Element("version").Append(version.ToString())),
+                    nuspecNs.Element("version").Append(version.ToString()),
                     nuspecNs.Element("authors").Append(author),
-                    nuspecNs.Element("owner").Append(author), 
+                    nuspecNs.Element("owners").Append(author), 
                     nuspecNs.Element("licenseUrl").Append(
                         "http://www.boost.org/LICENSE_1_0.txt"),
                     nuspecNs.Element("projectUrl").Append("http://boost.org/"),
@@ -82,9 +97,10 @@ namespace builder
                         nuspecNs.Element(
                             "dependency",
                             noNs.Attribute("id", "boost"),
-                            noNs.Attribute("version", versionRange))),
+                            noNs.Attribute("version", versionRange)))),
                 files);
-            nuspec.CreateDocument().Save(id + ".nuspec");
+            var nuspecFile = id + ".nuspec";
+            nuspec.CreateDocument().Save(nuspecFile);
             //
             var pp =
                 libraryName.ToUpper() + "_NO_LIB;%(PreprocessorDefinitions)";
@@ -104,7 +120,15 @@ namespace builder
                                 srcPath,
                                 libraryCpp)))));
             targets.CreateDocument().Save(targetsFile);
+            //
             File.WriteAllLines(libraryCpp, cpp);
+            //
+            Process.Start(
+                new ProcessStartInfo(
+                    @"C:\programs\nuget.exe", "pack " + nuspecFile)
+                {
+                     UseShellExecute = false,
+                }).WaitForExit();
         }
 
         static void Main(string[] args)

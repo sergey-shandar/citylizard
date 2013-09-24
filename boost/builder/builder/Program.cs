@@ -11,7 +11,7 @@ namespace builder
 {
     class Program
     {
-        private static readonly Version version = new Version(1, 54, 0, 22);
+        private static readonly Version version = new Version(1, 54, 0, 45);
 
         private const string author = "Sergey Shandar";
 
@@ -33,12 +33,18 @@ namespace builder
 
             public readonly string[] ExcludeList;
 
+            public readonly string Preprocessor;
+
             public Library(
-                string name, bool exclude = false, string[] excludeList = null)
+                string name,
+                bool exclude = false,
+                string[] excludeList = null,
+                string preprocessor = "")
             {
                 Name = name;
                 Exclude = exclude;
                 ExcludeList = excludeList == null ? new string[0]: excludeList;
+                Preprocessor = preprocessor;
             }
         }
 
@@ -60,9 +66,38 @@ namespace builder
             // boost.filesystem depeneds on boost.system
             // boost.graph depends on boost.regex
             // boost.graph_parallel depends on boost.mpi, boost.serialization.
+            // boost.iostreams_bzip2 depends on bzip.
+            new Library(
+                name: "iostreams_bzip2"),
+            // boost.iostreams_zlib depends on zlib
+            new Library(
+                name: "iostreams_zlib"),
+            // boost.iostreams_gzip depends on boost.iostreams_zlib
+            new Library(
+                name: "iostreams_gzip"),
+            // boost.locale depends on
+            //     boost.thread,
+            //     boost.system, 
+            //     boost.date_time
+            //     boost.chron
+            new Library(
+                name: "locale",
+                // TODO: build with ICU.
+                excludeList: new[] { "posix", "icu" },
+                preprocessor: "BOOST_LOCALE_NO_POSIX_BACKEND;"),
+            // boost.log depends on boost.system.
+            new Library(
+                name: "log",
+                preprocessor:
+                    "BOOST_SPIRIT_USE_PHOENIX_V3;BOOST_LOG_WITHOUT_EVENT_LOG;"),
             // boost.mpi_python
             new Library(
-                name: "mpi_python")
+                name: "mpi_python"),
+            // boost.thread
+            new Library(
+                name: "thread",
+                excludeList: new[] { "pthread" },
+                preprocessor: "BOOST_THREAD_BUILD_LIB;"),
         };
 
         private sealed class Files
@@ -85,15 +120,13 @@ namespace builder
 
             public void Add(string file)
             {
+                var fullPath = Path.Combine(
+                    @"$(MSBuildThisFileDirectory)..\..\", srcPath, file);
                 ImportGroup.Append(msbuildNs.Element(
                     "ClCompile",
-                    noNs.Attribute(
-                        "Include",
-                        Path.Combine(
-                            @"$(MSBuildThisFileDirectory)..\..\",
-                            srcPath,
-                            file))).Append(
-                    msbuildNs.Element("PrecompiledHeader").Append("NotUsing")));
+                    noNs.Attribute("Include", fullPath)).
+                    Append(msbuildNs.Element("PrecompiledHeader").Append("NotUsing")).
+                    Append(msbuildNs.Element("SDLCheck").Append("false")));
             }
 
             public void AppendFile(string src, string target)
@@ -117,21 +150,28 @@ namespace builder
                 {
                     var fileName = Path.GetFileName(file);
                     var relativePath = Path.Combine(subDir, fileName);
-                    //
                     if (Lib.ExcludeList.FirstOrDefault(
-                            f => f == relativePath) ==
-                        null)
+                            f => f == relativePath) == null)
                     {
-                        if (Path.GetExtension(fileName) == ".cpp")
+                        var newFile = filePrefix + fileName;
+                        var libraryFile = Path.GetFileNameWithoutExtension(
+                            newFile);
+                        var lib = libraryList.FirstOrDefault(
+                            f => "boost_" + f.Name == libraryFile);
+                        if (Path.GetExtension(fileName) != ".cpp")
                         {
-                            var newFile = filePrefix + fileName;
+                            AppendFile(file, nuspecDirecotry);
+                        }
+                        else if (lib == null)
+                        {
+                            // make strong name.
                             File.Copy(file, newFile, true);
                             AppendFile(newFile, nuspecDirecotry);
                             Add(Path.Combine(subDir, newFile));
                         }
                         else
                         {
-                            AppendFile(file, nuspecDirecotry);
+                            // TODO: make a library.
                         }
                     }
                 }
@@ -139,16 +179,17 @@ namespace builder
                 {
                     var newSubDir = Path.Combine(subDir, Path.GetFileName(d));
                     var newName = Lib.Name + "_" + newSubDir.Replace('\\', '_');
-                    if (libraryList.FirstOrDefault(
-                            lib => lib.Name == newName) ==
-                        null)
-                    {
-                        this.Run(newSubDir);
-                    }
-                    else
+                    var newLib = libraryList.FirstOrDefault(
+                            lib => lib.Name == newName);
+                    if (newLib != null)
                     {
                         SrcDirectory(
                             Path.Combine(fullDirectory, subDir), newName);
+                    }
+                    else if (Lib.ExcludeList.FirstOrDefault(
+                            f => f == newSubDir) == null)
+                    {
+                        this.Run(newSubDir);
                     }
                 }
             }
@@ -197,8 +238,12 @@ namespace builder
             var nuspecFile = id + ".nuspec";
             nuspec.CreateDocument().Save(nuspecFile);
             //
+            var upperName = libraryName.ToUpper();
             var pp =
-                libraryName.ToUpper() + "_NO_LIB;%(PreprocessorDefinitions)";
+                files.Lib.Preprocessor +
+                upperName + 
+                "_NO_LIB;%(PreprocessorDefinitions)";
+            // <AdditionalIncludeDirectories>C:\Program Files\Microsoft HPC Pack 2012\Inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
             var targets = msbuildNs.Element("Project",
                 noNs.Attribute("ToolVersion", "4.0")).Append(
                 msbuildNs.Element("ItemDefinitionGroup").Append(

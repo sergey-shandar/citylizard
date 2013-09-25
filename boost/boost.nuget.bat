@@ -34,6 +34,7 @@ rem BOOST_IOSTREAMS_DYN_LINK
 call ..\lib.bat iostreams
 rem BOOST_LOCALE_DYN_LINK
 call ..\lib.bat locale
+
 rem BOOST_LOG_DYN_LINK
 call ..\lib.bat log
 rem BOOST_LOG_SETUP_DYN_LINK

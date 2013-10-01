@@ -32,7 +32,7 @@
     <ClCompile Include="test_exception.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\boost_exception_clone_current_exception_non_intrusive.cpp">
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\boost_exception.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -17,13 +17,19 @@ namespace builder
         }
 
         public static XElement Append(
-            this XElement element, params XElement[] childList)
+            this XElement element, IEnumerable<XElement> childList)
         {
             foreach (var child in childList)
             {
                 element.Add(child);
             }
             return element;
+        }
+
+        public static XElement Append(
+            this XElement element, params XElement[] childList)
+        {
+            return element.Append((IEnumerable<XElement>)childList);
         }
 
         public static XElement Append(this XElement element, string content)

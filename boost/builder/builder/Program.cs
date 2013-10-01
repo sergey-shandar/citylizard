@@ -11,6 +11,96 @@ namespace builder
 {
     class Program
     {
+        static IEnumerable<string> GetFiles(string directory)
+        {
+            return
+                Directory.GetDirectories(directory).
+                SelectMany(
+                    d =>
+                    {
+                        var name = Path.GetFileName(d);
+                        return GetFiles(d).Select(f => Path.Combine(name, f));
+                    }).
+                Concat(
+                    Directory.GetFiles(directory).
+                    Select(f => Path.GetFileName(f)));
+        }
+
+        static void MakeLibrary(Library libraryConfig, string src)
+        {
+            var files = GetFiles(src).ToList();
+
+            var compilationUnitConfigList =
+                libraryConfig.CompilationUnitList;
+
+            var defaultFileListConfig =
+                compilationUnitConfigList.
+                FirstOrDefault(u => u.Name == null).
+                NewIfNull().
+                FileList;
+
+            var additionalCompilationUnitList =
+                compilationUnitConfigList.
+                Where(u => u.Name != null).
+                ToList();
+
+            var additionalCppFileList =
+                additionalCompilationUnitList.
+                SelectMany(u => u.FileList).
+                Select(f => f.Name).
+                ToHashSet();
+
+            var cppFiles =
+                files.
+                Where(f =>
+                    !additionalCppFileList.Contains(f) &&
+                    Path.GetExtension(f) == ".cpp").
+                Select(f =>
+                {
+                    var config =
+                        defaultFileListConfig.
+                        FirstOrDefault(c =>
+                            c.Name == f ||
+                            c.Name == Path.GetDirectoryName(f));
+                    var condition = config == null ? null : config.Condition;
+                    return new CppFile(f, condition);
+                });
+
+            var compilationUnitList =
+                additionalCompilationUnitList.
+                Concat(Collections.New(
+                    new CompilationUnit(null, cppFiles)));
+
+            var library = new Library(
+                libraryConfig.Name, src, files, compilationUnitList);
+
+            library.Create();
+        }
+
+        static void Main(string[] args)
+        {
+            var boostLibs = 
+                @"..\..\..\..\..\..\..\Downloads\boost_1_54_0\libs\";
+            // TODO: include hpp/cpp/asm files from src folder.
+            foreach (var directory in Directory.GetDirectories(boostLibs))
+            {
+                var src = Path.Combine(directory, "src");
+                if (Directory.Exists(src))
+                {
+                    var name = Path.GetFileName(directory);
+                    
+                    var libraryConfig = 
+                        Config.LibraryList.
+                        Where(l => l.Name == name).
+                        FirstOrDefault().
+                        NewIfNull();
+
+                    MakeLibrary(libraryConfig, src);
+                }
+            }
+        }
+
+        /*
         private static readonly Version version = new Version(1, 54, 0, 46);
 
         private const string author = "Sergey Shandar";
@@ -311,5 +401,6 @@ namespace builder
                 }
             }
         }
+         * */
     }
 }

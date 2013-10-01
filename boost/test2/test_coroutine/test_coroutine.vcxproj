@@ -96,6 +96,6 @@
   <ImportGroup Label="ExtensionTargets">
     <Import Project="..\packages\boost.1.54.0.1\build\native\boost.targets" Condition="Exists('..\packages\boost.1.54.0.1\build\native\boost.targets')" />
     <Import Project="..\packages\boost_context.1.54.0.2\build\native\boost_context.targets" Condition="Exists('..\packages\boost_context.1.54.0.2\build\native\boost_context.targets')" />
-    <Import Project="..\packages\boost_coroutine_src.1.54.0.46\build\native\boost_coroutine_src.targets" Condition="Exists('..\packages\boost_coroutine_src.1.54.0.46\build\native\boost_coroutine_src.targets')" />
+    <Import Project="..\packages\boost_coroutine_src.1.54.0.65\build\native\boost_coroutine_src.targets" Condition="Exists('..\packages\boost_coroutine_src.1.54.0.65\build\native\boost_coroutine_src.targets')" />
   </ImportGroup>
 </Project>

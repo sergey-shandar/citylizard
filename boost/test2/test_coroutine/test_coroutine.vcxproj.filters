@@ -32,10 +32,7 @@
     <ClCompile Include="test_coroutine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\detail\boost_coroutine_detail_coroutine_context.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\detail\boost_coroutine_detail_standard_stack_allocator_windows.cpp">
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\boost_coroutine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

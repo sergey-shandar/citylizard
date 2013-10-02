@@ -19,7 +19,7 @@ namespace builder
             return value ?? new T();
         }
 
-        public static IEnumerable<T> NewIfNull<T>(this IEnumerable<T> value)
+        public static IEnumerable<T> EmptyIfNull<T>(this IEnumerable<T> value)
         {
             return value ?? Enumerable.Empty<T>();
         }

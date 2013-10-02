@@ -95,10 +95,10 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="..\packages\boost.1.54.0.1\build\native\boost.targets" Condition="Exists('..\packages\boost.1.54.0.1\build\native\boost.targets')" />
-    <Import Project="..\packages\boost_chrono_src.1.54.0.65\build\native\boost_chrono_src.targets" Condition="Exists('..\packages\boost_chrono_src.1.54.0.65\build\native\boost_chrono_src.targets')" />
-    <Import Project="..\packages\boost_date_time_src.1.54.0.65\build\native\boost_date_time_src.targets" Condition="Exists('..\packages\boost_date_time_src.1.54.0.65\build\native\boost_date_time_src.targets')" />
-    <Import Project="..\packages\boost_system_src.1.54.0.65\build\native\boost_system_src.targets" Condition="Exists('..\packages\boost_system_src.1.54.0.65\build\native\boost_system_src.targets')" />
-    <Import Project="..\packages\boost_locale_src.1.54.0.65\build\native\boost_locale_src.targets" Condition="Exists('..\packages\boost_locale_src.1.54.0.65\build\native\boost_locale_src.targets')" />
-    <Import Project="..\packages\boost_thread_src.1.54.0.65\build\native\boost_thread_src.targets" Condition="Exists('..\packages\boost_thread_src.1.54.0.65\build\native\boost_thread_src.targets')" />
+    <Import Project="..\packages\boost_system_src.1.54.0.69\build\native\boost_system_src.targets" Condition="Exists('..\packages\boost_system_src.1.54.0.69\build\native\boost_system_src.targets')" />
+    <Import Project="..\packages\boost_locale_src.1.54.0.69\build\native\boost_locale_src.targets" Condition="Exists('..\packages\boost_locale_src.1.54.0.69\build\native\boost_locale_src.targets')" />
+    <Import Project="..\packages\boost_chrono_src.1.54.0.69\build\native\boost_chrono_src.targets" Condition="Exists('..\packages\boost_chrono_src.1.54.0.69\build\native\boost_chrono_src.targets')" />
+    <Import Project="..\packages\boost_date_time_src.1.54.0.69\build\native\boost_date_time_src.targets" Condition="Exists('..\packages\boost_date_time_src.1.54.0.69\build\native\boost_date_time_src.targets')" />
+    <Import Project="..\packages\boost_thread_src.1.54.0.69\build\native\boost_thread_src.targets" Condition="Exists('..\packages\boost_thread_src.1.54.0.69\build\native\boost_thread_src.targets')" />
   </ImportGroup>
 </Project>

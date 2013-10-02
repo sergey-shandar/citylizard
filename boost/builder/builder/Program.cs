@@ -11,24 +11,43 @@ namespace builder
 {
     class Program
     {
-        static IEnumerable<string> GetFiles(string directory)
+        static IEnumerable<IEnumerable<string>> GetFileListList(
+            string name, string directory)
         {
-            return
-                Directory.GetDirectories(directory).
-                SelectMany(
-                    d =>
-                    {
-                        var name = Path.GetFileName(d);
-                        return GetFiles(d).Select(f => Path.Combine(name, f));
-                    }).
-                Concat(
-                    Directory.GetFiles(directory).
-                    Select(f => Path.GetFileName(f)));
+            foreach(var d in Directory.GetDirectories(directory))
+            {
+                // short name of directory.
+                var fn = Path.GetFileName(d);
+                var libName = name + "_" + fn;
+                var library =
+                    Config.LibraryList.
+                    FirstOrDefault(lib => lib.Name == libName);
+                if (library == null)
+                {
+                    // add this short name to all its files and return them.
+                    yield return
+                        GetFiles(libName, d).
+                        Select(f => Path.Combine(fn, f));
+                }
+                else
+                {
+                    MakeLibrary(library, d);
+                }
+            }
+            yield return 
+                Directory.
+                GetFiles(directory).
+                Select(f => Path.GetFileName(f));
+        }
+
+        static IEnumerable<string> GetFiles(string name, string directory)
+        {
+            return GetFileListList(name, directory).SelectMany(f => f);
         }
 
         static void MakeLibrary(Library libraryConfig, string src)
         {
-            var files = GetFiles(src).ToList();
+            var files = GetFiles(libraryConfig.Name, src).ToList();
 
             var compilationUnitConfigList =
                 libraryConfig.CompilationUnitList;
@@ -88,12 +107,12 @@ namespace builder
                 if (Directory.Exists(src))
                 {
                     var name = Path.GetFileName(directory);
-                    
-                    var libraryConfig = 
+
+                    var libraryConfig =
                         Config.LibraryList.
                         Where(l => l.Name == name).
-                        FirstOrDefault().
-                        NewIfNull();
+                        FirstOrDefault() ??
+                        new Library(name);
 
                     MakeLibrary(libraryConfig, src);
                 }

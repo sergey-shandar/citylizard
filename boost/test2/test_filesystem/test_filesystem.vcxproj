@@ -95,7 +95,7 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="..\packages\boost.1.54.0.1\build\native\boost.targets" Condition="Exists('..\packages\boost.1.54.0.1\build\native\boost.targets')" />
-    <Import Project="..\packages\boost_filesystem_src.1.54.0.65\build\native\boost_filesystem_src.targets" Condition="Exists('..\packages\boost_filesystem_src.1.54.0.65\build\native\boost_filesystem_src.targets')" />
-    <Import Project="..\packages\boost_system_src.1.54.0.65\build\native\boost_system_src.targets" Condition="Exists('..\packages\boost_system_src.1.54.0.65\build\native\boost_system_src.targets')" />
+    <Import Project="..\packages\boost_system_src.1.54.0.69\build\native\boost_system_src.targets" Condition="Exists('..\packages\boost_system_src.1.54.0.69\build\native\boost_system_src.targets')" />
+    <Import Project="..\packages\boost_filesystem_src.1.54.0.69\build\native\boost_filesystem_src.targets" Condition="Exists('..\packages\boost_filesystem_src.1.54.0.69\build\native\boost_filesystem_src.targets')" />
   </ImportGroup>
 </Project>

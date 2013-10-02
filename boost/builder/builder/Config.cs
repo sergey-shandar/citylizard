@@ -8,6 +8,7 @@ namespace builder
 {
     static class Config
     {
+        // TODO: make sublibraries.
         public static readonly Library[] LibraryList = new[]
         {
             new Library(
@@ -62,15 +63,39 @@ namespace builder
                         }),
                 }),
             new Library(
-                name: "serialization",
+                name: "icu",
                 compilationUnitList: new[]
                 {
                     new CompilationUnit(
-                        name: "w",
-                        fileList: new []
+                        name: null,
+                        fileList: new[]
                         {
-                            new CppFile("basic_text_wiprimitive.cpp")
+                            new CppFile("icu", "defined BOOST_LOCALE_ICU"),
                         }),
+                }),
+            new Library(
+                name: "mpi_python"),
+            new Library(
+                name: "serialization",
+                compilationUnitList: new[]
+                {
+                    CompilationUnit.Cpp("basic_text_iprimitive"),
+                    CompilationUnit.Cpp("basic_text_wiprimitive"),
+                    //
+                    CompilationUnit.Cpp("binary_iarchive"),
+                    CompilationUnit.Cpp("binary_oarchive"),
+                    CompilationUnit.Cpp("binary_wiarchive"),
+                    CompilationUnit.Cpp("binary_woarchive"),
+                    CompilationUnit.Cpp("polymorphic_iarchive"),
+                    CompilationUnit.Cpp("polymorphic_oarchive"),
+                    CompilationUnit.Cpp("text_iarchive"),
+                    CompilationUnit.Cpp("text_oarchive"),
+                    CompilationUnit.Cpp("text_wiarchive"),
+                    CompilationUnit.Cpp("text_woarchive"),
+                    CompilationUnit.Cpp("xml_iarchive"),
+                    CompilationUnit.Cpp("xml_oarchive"),
+                    CompilationUnit.Cpp("xml_wiarchive"),
+                    CompilationUnit.Cpp("xml_woarchive"),
                 }),
             new Library(
                 name: "thread",

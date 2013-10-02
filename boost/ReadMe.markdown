@@ -6,3 +6,9 @@
    This is the most flexible solution for any configuration.
 
 CPP and DLL packages should be referenced only from executable or DLLs. They must not be referenced from static libraries. This is another reason why boost header packages should be separated from CPP, LIB and DLL packages.
+
+# Guide
+
+1. Split C++ file set to libraries and sublibraries. 
+2. ".cpp" files should provide functionality (method bodys on any platform). ".ipp" files can be responsible for platfrom specific 
+   implementations.

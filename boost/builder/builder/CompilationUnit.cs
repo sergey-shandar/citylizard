@@ -17,11 +17,17 @@ namespace builder
             string name, IEnumerable<CppFile> fileList = null)
         {
             Name = name;
-            FileList = fileList.NewIfNull();
+            FileList = fileList.EmptyIfNull();
         }
 
         public CompilationUnit(): this(null)
         {
+        }
+
+        public static CompilationUnit Cpp(string name)
+        {
+            return
+                new CompilationUnit(name, new[] { new CppFile(name + ".cpp") });
         }
 
         public string FileName(Library library)

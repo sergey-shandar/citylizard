@@ -156,7 +156,7 @@ namespace builder
             return N("file", A("src", src), A("target", target));
         }
 
-        private static readonly Version version = new Version(1, 54, 0, 69);
+        private static readonly Version version = new Version(1, 54, 0, 83);
 
         private const string authors = "Sergey Shandar, Boost";
 

@@ -43,9 +43,16 @@ namespace builder
             File.WriteAllLines(
                 FileName(library),
                 Collections.
-                    New(new CppFile(@"boost\config.hpp")).
-                    Concat(FileList).
-                    SelectMany(f => f.Code));
+                    New(
+                        "#define _SCL_SECURE_NO_WARNINGS",
+                        "#define _CRT_SECURE_NO_WARNINGS").
+                    Concat(
+                        Collections.
+                            New(new CppFile(@"boost\config.hpp")).
+                            Concat(FileList).
+                            SelectMany(f => f.Code)
+                    )
+                );
         }
     }
 }

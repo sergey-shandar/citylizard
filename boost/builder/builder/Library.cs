@@ -19,20 +19,16 @@ namespace builder
 
         public readonly IEnumerable<CompilationUnit> CompilationUnitList;
 
-        public readonly IEnumerable<Library> LibraryList;
-
         public Library(
             string name,
             string directory = null,
             IEnumerable<string> fileList = null,
-            IEnumerable<CompilationUnit> compilationUnitList = null,
-            IEnumerable<Library> libraryList = null)
+            IEnumerable<CompilationUnit> compilationUnitList = null)
         {
             Name = name;
             Directory = directory;
             FileList = fileList;
             CompilationUnitList = compilationUnitList.EmptyIfNull();
-            LibraryList = libraryList.EmptyIfNull();
         }
 
         public Library(): this(null)
@@ -156,7 +152,7 @@ namespace builder
             return N("file", A("src", src), A("target", target));
         }
 
-        private static readonly Version version = new Version(1, 54, 0, 83);
+        private static readonly Version version = new Version(1, 54, 0, 91);
 
         private const string authors = "Sergey Shandar, Boost";
 

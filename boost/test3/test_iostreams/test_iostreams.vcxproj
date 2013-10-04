@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{4E2D5F21-4288-4695-B4C7-1C2EE0619A4A}</ProjectGuid>
+    <ProjectGuid>{0A410B33-AB80-430D-BD26-9853B668F810}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>test_regex</RootNamespace>
+    <RootNamespace>test_iostreams</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -87,7 +87,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="test_regex.cpp" />
+    <ClCompile Include="test_iostreams.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -95,6 +95,6 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="..\packages\boost.1.54.0.1\build\native\boost.targets" Condition="Exists('..\packages\boost.1.54.0.1\build\native\boost.targets')" />
-    <Import Project="..\packages\boost_regex_src.1.54.0.90\build\native\boost_regex_src.targets" Condition="Exists('..\packages\boost_regex_src.1.54.0.90\build\native\boost_regex_src.targets')" />
+    <Import Project="..\packages\boost_iostreams_src.1.54.0.89\build\native\boost_iostreams_src.targets" Condition="Exists('..\packages\boost_iostreams_src.1.54.0.89\build\native\boost_iostreams_src.targets')" />
   </ImportGroup>
 </Project>

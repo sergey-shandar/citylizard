@@ -96,5 +96,6 @@
   <ImportGroup Label="ExtensionTargets">
     <Import Project="..\packages\boost.1.54.0.1\build\native\boost.targets" Condition="Exists('..\packages\boost.1.54.0.1\build\native\boost.targets')" />
     <Import Project="..\packages\boost_graph_src.1.54.0.83\build\native\boost_graph_src.targets" Condition="Exists('..\packages\boost_graph_src.1.54.0.83\build\native\boost_graph_src.targets')" />
+    <Import Project="..\packages\boost_regex_src.1.54.0.89\build\native\boost_regex_src.targets" Condition="Exists('..\packages\boost_regex_src.1.54.0.89\build\native\boost_regex_src.targets')" />
   </ImportGroup>
 </Project>

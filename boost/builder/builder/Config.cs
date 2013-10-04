@@ -8,7 +8,37 @@ namespace builder
 {
     static class Config
     {
-        public static readonly Library[] LibraryList = new Library[]
+        public class SubLibrary
+        {
+            public readonly string ParentLibrary;
+            public readonly string Name;
+
+            public readonly IEnumerable<string> FileList;
+
+            public SubLibrary(
+                string parentLibrary,
+                string name,
+                IEnumerable<string> fileList)
+            {
+                ParentLibrary = parentLibrary;
+                Name = name;
+                FileList = fileList;
+            }
+        }
+
+        public static readonly SubLibrary[] SubLibraryList = new[]
+        {
+            new SubLibrary(
+                "iostreams", "zlib", Collections.New("zlib.cpp", "gzip.cpp")),
+            new SubLibrary(
+                "iostreams", "bzip2", Collections.New("bzip2.cpp")),
+            new SubLibrary(
+                "locale", "icu", Collections.New("icu.cpp")),
+            new SubLibrary(
+                "mpi", "python", Collections.New("python")),
+        };
+
+        public static readonly Library[] LibraryList = new[]
         {
             // chrono depends on system
             // context needs ASM.
@@ -48,8 +78,9 @@ namespace builder
                             new CppFile("path.cpp")
                         }),
                 }),
-            // graph depens on regex.
+            // graph depens on regex. WIP
             // graph_parallel depends on mpi.
+            // iostreams.
             // mpi depends on serialization and MPI (3rd party).
             new Library(
                 name: "mpi",
@@ -67,6 +98,15 @@ namespace builder
                 }),
             // mpi python.
             new Library(name: "mpi_python"),
+            // regex.
+            new Library(
+                name: "regex",
+                compilationUnitList: new[]
+                {
+                    CompilationUnit.Cpp("usinstances"),
+                    CompilationUnit.Cpp("instances"),
+                    CompilationUnit.Cpp("winstances"),
+                }),
             // serialization.
             new Library(
                 name: "serialization",

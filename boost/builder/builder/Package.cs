@@ -22,7 +22,7 @@ namespace builder
         {
             Name = name;
             FileList = fileList;
-            CompilationUnitList = compilationUnitList.EmptyIfNull();
+            CompilationUnitList = compilationUnitList.OneIfNull();
         }
 
         public Package(): this(null)

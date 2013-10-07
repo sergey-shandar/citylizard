@@ -15,34 +15,37 @@ namespace builder
 
         public readonly string Directory;
 
-        public readonly IEnumerable<string> FileList;
-
-        public readonly IEnumerable<CompilationUnit> CompilationUnitList;
+        public readonly IEnumerable<Package> PackageList;
 
         public Library(
             string name,
             string directory = null,
-            IEnumerable<string> fileList = null,
-            IEnumerable<CompilationUnit> compilationUnitList = null)
+            IEnumerable<Package> packageList = null)
         {
             Name = name;
             Directory = directory;
-            FileList = fileList;
-            CompilationUnitList = compilationUnitList.EmptyIfNull();
+            PackageList = packageList.EmptyIfNull();
+        }
+
+        public Library(
+            string name,
+            IEnumerable<CompilationUnit> compilationUnitList
+        ):
+            this(
+                name: name,
+                packageList: 
+                    new[]
+                    {
+                        new Package(
+                            name: null,
+                            compilationUnitList: compilationUnitList )
+                    }
+            )
+        {
         }
 
         public Library(): this(null)
         {
-        }
-
-        public string LibraryId
-        {
-            get { return "boost_" + Name; }
-        }
-
-        public string NuspecId
-        {
-            get { return LibraryId + "_src"; } 
         }
 
         public void Create()
@@ -53,71 +56,76 @@ namespace builder
                 "," +
                 new Version(version.Major, version.Minor + 1) +
                 ")";
-            var description = "Boost." + Name;
-            var srcFiles = 
-                FileList.Select(f => File(
-                    Path.Combine(Directory, f),
-                    Path.Combine(targetSrcPath, f)));
-            var unitFiles = CompilationUnitList.
-                Select(u => File(u.FileName(this), targetSrcPath));
-            var targetsFile = NuspecId + ".targets";
-            var nuspec =
-                N("package").Append(
-                    N("metadata").Append(
-                        N("id", NuspecId),
-                        N("version", version.ToString()),
-                        N("authors", authors),
-                        N("owners", authors),
-                        N("licenseUrl", "http://www.boost.org/LICENSE_1_0.txt"),
-                        N("projectUrl", "http://boost.org/"),
-                        N("requireLicenseAcceptance", "false"),
-                        N("description", description),
-                        N("dependencies").Append(
-                            N(
-                                "dependency",
-                                A("id", "boost"),
-                                A("version", versionRange)
-                            )
-                        )
-                    ),
-                    N("files").
-                        Append(srcFiles).
-                        Append(unitFiles).
-                        Append(File(targetsFile, targetBuildPath))
-                );
-            var nuspecFile = NuspecId + ".nuspec";
-            nuspec.CreateDocument().Save(nuspecFile);
-            //
-            foreach (var u in CompilationUnitList)
+            foreach (var package in PackageList)
             {
-                u.Make(this);
-            }
-            //
-            var pd = LibraryId.ToUpper() + "_NO_LIB;%(PreprocessorDefinitions)";
-            var srcPath = Path.Combine(
-                    @"$(MSBuildThisFileDirectory)..\..\", targetSrcPath);
-            var unitList = CompilationUnitList.Select(u => 
-                M("ClCompile", 
-                    A("Include", Path.Combine(srcPath, u.FileName(this)))
-                ).Append(
-                    M("PrecompiledHeader", "NotUsing")
-                ));
-            var targets = 
-                M("Project", A("ToolVersion", "4.0")).Append(
-                    M("ItemDefinitionGroup").Append(
-                        M("ClCompile").Append(
-                            M("PreprocessorDefinitions", pd)
-                        )
-                    ),
-                    M("ItemGroup").Append(unitList)
-                );
-            targets.CreateDocument().Save(targetsFile);
-            Process.Start(
-                new ProcessStartInfo(
-                    @"C:\programs\nuget.exe", "pack " + nuspecFile)
+                var packageId = package.PackageId(Name);
+                var nuspecId = packageId + "_src";
+                var srcFiles =
+                    package.FileList.Select(f => File(
+                        Path.Combine(Directory, f),
+                        Path.Combine(targetSrcPath, f)));
+                var unitFiles = package.CompilationUnitList.
+                    Select(u => File(u.FileName(packageId), targetSrcPath));
+                var targetsFile = nuspecId + ".targets";
+                var nuspec =
+                    N("package").Append(
+                        N("metadata").Append(
+                            N("id", nuspecId),
+                            N("version", version.ToString()),
+                            N("authors", authors),
+                            N("owners", authors),
+                            N("licenseUrl", "http://www.boost.org/LICENSE_1_0.txt"),
+                            N("projectUrl", "http://boost.org/"),
+                            N("requireLicenseAcceptance", "false"),
+                            N("description", packageId + " source."),
+                            N("dependencies").Append(
+                                N(
+                                    "dependency",
+                                    A("id", "boost"),
+                                    A("version", versionRange)
+                                )
+                            )
+                        ),
+                        N("files").
+                            Append(srcFiles).
+                            Append(unitFiles).
+                            Append(File(targetsFile, targetBuildPath))
+                    );
+                var nuspecFile = nuspecId + ".nuspec";
+                nuspec.CreateDocument().Save(nuspecFile);
+                //
+                foreach (var u in package.CompilationUnitList)
                 {
-                    UseShellExecute = false,
-                }).WaitForExit();
+                    u.Make(packageId);
+                }
+                //
+                var pd = packageId.ToUpper() + "_NO_LIB;%(PreprocessorDefinitions)";
+                var srcPath = Path.Combine(
+                        @"$(MSBuildThisFileDirectory)..\..\", targetSrcPath);
+                var unitList = package.CompilationUnitList.Select(u =>
+                    M("ClCompile",
+                        A("Include",
+                            Path.Combine(srcPath, u.FileName(packageId)))
+                    ).Append(
+                        M("PrecompiledHeader", "NotUsing")
+                    ));
+                var targets =
+                    M("Project", A("ToolVersion", "4.0")).Append(
+                        M("ItemDefinitionGroup").Append(
+                            M("ClCompile").Append(
+                                M("PreprocessorDefinitions", pd)
+                            )
+                        ),
+                        M("ItemGroup").Append(unitList)
+                    );
+                targets.CreateDocument().Save(targetsFile);
+                Process.Start(
+                    new ProcessStartInfo(
+                        @"C:\programs\nuget.exe", "pack " + nuspecFile)
+                    {
+                        UseShellExecute = false,
+                    }).WaitForExit();
+            }
         }
 
         private static XElement N(

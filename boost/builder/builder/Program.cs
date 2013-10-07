@@ -11,6 +11,7 @@ namespace builder
 {
     class Program
     {
+        /*
         static IEnumerable<IEnumerable<string>> GetFileListList(
             string name, string directory)
         {
@@ -39,14 +40,54 @@ namespace builder
                 GetFiles(directory).
                 Select(f => Path.GetFileName(f));
         }
+         * */
 
+        /*
         static IEnumerable<string> GetFiles(string name, string directory)
         {
             return GetFileListList(name, directory).SelectMany(f => f);
         }
+         * */
+
+        static IEnumerable<string> FileList(DirectoryInfo info, string name)
+        {
+            return
+                info.
+                GetDirectories().
+                SelectMany(d => FileList(d, Path.Combine(name, d.Name))).
+                Concat(
+                    info.
+                    GetFiles().
+                    Select(f => Path.Combine(name, f.Name)));
+        }
+
+        static IEnumerable<Package> CreatePackageList(
+            IEnumerable<Package> packageListConfig)
+        {
+            var firstPackage = packageListConfig.First();
+            var firstCompilationPackage =
+                firstPackage.CompilationUnitList.First();
+            //
+            var extraFileSet =
+                packageListConfig.
+                Skip(1).
+                SelectMany(u => u.FileList).
+                ToHashSet();
+            //
+        }
 
         static void MakeLibrary(Library libraryConfig, string src)
         {
+            var directoryInfo = new DirectoryInfo(src);
+
+            var packageList = 
+                libraryConfig.
+                PackageList.
+                Select(p => new Package(p.Name, p.FileList));
+
+            new Library(libraryConfig.Name, src, packageList);
+
+            /*
             var files = GetFiles(libraryConfig.Name, src).ToList();
 
             var compilationUnitConfigList =
@@ -94,6 +135,7 @@ namespace builder
                 libraryConfig.Name, src, files, compilationUnitList);
 
             library.Create();
+             * */
         }
 
         static void Main(string[] args)

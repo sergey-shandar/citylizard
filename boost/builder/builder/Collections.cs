@@ -29,6 +29,12 @@ namespace builder
             return value ?? Enumerable.Empty<T>();
         }
 
+        public static IEnumerable<T> OneIfNull<T>(this IEnumerable<T> value)
+            where T: new()
+        {
+            return value ?? new[] { new T() };
+        }
+
         public static HashSet<T> ToHashSet<T>(this IEnumerable<T> values)
         {
             var result = new HashSet<T>();

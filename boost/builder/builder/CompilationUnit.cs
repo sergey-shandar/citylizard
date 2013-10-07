@@ -27,21 +27,22 @@ namespace builder
         public static CompilationUnit Cpp(string name)
         {
             return
-                new CompilationUnit(name, new[] { new CppFile(name + ".cpp") });
+                new CompilationUnit(
+                    name, Collections.New(new CppFile(name + ".cpp")));
         }
 
-        public string FileName(Library library)
+        public string FileName(string packageId)
         {
             return
-                library.LibraryId + 
+                packageId + 
                 (Name == null ? "" : "_" + Name) +
                 ".cpp";
         }
 
-        public void Make(Library library)
+        public void Make(string packageId)
         {
             File.WriteAllLines(
-                FileName(library),
+                FileName(packageId),
                 Collections.
                     New(
                         "#define _SCL_SECURE_NO_WARNINGS",

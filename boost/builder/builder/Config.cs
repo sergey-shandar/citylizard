@@ -8,6 +8,7 @@ namespace builder
 {
     static class Config
     {
+        /*
         public class SubLibrary
         {
             public readonly string ParentLibrary;
@@ -37,6 +38,7 @@ namespace builder
             new SubLibrary(
                 "mpi", "python", Collections.New("python")),
         };
+         * */
 
         public static readonly Library[] LibraryList = new[]
         {
@@ -69,14 +71,18 @@ namespace builder
             // filesystem depends on system.
             new Library(
                 name: "filesystem",
-                compilationUnitList: new[]
+                compilationUnitList: new[] { CompilationUnit.Cpp("path") }),
+            new Library(
+                name: "iostreams",
+                packageList: new[]
                 {
-                    new CompilationUnit(
-                        name: "path",
-                        fileList: new[]
-                        {
-                            new CppFile("path.cpp")
-                        }),
+                    new Package(),
+                    new Package(
+                        name: "bzip2", 
+                        fileList: new[] { "bzip2.cpp" }),
+                    new Package(
+                        name: "zlib",
+                        fileList: new[] { "zlib.cpp", "gzip.cpp" }),
                 }),
             // graph depens on regex. WIP
             // graph_parallel depends on mpi.
@@ -84,20 +90,30 @@ namespace builder
             // mpi depends on serialization and MPI (3rd party).
             new Library(
                 name: "mpi",
-                compilationUnitList: new[]
+                packageList: new[]
                 {
-                    // archive_serializer_map.ipp
-                    // 1. content_oarchive.cpp
-                    // 2. ...
-                    CompilationUnit.Cpp("mpi_datatype_oarchive"),
-                    CompilationUnit.Cpp("packed_iarchive"),
-                    CompilationUnit.Cpp("packed_oarchive"),
-                    CompilationUnit.Cpp("packed_skeleton_iarchive"),
-                    CompilationUnit.Cpp("packed_skeleton_oarchive"),
-                    CompilationUnit.Cpp("text_skeleton_oarchive"),
+                    new Package(
+                        name: null,
+                        compilationUnitList: new[]
+                        {
+                            // archive_serializer_map.ipp
+                            // 1. content_oarchive.cpp
+                            // 2. ...
+                            CompilationUnit.Cpp("mpi_datatype_oarchive"),
+                            CompilationUnit.Cpp("packed_iarchive"),
+                            CompilationUnit.Cpp("packed_oarchive"),
+                            CompilationUnit.Cpp("packed_skeleton_iarchive"),
+                            CompilationUnit.Cpp("packed_skeleton_oarchive"),
+                            CompilationUnit.Cpp("text_skeleton_oarchive"),
+                        }),
+                    // mpi_python
+                    new Package(
+                        name: "python",
+                        fileList: new[]
+                        {
+                            "python"
+                        }),
                 }),
-            // mpi python.
-            new Library(name: "mpi_python"),
             // regex.
             new Library(
                 name: "regex",

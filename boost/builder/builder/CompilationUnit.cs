@@ -11,24 +11,22 @@ namespace builder
     {
         public readonly string Name;
 
-        public readonly IEnumerable<CppFile> FileList;
+        public readonly string CppFile;
 
         public CompilationUnit(
-            string name, IEnumerable<CppFile> fileList = null)
+            string name, string cppFile)
         {
             Name = name;
-            FileList = fileList.EmptyIfNull();
+            CppFile = cppFile;
         }
 
-        public CompilationUnit(): this(null)
+        public CompilationUnit(): this(null, null)
         {
         }
 
-        public static CompilationUnit Cpp(string name)
+        public string LocalPath
         {
-            return
-                new CompilationUnit(
-                    name, Collections.New(new CppFile(name + ".cpp")));
+            get { return Path.GetDirectoryName(CppFile); }
         }
 
         public string FileName(string packageId)
@@ -39,20 +37,22 @@ namespace builder
                 ".cpp";
         }
 
-        public void Make(string packageId)
+        public void Make(string packageId, Package package)
         {
             File.WriteAllLines(
                 FileName(packageId),
-                Collections.
-                    New(
+                new[]
+                    {
                         "#define _SCL_SECURE_NO_WARNINGS",
-                        "#define _CRT_SECURE_NO_WARNINGS").
+                        "#define _CRT_SECURE_NO_WARNINGS",
+                        "#pragma warning(disable: 4503 4752 4800)"
+                    }.
+                    Concat(package.LineList).
                     Concat(
-                        Collections.
-                            New(new CppFile(@"boost\config.hpp")).
-                            Concat(FileList).
-                            SelectMany(f => f.Code)
-                    )
+                        new[]
+                        { 
+                            "#include \"" + Path.GetFileName(CppFile) + "\""
+                        })
                 );
         }
     }

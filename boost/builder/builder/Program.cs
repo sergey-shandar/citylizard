@@ -49,93 +49,82 @@ namespace builder
         }
          * */
 
-        static IEnumerable<string> FileList(DirectoryInfo info, string name)
+        class Dir
         {
-            return
-                info.
-                GetDirectories().
-                SelectMany(d => FileList(d, Path.Combine(name, d.Name))).
-                Concat(
-                    info.
-                    GetFiles().
-                    Select(f => Path.Combine(name, f.Name)));
+            private readonly DirectoryInfo Info;
+            private readonly string Name;
+
+            public Dir(DirectoryInfo info, string name)
+            {
+                Info = info;
+                Name = name;
+            }
+
+            public IEnumerable<string> FileList(Func<string, bool> filter)
+            {
+                return
+                    Info.
+                    GetDirectories().
+                    Select(
+                        i => new Dir(i, Path.Combine(Name, i.Name))).
+                    Where(
+                        dir => filter(dir.Name)).
+                    SelectMany(
+                        dir => dir.FileList(filter)).
+                    Concat(
+                        Info.
+                        GetFiles().
+                        Select(f => Path.Combine(Name, f.Name)).
+                        Where(f => filter(f))
+                    );
+            }
         }
 
         static IEnumerable<Package> CreatePackageList(
+            string path,
             IEnumerable<Package> packageListConfig)
         {
             var firstPackage = packageListConfig.First();
-            var firstCompilationPackage =
-                firstPackage.CompilationUnitList.First();
+            var firstFileSet = firstPackage.FileList.ToHashSet();
+            var extraPackageList = packageListConfig.Skip(1);
             //
             var extraFileSet =
-                packageListConfig.
-                Skip(1).
-                SelectMany(u => u.FileList).
+                extraPackageList.
+                SelectMany(p => p.FileList).
                 ToHashSet();
             //
+            var dir = new Dir(new DirectoryInfo(path), "");
+            yield return 
+                new Package(
+                    name: null,
+                    lineList: firstPackage.LineList,
+                    fileList: 
+                        dir.
+                        FileList(
+                            s => 
+                                !extraFileSet.Contains(s) || 
+                                firstFileSet.Contains(s)
+                        )
+                );
+            //
+            foreach (var p in extraPackageList)
+            {
+                var set = p.FileList.ToHashSet();
+                yield return new Package(
+                    name: p.Name,
+                    lineList: p.LineList,
+                    fileList: dir.FileList(s => set.Contains(s)));
+            }
         }
 
         static void MakeLibrary(Library libraryConfig, string src)
         {
-            var directoryInfo = new DirectoryInfo(src);
-
-            var packageList = 
-                libraryConfig.
-                PackageList.
-                Select(p => new Package(p.Name, p.FileList));
-
-            new Library(libraryConfig.Name, src, packageList);
-
-            /*
-            var files = GetFiles(libraryConfig.Name, src).ToList();
-
-            var compilationUnitConfigList =
-                libraryConfig.CompilationUnitList;
-
-            var defaultFileListConfig =
-                compilationUnitConfigList.
-                FirstOrDefault(u => u.Name == null).
-                NewIfNull().
-                FileList;
-
-            var additionalCompilationUnitList =
-                compilationUnitConfigList.
-                Where(u => u.Name != null).
-                ToList();
-
-            var additionalCppFileList =
-                additionalCompilationUnitList.
-                SelectMany(u => u.FileList).
-                Select(f => f.Name).
-                ToHashSet();
-
-            var cppFiles =
-                files.
-                Where(f =>
-                    !additionalCppFileList.Contains(f) &&
-                    Path.GetExtension(f) == ".cpp").
-                Select(f =>
-                {
-                    var config =
-                        defaultFileListConfig.
-                        FirstOrDefault(c =>
-                            c.Name == f ||
-                            c.Name == Path.GetDirectoryName(f));
-                    var condition = config == null ? null : config.Condition;
-                    return new CppFile(f, condition);
-                });
-
-            var compilationUnitList =
-                additionalCompilationUnitList.
-                Concat(Collections.New(
-                    new CompilationUnit(null, cppFiles)));
-
-            var library = new Library(
-                libraryConfig.Name, src, files, compilationUnitList);
-
-            library.Create();
-             * */
+            new Library(
+                libraryConfig.Name,
+                src,
+                CreatePackageList(src, libraryConfig.PackageList)
+            ).
+            Create();
         }
 
         static void Main(string[] args)

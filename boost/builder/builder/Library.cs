@@ -24,24 +24,7 @@ namespace builder
         {
             Name = name;
             Directory = directory;
-            PackageList = packageList.EmptyIfNull();
-        }
-
-        public Library(
-            string name,
-            IEnumerable<CompilationUnit> compilationUnitList
-        ):
-            this(
-                name: name,
-                packageList: 
-                    new[]
-                    {
-                        new Package(
-                            name: null,
-                            compilationUnitList: compilationUnitList )
-                    }
-            )
-        {
+            PackageList = packageList.OneIfNull();
         }
 
         public Library(): this(null)
@@ -64,8 +47,16 @@ namespace builder
                     package.FileList.Select(f => File(
                         Path.Combine(Directory, f),
                         Path.Combine(targetSrcPath, f)));
-                var unitFiles = package.CompilationUnitList.
-                    Select(u => File(u.FileName(packageId), targetSrcPath));
+                var unitFiles =
+                    package.
+                    CompilationUnitList.
+                    Select(
+                        u => 
+                            File(
+                                u.FileName(packageId), 
+                                Path.Combine(targetSrcPath, u.LocalPath)
+                            )
+                    );
                 var targetsFile = nuspecId + ".targets";
                 var nuspec =
                     N("package").Append(
@@ -96,19 +87,41 @@ namespace builder
                 //
                 foreach (var u in package.CompilationUnitList)
                 {
-                    u.Make(packageId);
+                    u.Make(packageId, package);
                 }
                 //
                 var pd = packageId.ToUpper() + "_NO_LIB;%(PreprocessorDefinitions)";
                 var srcPath = Path.Combine(
                         @"$(MSBuildThisFileDirectory)..\..\", targetSrcPath);
-                var unitList = package.CompilationUnitList.Select(u =>
-                    M("ClCompile",
-                        A("Include",
-                            Path.Combine(srcPath, u.FileName(packageId)))
-                    ).Append(
-                        M("PrecompiledHeader", "NotUsing")
-                    ));
+                /*
+                var additionalIncludeDirectories =
+                    ".;%(AdditionalIncludeDirectories)";
+                 * */
+                var unitList = 
+                    package.
+                    CompilationUnitList.
+                    Select(
+                        u =>
+                            M("ClCompile",
+                                A(
+                                    "Include",
+                                    Path.Combine(
+                                        srcPath,
+                                        u.LocalPath,
+                                        u.FileName(packageId))
+                                )
+                            ).Append(
+                                M(
+                                    "PrecompiledHeader", 
+                                    "NotUsing"
+                                ),
+                                M(
+                                    "AdditionalIncludeDirectories",
+                                    Path.Combine(srcPath, u.LocalPath) +
+                                        ";%(AdditionalIncludeDirectories)"
+                                )
+                            )
+                    );
                 var targets =
                     M("Project", A("ToolVersion", "4.0")).Append(
                         M("ItemDefinitionGroup").Append(
@@ -160,7 +173,7 @@ namespace builder
             return N("file", A("src", src), A("target", target));
         }
 
-        private static readonly Version version = new Version(1, 54, 0, 91);
+        private static readonly Version version = new Version(1, 54, 0, 127);
 
         private const string authors = "Sergey Shandar, Boost";
 

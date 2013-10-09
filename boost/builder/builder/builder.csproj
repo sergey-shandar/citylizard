@@ -42,9 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Collections.cs" />
-    <Compile Include="CompilationUnit.cs" />
+    <Compile Include="CompilationUnit.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Config.cs" />
-    <Compile Include="CppFile.cs" />
     <Compile Include="Library.cs" />
     <Compile Include="Package.cs" />
     <Compile Include="Program.cs">

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using System.IO;
 
 namespace builder
 {
@@ -11,18 +12,31 @@ namespace builder
     {
         public readonly string Name;
 
+        public readonly IEnumerable<string> LineList;
+
         public readonly IEnumerable<string> FileList;
 
-        public readonly IEnumerable<CompilationUnit> CompilationUnitList;
+        public IEnumerable<CompilationUnit> CompilationUnitList
+        {
+            get
+            {
+                return
+                    FileList.
+                    Where(f => Path.GetExtension(f) == ".cpp").
+                    Select(
+                        (f, i) => new CompilationUnit(i.ToString(), f)
+                    );
+            }
+        }
 
         public Package(
             string name,
-            IEnumerable<string> fileList = null,
-            IEnumerable<CompilationUnit> compilationUnitList = null)
+            IEnumerable<string> lineList = null,
+            IEnumerable<string> fileList = null)
         {
             Name = name;
-            FileList = fileList;
-            CompilationUnitList = compilationUnitList.OneIfNull();
+            LineList = lineList.EmptyIfNull();
+            FileList = fileList.EmptyIfNull();
         }
 
         public Package(): this(null)

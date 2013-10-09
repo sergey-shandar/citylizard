@@ -95,6 +95,6 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="..\packages\boost.1.54.0.1\build\native\boost.targets" Condition="Exists('..\packages\boost.1.54.0.1\build\native\boost.targets')" />
-    <Import Project="..\packages\boost_exception_src.1.54.0.71\build\native\boost_exception_src.targets" Condition="Exists('..\packages\boost_exception_src.1.54.0.71\build\native\boost_exception_src.targets')" />
+    <Import Project="..\packages\boost_exception_src.1.54.0.93\build\native\boost_exception_src.targets" Condition="Exists('..\packages\boost_exception_src.1.54.0.93\build\native\boost_exception_src.targets')" />
   </ImportGroup>
 </Project>

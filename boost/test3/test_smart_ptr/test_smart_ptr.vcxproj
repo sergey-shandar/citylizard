@@ -95,6 +95,6 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="..\packages\boost.1.54.0.1\build\native\boost.targets" Condition="Exists('..\packages\boost.1.54.0.1\build\native\boost.targets')" />
-    <Import Project="..\packages\boost_smart_ptr_src.1.54.0.122\build\native\boost_smart_ptr_src.targets" Condition="Exists('..\packages\boost_smart_ptr_src.1.54.0.122\build\native\boost_smart_ptr_src.targets')" />
+    <Import Project="..\packages\boost_smart_ptr_src.1.54.0.130\build\native\boost_smart_ptr_src.targets" Condition="Exists('..\packages\boost_smart_ptr_src.1.54.0.130\build\native\boost_smart_ptr_src.targets')" />
   </ImportGroup>
 </Project>

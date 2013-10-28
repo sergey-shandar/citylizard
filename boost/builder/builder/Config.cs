@@ -8,20 +8,6 @@ namespace builder
 {
     static class Config
     {
-        /*
-        public static readonly SubLibrary[] SubLibraryList = new[]
-        {
-            new SubLibrary(
-                "iostreams", "zlib", Collections.New("zlib.cpp", "gzip.cpp")),
-            new SubLibrary(
-                "iostreams", "bzip2", Collections.New("bzip2.cpp")),
-            new SubLibrary(
-                "locale", "icu", Collections.New("icu.cpp")),
-            new SubLibrary(
-                "mpi", "python", Collections.New("python")),
-        };
-         * */
-
         public static readonly Library[] LibraryList = new[]
         {
             // chrono depends on system

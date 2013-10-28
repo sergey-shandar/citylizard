@@ -32,7 +32,10 @@
     <ClCompile Include="test_coroutine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\boost_coroutine.cpp">
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\boost_coroutine_0.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\boost_coroutine_1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -99,8 +99,8 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="..\packages\boost.1.54.0.1\build\native\boost.targets" Condition="Exists('..\packages\boost.1.54.0.1\build\native\boost.targets')" />
-    <Import Project="..\packages\boost_mpi_src.1.54.0.74\build\native\boost_mpi_src.targets" Condition="Exists('..\packages\boost_mpi_src.1.54.0.74\build\native\boost_mpi_src.targets')" />
-    <Import Project="..\packages\boost_serialization_src.1.54.0.83\build\native\boost_serialization_src.targets" Condition="Exists('..\packages\boost_serialization_src.1.54.0.83\build\native\boost_serialization_src.targets')" />
-    <Import Project="..\packages\boost_graph_parallel_src.1.54.0.94\build\native\boost_graph_parallel_src.targets" Condition="Exists('..\packages\boost_graph_parallel_src.1.54.0.94\build\native\boost_graph_parallel_src.targets')" />
+    <Import Project="..\packages\boost_serialization_src.1.54.0.130\build\native\boost_serialization_src.targets" Condition="Exists('..\packages\boost_serialization_src.1.54.0.130\build\native\boost_serialization_src.targets')" />
+    <Import Project="..\packages\boost_mpi_src.1.54.0.130\build\native\boost_mpi_src.targets" Condition="Exists('..\packages\boost_mpi_src.1.54.0.130\build\native\boost_mpi_src.targets')" />
+    <Import Project="..\packages\boost_graph_parallel_src.1.54.0.130\build\native\boost_graph_parallel_src.targets" Condition="Exists('..\packages\boost_graph_parallel_src.1.54.0.130\build\native\boost_graph_parallel_src.targets')" />
   </ImportGroup>
 </Project>

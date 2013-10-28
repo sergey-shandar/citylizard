@@ -23,9 +23,7 @@ namespace builder
                 return
                     FileList.
                     Where(f => Path.GetExtension(f) == ".cpp").
-                    Select(
-                        (f, i) => new CompilationUnit(i.ToString(), f)
-                    );
+                    Select(f => new CompilationUnit(f));
             }
         }
 

@@ -9,18 +9,14 @@ namespace builder
 {
     sealed class CompilationUnit
     {
-        public readonly string Name;
-
         public readonly string CppFile;
 
-        public CompilationUnit(
-            string name, string cppFile)
+        public CompilationUnit(string cppFile)
         {
-            Name = name;
             CppFile = cppFile;
         }
 
-        public CompilationUnit(): this(null, null)
+        public CompilationUnit(): this(null)
         {
         }
 
@@ -33,8 +29,8 @@ namespace builder
         {
             return
                 packageId + 
-                (Name == null ? "" : "_" + Name) +
-                ".cpp";
+                "-" +
+                CppFile.Replace('\\', '-');
         }
 
         public void Make(string packageId, Package package)
@@ -45,7 +41,7 @@ namespace builder
                     {
                         "#define _SCL_SECURE_NO_WARNINGS",
                         "#define _CRT_SECURE_NO_WARNINGS",
-                        "#pragma warning(disable: 4503 4752 4800)"
+                        "#pragma warning(disable: 4244 4503 4752 4800)"
                     }.
                     Concat(package.LineList).
                     Concat(

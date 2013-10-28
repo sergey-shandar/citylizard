@@ -32,10 +32,16 @@
     <ClCompile Include="test_chrono.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\boost_chrono.cpp">
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\boost_system.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\boost_system.cpp">
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\boost_chrono_0.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\boost_chrono_1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\boost_chrono_2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

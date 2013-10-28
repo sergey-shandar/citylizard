@@ -42,7 +42,7 @@ namespace builder
             foreach (var package in PackageList)
             {
                 var packageId = package.PackageId(Name);
-                var nuspecId = packageId + "_src";
+                var nuspecId = packageId;
                 var srcFiles =
                     package.FileList.Select(f => File(
                         Path.Combine(Directory, f),
@@ -173,7 +173,7 @@ namespace builder
             return N("file", A("src", src), A("target", target));
         }
 
-        private static readonly Version version = new Version(1, 54, 0, 127);
+        private static readonly Version version = new Version(1, 54, 0, 131);
 
         private const string authors = "Sergey Shandar, Boost";
 

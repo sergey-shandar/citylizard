@@ -19,6 +19,22 @@ namespace ProtoBuf
     //      - T4 => ISerializable<T4>
     //
     //  register in both maps all types.
+    //  
+    //  better solution:
+    //      interface Defined<T>: ISerializer<T> 
+    //      { 
+    //          ISerializer<T> Declared { get; }
+    //      }
+    //
+    //  interface Defined<T>: ISerializer<T>
+    //  {
+    //      ISerializer<T> Declared { get; }
+    //      // ref is not null
+    //      void ContentSerialize(Stream stream, T ref);
+    //      // ref is not null
+    //      void ContentDeserialize(Stream stream, T ref); 
+    //  }
+    //  a function call is faster then cast.
     public sealed class Serializer:
         ISerializer<ulong>,
         ISerializer<long>,
@@ -144,19 +160,23 @@ namespace ProtoBuf
         public void Serialize(string value, Stream stream)
         {
             var array = Encoding.UTF8.GetBytes(value);
-            Base128.Serialize((ulong)array.Length, stream);
-            stream.Write(array, 0, array.Length);
+            var length = array.Length;
+            Base128.Serialize((ulong)length, stream);
+            stream.Write(array, 0, length);
         }
 
         string ISerializer<string>.Deserialize(Stream stream)
         {
+            // function Stream.Read(byte[], ...) accepts int as length and can't
+            // accept ulong.
             var length = (int)Base128.Deserialize(stream);
             var array = new byte[length];
             stream.Read(array, 0, length);
             return Encoding.UTF8.GetString(array);
         }
 
-        // bool
+        // bool, we don't need to use Base128 for bool or for any number of 
+        // [0; 128).
 
         public void Serialize(bool value, Stream stream)
         {
@@ -167,5 +187,6 @@ namespace ProtoBuf
         {
             return stream.ReadByte() != 0;
         }
+
     }
 }

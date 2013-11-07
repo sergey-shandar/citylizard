@@ -7,9 +7,41 @@ using System.IO;
 
 namespace ProtoBuf
 {
-    class ClassSerializer<T>: ISerializer<T>
+    /*
+    class ReadDelegate<T>: IReadDelegate
         where T: new()
     {
+        private T _Value = new T();
+
+        public T Value { get { return _Value; } }        
+    
+        public void Variant(int field, ulong value)
+        {
+ 	        throw new NotImplementedException();
+        }
+
+        public void Fixed64(int field, double value)
+        {
+ 	        throw new NotImplementedException();
+        }
+
+        public void ByteArray(int field, byte[] value)
+        {
+ 	        throw new NotImplementedException();
+        }
+
+        public void Fixed32(int field, float value)
+        {
+ 	        throw new NotImplementedException();
+        }
+    }
+     * */
+
+    class ClassSerializer<T>: ISerializer<T>
+        where T: class, new()
+    {
+        private readonly Func<T, IReadDelegate>[] factoryList;
+
         public ClassSerializer()
         {
             var type = typeof(T);
@@ -25,8 +57,14 @@ namespace ProtoBuf
 
         public T Deserialize(Stream stream)
         {
-            var value = new T();
-            return value;
+            var result = new T();
+            var arrayList = factoryList.Select(f => f(result)).ToArray();
+            var size = arrayList.Length;
+            ReadStream.Read(
+                stream,
+                field =>
+                    field < size ? arrayList[field]: new VoidReadDelegate());
+            return result;
         }
     }
 }

@@ -7,12 +7,47 @@ using System.IO;
 
 namespace ProtoBuf
 {
-    interface IReadDelegate
+    public interface IReadDelegate<T>
     {
-        void Variant(ulong value);
-        void Fixed64(double value);
-        void ByteArray(byte[] value);
-        void Fixed32(float value);
+        void Read(T value);
+    }
+
+    public interface IReadDelegate:
+        IReadDelegate<ulong>,
+        IReadDelegate<double>,
+        IReadDelegate<byte[]>,
+        IReadDelegate<float>
+    {
+    }
+
+    public class ReadDelegate: IReadDelegate
+    {
+        private readonly ILog Log;
+
+        public ReadDelegate(ILog log)
+        {
+            Log = log;
+        }
+
+        public void Read(ulong value)
+        {
+            Log.InvalidType(value);
+        }
+
+        public void Read(double value)
+        {
+            Log.InvalidType(value);
+        }
+
+        public void Read(byte[] value)
+        {
+            Log.InvalidType(value);
+        }
+
+        public void Read(float value)
+        {
+            Log.InvalidType(value);
+        }
     }
 
     public enum WireType
@@ -37,22 +72,24 @@ namespace ProtoBuf
                 switch(type)
                 {
                     case WireType.VARIANT:
-                        readDelegate.Variant(Base128.Deserialize(stream));
+                        readDelegate.Read(Base128.Deserialize(stream));
                         break;
                     case WireType.FIXED64:
-                        readDelegate.Fixed64(stream.ReadDouble());
+                        readDelegate.Read(stream.ReadDouble());
                         break;
                     case WireType.BYTE_ARRAY:
                         readDelegate.
-                            ByteArray(
+                            Read(
                                 stream.ReadByteArray(
                                     (int)Base128.Deserialize(stream)
                                 )
                             );
                         break;
                     case WireType.FIXED32:
-                        readDelegate.Fixed32(stream.ReadSingle());
+                        readDelegate.Read(stream.ReadSingle());
                         break;
+                    default:
+                        return;
                 }
             }
         }

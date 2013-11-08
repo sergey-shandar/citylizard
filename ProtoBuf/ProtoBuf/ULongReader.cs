@@ -6,35 +6,18 @@ using System.Threading.Tasks;
 
 namespace ProtoBuf
 {
-    public sealed class ULongReader: IReadDelegate
+    public sealed class ULongReader: ReadDelegate
     {
-        private readonly ILog Log;
         private readonly Action<ulong> SetDelegate;
 
-        public ULongReader(ILog log, Action<ulong> setDelegate)
+        public ULongReader(ILog log, Action<ulong> setDelegate): base(log)
         {
-            Log = log;
             SetDelegate = setDelegate;
         }
 
-        public void Variant(ulong value)
+        override void Read(ulong value)
         {
             SetDelegate(value);
-        }
-
-        public void Fixed64(double value)
-        {
-            Log.Warning(new TypeMismatch(WireType.VARIANT, WireType.FIXED64));
-        }
-
-        public void ByteArray(byte[] value)
-        {
-            Log.Warning(new TypeMismatch(WireType.VARIANT, WireType.FIXED64));
-        }
-
-        public void Fixed32(float value)
-        {
-            Log.Warning(new TypeMismatch(WireType.VARIANT, WireType.FIXED64));
         }
     }
 

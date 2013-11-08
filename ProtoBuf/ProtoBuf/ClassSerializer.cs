@@ -7,43 +7,15 @@ using System.IO;
 
 namespace ProtoBuf
 {
-    /*
-    class ReadDelegate<T>: IReadDelegate
-        where T: new()
-    {
-        private T _Value = new T();
-
-        public T Value { get { return _Value; } }        
-    
-        public void Variant(int field, ulong value)
-        {
- 	        throw new NotImplementedException();
-        }
-
-        public void Fixed64(int field, double value)
-        {
- 	        throw new NotImplementedException();
-        }
-
-        public void ByteArray(int field, byte[] value)
-        {
- 	        throw new NotImplementedException();
-        }
-
-        public void Fixed32(int field, float value)
-        {
- 	        throw new NotImplementedException();
-        }
-    }
-     * */
-
     class ClassSerializer<T>: ISerializer<T>
         where T: class, new()
     {
+        private readonly ReadDelegate DefaultReadDelegate;
         private readonly Func<T, IReadDelegate>[] factoryList;
 
-        public ClassSerializer()
+        public ClassSerializer(ILog log)
         {
+            DefaultReadDelegate = new ReadDelegate(log);
             var type = typeof(T);
             foreach (var field in type.GetFields().Where(f => !f.IsStatic))
             {
@@ -63,7 +35,7 @@ namespace ProtoBuf
             ReadStream.Read(
                 stream,
                 field =>
-                    field < size ? arrayList[field]: new VoidReadDelegate());
+                    field < size ? arrayList[field]: DefaultReadDelegate);
             return result;
         }
     }

@@ -8,7 +8,6 @@ namespace ProtoBuf
 {
     public interface ILog
     {
-        void Warning(PBException exception);
-        void Error(PBException exception);
+        void InvalidType<T>(T value);
     }
 }

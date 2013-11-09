@@ -8,6 +8,6 @@ namespace ProtoBuf
 {
     public interface ILog
     {
-        void InvalidType<T>(T value);
+        void InvalidType<T>();
     }
 }

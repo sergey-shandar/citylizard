@@ -11,7 +11,7 @@ namespace ProtoBuf
         where T: class, new()
     {
         private readonly ReadDelegate DefaultReadDelegate;
-        private readonly Func<T, IReadDelegate>[] factoryList;
+        private readonly Func<T, ReadDelegate>[] factoryList;
 
         public ClassSerializer(ILog log)
         {

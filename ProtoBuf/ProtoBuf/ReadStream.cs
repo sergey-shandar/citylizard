@@ -7,46 +7,49 @@ using System.IO;
 
 namespace ProtoBuf
 {
-    public interface IReadDelegate<T>
+    public sealed class ReadDelegate
     {
-        void Read(T value);
-    }
+        public readonly Action<ulong> Variant;
+        public readonly Action<double> Fixed64;
+        public readonly Action<byte[]> ByteArray;
+        public readonly Action<float> Fixed32;
 
-    public interface IReadDelegate:
-        IReadDelegate<ulong>,
-        IReadDelegate<double>,
-        IReadDelegate<byte[]>,
-        IReadDelegate<float>
-    {
-    }
-
-    public class ReadDelegate: IReadDelegate
-    {
-        private readonly ILog Log;
-
-        public ReadDelegate(ILog log)
+        private static Action<T> Prepare<T>(ILog log, Action<T> action)
         {
-            Log = log;
+            return action != null ? action : v => log.InvalidType<T>();
         }
 
-        public void Read(ulong value)
+        public ReadDelegate(
+            ILog log,
+            Action<ulong> variant = null,
+            Action<double> fixed64 = null,
+            Action<byte[]> byteArray = null,
+            Action<float> fixed32 = null)
         {
-            Log.InvalidType(value);
+            Variant = Prepare(log, variant);
+            Fixed64 = Prepare(log, fixed64);
+            ByteArray = Prepare(log, byteArray);
+            Fixed32 = Prepare(log, fixed32);
         }
 
-        public void Read(double value)
+        public ReadDelegate(ILog log, Action<long> longAction):
+            this(log: log, variant: value => longAction(ZigZag.Decode(value)))
         {
-            Log.InvalidType(value);
         }
 
-        public void Read(byte[] value)
+        public ReadDelegate(ILog log, Action<uint> uintAction):
+            this(log: log, variant: value => uintAction((uint)value))
         {
-            Log.InvalidType(value);
         }
 
-        public void Read(float value)
+        public ReadDelegate(ILog log, Action<string> stringAction):
+            this(
+                log: log,
+                byteArray: 
+                    byteArray => 
+                        stringAction(Encoding.UTF8.GetString(byteArray))
+            )
         {
-            Log.InvalidType(value);
         }
     }
 
@@ -61,7 +64,7 @@ namespace ProtoBuf
     sealed class ReadStream
     {
         public static void Read(
-            Stream stream, Func<int, IReadDelegate> fieldReadDelegate)
+            Stream stream, Func<int, ReadDelegate> fieldReadDelegate)
         {
             while (!stream.IsEnd())
             {
@@ -72,21 +75,21 @@ namespace ProtoBuf
                 switch(type)
                 {
                     case WireType.VARIANT:
-                        readDelegate.Read(Base128.Deserialize(stream));
+                        readDelegate.Variant(Base128.Deserialize(stream));
                         break;
                     case WireType.FIXED64:
-                        readDelegate.Read(stream.ReadDouble());
+                        readDelegate.Fixed64(stream.ReadDouble());
                         break;
                     case WireType.BYTE_ARRAY:
                         readDelegate.
-                            Read(
+                            ByteArray(
                                 stream.ReadByteArray(
                                     (int)Base128.Deserialize(stream)
                                 )
                             );
                         break;
                     case WireType.FIXED32:
-                        readDelegate.Read(stream.ReadSingle());
+                        readDelegate.Fixed32(stream.ReadSingle());
                         break;
                     default:
                         return;

@@ -42,6 +42,20 @@ namespace ProtoBuf
         {
         }
 
+        public ReadDelegate(ILog log, Action<int> intAction):
+            this(
+                log: log,
+                variant: value => intAction((int)ZigZag.Decode(value)))
+        {
+        }
+
+        public ReadDelegate(ILog log, Action<ushort> ushortAction):
+            this(
+                log: log,
+                variant: value => ushortAction((ushort)value))
+        {
+        }
+
         public ReadDelegate(ILog log, Action<string> stringAction):
             this(
                 log: log,

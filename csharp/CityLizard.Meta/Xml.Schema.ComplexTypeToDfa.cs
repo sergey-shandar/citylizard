@@ -87,9 +87,10 @@
                                 {
                                     k[m] = true;
                                     var s = newSetMap.TryGet(k);
-                                    if (!s.HasValue)
+                                    if (s != null)
                                     {
-                                        newSetMap[k] = s.Value = new Fsm.Name();
+                                        s = new Collections.Optional<F.Name>(new Fsm.Name());
+                                        newSetMap[k] = s.Value;
                                     }
                                     //     
                                     var x = new Fsm.Name(pair.Value);

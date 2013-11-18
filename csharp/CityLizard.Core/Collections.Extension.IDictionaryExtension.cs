@@ -9,9 +9,11 @@
             this G.IDictionary<K, T> dictionary,
             K key)
         {
-            Optional<T> result;
-            result.HasValue = dictionary.TryGetValue(key, out result.Value);
-            return result;
+            T value;
+            return
+                dictionary.TryGetValue(key, out value) ?
+                    new Optional<T>(value) :
+                    null;
         }
     }
 }

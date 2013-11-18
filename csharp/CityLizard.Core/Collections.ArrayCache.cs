@@ -13,11 +13,7 @@
         protected sealed override Optional<Data> TryGet(int key)
         {
             var data = this.Array[key];
-            return new Optional<Data>() 
-            { 
-                HasValue = data != null,
-                Value = data,
-            };
+            return data == null ? null: new Optional<Data>(data); 
         }
 
         protected sealed override void Set(int key, Data data)

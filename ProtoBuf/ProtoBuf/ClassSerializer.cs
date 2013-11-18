@@ -11,7 +11,7 @@ namespace ProtoBuf
         where T: class, new()
     {
         private readonly ReadDelegate DefaultReadDelegate;
-        private readonly Func<T, ReadDelegate>[] factoryList;
+        private readonly IFieldSerializer<T>[] factoryList;
 
         public ClassSerializer(ILog log)
         {
@@ -25,12 +25,18 @@ namespace ProtoBuf
 
         public void Serialize(T value, Stream stream)
         {
+            var size = factoryList.Length;
+            for(var i = 0; i < size; ++i)
+            {
+                factoryList[i].Serialize(value, stream);
+            }
         }
 
         public T Deserialize(Stream stream)
         {
             var result = new T();
-            var arrayList = factoryList.Select(f => f(result)).ToArray();
+            var arrayList =
+                factoryList.Select(f => f.Deserializer(result)).ToArray();
             var size = arrayList.Length;
             ReadStream.Read(
                 stream,

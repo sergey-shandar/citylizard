@@ -7,6 +7,12 @@ using System.IO;
 
 namespace ProtoBuf
 {
+    interface IFieldSerializer<T>
+    {
+        void Serialize(T value, Stream stream);
+        ReadDelegate Deserializer(T value);
+    }
+
     /*
     class FieldSerializer<T>: ISerializer<T>
     {

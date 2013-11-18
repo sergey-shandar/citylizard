@@ -7,13 +7,17 @@
             get
             {
                 var data = this.TryGet(key);
-                if (!data.HasValue)
+                if (data == null)
                 {
-                    data.Value = this.Create(key);
-                    this.Set(key, data.Value);
-                    this.Initialize(key, data.Value);
+                    var value = this.Create(key);
+                    this.Set(key, value);
+                    this.Initialize(key, value);
+                    return value;
                 }
-                return data.Value;
+                else
+                {
+                    return data.Value;
+                }
             }
         }
 

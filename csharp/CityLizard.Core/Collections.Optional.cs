@@ -1,8 +1,12 @@
 ﻿namespace CityLizard.Collections
 {
-    public struct Optional<T>
+    public class Optional<T>
     {
-        public bool HasValue;
-        public T Value;
+        public readonly T Value;
+
+        public Optional(T value)
+        {
+            Value = value;
+        }
     }
 }

@@ -34,6 +34,7 @@ syntax: regexp
 \/key\.snk$
 \/packages\/
 \.snk$
+\.pfx$
 syntax: glob
 *.tar
 xsd/CityLizard/CityLizard.Html5/CityLizard.Meta.tt.txt

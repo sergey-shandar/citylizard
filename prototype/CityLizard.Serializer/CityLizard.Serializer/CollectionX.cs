@@ -17,5 +17,12 @@ namespace CityLizard.Serializer
                     new Optional<T>(value):
                     null;
         }
+
+        public static T Get<K, T>(
+            this IDictionary<K, T> dictionary, K key, Func<K, T> func)
+        {
+            var optional = dictionary.Get(key);
+            return optional != null ? optional.Value : func(key); 
+        }
     }
 }

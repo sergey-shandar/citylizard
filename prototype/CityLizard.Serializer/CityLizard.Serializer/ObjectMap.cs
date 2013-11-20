@@ -10,6 +10,33 @@ namespace CityLizard.Serializer
 {
     public sealed class ObjectMap
     {
+        public interface ISerializer<T>
+        {
+            void Serializer(T value, XElement element);
+            T Deserialize(XElement element);
+        }
+
+        public class SerializerDictionary
+        {
+            public readonly Dictionary<Type, object> SerializerMap = 
+                new Dictionary<Type, object>();
+
+            public void Add<T>(ISerializer<T> serializer)
+            {
+                SerializerMap.Add(typeof(T), serializer);
+            }
+
+            public ISerializer<T> Get<T>()
+            {
+                var optional = SerializerMap.Get(typeof(T));
+                if(optional != null)
+                {
+                    return (ISerializer<T>)optional.Value;
+                }
+                return null;
+            }
+        }
+
         public sealed class Serializer
         {
             private readonly Dictionary<Object, int> ObjectMap =
@@ -19,17 +46,24 @@ namespace CityLizard.Serializer
 
             public void Serialize(Object value, XElement element)
             {
-                foreach(
-                    var field in value.GetType().GetTypeInfo().DeclaredFields)
+                var type = value.GetType();
+                if (type == typeof(int))
                 {
-                    element.Add(
-                        new XElement(
-                            field.Name,
-                            new XAttribute(
-                                "ref", Serialize(field.GetValue(value))
+                    element.Add(new XAttribute("value", value.ToString()));
+                }
+                else
+                {
+                    foreach (var field in type.GetTypeInfo().DeclaredFields)
+                    {
+                        element.Add(
+                            new XElement(
+                                field.Name,
+                                new XAttribute(
+                                    "ref", Serialize(field.GetValue(value))
+                                )
                             )
-                        )
-                    );
+                        );
+                    }
                 }
             }
 
@@ -64,7 +98,7 @@ namespace CityLizard.Serializer
             //
             var fieldList = typeof(T).GetRuntimeFields().Where(f => !f.IsStatic);
             //
-            return new XDocument(serializer.ObjectMapXml);
+            var document = new XDocument(serializer.ObjectMapXml);
         }
 
         public static T Deserialize<T>(XDocument document)

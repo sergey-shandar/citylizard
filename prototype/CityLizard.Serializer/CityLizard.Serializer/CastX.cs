@@ -9,7 +9,6 @@ namespace CityLizard.Serializer
 {
     public static class CastX
     {
-        [MethodImplAttribute(MethodImplOptions.AggressiveInlining)]
         public static T UpCast<T>(this T value)
         {
             return value;

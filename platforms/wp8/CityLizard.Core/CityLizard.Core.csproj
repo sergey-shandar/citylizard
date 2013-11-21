@@ -44,6 +44,9 @@
     <Compile Include="..\..\..\csharp\CityLizard.Core\AssemblyInfo.cs">
       <Link>AssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\Base128.cs">
+      <Link>Base128.cs</Link>
+    </Compile>
     <Compile Include="..\..\..\csharp\CityLizard.Core\Binary.cs">
       <Link>Binary.cs</Link>
     </Compile>
@@ -151,6 +154,9 @@
     </Compile>
     <Compile Include="..\..\..\csharp\CityLizard.Core\Xml.Untyped.cs">
       <Link>Xml.Untyped.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\ZigZag.cs">
+      <Link>ZigZag.cs</Link>
     </Compile>
   </ItemGroup>
   <ItemGroup>

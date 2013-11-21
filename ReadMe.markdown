@@ -1,11 +1,13 @@
 # Libraries
 
 - **Core**
+  - **Base128**
   - **Binary**
   - **Collections**
   - **Graphics**
   - **Policy**
   - **Xml**
+  - **ZigZag**
 - **Fsm**
 - **Meta**
 
@@ -15,11 +17,9 @@
   - Core, Fsm, Meta.
 - **net40-client**, Visual Studio 2012 Express for Desktop.
   - Core, Fsm, Meta.
-- **sl4**, Visual Studio 2012 Express for Web.
-  - Core, Fsm.
 - **sl5**, Visual Studio 2012 Express for Web.
   - Core, Fsm.
-- **netcore45**, Visual Studio 2012 Express for Windows 8.
+- **netcore451**, Visual Studio 2012 Express for Windows 8.1.
   - Core, Fsm.
 - **sl4-wp7**, Visual Studio 2012 Express for Windows Phone.
   - Core.

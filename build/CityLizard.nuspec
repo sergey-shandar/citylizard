@@ -24,7 +24,7 @@
         <file src="..\platforms\net40-client\CityLizard.Core\bin\Release\CityLizard.Core.dll" target="lib\net40-client\CityLizard.Core.dll"/>
         <file src="..\platforms\sl4\CityLizard.Core\bin\Release\CityLizard.Core.dll" target="lib\sl4\CityLizard.Core.dll"/>
         <file src="..\platforms\sl5\CityLizard.Core\bin\Release\CityLizard.Core.dll" target="lib\sl5\CityLizard.Core.dll"/>  
-        <file src="..\platforms\netcore45\CityLizard.Core\bin\Release\CityLizard.Core.dll" target="lib\netcore45\CityLizard.Core.dll"/>
+        <file src="..\platforms\netcore451\CityLizard.Core\bin\Release\CityLizard.Core.dll" target="lib\netcore451\CityLizard.Core.dll"/>
         <file src="..\platforms\wp8\CityLizard.Core\bin\Release\CityLizard.Core.dll" target="lib\wp8\CityLizard.Core.dll"/>
         <file src="..\platforms\sl4-wp71\CityLizard.Core\bin\Release\CityLizard.Core.dll" target="lib\sl4-wp71\CityLizard.Core.dll"/>
 
@@ -40,7 +40,7 @@
         <file src="..\platforms\net40-client\CityLizard.Fsm\bin\Release\CityLizard.Fsm.dll" target="lib\net40-client\CityLizard.Fsm.dll"/>
         <file src="..\platforms\sl4\CityLizard.Fsm\bin\Release\CityLizard.Fsm.dll" target="lib\sl4\CityLizard.Fsm.dll"/>
         <file src="..\platforms\sl5\CityLizard.Fsm\bin\Release\CityLizard.Fsm.dll" target="lib\sl5\CityLizard.Fsm.dll"/> 
-        <file src="..\platforms\netcore45\CityLizard.Fsm\bin\Release\CityLizard.Fsm.dll" target="lib\netcore45\CityLizard.Fsm.dll"/>
+        <file src="..\platforms\netcore451\CityLizard.Fsm\bin\Release\CityLizard.Fsm.dll" target="lib\netcore451\CityLizard.Fsm.dll"/>
         <file src="..\platforms\wp8\CityLizard.Fsm\bin\Release\CityLizard.Fsm.dll" target="lib\wp8\CityLizard.Fsm.dll"/>
 
         <!-- android, ios, mac, psm -->

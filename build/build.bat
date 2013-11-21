@@ -11,7 +11,7 @@ call platform_build.bat net35-client
 call platform_build.bat net40-client
 call platform_build.bat sl4
 call platform_build.bat sl5
-call platform_build.bat netcore45
+call platform_build.bat netcore451
 call platform_build.bat wp8
 call platform_build.bat sl4-wp71
 call platform_build.bat psm

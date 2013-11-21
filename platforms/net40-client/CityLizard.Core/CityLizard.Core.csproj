@@ -160,6 +160,9 @@
     <Compile Include="..\..\..\csharp\CityLizard.Core\Xml.Untyped.cs">
       <Link>Xml.Untyped.cs</Link>
     </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\ZigZag.cs">
+      <Link>ZigZag.cs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\csharp\CityLizard.Core\Policy.I.tt">

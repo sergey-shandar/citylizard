@@ -1,3 +1,12 @@
+2.2.
+
+    - Windows 8.1
+
+  Dropped:
+
+    - Windows 8
+    - Silverlight 4
+
 2.1.20.0
   
   NuGet:

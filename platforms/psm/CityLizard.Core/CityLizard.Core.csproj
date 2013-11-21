@@ -161,5 +161,11 @@
     <Compile Include="..\..\..\csharp\CityLizard.Core\Graphics.Matrix.cs">
       <Link>Graphics.Matrix.cs</Link>
     </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\Base128.cs">
+      <Link>Base128.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\ZigZag.cs">
+      <Link>ZigZag.cs</Link>
+    </Compile>
   </ItemGroup>
 </Project>

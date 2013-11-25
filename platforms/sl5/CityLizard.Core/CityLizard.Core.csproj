@@ -96,6 +96,9 @@
     <Compile Include="..\..\..\csharp\CityLizard.Core\Collections.Optional.cs">
       <Link>Collections.Optional.cs</Link>
     </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\EncodingExtension.cs">
+      <Link>EncodingExtension.cs</Link>
+    </Compile>
     <Compile Include="..\..\..\csharp\CityLizard.Core\Graphics.Color.cs">
       <Link>Graphics.Color.cs</Link>
     </Compile>
@@ -134,6 +137,21 @@
     </Compile>
     <Compile Include="..\..\..\csharp\CityLizard.Core\Policy.INumeric.cs">
       <Link>Policy.INumeric.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\ProtoBuf.ILog.cs">
+      <Link>ProtoBuf.ILog.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\ProtoBuf.IO.cs">
+      <Link>ProtoBuf.IO.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\ProtoBuf.ReadDelegate.cs">
+      <Link>ProtoBuf.ReadDelegate.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\ProtoBuf.WireType.cs">
+      <Link>ProtoBuf.WireType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\StreamExtension.cs">
+      <Link>StreamExtension.cs</Link>
     </Compile>
     <Compile Include="..\..\..\csharp\CityLizard.Core\Xml.Attribute.cs">
       <Link>Xml.Attribute.cs</Link>

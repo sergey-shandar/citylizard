@@ -9,7 +9,7 @@
     <ProjectGuid>{426763DC-9C9F-4599-AB8C-8F6580522F3E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CityLizard.Core</RootNamespace>
+    <RootNamespace>CityLizard</RootNamespace>
     <AssemblyName>CityLizard.Core</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformVersion>8.1</TargetPlatformVersion>
@@ -126,6 +126,9 @@
     <Compile Include="..\..\..\csharp\CityLizard.Core\Collections.Optional.cs">
       <Link>Collections.Optional.cs</Link>
     </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\EncodingExtension.cs">
+      <Link>EncodingExtension.cs</Link>
+    </Compile>
     <Compile Include="..\..\..\csharp\CityLizard.Core\Graphics.Color.cs">
       <Link>Graphics.Color.cs</Link>
     </Compile>
@@ -161,6 +164,21 @@
     </Compile>
     <Compile Include="..\..\..\csharp\CityLizard.Core\Policy.INumeric.cs">
       <Link>Policy.INumeric.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\ProtoBuf.ILog.cs">
+      <Link>ProtoBuf.ILog.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\ProtoBuf.IO.cs">
+      <Link>ProtoBuf.IO.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\ProtoBuf.ReadDelegate.cs">
+      <Link>ProtoBuf.ReadDelegate.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\ProtoBuf.WireType.cs">
+      <Link>ProtoBuf.WireType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\StreamExtension.cs">
+      <Link>StreamExtension.cs</Link>
     </Compile>
     <Compile Include="..\..\..\csharp\CityLizard.Core\Xml.Attribute.cs">
       <Link>Xml.Attribute.cs</Link>
@@ -219,6 +237,7 @@
     <Compile Include="..\..\..\csharp\CityLizard.Core\ZigZag.cs">
       <Link>ZigZag.cs</Link>
     </Compile>
+    <Compile Include="ProtoBuf.ISerializer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

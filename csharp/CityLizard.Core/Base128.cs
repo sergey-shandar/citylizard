@@ -30,6 +30,21 @@ namespace CityLizard
             }
         }
 
+        public static async void Serialize(ulong value, Stream stream)
+        {
+            while (true)
+            {
+                var b = (byte)(value & mask);
+                value >>= offset;
+                var next = value != 0;
+                b |= next ? flag : (byte)0;
+                if (!next)
+                {
+                    return;
+                }
+            }
+        }
+
         public static ulong Deserialize(Stream stream)
         {
             var result = 0ul;

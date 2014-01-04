@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace CityLizard
 {
@@ -16,11 +17,6 @@ namespace CityLizard
         public static void Write(this Stream stream, byte[] byteArray)
         {
             stream.Write(byteArray, 0, byteArray.Length);
-        }
-
-        public static async void Write(this Stream stream, byte[] byteArray)
-        {
-            await stream.WriteAsync(byteArray, 0, byteArray.Length);
         }
 
         public static byte[] ReadByteArray(this Stream stream, int length)

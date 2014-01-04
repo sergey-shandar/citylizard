@@ -1,11 +1,26 @@
-2.2.
 
-    - Windows 8.1
+3.0.0.0
 
-  Dropped:
+  - PCL for 
+    - .NET 4.03 Client
+    - Silverlight 5
+    - WindowsPhone 8.0
+    - Windows 8.0
+    - Xamarin.iOS
+    - Xamarin.Android
 
-    - Windows 8
+  - Dropped platforms:
+
+    - .NET 3.5 Client
+    - WindowsPhone 7.1.
     - Silverlight 4
+
+  - Libraries:
+    - Core
+    - Meta
+
+  - Merged libraries:
+    - Fsm merged to Core.
 
 2.1.20.0
   

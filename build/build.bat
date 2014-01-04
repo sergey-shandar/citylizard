@@ -25,6 +25,6 @@ rem rmdir /S /Q lib
 rem xcopy ..\platforms\psm\CityLizard.Fsm\bin\Release\*.dll lib\psm\
 
 del CityLizard.psm.%VERSION%.zip
-7z a CityLizard.psm.%VERSION%.zip ..\platforms\psm\CityLizard.Fsm\bin\Release\*.dll
+7z a CityLizard.psm.%VERSION%.zip ..\platforms\psm\CityLizard.Core\bin\Release\*.dll
 
 endlocal

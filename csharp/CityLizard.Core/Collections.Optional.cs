@@ -1,6 +1,6 @@
 ﻿namespace CityLizard.Collections
 {
-    public class Optional<T>
+    public sealed class Optional<T>
     {
         public readonly T Value;
 

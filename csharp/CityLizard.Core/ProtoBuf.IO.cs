@@ -3,42 +3,47 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace CityLizard.ProtoBuf
 {
     public static class IO
     {
-        public static void Read(
-            ILog log, Stream stream, Func<int, ReadDelegate> fieldReadDelegate
+        public static void Read<T>(
+            Stream stream,
+            Object value,
+            IMessageRead messageRead
         )
+            where T: class
         {
             while (!stream.IsEnd())
             {
                 var header = (byte)stream.ReadByte();
                 var field = header >> 3;
-                var readDelegate = fieldReadDelegate(field);
+                var readDelegate = messageRead[field];
                 var type = (WireType)(header & 0x07);
                 switch (type)
                 {
                     case WireType.VARIANT:
-                        readDelegate.Variant(Base128.Deserialize(stream));
+                        readDelegate.Read(value, Base128.Deserialize(stream));
                         break;
                     case WireType.FIXED64:
-                        readDelegate.Fixed64(stream.ReadDouble());
+                        readDelegate.Read(value, stream.ReadDouble());
                         break;
                     case WireType.BYTE_ARRAY:
                         readDelegate.
-                            ByteArray(
+                            Read(
+                                value,
                                 stream.ReadByteArray(
                                     (int)Base128.Deserialize(stream)
                                 )
                             );
                         break;
                     case WireType.FIXED32:
-                        readDelegate.Fixed32(stream.ReadSingle());
+                        readDelegate.Read(value, stream.ReadSingle());
                         break;
                     default:
-                        log.UnknownWireType(type);
+                        messageRead.Log.UnknownWireType(type);
                         return;
                 }
             }
@@ -68,16 +73,16 @@ namespace CityLizard.ProtoBuf
             stream.Write(value);
         }
 
+        public static void Write(Stream stream, int field, float value)
+        {
+            WriteHeader(stream, field, WireType.FIXED32);
+            stream.Write(value);
+        }
+
         public static void Write(Stream stream, int field, byte[] byteArray)
         {
             WriteHeader(stream, field, WireType.BYTE_ARRAY);
             stream.Write(byteArray);
-        }
-
-        public static void Write(Stream stream, int field, float value)
-        {
-            WriteHeader(stream, field, WireType.FIXED64);
-            stream.Write(value);
         }
     }
 }

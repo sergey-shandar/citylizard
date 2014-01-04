@@ -7,7 +7,8 @@ namespace CityLizard.ProtoBuf
 {
     public interface ILog
     {
-        void InvalidType<T>();
+        void UnexpectedType<T>();
         void UnknownWireType(WireType wireType);
+        void UnknownField(int field);
     }
 }

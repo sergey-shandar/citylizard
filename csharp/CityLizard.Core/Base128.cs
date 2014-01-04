@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace CityLizard
 {
@@ -23,21 +24,6 @@ namespace CityLizard
                 var next = value != 0;
                 b |= next ? flag : (byte)0;
                 stream.WriteByte(b);
-                if (!next)
-                {
-                    return;
-                }
-            }
-        }
-
-        public static async void Serialize(ulong value, Stream stream)
-        {
-            while (true)
-            {
-                var b = (byte)(value & mask);
-                value >>= offset;
-                var next = value != 0;
-                b |= next ? flag : (byte)0;
                 if (!next)
                 {
                     return;

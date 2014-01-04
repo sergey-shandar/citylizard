@@ -185,5 +185,14 @@
     <Compile Include="..\..\..\csharp\CityLizard.Core\StreamExtension.cs">
       <Link>StreamExtension.cs</Link>
     </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\Fsm.Dfa.cs">
+      <Link>Fsm.Dfa.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\Fsm.Fsm.cs">
+      <Link>Fsm.Fsm.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\csharp\CityLizard.Core\Fsm.Name.cs">
+      <Link>Fsm.Name.cs</Link>
+    </Compile>
   </ItemGroup>
 </Project>

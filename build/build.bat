@@ -4,25 +4,17 @@ set PATH=%PATH%;%WINDIR%\Microsoft.NET\Framework\v4.0.30319;C:\programs;%Program
 for /F %%I in (version.txt) do set VERSION=%%I
 
 call assembly_info.bat CityLizard.Core
-call assembly_info.bat CityLizard.Fsm
 call assembly_info.bat CityLizard.Meta
 
-call platform_build.bat net35-client
-call platform_build.bat net40-client
-call platform_build.bat sl5
-call platform_build.bat netcore451
-call platform_build.bat wp8
-call platform_build.bat sl4-wp71
+call platform_build.bat net403-client
+call platform_build.bat portable-net403+sl5+wp8+win8+monotouch+monoandroid
 call platform_build.bat psm
-rem call platform_build.bat monoandroid
-rem call platform_build.bat monotouch
-rem call platfrom_build.bat monomac
 
 rem sn -R net35-client\CityLizard.Core\bin\Release\CityLizard.Core.dll keypair.snk
 
 @echo ^<#@ template debug="false" hostspecific="true" language="C#" #^> > CityLizard.Meta.tt.txt
 @echo ^<#@ assembly name="System.Core" #^> >> CityLizard.Meta.tt.txt
-@echo ^<#@ assembly name="$(SolutionDir)\packages\CityLizard.%VERSION%\lib\net40-client\CityLizard.Meta.dll" #^> >> CityLizard.Meta.tt.txt
+@echo ^<#@ assembly name="$(SolutionDir)\packages\CityLizard.%VERSION%\lib\net403-client\CityLizard.Meta.dll" #^> >> CityLizard.Meta.tt.txt
 @echo ^<#@ import namespace="System.IO" #^> >> CityLizard.Meta.tt.txt
 @echo ^<#@ import namespace="CityLizard.Xml.Schema" #^> >> CityLizard.Meta.tt.txt
 

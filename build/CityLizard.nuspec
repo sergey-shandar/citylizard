@@ -17,40 +17,14 @@
         <file src="..\cpp\**.h" target="lib\native\include\"/>
         <file src="CityLizard.targets" target="build\native" />
 
-        <file src="CityLizard.Meta.tt.txt" target="content"/>
+        <file src="CityLizard.Meta.tt.txt" target="content\net403-client"/>
 
         <!-- Core -->
-        <file src="..\platforms\net35-client\CityLizard.Core\bin\Release\CityLizard.Core.dll" target="lib\net35-client\CityLizard.Core.dll"/>
-        <file src="..\platforms\net40-client\CityLizard.Core\bin\Release\CityLizard.Core.dll" target="lib\net40-client\CityLizard.Core.dll"/>
-        <file src="..\platforms\sl5\CityLizard.Core\bin\Release\CityLizard.Core.dll" target="lib\sl5\CityLizard.Core.dll"/>  
-        <file src="..\platforms\netcore451\CityLizard.Core\bin\Release\CityLizard.Core.dll" target="lib\netcore451\CityLizard.Core.dll"/>
-        <file src="..\platforms\wp8\CityLizard.Core\bin\Release\CityLizard.Core.dll" target="lib\wp8\CityLizard.Core.dll"/>
-        <file src="..\platforms\sl4-wp71\CityLizard.Core\bin\Release\CityLizard.Core.dll" target="lib\sl4-wp71\CityLizard.Core.dll"/>
-
-        <!-- android, ios, mac, psm -->
-        <file src="..\platforms\monoandroid\CityLizard.Core\bin\Release\CityLizard.Core.dll" target="lib\monoandroid\CityLizard.Core.dll"/>
-        <file src="..\platforms\monotouch\CityLizard.Core\bin\Release\CityLizard.Core.dll" target="lib\monotouch\CityLizard.Core.dll"/>
-        <!--
-        <file src="psm\CityLizard.Core\bin\Release\CityLizard.Core.dll" target="lib\psm\CityLizard.Core.dll"/>
-        -->
-
-        <!-- Fsm -->
-        <file src="..\platforms\net35-client\CityLizard.Fsm\bin\Release\CityLizard.Fsm.dll" target="lib\net35-client\CityLizard.Fsm.dll"/>
-        <file src="..\platforms\net40-client\CityLizard.Fsm\bin\Release\CityLizard.Fsm.dll" target="lib\net40-client\CityLizard.Fsm.dll"/>
-        <file src="..\platforms\sl5\CityLizard.Fsm\bin\Release\CityLizard.Fsm.dll" target="lib\sl5\CityLizard.Fsm.dll"/> 
-        <file src="..\platforms\netcore451\CityLizard.Fsm\bin\Release\CityLizard.Fsm.dll" target="lib\netcore451\CityLizard.Fsm.dll"/>
-        <file src="..\platforms\wp8\CityLizard.Fsm\bin\Release\CityLizard.Fsm.dll" target="lib\wp8\CityLizard.Fsm.dll"/>
-
-        <!-- android, ios, mac, psm -->
-        <file src="..\platforms\monoandroid\CityLizard.Fsm\bin\Release\CityLizard.Fsm.dll" target="lib\monoandroid\CityLizard.Fsm.dll"/>
-        <file src="..\platforms\monotouch\CityLizard.Fsm\bin\Release\CityLizard.Fsm.dll" target="lib\monotouch\CityLizard.Fsm.dll"/>
-        <!--
-        <file src="psm\CityLizard.Fsm\bin\Release\CityLizard.Fsm.dll" target="lib\psm\CityLizard.Fsm.dll"/>
-        -->
+        <file src="..\platforms\portable-net403+sl5+wp8+win8+monotouch+monoandroid\CityLizard.Core\bin\Release\CityLizard.Core.dll" target="lib\portable-net403+sl5+wp8+win8+monotouch+monoandroid\CityLizard.Core.dll"/>
+        <file src="..\platforms\net403-client\CityLizard.Meta\bin\Release\CityLizard.Core.dll" target="lib\net403-client\CityLizard.Core.dll"/>
 
         <!-- Meta -->
-        <file src="..\platforms\net35-client\CityLizard.Meta\bin\Release\CityLizard.Meta.dll" target="lib\net35-client\CityLizard.Meta.dll"/>
-        <file src="..\platforms\net40-client\CityLizard.Meta\bin\Release\CityLizard.Meta.dll" target="lib\net40-client\CityLizard.Meta.dll"/>
+        <file src="..\platforms\net403-client\CityLizard.Meta\bin\Release\CityLizard.Meta.dll" target="lib\net403-client\CityLizard.Meta.dll"/>
 
     </files>
 </package>

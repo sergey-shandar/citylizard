@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6B43D84C-7867-46CB-AA60-C26EC4C9716B}</ProjectGuid>
+    <ProjectGuid>{DBAA19D3-34F2-42B3-9D89-29BE385B4013}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CityLizard.Meta</RootNamespace>
@@ -21,7 +21,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,7 +29,6 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -42,40 +40,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\..\csharp\CityLizard.Meta\AssemblyInfo.cs">
-      <Link>AssemblyInfo.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\csharp\CityLizard.Meta\CodeDom.Code.cs">
-      <Link>CodeDom.Code.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\csharp\CityLizard.Meta\CodeDom.CSharp.Keyword.cs">
-      <Link>CodeDom.CSharp.Keyword.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\csharp\CityLizard.Meta\CodeDom.CSharp.Name.cs">
-      <Link>CodeDom.CSharp.Name.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\csharp\CityLizard.Meta\CodeDom.CSharp.Namespace.cs">
-      <Link>CodeDom.CSharp.Namespace.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\csharp\CityLizard.Meta\Xml.Schema.Compiler.cs">
-      <Link>Xml.Schema.Compiler.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\csharp\CityLizard.Meta\Xml.Schema.ComplexTypeToDfa.cs">
-      <Link>Xml.Schema.ComplexTypeToDfa.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\csharp\CityLizard.Meta\Xml.Schema.ElementSet.cs">
-      <Link>Xml.Schema.ElementSet.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\csharp\CityLizard.Meta\Xml.Schema.XmlSchemaExtension.cs">
-      <Link>Xml.Schema.XmlSchemaExtension.cs</Link>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\portable-net403+sl5+wp8+win8+monotouch+monoandroid\CityLizard.Core\CityLizard.Core.csproj">
-      <Project>{a85c6792-75ca-4ca5-a378-771f7ed3f722}</Project>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="CodeDom.Code.cs" />
+    <Compile Include="CodeDom.CSharp.Keyword.cs" />
+    <Compile Include="CodeDom.CSharp.Name.cs" />
+    <Compile Include="CodeDom.CSharp.Namespace.cs" />
+    <Compile Include="Xml.Schema.Compiler.cs" />
+    <Compile Include="Xml.Schema.ComplexTypeToDfa.cs" />
+    <Compile Include="Xml.Schema.ElementSet.cs" />
+    <Compile Include="Xml.Schema.XmlSchemaExtension.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CityLizard.Core\CityLizard.Core.csproj">
+      <Project>{a44ed4df-62ef-4bff-99aa-aa6df4e543e2}</Project>
       <Name>CityLizard.Core</Name>
     </ProjectReference>
   </ItemGroup>

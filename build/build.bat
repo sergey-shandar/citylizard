@@ -6,9 +6,8 @@ for /F %%I in (version.txt) do set VERSION=%%I
 call assembly_info.bat CityLizard.Core
 call assembly_info.bat CityLizard.Meta
 
-call platform_build.bat net403-client
-call platform_build.bat portable-net403+sl5+wp8+win8+monotouch+monoandroid
-call platform_build.bat psm
+call platform_build.bat csharp\csharp
+call platform_build.bat platforms\psm
 
 rem sn -R net35-client\CityLizard.Core\bin\Release\CityLizard.Core.dll keypair.snk
 

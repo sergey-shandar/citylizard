@@ -20,11 +20,11 @@
         <file src="CityLizard.Meta.tt.txt" target="content\net403-client"/>
 
         <!-- Core -->
-        <file src="..\platforms\portable-net403+sl5+wp8+win8+monotouch+monoandroid\CityLizard.Core\bin\Release\CityLizard.Core.dll" target="lib\portable-net403+sl5+wp8+win8+monotouch+monoandroid\CityLizard.Core.dll"/>
-        <file src="..\platforms\net403-client\CityLizard.Meta\bin\Release\CityLizard.Core.dll" target="lib\net403-client\CityLizard.Core.dll"/>
+        <file src="..\csharp\CityLizard.Core\bin\Release\CityLizard.Core.dll" target="lib\portable-net403+sl5+wp8+win8+monotouch+monoandroid\CityLizard.Core.dll"/>
+        <file src="..\csharp\CityLizard.Meta\bin\Release\CityLizard.Core.dll" target="lib\net403-client\CityLizard.Core.dll"/>
 
         <!-- Meta -->
-        <file src="..\platforms\net403-client\CityLizard.Meta\bin\Release\CityLizard.Meta.dll" target="lib\net403-client\CityLizard.Meta.dll"/>
+        <file src="..\csharp\CityLizard.Meta\bin\Release\CityLizard.Meta.dll" target="lib\net403-client\CityLizard.Meta.dll"/>
 
     </files>
 </package>

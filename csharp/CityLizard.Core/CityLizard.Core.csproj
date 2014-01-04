@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A44ED4DF-62EF-4BFF-99AA-AA6DF4E543E2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CityLizard.Core</RootNamespace>
+    <AssemblyName>CityLizard.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile147</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .NET Framework is automatically included -->
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Base128.cs" />
+    <Compile Include="Binary.cs" />
+    <Compile Include="Collections.ArrayCache.cs" />
+    <Compile Include="Collections.Cache.cs" />
+    <Compile Include="Collections.DictionaryCache.cs" />
+    <Compile Include="Collections.Extension.IDictionaryExtension.cs" />
+    <Compile Include="Collections.Optional.cs" />
+    <Compile Include="EncodingExtension.cs" />
+    <Compile Include="Fsm.Dfa.cs" />
+    <Compile Include="Fsm.Fsm.cs" />
+    <Compile Include="Fsm.Name.cs" />
+    <Compile Include="Graphics.Color.cs" />
+    <Compile Include="Graphics.CompactMatrix4D.cs" />
+    <Compile Include="Graphics.IMatrix4D.cs" />
+    <Compile Include="Graphics.Matrix.cs" />
+    <Compile Include="Graphics.Matrix4D.cs" />
+    <Compile Include="Graphics.Quaternion.cs" />
+    <Compile Include="Graphics.Vector.cs" />
+    <Compile Include="Graphics.Vector2D.cs" />
+    <Compile Include="Graphics.Vector3D.cs" />
+    <Compile Include="Graphics.Vector4D.cs" />
+    <Compile Include="Policy.I.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Policy.I.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Policy.INumeric.cs" />
+    <Compile Include="ProtoBuf.ILog.cs" />
+    <Compile Include="ProtoBuf.IO.cs" />
+    <Compile Include="ProtoBuf.ReadDelegate.cs" />
+    <Compile Include="ProtoBuf.WireType.cs" />
+    <Compile Include="StreamExtension.cs" />
+    <Compile Include="Xml.Attribute.cs" />
+    <Compile Include="Xml.ICharacterData.cs" />
+    <Compile Include="Xml.Implementation.cs" />
+    <Compile Include="Xml.IQName.cs" />
+    <Compile Include="Xml.Linked.Comment.cs" />
+    <Compile Include="Xml.Linked.Element.Complex.cs" />
+    <Compile Include="Xml.Linked.Element.Element.cs" />
+    <Compile Include="Xml.Linked.Element.Empty.cs" />
+    <Compile Include="Xml.Linked.Element.Mixed.cs" />
+    <Compile Include="Xml.Linked.Element.NotEmpty.cs" />
+    <Compile Include="Xml.Linked.Element.NotMixed.cs" />
+    <Compile Include="Xml.Linked.Element.Simple.cs" />
+    <Compile Include="Xml.Linked.Element.Type.cs" />
+    <Compile Include="Xml.Linked.LinkedNode.cs" />
+    <Compile Include="Xml.Linked.Text.cs" />
+    <Compile Include="Xml.Node.cs" />
+    <Compile Include="Xml.QName.cs" />
+    <Compile Include="Xml.Untyped.cs" />
+    <Compile Include="ZigZag.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Policy.I.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Policy.I.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

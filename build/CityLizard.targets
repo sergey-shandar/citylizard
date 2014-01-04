@@ -7,8 +7,7 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Reference Include="$(MSBuildThisFileDirectory)..\..\lib\net40-client\CityLizard.Core.dll"/>
-    <Reference Include="$(MSBuildThisFileDirectory)..\..\lib\net40-client\CityLizard.Fsm.dll"/>
-    <Reference Include="$(MSBuildThisFileDirectory)..\..\lib\net40-client\CityLizard.Meta.dll"/>
+    <Reference Include="$(MSBuildThisFileDirectory)..\..\lib\portable-net403+sl5+wp8+win8+monotouch+monoandroid\CityLizard.Core.dll"/>
+    <Reference Include="$(MSBuildThisFileDirectory)..\..\lib\net403-client\CityLizard.Meta.dll"/>
   </ItemGroup>
 </Project>

@@ -3,18 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Core", "CityLizard.Core\CityLizard.Core.csproj", "{EE4804EB-EF63-4DD0-B0F4-614D938F4A0F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Fsm", "CityLizard.Fsm\CityLizard.Fsm.csproj", "{BD473107-7363-4ADC-A5BC-07E38BE9EC86}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BD473107-7363-4ADC-A5BC-07E38BE9EC86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BD473107-7363-4ADC-A5BC-07E38BE9EC86}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BD473107-7363-4ADC-A5BC-07E38BE9EC86}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BD473107-7363-4ADC-A5BC-07E38BE9EC86}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EE4804EB-EF63-4DD0-B0F4-614D938F4A0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EE4804EB-EF63-4DD0-B0F4-614D938F4A0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE4804EB-EF63-4DD0-B0F4-614D938F4A0F}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -3,11 +3,11 @@ set PATH=%PATH%;%WINDIR%\Microsoft.NET\Framework\v4.0.30319;C:\programs;%Program
 
 for /F %%I in (version.txt) do set VERSION=%%I
 
-call assembly_info.bat CityLizard.Core
-call assembly_info.bat CityLizard.Meta
+call :assembly_info CityLizard.Core
+call :assembly_info CityLizard.Meta
 
-call platform_build.bat csharp\csharp
-call platform_build.bat platforms\psm
+call :platform_build csharp
+call :platform_build psm\psm
 
 rem sn -R net35-client\CityLizard.Core\bin\Release\CityLizard.Core.dll keypair.snk
 
@@ -24,6 +24,24 @@ rem rmdir /S /Q lib
 rem xcopy ..\platforms\psm\CityLizard.Fsm\bin\Release\*.dll lib\psm\
 
 del CityLizard.psm.%VERSION%.zip
-7z a CityLizard.psm.%VERSION%.zip ..\platforms\psm\CityLizard.Core\bin\Release\*.dll
+7z a CityLizard.psm.%VERSION%.zip ..\csharp\psm\CityLizard.Core\bin\Release\*.dll
 
 endlocal
+goto :eof
+
+:assembly_info
+setlocal
+set info=..\csharp\%1\AssemblyInfo.cs
+echo using System.Reflection; > %info%
+echo [assembly: AssemblyCompany("CityLizard")] >> %info%
+echo [assembly: AssemblyCopyright("Copyright © CityLizard 2013")] >> %info%
+echo [assembly: AssemblyVersion("%VERSION%")] >> %info%
+echo [assembly: AssemblyFileVersion("%VERSION%")] >> %info%
+echo [assembly: AssemblyTitle("%1")] >> %info%
+echo [assembly: AssemblyProduct("%1")] >> %info%
+endlocal
+goto :eof
+
+:platform_build
+msbuild ..\csharp\%1.sln /p:Configuration=Release /m
+goto :eof

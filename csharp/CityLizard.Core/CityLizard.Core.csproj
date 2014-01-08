@@ -51,6 +51,9 @@
     <Compile Include="Collections.DictionaryCache.cs" />
     <Compile Include="Collections.Extension.IDictionaryExtension.cs" />
     <Compile Include="Collections.Optional.cs" />
+    <Compile Include="ObjectMap.ArrayType.cs" />
+    <Compile Include="ObjectMap.Field.cs" />
+    <Compile Include="ObjectMap.RecordType.cs" />
     <Compile Include="EncodingExtension.cs" />
     <Compile Include="Fsm.Dfa.cs" />
     <Compile Include="Fsm.Fsm.cs" />
@@ -65,6 +68,7 @@
     <Compile Include="Graphics.Vector2D.cs" />
     <Compile Include="Graphics.Vector3D.cs" />
     <Compile Include="Graphics.Vector4D.cs" />
+    <Compile Include="ObjectMap.BaseType.cs" />
     <Compile Include="Policy.I.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -76,6 +80,7 @@
     <Compile Include="ProtoBuf.ReadDelegate.cs" />
     <Compile Include="ProtoBuf.WireType.cs" />
     <Compile Include="StreamExtension.cs" />
+    <Compile Include="ObjectMap.TypeCategory.cs" />
     <Compile Include="Xml.Attribute.cs" />
     <Compile Include="Xml.ICharacterData.cs" />
     <Compile Include="Xml.Implementation.cs" />

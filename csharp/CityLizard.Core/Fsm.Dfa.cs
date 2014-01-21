@@ -4,7 +4,7 @@
     using S = System;
 
     using System.Linq;
-    using CityLizard.Collections.Extension;
+    using CityLizard.Collections;
 
     /// <summary>
     /// Deterministic finite automaton.

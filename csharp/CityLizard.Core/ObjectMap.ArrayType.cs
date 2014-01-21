@@ -2,19 +2,25 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using CityLizard.Collections;
 
-namespace CityLizard.Core.ObjectMap
+namespace CityLizard.ObjectMap
 {
     sealed class ArrayType: BaseType
     {
         public readonly byte Dimension;
-        public readonly BaseType ElementType;
+        public readonly CachedValue<BaseType> _ElementType;
 
-        public ArrayType(byte dimentsion, BaseType elementType):
-            base(TypeCategory.ARRAY_REF)
+        public BaseType ElementType
+        {
+            get { return _ElementType.Value; }
+        }
+
+        public ArrayType(byte dimentsion, Func<BaseType> elementType):
+            base(TypeCategory.Array)
         {
             Dimension = dimentsion;
-            ElementType = elementType;
+            _ElementType = elementType.CachedValue();
         }
     }
 }

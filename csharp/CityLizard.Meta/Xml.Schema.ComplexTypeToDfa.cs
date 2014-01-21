@@ -8,7 +8,7 @@
 
     using F = Fsm;
 
-    using Collections.Extension;
+    using Collections;
     using Extension;
     using System.Linq;
 

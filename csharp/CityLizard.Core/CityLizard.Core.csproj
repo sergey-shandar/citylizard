@@ -8,7 +8,7 @@
     <ProjectGuid>{A44ED4DF-62EF-4BFF-99AA-AA6DF4E543E2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CityLizard.Core</RootNamespace>
+    <RootNamespace>CityLizard</RootNamespace>
     <AssemblyName>CityLizard.Core</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Profile147</TargetFrameworkProfile>
@@ -46,14 +46,20 @@
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Base128.cs" />
     <Compile Include="Binary.cs" />
-    <Compile Include="Collections.ArrayCache.cs" />
-    <Compile Include="Collections.Cache.cs" />
-    <Compile Include="Collections.DictionaryCache.cs" />
-    <Compile Include="Collections.Extension.IDictionaryExtension.cs" />
+    <Compile Include="Collections.CachedMap.cs" />
+    <Compile Include="Collections.CachedExtension.cs" />
+    <Compile Include="Collections.CachedValue.cs" />
+    <Compile Include="Collections.CachedValueExtension.cs" />
+    <Compile Include="Collections.IdMap.cs" />
+    <Compile Include="Collections.PairFactory.cs" />
+    <Compile Include="ObjectMap.FieldExtension.cs" />
+    <Compile Include="ObjectMap.NumberType.cs" />
+    <Compile Include="ObjectMap.ClassType.cs" />
+    <Compile Include="Collections.IDictionaryExtension.cs" />
     <Compile Include="Collections.Optional.cs" />
     <Compile Include="ObjectMap.ArrayType.cs" />
     <Compile Include="ObjectMap.Field.cs" />
-    <Compile Include="ObjectMap.RecordType.cs" />
+    <Compile Include="ObjectMap.StructType.cs" />
     <Compile Include="EncodingExtension.cs" />
     <Compile Include="Fsm.Dfa.cs" />
     <Compile Include="Fsm.Fsm.cs" />
@@ -69,6 +75,7 @@
     <Compile Include="Graphics.Vector3D.cs" />
     <Compile Include="Graphics.Vector4D.cs" />
     <Compile Include="ObjectMap.BaseType.cs" />
+    <Compile Include="ObjectMap.ObjectMap.cs" />
     <Compile Include="Policy.I.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

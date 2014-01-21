@@ -3,17 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CityLizard.Core.ObjectMap
+using CityLizard.Collections;
+
+namespace CityLizard.ObjectMap
 {
     sealed class Field
     {
         public readonly String Name;
-        public readonly BaseType Type;
+        readonly CachedValue<BaseType> _Type;
 
-        public Field(String name, BaseType type)
+        public BaseType Type { get { return _Type.Value; } }
+
+        public Field(String name, Func<BaseType> type)
         {
             Name = name;
-            Type = type;
+            _Type = type.CachedValue();
         }
     }
 }

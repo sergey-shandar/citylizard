@@ -9,8 +9,9 @@ namespace CityLizard.ObjectMap
     {
         public readonly TypeCategory Category;
 
-        public BaseType(TypeCategory category)
+        public BaseType(Action<BaseType> register, TypeCategory category)
         {
+            register(this);
             Category = category;
         }
     }

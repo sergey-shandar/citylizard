@@ -8,13 +8,15 @@ namespace CityLizard.ObjectMap
 {
     public sealed class ObjectMap
     {
-        private readonly Dictionary<Type, NumberType> _numberTypeMap = 
-            new Dictionary<Type, NumberType>();
+        private readonly Dictionary<Type, Func<Action<BaseType>, NumberType>> 
+            _numberTypeMap =
+                new Dictionary<Type, Func<Action<BaseType>, NumberType>>();
 
         private void AddNumberType<T>(NumberCategory category, byte expSize)
             where T: struct
         {
-            _numberTypeMap.Add(typeof(T), new NumberType(category, expSize));
+            _numberTypeMap.Add(
+                typeof(T), r => new NumberType(r, category, expSize));
         }
 
         private void AddIntType<S, U>(byte expSize)
@@ -64,42 +66,46 @@ namespace CityLizard.ObjectMap
             
             // System.Type to BaseType mapping.
             _typeMap = new CachedMap<Type, BaseType>(
-                k =>
+                (k, register) =>
                 {
                     if (k.IsByRef)
                     {
                         if (k.IsArray)
                         {
-                            return new ArrayType(
+                            new ArrayType(
+                                register,
                                 (byte)k.GetArrayRank(), 
                                 Cast(k.GetElementType()));
                         }
                         else if (k == typeof(string))
                         {
-                            return new ArrayType(1, Cast(typeof(Char)));
+                            new ArrayType(register, 1, Cast(typeof(Char)));
                         }
                         else
                         {
-                            return new ClassType(
-                                k.Name, Cast(k.BaseType), ToFieldArray(k));
+                            new ClassType(
+                                register,
+                                k.Name,
+                                Cast(k.BaseType),
+                                ToFieldArray(k));
                         }
                     }
                     else if(k.IsPrimitive)
                     {
-                        return _numberTypeMap[k];
+                        _numberTypeMap[k](register);
                     }
                     else if(k.IsEnum)
                     {
-                        return _numberTypeMap[Enum.GetUnderlyingType(k)];
+                        _numberTypeMap[Enum.GetUnderlyingType(k)](register);
                     }
                     else
                     {
-                        return new StructType(k.Name, ToFieldArray(k));
+                        new StructType(register, k.Name, ToFieldArray(k));
                     }
                 });
 
             //
-            _map = IdMap.Create<object>();
+            _map = IdMap.Create<object>((o, i) => {});
         }
 
         /*

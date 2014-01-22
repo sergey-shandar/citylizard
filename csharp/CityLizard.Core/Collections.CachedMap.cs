@@ -6,9 +6,9 @@ namespace CityLizard.Collections
     {
         private readonly Func<K, T> cached;
 
-        public CachedMap(Func<K, T> create, Action<K, T> init = null)
+        public CachedMap(Action<K, Action<T>> create)
         {
-            cached = create.Cached(init);
+            cached = create.Cached();
         }
 
         public T this[K key]

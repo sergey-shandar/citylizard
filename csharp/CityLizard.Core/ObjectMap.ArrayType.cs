@@ -16,8 +16,8 @@ namespace CityLizard.ObjectMap
             get { return _ElementType.Value; }
         }
 
-        public ArrayType(byte dimentsion, Func<BaseType> elementType):
-            base(TypeCategory.Array)
+        public ArrayType(Action<BaseType> register, byte dimentsion, Func<BaseType> elementType):
+            base(register, TypeCategory.Array)
         {
             Dimension = dimentsion;
             _ElementType = elementType.CachedValue();

@@ -6,16 +6,16 @@ namespace CityLizard.Collections
 {
     static class IdMap
     {
-        public static CachedMap<K, ulong> Create<K>(Action<K, ulong> init = null)
+        public static CachedMap<K, ulong> Create<K>(Action<K, ulong> init)
         {
             ulong i = 0;
             return new CachedMap<K, ulong>(
-                o => 
+                (k, register) => 
                 {
                     ++i;
-                    return i;
-                },
-                init);
+                    register(i);
+                    init(k, i);
+                });
         }
     }
 }

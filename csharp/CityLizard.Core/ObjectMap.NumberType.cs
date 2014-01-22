@@ -27,8 +27,11 @@ namespace CityLizard.ObjectMap
             get { return 1UL << SizeExp; } 
         }
 
-        public NumberType(NumberCategory numberCategory, byte sizeExp):
-            base(TypeCategory.Number)
+        public NumberType(
+            Action<BaseType> register,
+            NumberCategory numberCategory,
+            byte sizeExp):
+            base(register, TypeCategory.Number)
         {
             NumberCategory = numberCategory;
             SizeExp = sizeExp;

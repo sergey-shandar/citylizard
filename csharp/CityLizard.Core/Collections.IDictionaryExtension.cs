@@ -16,6 +16,7 @@ namespace CityLizard.Collections
                     null;
         }
 
+        /*
         public static T Get<K, T>(
             this IDictionary<K, T> dictionary,
             K key,
@@ -38,6 +39,7 @@ namespace CityLizard.Collections
                 return optional.Value;
             }
         }
+         * */
 
         public static T Get<K, T>(
             this IDictionary<K, T> dictionary,

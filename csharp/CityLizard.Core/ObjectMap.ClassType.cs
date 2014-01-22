@@ -17,8 +17,12 @@ namespace CityLizard.ObjectMap
 
         public readonly Field[] FieldList;
 
-        public ClassType(String name, Func<BaseType> _base, Field[] fieldList):
-            base(TypeCategory.Class)
+        public ClassType(
+            Action<BaseType> register,
+            String name,
+            Func<BaseType> _base,
+            Field[] fieldList):
+            base(register, TypeCategory.Class)
         {
             Name = name;
             _Base = _base.CachedValue();

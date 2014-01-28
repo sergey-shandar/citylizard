@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Core", "CityLiza
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Meta", "CityLizard.Meta\CityLizard.Meta.csproj", "{DBAA19D3-34F2-42B3-9D89-29BE385B4013}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityLizard.Test", "CityLizard.Test\CityLizard.Test.csproj", "{C0D04268-D5B5-4780-875B-61237631B84A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{DBAA19D3-34F2-42B3-9D89-29BE385B4013}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBAA19D3-34F2-42B3-9D89-29BE385B4013}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBAA19D3-34F2-42B3-9D89-29BE385B4013}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0D04268-D5B5-4780-875B-61237631B84A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0D04268-D5B5-4780-875B-61237631B84A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0D04268-D5B5-4780-875B-61237631B84A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0D04268-D5B5-4780-875B-61237631B84A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

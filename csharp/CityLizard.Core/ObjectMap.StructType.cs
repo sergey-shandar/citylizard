@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -10,12 +11,16 @@ namespace CityLizard.ObjectMap
         public readonly String Name;
         public readonly Field[] FieldList;
  
-        public StructType(
-            Action<BaseType> register, String name, Field[] fieldList):
-            base(register, TypeCategory.Struct)
+        public StructType(String name, Field[] fieldList):
+            base(TypeCategory.Struct)
         {
             Name = name;
             FieldList = fieldList;
+        }
+
+        public override void Serialize(Stream serialize, object value)
+        {
+            throw new NotImplementedException();
         }
     }
 }

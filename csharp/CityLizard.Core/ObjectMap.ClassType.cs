@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Collections;
@@ -18,15 +19,19 @@ namespace CityLizard.ObjectMap
         public readonly Field[] FieldList;
 
         public ClassType(
-            Action<BaseType> register,
             String name,
             Func<BaseType> _base,
             Field[] fieldList):
-            base(register, TypeCategory.Class)
+            base(TypeCategory.Class)
         {
             Name = name;
             _Base = _base.CachedValue();
             FieldList = fieldList;
+        }
+
+        public override void Serialize(Stream serialize, object value)
+        {
+            throw new NotImplementedException();
         }
     }
 }

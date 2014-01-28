@@ -4,18 +4,14 @@ using CityLizard.Xml;
 
 namespace CityLizard.Collections
 {
+    /*
     static class IdMap
     {
-        public static CachedMap<K, ulong> Create<K>(Action<K, ulong> init)
+        public static CachedMap<K, ulong> Create<K>()
         {
             ulong i = 0;
-            return new CachedMap<K, ulong>(
-                (k, register) => 
-                {
-                    ++i;
-                    register(i);
-                    init(k, i);
-                });
+            return new CachedMap<K, ulong>(k => { ++i; return i; });
         }
     }
+     * */
 }

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.IO;
 
 namespace CityLizard.ObjectMap
 {
@@ -9,10 +6,11 @@ namespace CityLizard.ObjectMap
     {
         public readonly TypeCategory Category;
 
-        public BaseType(Action<BaseType> register, TypeCategory category)
+        protected BaseType(TypeCategory category)
         {
-            register(this);
             Category = category;
         }
+
+        public abstract void Serialize(Stream serialize, object value);
     }
 }

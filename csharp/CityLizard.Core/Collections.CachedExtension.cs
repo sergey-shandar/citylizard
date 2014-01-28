@@ -7,8 +7,7 @@ namespace CityLizard.Collections
 {
     public static class CachedExtension
     {
-        public static Func<K, T> Cached<K, T>(
-            this Action<K, Action<T>> create)
+        public static Func<K, T> Cached<K, T>(this Func<K, T> create)
         {
             var map = new Dictionary<K, T>();
             return k => map.Get(k, create);

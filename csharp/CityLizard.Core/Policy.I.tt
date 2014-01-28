@@ -1,36 +1,108 @@
 ﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace=" System.Runtime.InteropServices" #>
 <#@ output extension=".cs" #>
 namespace CityLizard.Policy
 {
 	public struct I:
 <#
-	var typeList = new Type[]
+	var rangeList = new Type[]
 	{
-        typeof(System.SByte),
-	    typeof(System.Byte),
-		typeof(System.Int16),
-		typeof(System.UInt16),
-		typeof(System.Int32),
-		typeof(System.UInt32),
-		typeof(System.Int64),
-		typeof(System.UInt64),
-        typeof(System.Decimal),
-        typeof(System.Single),
-        typeof(System.Double),
+		typeof(bool),
+		typeof(char),
 	};
-	for(var i = 0; i < typeList.Length; ++i)
+	var integerList = new Integer[]
 	{
-		var s = "<" + typeList[i].ToString() + ">" + (i < typeList.Length - 1 ? ",": "");
+		new Integer(
+			"ISigned",
+			typeof(System.Int64),
+			new Type[]
+			{
+				typeof(System.SByte),
+				typeof(System.Int16),
+				typeof(System.Int32),
+				typeof(System.Int64)
+			}),
+		new Integer(
+			"IUnsigned",
+			typeof(System.UInt64),
+			new Type[]
+			{
+				typeof(System.Byte),
+				typeof(System.UInt16),
+				typeof(System.UInt32),
+				typeof(System.UInt64)
+			}),
+	};
+	var floatList = new Type[]
+	{
+		typeof(System.Single),
+		typeof(System.Double),
+	};
+	var decimalList = new Type[]
+	{
+		typeof(System.Decimal),
+	};
+	var numericList = floatList.Concat(decimalList).ToArray();
+	var typeList =
+		integerList.SelectMany(i => i.List).Concat(numericList).ToArray();
+	var interfaceList = 
+		integerList.
+		SelectMany(i => i.List.Select(t => i.Interface + "<" + t + ">")).
+		Concat(rangeList.Select(t => "IUnsignedRange<" + t + ">")).
+		Concat(floatList.Select(t => "IFloat<" + t + ">")).
+		Concat(decimalList.Select(t => "IDecimal<" + t + ">")).
+		ToArray();
+	for(var i = 0; i < interfaceList.Length; ++i)
+	{
+		var s = interfaceList[i] + (i < interfaceList.Length - 1 ? ",": "");
 #>
-		INumeric<#=s#>
-<#	
-    }
+		<#=s#>
+<#
+	}
 #>
 	{
 		public static readonly I V = new I();
 <#  
+	foreach(var i in integerList)
+	{
+		var c = i.Common;
+		foreach(var type in i.List)
+		{
+			var s = type.ToString();
+			var name = i.Interface + "Range<" + s + ">";
+#>
+		<#=c#> <#=name#>.ToCommon(<#=s#> value)
+		{
+			return value;
+		}
+		<#=s#> <#=name#>.FromCommon(<#=c#> value)
+		{
+			return (<#=s#>)value;
+		} 
+<#
+		}
+	}
+	foreach(var type in rangeList)
+	{
+		var s = type.ToString();
+		var name = "IUnsignedRange<" + s + ">";
+		var to = type == typeof(bool) ? "value ? 0UL: 1UL": "value";
+		var from = type == typeof(bool) ? "value != 0" : "(" + s + ")value";
+#>
+		System.UInt64 <#=name#>.ToCommon(<#=s#> value)
+		{
+			return <#=to#>;
+		}
+		<#=s#> <#=name#>.FromCommon(System.UInt64 value)
+		{
+			return <#=from#>;
+		} 
+<#
+	}
     var boList = new BinaryOperation[]
     {
         new BinaryOperation("Add", "+"),
@@ -38,10 +110,40 @@ namespace CityLizard.Policy
         new BinaryOperation("Multiply", "*"),
         new BinaryOperation("Divide", "/"),
     };
+	foreach(var type in typeList.Concat(rangeList))
+	{
+        var n = type.ToString();
+		var r = "IRange<" + n + ">";
+		var size = Marshal.SizeOf(type); 
+		var getBytes =
+			type == typeof(decimal) ? 
+				"v.GetBytes()": 
+				"System.BitConverter.GetBytes(v)";
+		var min = type == typeof(bool) ? "true": n + ".MinValue";
+		var max = type == typeof(bool) ? "false": n + ".MaxValue";
+#>
+		int <#=r#>.Size
+		{
+			get { return <#=size#>; }
+		}
+		byte[] <#=r#>.GetBytes(<#=n#> v)
+		{
+			return <#=getBytes#>;
+		}
+        <#=n#> <#=r#>.MinValue
+        { 
+            get { return <#=min#>; }
+        }
+        <#=n#> <#=r#>.MaxValue 
+        {
+            get { return <#=max#>; }
+        }
+<#
+	}
     foreach(var type in typeList)
     {
         var n = type.ToString();
-        var i = "INumeric<" + n + ">"; 
+        var i = "INumeric<" + n + ">";
 #>
         <#=n#> <#=i#>._0
         { 
@@ -50,14 +152,6 @@ namespace CityLizard.Policy
         <#=n#> <#=i#>._1 
         {
             get { return 1; }
-        }
-        <#=n#> <#=i#>.MinValue
-        { 
-            get { return <#=n#>.MinValue; }
-        }
-        <#=n#> <#=i#>.MaxValue 
-        {
-            get { return <#=n#>.MaxValue; }
         }
 <#      
         foreach(var o in boList)
@@ -83,5 +177,17 @@ namespace CityLizard.Policy
             this.Name = name;
             this.Operation = operation;
         }
-    }
+    };
+	class Integer
+	{
+		public readonly string Interface;
+		public readonly Type Common;
+		public readonly Type[] List;
+		public Integer(string interface_, Type common, Type[] list)
+		{
+			Interface = interface_;
+			Common = common;
+			List = list;
+		}
+	};
 #>

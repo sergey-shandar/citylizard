@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 using CityLizard.Collections;
@@ -8,104 +9,42 @@ namespace CityLizard.ObjectMap
 {
     public sealed class ObjectMap
     {
-        private readonly Dictionary<Type, Func<Action<BaseType>, NumberType>> 
-            _numberTypeMap =
-                new Dictionary<Type, Func<Action<BaseType>, NumberType>>();
-
-        private void AddNumberType<T>(NumberCategory category, byte expSize)
-            where T: struct
+        private static void Serialize(
+            Func<object, ulong> idMap, Stream stream, object value)
         {
-            _numberTypeMap.Add(
-                typeof(T), r => new NumberType(r, category, expSize));
+            var type = value.GetType();
         }
 
-        private void AddIntType<S, U>(byte expSize)
-            where S: struct
-            where U: struct
+        public static void Serialize(object value, Stream stream)
         {
-            AddNumberType<S>(NumberCategory.Int, expSize);
-            AddNumberType<U>(NumberCategory.UInt, expSize);
-        }
-
-        private readonly CachedMap<Type, BaseType> _typeMap;
-
-        private Func<BaseType> Cast(Type type)
-        {
-            return () => _typeMap[type];
-        }
-
-        private Field[] ToFieldArray(Type type)
-        {
-            return 
-                type.
-                GetFields().
-                Select(field => new Field(field.Name, Cast(field.FieldType))).
-                ToArray();
-        }
-
-        private readonly CachedMap<Object, ulong> _map;
-
-        public ObjectMap()
-        {
-            // integers
-            AddIntType<sbyte, byte>(0);
-            AddIntType<short, ushort>(1);
-            AddIntType<int, uint>(2);
-            AddIntType<long, ulong>(3);
-            
-            // additional integer types
-            AddNumberType<bool>(NumberCategory.UInt, 0);
-            AddNumberType<char>(NumberCategory.UInt, 1);
-
-            // binary floating point numbers (32 and 64 bit)
-            AddNumberType<float>(NumberCategory.Float, 2);
-            AddNumberType<double>(NumberCategory.Float, 3);
-            
-            // decimal floating point number (128 bit)
-            AddNumberType<decimal>(NumberCategory.Decimal, 4);
-            
-            // System.Type to BaseType mapping.
-            _typeMap = new CachedMap<Type, BaseType>(
-                (k, register) =>
+            if (value == null)
+            {
+                return;
+            }
+            var typeMap = TypeMap.Create();
+            ulong i = 0;
+            var queue = new Queue<object>();
+            var idMap = CachedExtension.Cached(
+                (object key) =>
                 {
-                    if (k.IsByRef)
-                    {
-                        if (k.IsArray)
-                        {
-                            new ArrayType(
-                                register,
-                                (byte)k.GetArrayRank(), 
-                                Cast(k.GetElementType()));
-                        }
-                        else if (k == typeof(string))
-                        {
-                            new ArrayType(register, 1, Cast(typeof(Char)));
-                        }
-                        else
-                        {
-                            new ClassType(
-                                register,
-                                k.Name,
-                                Cast(k.BaseType),
-                                ToFieldArray(k));
-                        }
-                    }
-                    else if(k.IsPrimitive)
-                    {
-                        _numberTypeMap[k](register);
-                    }
-                    else if(k.IsEnum)
-                    {
-                        _numberTypeMap[Enum.GetUnderlyingType(k)](register);
-                    }
-                    else
-                    {
-                        new StructType(register, k.Name, ToFieldArray(k));
-                    }
+                    queue.Enqueue(key);
+                    ++i;
+                    return i;
                 });
-
-            //
-            _map = IdMap.Create<object>((o, i) => {});
+            idMap(value);
+            while (queue.Count > 0)
+            {
+                var o = queue.Dequeue();
+                var type = o.GetType();
+                var isType = type == typeof (Type);
+                Base128.Serialize(isType ? idMap(type): 0, stream);
+                if (isType)
+                {
+                    o = typeMap(type);
+                }
+                // serialize o.
+                Serialize(idMap, stream, o);
+            }
         }
 
         /*

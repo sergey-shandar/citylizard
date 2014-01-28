@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.IO;
+using CityLizard.Collections;
+using CityLizard.Policy;
 
 namespace CityLizard.ObjectMap
 {
@@ -13,28 +13,35 @@ namespace CityLizard.ObjectMap
         Decimal = 3,
     }
 
-    sealed class NumberType: BaseType
+    abstract class NumberType: BaseType
     {
         public readonly NumberCategory NumberCategory;
 
-        public readonly byte SizeExp;
+        public readonly uint Size;
 
-        /// <summary>
-        /// Size = SizeExp ^ 2
-        /// </summary>
-        public ulong Size 
-        {
-            get { return 1UL << SizeExp; } 
-        }
-
-        public NumberType(
-            Action<BaseType> register,
-            NumberCategory numberCategory,
-            byte sizeExp):
-            base(register, TypeCategory.Number)
+        protected NumberType(NumberCategory numberCategory, uint size):
+            base(TypeCategory.Number)
         {
             NumberCategory = numberCategory;
-            SizeExp = sizeExp;
+            Size = size;
         }
+
+    }
+
+    abstract class NumberType<T, P> : NumberType
+        where T: struct, IComparable<T>
+        where P: struct, IRange<T>
+    {
+        protected NumberType(NumberCategory category):
+            base(category, (uint)new P().Size)
+        {           
+        }
+
+        public sealed override void Serialize(Stream stream, object value)
+        {
+            Serialize(stream, (T)value);
+        }
+
+        protected abstract void Serialize(Stream stream, T value);
     }
 }

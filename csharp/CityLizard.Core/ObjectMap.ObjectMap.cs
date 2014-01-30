@@ -10,9 +10,13 @@ namespace CityLizard.ObjectMap
     public sealed class ObjectMap
     {
         private static void Serialize(
-            Func<object, ulong> idMap, Stream stream, object value)
+            Func<object, ulong> idMap,
+            Stream stream,
+            // BaseType type,
+            object value)
         {
-            var type = value.GetType();
+            // var type = value.GetType();
+            // TODO:
         }
 
         public static void Serialize(object value, Stream stream)
@@ -36,7 +40,7 @@ namespace CityLizard.ObjectMap
             {
                 var o = queue.Dequeue();
                 var type = o.GetType();
-                var isType = type == typeof (Type);
+                var isType = type == typeof(Type);
                 Base128.Serialize(isType ? idMap(type): 0, stream);
                 if (isType)
                 {

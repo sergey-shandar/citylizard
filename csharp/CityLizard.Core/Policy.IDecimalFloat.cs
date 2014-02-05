@@ -2,7 +2,7 @@
 
 namespace CityLizard.Policy
 {
-    interface IDecimal<T>: INumeric<T>
+    interface IDecimalFloat<T>: IFloat<T>
         where T: struct, IComparable<T>
     {
     }

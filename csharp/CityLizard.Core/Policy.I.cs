@@ -11,9 +11,9 @@
 		IUnsigned<System.UInt64>,
 		IUnsignedRange<System.Boolean>,
 		IUnsignedRange<System.Char>,
-		IFloat<System.Single>,
-		IFloat<System.Double>,
-		IDecimal<System.Decimal>
+		IBinaryFloat<System.Single>,
+		IBinaryFloat<System.Double>,
+		IDecimalFloat<System.Decimal>
 	{
 		public static readonly I V = new I();
 		System.Int64 ISignedRange<System.SByte>.ToCommon(System.SByte value)

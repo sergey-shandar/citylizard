@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CityLizard.Policy;
 
-namespace CityLizard
+namespace CityLizard.Policy
 {
-    public interface IFloat<T>: INumeric<T>
+    public interface IBinaryFloat<T>: IFloat<T>
         where T: struct, IComparable<T>
     {
     }

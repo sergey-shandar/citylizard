@@ -47,27 +47,12 @@
     <Compile Include="Base128.cs" />
     <Compile Include="Binary.cs" />
     <Compile Include="DecimalExtension.cs" />
-    <Compile Include="Collections.CachedMap.cs" />
     <Compile Include="Collections.CachedExtension.cs" />
-    <Compile Include="Collections.CachedValue.cs" />
-    <Compile Include="Collections.CachedValueExtension.cs" />
-    <Compile Include="Collections.IdMap.cs" />
-    <Compile Include="Collections.PairFactory.cs" />
     <Compile Include="Functional.UseResult.cs" />
-    <Compile Include="ObjectMap.BaseFloatType.cs" />
-    <Compile Include="ObjectMap.DecimalType.cs" />
+    <Compile Include="Policy.IBinaryFloat.cs" />
     <Compile Include="Policy.IFloat.cs" />
-    <Compile Include="ObjectMap.FloatType.cs" />
-    <Compile Include="ObjectMap.NumberTypeMap.cs" />
-    <Compile Include="ObjectMap.FieldExtension.cs" />
-    <Compile Include="ObjectMap.NumberType.cs" />
-    <Compile Include="ObjectMap.ClassType.cs" />
     <Compile Include="Collections.IDictionaryExtension.cs" />
     <Compile Include="Collections.Optional.cs" />
-    <Compile Include="ObjectMap.ArrayType.cs" />
-    <Compile Include="ObjectMap.Field.cs" />
-    <Compile Include="ObjectMap.SignedType.cs" />
-    <Compile Include="ObjectMap.StructType.cs" />
     <Compile Include="EncodingExtension.cs" />
     <Compile Include="Fsm.Dfa.cs" />
     <Compile Include="Fsm.Fsm.cs" />
@@ -82,15 +67,12 @@
     <Compile Include="Graphics.Vector2D.cs" />
     <Compile Include="Graphics.Vector3D.cs" />
     <Compile Include="Graphics.Vector4D.cs" />
-    <Compile Include="ObjectMap.BaseType.cs" />
-    <Compile Include="ObjectMap.ObjectMap.cs" />
-    <Compile Include="ObjectMap.TypeMap.cs" />
     <Compile Include="Policy.I.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Policy.I.tt</DependentUpon>
     </Compile>
-    <Compile Include="Policy.IDecimal.cs" />
+    <Compile Include="Policy.IDecimalFloat.cs" />
     <Compile Include="Policy.INumeric.cs" />
     <Compile Include="Policy.IRange.cs" />
     <Compile Include="Policy.ISigned.cs" />
@@ -102,8 +84,6 @@
     <Compile Include="ProtoBuf.ReadDelegate.cs" />
     <Compile Include="ProtoBuf.WireType.cs" />
     <Compile Include="StreamExtension.cs" />
-    <Compile Include="ObjectMap.TypeCategory.cs" />
-    <Compile Include="ObjectMap.UnsignedType.cs" />
     <Compile Include="Xml.Attribute.cs" />
     <Compile Include="Xml.ICharacterData.cs" />
     <Compile Include="Xml.Implementation.cs" />

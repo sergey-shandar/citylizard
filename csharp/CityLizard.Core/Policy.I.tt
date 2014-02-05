@@ -53,8 +53,8 @@ namespace CityLizard.Policy
 		integerList.
 		SelectMany(i => i.List.Select(t => i.Interface + "<" + t + ">")).
 		Concat(rangeList.Select(t => "IUnsignedRange<" + t + ">")).
-		Concat(floatList.Select(t => "IFloat<" + t + ">")).
-		Concat(decimalList.Select(t => "IDecimal<" + t + ">")).
+		Concat(floatList.Select(t => "IBinaryFloat<" + t + ">")).
+		Concat(decimalList.Select(t => "IDecimalFloat<" + t + ">")).
 		ToArray();
 	for(var i = 0; i < interfaceList.Length; ++i)
 	{

@@ -65,8 +65,11 @@ namespace CityLizard.Policy
 	}
 #>
 	{
-		public static readonly I V = new I();
 <#  
+	foreach(var r in rangeList)
+	{
+		
+	}
 	foreach(var i in integerList)
 	{
 		var c = i.Common;
@@ -113,12 +116,24 @@ namespace CityLizard.Policy
 	foreach(var type in typeList.Concat(rangeList))
 	{
         var n = type.ToString();
+		var sn = type.Name;
 		var r = "IRange<" + n + ">";
-		var size = Marshal.SizeOf(type); 
+		var size = Marshal.SizeOf(type);
+		var toId =
+			type == typeof(float) || type == typeof(double) ? 
+				"v.ToString(\"R\")":
+				"v.ToString()";
 		var getBytes =
 			type == typeof(decimal) ? 
 				"v.GetBytes()": 
 				"System.BitConverter.GetBytes(v)";
+		var fromBytes = type == typeof(decimal) ?
+				"bytes.ToDecimal()" :
+				type == typeof(byte) ?
+				"bytes[0]":
+				type == typeof(sbyte) ?
+				"(sbyte)bytes[0]": 
+				"System.BitConverter.To" + sn + "(bytes, 0)";
 		var min = type == typeof(bool) ? "true": n + ".MinValue";
 		var max = type == typeof(bool) ? "false": n + ".MaxValue";
 #>
@@ -126,9 +141,17 @@ namespace CityLizard.Policy
 		{
 			get { return <#=size#>; }
 		}
+		string <#=r#>.ToId(<#=n#> v)
+		{
+			return <#=toId#>;
+		}
 		byte[] <#=r#>.GetBytes(<#=n#> v)
 		{
 			return <#=getBytes#>;
+		}
+		<#=n#> <#=r#>.FromBytes(byte[] bytes)
+		{
+			return <#=fromBytes#>;
 		}
         <#=n#> <#=r#>.MinValue
         { 

@@ -1,5 +1,5 @@
 <#@ template debug="false" hostspecific="true" language="C#" #> 
 <#@ assembly name="System.Core" #> 
-<#@ assembly name="$(SolutionDir)\packages\CityLizard.3.0.7.0\lib\net403-client\CityLizard.Meta.dll" #> 
+<#@ assembly name="$(SolutionDir)\packages\CityLizard.3.0.11.0\lib\net403-client\CityLizard.Meta.dll" #> 
 <#@ import namespace="System.IO" #> 
 <#@ import namespace="CityLizard.Xml.Schema" #> 

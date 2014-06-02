@@ -49,6 +49,7 @@
     <Compile Include="DecimalExtension.cs" />
     <Compile Include="Collections.CachedExtension.cs" />
     <Compile Include="Functional.UseResult.cs" />
+    <Compile Include="ObjectMap.cs" />
     <Compile Include="Policy.IBinaryFloat.cs" />
     <Compile Include="Policy.IFloat.cs" />
     <Compile Include="Collections.IDictionaryExtension.cs" />
@@ -78,7 +79,7 @@
     <Compile Include="Policy.ISigned.cs" />
     <Compile Include="Policy.IUnsigned.cs" />
     <Compile Include="Policy.IUnsignedRange.cs" />
-    <Compile Include="Polisy.ISignedRange.cs" />
+    <Compile Include="Policy.ISignedRange.cs" />
     <Compile Include="ProtoBuf.ILog.cs" />
     <Compile Include="ProtoBuf.IO.cs" />
     <Compile Include="ProtoBuf.ReadDelegate.cs" />

@@ -1,0 +1,188 @@
+
+C:\Users\Sergey\Desktop\citylizard\build>setlocal
+
+C:\Users\Sergey\Desktop\citylizard\build>set PATH=C:\Program Files\Far Manager\;C:\Program Files (x86)\Haskell\bin;C:\Program Files (x86)\Haskell Platform\2013.2.0.0\lib\extralibs\bin;C:\Program Files (x86)\Haskell Platform\2013.2.0.0\bin;C:\Program Files\Microsoft HPC Pack 2012\Bin\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v1.0\;C:\Program Files (x86)\Windows Kits\8.0\Windows Performance Toolkit\;C:\Program Files (x86)\Intel\OpenCL SDK\2.0\bin\x86;C:\Program Files (x86)\Intel\OpenCL SDK\2.0\bin\x64;C:\Program Files\TortoiseHg\;C:\Program Files (x86)\Windows Live\Shared;C:\Program Files (x86)\scala\\bin;C:\Program Files\Microsoft\Web Platform Installer\;C:\Program Files (x86)\Microsoft SDKs\TypeScript\;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files\Microsoft Windows Performance Toolkit\;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files (x86)\Haskell Platform\2013.2.0.0\mingw\bin;C:\Users\Sergey\AppData\Roaming\cabal\bin;C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319;C:\programs;C:\Program Files (x86)\Microsoft SDKs\Windows\v8.0A\bin\NETFX 4.0 Tools;C:\Program Files\7-Zip; 
+
+C:\Users\Sergey\Desktop\citylizard\build>for /F %I in (version.txt) do set VERSION=%I 
+
+C:\Users\Sergey\Desktop\citylizard\build>set VERSION=3.0.10.0 
+
+C:\Users\Sergey\Desktop\citylizard\build>call :assembly_info CityLizard.Core 
+
+C:\Users\Sergey\Desktop\citylizard\build>setlocal
+
+C:\Users\Sergey\Desktop\citylizard\build>set info=..\csharp\CityLizard.Core\AssemblyInfo.cs 
+
+C:\Users\Sergey\Desktop\citylizard\build>echo using System.Reflection;  1>..\csharp\CityLizard.Core\AssemblyInfo.cs 
+
+C:\Users\Sergey\Desktop\citylizard\build>echo [assembly: AssemblyCompany("CityLizard")]  1>>..\csharp\CityLizard.Core\AssemblyInfo.cs 
+
+C:\Users\Sergey\Desktop\citylizard\build>echo [assembly: AssemblyCopyright("Copyright © CityLizard 2013")]  1>>..\csharp\CityLizard.Core\AssemblyInfo.cs 
+
+C:\Users\Sergey\Desktop\citylizard\build>echo [assembly: AssemblyVersion("3.0.10.0")]  1>>..\csharp\CityLizard.Core\AssemblyInfo.cs 
+
+C:\Users\Sergey\Desktop\citylizard\build>echo [assembly: AssemblyFileVersion("3.0.10.0")]  1>>..\csharp\CityLizard.Core\AssemblyInfo.cs 
+
+C:\Users\Sergey\Desktop\citylizard\build>echo [assembly: AssemblyTitle("CityLizard.Core")]  1>>..\csharp\CityLizard.Core\AssemblyInfo.cs 
+
+C:\Users\Sergey\Desktop\citylizard\build>echo [assembly: AssemblyProduct("CityLizard.Core")]  1>>..\csharp\CityLizard.Core\AssemblyInfo.cs 
+
+C:\Users\Sergey\Desktop\citylizard\build>endlocal
+
+C:\Users\Sergey\Desktop\citylizard\build>goto :eof 
+
+C:\Users\Sergey\Desktop\citylizard\build>call :assembly_info CityLizard.Meta 
+
+C:\Users\Sergey\Desktop\citylizard\build>setlocal
+
+C:\Users\Sergey\Desktop\citylizard\build>set info=..\csharp\CityLizard.Meta\AssemblyInfo.cs 
+
+C:\Users\Sergey\Desktop\citylizard\build>echo using System.Reflection;  1>..\csharp\CityLizard.Meta\AssemblyInfo.cs 
+
+C:\Users\Sergey\Desktop\citylizard\build>echo [assembly: AssemblyCompany("CityLizard")]  1>>..\csharp\CityLizard.Meta\AssemblyInfo.cs 
+
+C:\Users\Sergey\Desktop\citylizard\build>echo [assembly: AssemblyCopyright("Copyright © CityLizard 2013")]  1>>..\csharp\CityLizard.Meta\AssemblyInfo.cs 
+
+C:\Users\Sergey\Desktop\citylizard\build>echo [assembly: AssemblyVersion("3.0.10.0")]  1>>..\csharp\CityLizard.Meta\AssemblyInfo.cs 
+
+C:\Users\Sergey\Desktop\citylizard\build>echo [assembly: AssemblyFileVersion("3.0.10.0")]  1>>..\csharp\CityLizard.Meta\AssemblyInfo.cs 
+
+C:\Users\Sergey\Desktop\citylizard\build>echo [assembly: AssemblyTitle("CityLizard.Meta")]  1>>..\csharp\CityLizard.Meta\AssemblyInfo.cs 
+
+C:\Users\Sergey\Desktop\citylizard\build>echo [assembly: AssemblyProduct("CityLizard.Meta")]  1>>..\csharp\CityLizard.Meta\AssemblyInfo.cs 
+
+C:\Users\Sergey\Desktop\citylizard\build>endlocal
+
+C:\Users\Sergey\Desktop\citylizard\build>goto :eof 
+
+C:\Users\Sergey\Desktop\citylizard\build>call :platform_build csharp 
+
+C:\Users\Sergey\Desktop\citylizard\build>msbuild ..\csharp\csharp.sln /p:Configuration=Release /m 
+Microsoft (R) Build Engine version 4.0.30319.33440
+[Microsoft .NET Framework, version 4.0.30319.34014]
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 6/1/2014 1:14:53 PM.
+     1>Project "C:\Users\Sergey\Desktop\citylizard\csharp\csharp.sln" on node 1 (default targets).
+     1>ValidateSolutionConfiguration:
+         Building solution configuration "Release|Any CPU".
+     1>Project "C:\Users\Sergey\Desktop\citylizard\csharp\csharp.sln" (1) is building "C:\Users\Sergey\Desktop\citylizard\csharp\CityLizard.Core\CityLizard.Core.csproj" (2) on node 1 (default targets).
+     2>ResolveAssemblyReferences:
+         A TargetFramework profile exclusion list will be generated.
+       GenerateTargetFrameworkMonikerAttribute:
+       Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.
+       CoreCompile:
+         C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\Csc.exe /noconfig /nowarn:1701,1702 /nostdlib+ /errorreport:prompt /warn:4 /define:TRACE /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETPortable\v4.0\Profile\Profile147\mscorlib.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETPortable\v4.0\Profile\Profile147\mscorlib.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETPortable\v4.0\Profile\Profile147\System.Core.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETPortable\v4.0\Profile\Profile147\System.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETPortable\v4.0\Profile\Profile147\System.Net.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETPortable\v4.0\Profile\Profile147\System.Runtime.Serialization.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETPortable\v4.0\Profile\Profile147\System.ServiceModel.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETPortable\v4.0\Profile\Profile147\System.ServiceModel.Web.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETPortable\v4.0\Profile\Profile147\System.Xml.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETPortable\v4.0\Profile\Profile147\System.Xml.Linq.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETPortable\v4.0\Profile\Profile147\System.Xml.Serialization.dll" /debug:pdbonly /filealign:512 /keyfile:key.snk /optimize+ /out:obj\Release\CityLizard.Core.dll /target:library /utf8output AssemblyInfo.cs Base128.cs Binary.cs DecimalExtension.cs Collections.CachedExtension.cs Functional.UseResult.cs ObjectMap.cs Policy.IBinaryFloat.cs Policy.IFloat.cs Collections.IDictionaryExtension.cs Collections.Optional.cs EncodingExtension.cs Fsm.Dfa.cs Fsm.Fsm.cs Fsm.Name.cs Graphics.Color.cs Graphics.CompactMatrix4D.cs Graphics.IMatrix4D.cs Graphics.Matrix.cs Graphics.Matrix4D.cs Graphics.Quaternion.cs Graphics.Vector.cs Graphics.Vector2D.cs Graphics.Vector3D.cs Graphics.Vector4D.cs Policy.I.cs Policy.IDecimalFloat.cs Policy.INumeric.cs Policy.IRange.cs Policy.ISigned.cs Policy.IUnsigned.cs Policy.IUnsignedRange.cs Policy.ISignedRange.cs ProtoBuf.ILog.cs ProtoBuf.IO.cs ProtoBuf.ReadDelegate.cs ProtoBuf.WireType.cs StreamExtension.cs Xml.Attribute.cs Xml.ICharacterData.cs Xml.Implementation.cs Xml.IQName.cs Xml.Linked.Comment.cs Xml.Linked.Element.Complex.cs Xml.Linked.Element.Element.cs Xml.Linked.Element.Empty.cs Xml.Linked.Element.Mixed.cs Xml.Linked.Element.NotEmpty.cs Xml.Linked.Element.NotMixed.cs Xml.Linked.Element.Simple.cs Xml.Linked.Element.Type.cs Xml.Linked.LinkedNode.cs Xml.Linked.Text.cs Xml.Node.cs Xml.QName.cs Xml.Untyped.cs ZigZag.cs "C:\Users\Sergey\AppData\Local\Temp\.NETPortable,Version=v4.0,Profile=Profile147.AssemblyAttributes.cs"
+       CopyFilesToOutputDirectory:
+         Copying file from "obj\Release\CityLizard.Core.dll" to "bin\Release\CityLizard.Core.dll".
+         CityLizard.Core -> C:\Users\Sergey\Desktop\citylizard\csharp\CityLizard.Core\bin\Release\CityLizard.Core.dll
+         Copying file from "obj\Release\CityLizard.Core.pdb" to "bin\Release\CityLizard.Core.pdb".
+     2>Done Building Project "C:\Users\Sergey\Desktop\citylizard\csharp\CityLizard.Core\CityLizard.Core.csproj" (default targets).
+     1>Project "C:\Users\Sergey\Desktop\citylizard\csharp\csharp.sln" (1) is building "C:\Users\Sergey\Desktop\citylizard\csharp\CityLizard.Meta\CityLizard.Meta.csproj" (4) on node 3 (default targets).
+     4>ResolveAssemblyReferences:
+         A TargetFramework profile exclusion list will be generated.
+       GenerateTargetFrameworkMonikerAttribute:
+       Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.
+       CoreCompile:
+         C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\Csc.exe /noconfig /nowarn:1701,1702 /nostdlib+ /errorreport:prompt /warn:4 /define:TRACE /highentropyva+ /reference:C:\Users\Sergey\Desktop\citylizard\csharp\CityLizard.Core\bin\Release\CityLizard.Core.dll /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\V4.0\Profile\Client\Microsoft.CSharp.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0.3\Profile\Client\mscorlib.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\V4.0\Profile\Client\System.Core.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\V4.0\Profile\Client\System.Data.DataSetExtensions.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0.3\Profile\Client\System.Data.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0.3\Profile\Client\System.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\V4.0\Profile\Client\System.Xml.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\V4.0\Profile\Client\System.Xml.Linq.dll" /debug:pdbonly /filealign:512 /keyfile:key.snk /optimize+ /out:obj\Release\CityLizard.Meta.dll /subsystemversion:6.00 /target:library /utf8output AssemblyInfo.cs CodeDom.Code.cs CodeDom.CSharp.Keyword.cs CodeDom.CSharp.Name.cs CodeDom.CSharp.Namespace.cs Xml.Schema.Compiler.cs Xml.Schema.ComplexTypeToDfa.cs Xml.Schema.ElementSet.cs Xml.Schema.XmlSchemaExtension.cs "C:\Users\Sergey\AppData\Local\Temp\.NETFramework,Version=v4.0.3,Profile=Client.AssemblyAttributes.cs"
+     1>Project "C:\Users\Sergey\Desktop\citylizard\csharp\csharp.sln" (1) is building "C:\Users\Sergey\Desktop\citylizard\csharp\CityLizard.Test\CityLizard.Test.csproj" (3) on node 2 (default targets).
+     3>GenerateTargetFrameworkMonikerAttribute:
+       Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.
+       CoreCompile:
+         C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\Csc.exe /noconfig /nowarn:1701,1702 /nostdlib+ /errorreport:prompt /warn:4 /define:TRACE /highentropyva+ /reference:C:\Users\Sergey\Desktop\citylizard\csharp\CityLizard.Core\bin\Release\CityLizard.Core.dll /reference:"C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\IDE\ReferenceAssemblies\v4.0\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0.3\mscorlib.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Core.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0.3\System.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETPortable\v4.0\Profile\Profile147\System.Xml.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETPortable\v4.0\Profile\Profile147\System.Xml.Linq.dll" /debug:pdbonly /filealign:512 /optimize+ /out:obj\Release\CityLizard.Test.dll /subsystemversion:6.00 /target:library /utf8output Base128Test.cs Properties\AssemblyInfo.cs DictionaryTest.cs ObjectMapTest.cs Collections.CachedTest.cs "C:\Users\Sergey\AppData\Local\Temp\.NETFramework,Version=v4.0.3.AssemblyAttributes.cs"
+       _CopyFilesMarkedCopyLocal:
+         Copying file from "C:\Users\Sergey\Desktop\citylizard\csharp\CityLizard.Core\bin\Release\CityLizard.Core.dll" to "bin\Release\CityLizard.Core.dll".
+         Copying file from "C:\Users\Sergey\Desktop\citylizard\csharp\CityLizard.Core\bin\Release\CityLizard.Core.pdb" to "bin\Release\CityLizard.Core.pdb".
+       CopyFilesToOutputDirectory:
+         Copying file from "obj\Release\CityLizard.Test.dll" to "bin\Release\CityLizard.Test.dll".
+         CityLizard.Test -> C:\Users\Sergey\Desktop\citylizard\csharp\CityLizard.Test\bin\Release\CityLizard.Test.dll
+         Copying file from "obj\Release\CityLizard.Test.pdb" to "bin\Release\CityLizard.Test.pdb".
+     3>Done Building Project "C:\Users\Sergey\Desktop\citylizard\csharp\CityLizard.Test\CityLizard.Test.csproj" (default targets).
+     4>_CopyFilesMarkedCopyLocal:
+         Copying file from "C:\Users\Sergey\Desktop\citylizard\csharp\CityLizard.Core\bin\Release\CityLizard.Core.dll" to "bin\Release\CityLizard.Core.dll".
+         Copying file from "C:\Users\Sergey\Desktop\citylizard\csharp\CityLizard.Core\bin\Release\CityLizard.Core.pdb" to "bin\Release\CityLizard.Core.pdb".
+       CopyFilesToOutputDirectory:
+         Copying file from "obj\Release\CityLizard.Meta.dll" to "bin\Release\CityLizard.Meta.dll".
+         CityLizard.Meta -> C:\Users\Sergey\Desktop\citylizard\csharp\CityLizard.Meta\bin\Release\CityLizard.Meta.dll
+         Copying file from "obj\Release\CityLizard.Meta.pdb" to "bin\Release\CityLizard.Meta.pdb".
+     4>Done Building Project "C:\Users\Sergey\Desktop\citylizard\csharp\CityLizard.Meta\CityLizard.Meta.csproj" (default targets).
+     1>Done Building Project "C:\Users\Sergey\Desktop\citylizard\csharp\csharp.sln" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:01.66
+
+C:\Users\Sergey\Desktop\citylizard\build>goto :eof 
+
+C:\Users\Sergey\Desktop\citylizard\build>call :platform_build psm\psm 
+
+C:\Users\Sergey\Desktop\citylizard\build>msbuild ..\csharp\psm\psm.sln /p:Configuration=Release /m 
+Microsoft (R) Build Engine version 4.0.30319.33440
+[Microsoft .NET Framework, version 4.0.30319.34014]
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 6/1/2014 1:14:54 PM.
+     1>Project "C:\Users\Sergey\Desktop\citylizard\csharp\psm\psm.sln" on node 1 (default targets).
+     1>ValidateSolutionConfiguration:
+         Building solution configuration "Release|Any CPU".
+     1>Project "C:\Users\Sergey\Desktop\citylizard\csharp\psm\psm.sln" (1) is building "C:\Users\Sergey\Desktop\citylizard\csharp\psm\CityLizard.Core\CityLizard.Core.csproj" (2) on node 1 (default targets).
+     2>_CompileShaderPrograms:
+       Skipping target "_CompileShaderPrograms" because it has no outputs.
+       _CompileEmbeddedShaderPrograms:
+       Skipping target "_CompileEmbeddedShaderPrograms" because it has no outputs.
+       GenerateTargetFrameworkMonikerAttribute:
+       Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.
+       CoreCompile:
+         C:\Windows\Microsoft.NET\Framework\v4.0.30319\Csc.exe /noconfig /nostdlib+ /errorreport:prompt /warn:4 /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\Psm\v1.0\mscorlib.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\Psm\v1.0\Sce.PlayStation.Core.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\Psm\v1.0\System.Core.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\Psm\v1.0\System.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\Psm\v1.0\System.Xml.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\Psm\v1.0\System.Xml.Linq.dll" /debug- /keyfile:..\..\..\key.snk /optimize- /out:obj\Release\CityLizard.Core.dll /target:library /utf8output ..\..\CityLizard.Core\AssemblyInfo.cs ..\..\CityLizard.Core\Binary.cs ..\..\CityLizard.Core\Collections.ArrayCache.cs ..\..\CityLizard.Core\Collections.Cache.cs ..\..\CityLizard.Core\Collections.DictionaryCache.cs ..\..\CityLizard.Core\Collections.Extension.IDictionaryExtension.cs ..\..\CityLizard.Core\Collections.Optional.cs ..\..\CityLizard.Core\Graphics.Color.cs ..\..\CityLizard.Core\Graphics.CompactMatrix4D.cs ..\..\CityLizard.Core\Graphics.IMatrix4D.cs ..\..\CityLizard.Core\Graphics.Matrix4D.cs ..\..\CityLizard.Core\Graphics.Quaternion.cs ..\..\CityLizard.Core\Graphics.Vector2D.cs ..\..\CityLizard.Core\Graphics.Vector3D.cs ..\..\CityLizard.Core\Graphics.Vector4D.cs ..\..\CityLizard.Core\Policy.I.cs ..\..\CityLizard.Core\Policy.INumeric.cs ..\..\CityLizard.Core\Xml.Attribute.cs ..\..\CityLizard.Core\Xml.ICharacterData.cs ..\..\CityLizard.Core\Xml.Implementation.cs ..\..\CityLizard.Core\Xml.IQName.cs ..\..\CityLizard.Core\Xml.Linked.Comment.cs ..\..\CityLizard.Core\Xml.Linked.Element.Complex.cs ..\..\CityLizard.Core\Xml.Linked.Element.Element.cs ..\..\CityLizard.Core\Xml.Linked.Element.Empty.cs ..\..\CityLizard.Core\Xml.Linked.Element.Mixed.cs ..\..\CityLizard.Core\Xml.Linked.Element.NotEmpty.cs ..\..\CityLizard.Core\Xml.Linked.Element.NotMixed.cs ..\..\CityLizard.Core\Xml.Linked.Element.Simple.cs ..\..\CityLizard.Core\Xml.Linked.Element.Type.cs ..\..\CityLizard.Core\Xml.Linked.LinkedNode.cs ..\..\CityLizard.Core\Xml.Linked.Text.cs ..\..\CityLizard.Core\Xml.Node.cs ..\..\CityLizard.Core\Xml.QName.cs ..\..\CityLizard.Core\Xml.Untyped.cs ..\..\CityLizard.Core\Graphics.Vector.cs ..\..\CityLizard.Core\Graphics.Matrix.cs ..\..\CityLizard.Core\Base128.cs ..\..\CityLizard.Core\ZigZag.cs ..\..\CityLizard.Core\EncodingExtension.cs ..\..\CityLizard.Core\ProtoBuf.ILog.cs ..\..\CityLizard.Core\ProtoBuf.IO.cs ..\..\CityLizard.Core\ProtoBuf.ReadDelegate.cs ..\..\CityLizard.Core\ProtoBuf.WireType.cs ..\..\CityLizard.Core\StreamExtension.cs ..\..\CityLizard.Core\Fsm.Dfa.cs ..\..\CityLizard.Core\Fsm.Fsm.cs ..\..\CityLizard.Core\Fsm.Name.cs "C:\Users\Sergey\AppData\Local\Temp\Psm,Version=v1.0.AssemblyAttributes.cs"
+     2>CSC : error CS2001: Source file '..\..\CityLizard.Core\Collections.ArrayCache.cs' could not be found [C:\Users\Sergey\Desktop\citylizard\csharp\psm\CityLizard.Core\CityLizard.Core.csproj]
+     2>CSC : error CS2001: Source file '..\..\CityLizard.Core\Collections.Cache.cs' could not be found [C:\Users\Sergey\Desktop\citylizard\csharp\psm\CityLizard.Core\CityLizard.Core.csproj]
+     2>CSC : error CS2001: Source file '..\..\CityLizard.Core\Collections.DictionaryCache.cs' could not be found [C:\Users\Sergey\Desktop\citylizard\csharp\psm\CityLizard.Core\CityLizard.Core.csproj]
+     2>CSC : error CS2001: Source file '..\..\CityLizard.Core\Collections.Extension.IDictionaryExtension.cs' could not be found [C:\Users\Sergey\Desktop\citylizard\csharp\psm\CityLizard.Core\CityLizard.Core.csproj]
+     2>Done Building Project "C:\Users\Sergey\Desktop\citylizard\csharp\psm\CityLizard.Core\CityLizard.Core.csproj" (default targets) -- FAILED.
+     1>Done Building Project "C:\Users\Sergey\Desktop\citylizard\csharp\psm\psm.sln" (default targets) -- FAILED.
+
+Build FAILED.
+
+       "C:\Users\Sergey\Desktop\citylizard\csharp\psm\psm.sln" (default target) (1) ->
+       "C:\Users\Sergey\Desktop\citylizard\csharp\psm\CityLizard.Core\CityLizard.Core.csproj" (default target) (2) ->
+       (CoreCompile target) -> 
+         CSC : error CS2001: Source file '..\..\CityLizard.Core\Collections.ArrayCache.cs' could not be found [C:\Users\Sergey\Desktop\citylizard\csharp\psm\CityLizard.Core\CityLizard.Core.csproj]
+         CSC : error CS2001: Source file '..\..\CityLizard.Core\Collections.Cache.cs' could not be found [C:\Users\Sergey\Desktop\citylizard\csharp\psm\CityLizard.Core\CityLizard.Core.csproj]
+         CSC : error CS2001: Source file '..\..\CityLizard.Core\Collections.DictionaryCache.cs' could not be found [C:\Users\Sergey\Desktop\citylizard\csharp\psm\CityLizard.Core\CityLizard.Core.csproj]
+         CSC : error CS2001: Source file '..\..\CityLizard.Core\Collections.Extension.IDictionaryExtension.cs' could not be found [C:\Users\Sergey\Desktop\citylizard\csharp\psm\CityLizard.Core\CityLizard.Core.csproj]
+
+    0 Warning(s)
+    4 Error(s)
+
+Time Elapsed 00:00:01.01
+
+C:\Users\Sergey\Desktop\citylizard\build>goto :eof 
+
+C:\Users\Sergey\Desktop\citylizard\build>rem sn -R net35-client\CityLizard.Core\bin\Release\CityLizard.Core.dll keypair.snk 
+
+C:\Users\Sergey\Desktop\citylizard\build>nuget pack CityLizard.nuspec -Version 3.0.10.0 
+Attempting to build package from 'CityLizard.nuspec'.
+Successfully created package 'C:\Users\Sergey\Desktop\citylizard\build\CityLizard.3.0.10.0.nupkg'.
+
+C:\Users\Sergey\Desktop\citylizard\build>rem rmdir /S /Q lib 
+
+C:\Users\Sergey\Desktop\citylizard\build>rem xcopy ..\platforms\psm\CityLizard.Fsm\bin\Release\*.dll lib\psm\ 
+
+C:\Users\Sergey\Desktop\citylizard\build>del CityLizard.psm.3.0.10.0.zip 
+
+C:\Users\Sergey\Desktop\citylizard\build>7z a CityLizard.psm.3.0.10.0.zip ..\csharp\psm\CityLizard.Core\bin\Release\*.dll 
+
+7-Zip [64] 9.20  Copyright (c) 1999-2010 Igor Pavlov  2010-11-18
+Scanning
+
+Creating archive CityLizard.psm.3.0.10.0.zip
+
+Compressing  CityLizard.Core.dll
+
+Everything is Ok
+
+C:\Users\Sergey\Desktop\citylizard\build>endlocal
+
+C:\Users\Sergey\Desktop\citylizard\build>goto :eof 

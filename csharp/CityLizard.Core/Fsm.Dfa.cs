@@ -45,7 +45,7 @@
                     {
                         // add transition.
                         var state = this.TryGet(transition.Symbol);
-                        if (state == null)
+                        if (!state.HasValue)
                         {
                             state = new Collections.Optional<Name>(new Name());
                             this[transition.Symbol] = state.Value;
@@ -69,7 +69,7 @@
                 foreach (var p in this)
                 {
                     var otherState = other.TryGet(p.Key);
-                    if (otherState == null || p.Value != otherState.Value)
+                    if (!otherState.HasValue || p.Value != otherState.Value)
                     {
                         return false;
                     }

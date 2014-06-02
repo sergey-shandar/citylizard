@@ -15,7 +15,6 @@
 		IBinaryFloat<System.Double>,
 		IDecimalFloat<System.Decimal>
 	{
-		public static readonly I V = new I();
 		System.Int64 ISignedRange<System.SByte>.ToCommon(System.SByte value)
 		{
 			return value;
@@ -100,9 +99,17 @@
 		{
 			get { return 1; }
 		}
+		string IRange<System.SByte>.ToId(System.SByte v)
+		{
+			return v.ToString();
+		}
 		byte[] IRange<System.SByte>.GetBytes(System.SByte v)
 		{
 			return System.BitConverter.GetBytes(v);
+		}
+		System.SByte IRange<System.SByte>.FromBytes(byte[] bytes)
+		{
+			return (sbyte)bytes[0];
 		}
         System.SByte IRange<System.SByte>.MinValue
         { 
@@ -116,9 +123,17 @@
 		{
 			get { return 2; }
 		}
+		string IRange<System.Int16>.ToId(System.Int16 v)
+		{
+			return v.ToString();
+		}
 		byte[] IRange<System.Int16>.GetBytes(System.Int16 v)
 		{
 			return System.BitConverter.GetBytes(v);
+		}
+		System.Int16 IRange<System.Int16>.FromBytes(byte[] bytes)
+		{
+			return System.BitConverter.ToInt16(bytes, 0);
 		}
         System.Int16 IRange<System.Int16>.MinValue
         { 
@@ -132,9 +147,17 @@
 		{
 			get { return 4; }
 		}
+		string IRange<System.Int32>.ToId(System.Int32 v)
+		{
+			return v.ToString();
+		}
 		byte[] IRange<System.Int32>.GetBytes(System.Int32 v)
 		{
 			return System.BitConverter.GetBytes(v);
+		}
+		System.Int32 IRange<System.Int32>.FromBytes(byte[] bytes)
+		{
+			return System.BitConverter.ToInt32(bytes, 0);
 		}
         System.Int32 IRange<System.Int32>.MinValue
         { 
@@ -148,9 +171,17 @@
 		{
 			get { return 8; }
 		}
+		string IRange<System.Int64>.ToId(System.Int64 v)
+		{
+			return v.ToString();
+		}
 		byte[] IRange<System.Int64>.GetBytes(System.Int64 v)
 		{
 			return System.BitConverter.GetBytes(v);
+		}
+		System.Int64 IRange<System.Int64>.FromBytes(byte[] bytes)
+		{
+			return System.BitConverter.ToInt64(bytes, 0);
 		}
         System.Int64 IRange<System.Int64>.MinValue
         { 
@@ -164,9 +195,17 @@
 		{
 			get { return 1; }
 		}
+		string IRange<System.Byte>.ToId(System.Byte v)
+		{
+			return v.ToString();
+		}
 		byte[] IRange<System.Byte>.GetBytes(System.Byte v)
 		{
 			return System.BitConverter.GetBytes(v);
+		}
+		System.Byte IRange<System.Byte>.FromBytes(byte[] bytes)
+		{
+			return bytes[0];
 		}
         System.Byte IRange<System.Byte>.MinValue
         { 
@@ -180,9 +219,17 @@
 		{
 			get { return 2; }
 		}
+		string IRange<System.UInt16>.ToId(System.UInt16 v)
+		{
+			return v.ToString();
+		}
 		byte[] IRange<System.UInt16>.GetBytes(System.UInt16 v)
 		{
 			return System.BitConverter.GetBytes(v);
+		}
+		System.UInt16 IRange<System.UInt16>.FromBytes(byte[] bytes)
+		{
+			return System.BitConverter.ToUInt16(bytes, 0);
 		}
         System.UInt16 IRange<System.UInt16>.MinValue
         { 
@@ -196,9 +243,17 @@
 		{
 			get { return 4; }
 		}
+		string IRange<System.UInt32>.ToId(System.UInt32 v)
+		{
+			return v.ToString();
+		}
 		byte[] IRange<System.UInt32>.GetBytes(System.UInt32 v)
 		{
 			return System.BitConverter.GetBytes(v);
+		}
+		System.UInt32 IRange<System.UInt32>.FromBytes(byte[] bytes)
+		{
+			return System.BitConverter.ToUInt32(bytes, 0);
 		}
         System.UInt32 IRange<System.UInt32>.MinValue
         { 
@@ -212,9 +267,17 @@
 		{
 			get { return 8; }
 		}
+		string IRange<System.UInt64>.ToId(System.UInt64 v)
+		{
+			return v.ToString();
+		}
 		byte[] IRange<System.UInt64>.GetBytes(System.UInt64 v)
 		{
 			return System.BitConverter.GetBytes(v);
+		}
+		System.UInt64 IRange<System.UInt64>.FromBytes(byte[] bytes)
+		{
+			return System.BitConverter.ToUInt64(bytes, 0);
 		}
         System.UInt64 IRange<System.UInt64>.MinValue
         { 
@@ -228,9 +291,17 @@
 		{
 			get { return 4; }
 		}
+		string IRange<System.Single>.ToId(System.Single v)
+		{
+			return v.ToString("R");
+		}
 		byte[] IRange<System.Single>.GetBytes(System.Single v)
 		{
 			return System.BitConverter.GetBytes(v);
+		}
+		System.Single IRange<System.Single>.FromBytes(byte[] bytes)
+		{
+			return System.BitConverter.ToSingle(bytes, 0);
 		}
         System.Single IRange<System.Single>.MinValue
         { 
@@ -244,9 +315,17 @@
 		{
 			get { return 8; }
 		}
+		string IRange<System.Double>.ToId(System.Double v)
+		{
+			return v.ToString("R");
+		}
 		byte[] IRange<System.Double>.GetBytes(System.Double v)
 		{
 			return System.BitConverter.GetBytes(v);
+		}
+		System.Double IRange<System.Double>.FromBytes(byte[] bytes)
+		{
+			return System.BitConverter.ToDouble(bytes, 0);
 		}
         System.Double IRange<System.Double>.MinValue
         { 
@@ -260,9 +339,17 @@
 		{
 			get { return 16; }
 		}
+		string IRange<System.Decimal>.ToId(System.Decimal v)
+		{
+			return v.ToString();
+		}
 		byte[] IRange<System.Decimal>.GetBytes(System.Decimal v)
 		{
 			return v.GetBytes();
+		}
+		System.Decimal IRange<System.Decimal>.FromBytes(byte[] bytes)
+		{
+			return bytes.ToDecimal();
 		}
         System.Decimal IRange<System.Decimal>.MinValue
         { 
@@ -276,9 +363,17 @@
 		{
 			get { return 4; }
 		}
+		string IRange<System.Boolean>.ToId(System.Boolean v)
+		{
+			return v.ToString();
+		}
 		byte[] IRange<System.Boolean>.GetBytes(System.Boolean v)
 		{
 			return System.BitConverter.GetBytes(v);
+		}
+		System.Boolean IRange<System.Boolean>.FromBytes(byte[] bytes)
+		{
+			return System.BitConverter.ToBoolean(bytes, 0);
 		}
         System.Boolean IRange<System.Boolean>.MinValue
         { 
@@ -292,9 +387,17 @@
 		{
 			get { return 1; }
 		}
+		string IRange<System.Char>.ToId(System.Char v)
+		{
+			return v.ToString();
+		}
 		byte[] IRange<System.Char>.GetBytes(System.Char v)
 		{
 			return System.BitConverter.GetBytes(v);
+		}
+		System.Char IRange<System.Char>.FromBytes(byte[] bytes)
+		{
+			return System.BitConverter.ToChar(bytes, 0);
 		}
         System.Char IRange<System.Char>.MinValue
         { 

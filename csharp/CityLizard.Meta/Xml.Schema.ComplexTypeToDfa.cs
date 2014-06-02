@@ -87,7 +87,7 @@
                                 {
                                     k[m] = true;
                                     var s = newSetMap.TryGet(k);
-                                    if (s != null)
+                                    if (!s.HasValue)
                                     {
                                         s = new Collections.Optional<F.Name>(new Fsm.Name());
                                         newSetMap[k] = s.Value;

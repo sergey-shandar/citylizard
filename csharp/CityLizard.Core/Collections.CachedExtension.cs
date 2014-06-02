@@ -7,23 +7,33 @@ namespace CityLizard.Collections
 {
     public static class CachedExtension
     {
-        public static Func<K, T> Cached<K, T>(this Func<K, T> create)
+        public static Func<T> Cached<T>(this Func<T> get)
         {
-            var map = new Dictionary<K, T>();
+            Func<T> func;
+            func = () =>
+            {
+                var result = get();
+                func = () => result;
+                return result;
+            };
+            return () => func();
+        }
+
+        public static Func<K, T> Cached<K, T>(
+            this IDictionary<K, T> map, Func<K, T> create)
+        {
             return k => map.Get(k, create);
         }
 
-        public static Func<T> Cached<T>(this Func<T> get)
+        public static Func<K, T> Cached<K, T>(this Func<K, T> create)
         {
-            Optional<T> optional = null;
-            return () =>
-                {
-                    if (optional == null)
-                    {
-                        optional = new Optional<T>(get());
-                    }
-                    return optional.Value;
-                };
+            return new Dictionary<K, T>().Cached(create);
+        }
+
+        public static Func<K, Func<T>> CachedCached<K, T>(
+            this Func<K, T> create)
+        {
+            return Cached((K k) => Cached(() => create(k)));
         }
     }
 

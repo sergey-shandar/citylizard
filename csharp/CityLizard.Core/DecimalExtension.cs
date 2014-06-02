@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 
 namespace CityLizard
 {
@@ -11,6 +12,16 @@ namespace CityLizard
                 GetBits(value).
                 SelectMany(System.BitConverter.GetBytes).
                 ToArray();
+        }
+
+        public static decimal ToDecimal(this byte[] bytes)
+        {
+            var bits = new Int32[4];
+            for (int i = 0; i < 4; ++i)
+            {
+                bits[i] = BitConverter.ToInt32(bytes, i*4);
+            }
+            return new decimal(bits);
         }
     }
 }

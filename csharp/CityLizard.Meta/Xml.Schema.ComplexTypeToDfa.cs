@@ -86,16 +86,18 @@
                                 if (!k[m])
                                 {
                                     k[m] = true;
-                                    var s = newSetMap.TryGet(k);
-                                    if (!s.HasValue)
-                                    {
-                                        s = new Collections.Optional<F.Name>(new Fsm.Name());
-                                        newSetMap[k] = s.Value;
-                                    }
+                                    var s = newSetMap.
+                                        TryGet(k).
+                                        Default(() =>
+                                        {
+                                            var name = new Fsm.Name();
+                                            newSetMap[k] = name;
+                                            return name;
+                                        });
                                     //     
                                     var x = new Fsm.Name(pair.Value);
                                     this.Apply(x, list[j]);
-                                    s.Value.UnionWith(x);
+                                    s.UnionWith(x);
                                 }
                             }
                         }

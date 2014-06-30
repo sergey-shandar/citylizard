@@ -12,8 +12,8 @@ namespace CityLizard.Collections
             T value;
             return
                 dictionary.TryGetValue(key, out value)
-                    ? new Optional<T>(value)
-                    : new Optional<T>();
+                    ? value.Optional()
+                    : Optional<T>.Absent();
         }
 
         public static T Get<K, T>(
@@ -22,7 +22,7 @@ namespace CityLizard.Collections
             return
                 dictionary.
                 TryGet(key).
-                Else(() =>
+                Default(() =>
                 {
                     var value = create();
                     dictionary.Add(key, value);
@@ -36,8 +36,7 @@ namespace CityLizard.Collections
             K key,
             Func<IDictionary<K, T>, K, T> add)
         {
-            var optional = dictionary.TryGet(key);
-            return optional.HasValue ? optional.Value: add(dictionary, key);
+            return dictionary.TryGet(key).Default(() => add(dictionary, key));
         }
 
         [Obsolete]

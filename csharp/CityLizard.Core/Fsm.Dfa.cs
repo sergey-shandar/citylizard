@@ -44,13 +44,15 @@
                     foreach (var transition in fsm.StateList[fsmState])
                     {
                         // add transition.
-                        var state = this.TryGet(transition.Symbol);
-                        if (!state.HasValue)
-                        {
-                            state = new Collections.Optional<Name>(new Name());
-                            this[transition.Symbol] = state.Value;
-                        }
-                        state.Value.Add(transition.State);
+                        this.
+                            TryGet(transition.Symbol).
+                            Default(() =>
+                            {
+                                var name = new Name();
+                                this[transition.Symbol] = name;
+                                return name;
+                            }).
+                            Add(transition.State);
                     }
                 }
             }
@@ -66,15 +68,7 @@
                 {
                     return false;
                 }
-                foreach (var p in this)
-                {
-                    var otherState = other.TryGet(p.Key);
-                    if (!otherState.HasValue || p.Value != otherState.Value)
-                    {
-                        return false;
-                    }
-                }
-                return true;
+                return this.All(p => other.TryGet(p.Key).ValueEqual(p.Value));
             }
         }
 

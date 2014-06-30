@@ -63,6 +63,7 @@
     <Compile Include="DictionaryTest.cs" />
     <Compile Include="ObjectMapTest.cs" />
     <Compile Include="Collections.CachedTest.cs" />
+    <Compile Include="EqualsTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CityLizard.Core\CityLizard.Core.csproj">

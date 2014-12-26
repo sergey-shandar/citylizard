@@ -46,6 +46,11 @@ namespace CityLizard.Collections
                 });
         }
 
+        public void ForEach(Action<T> action)
+        {
+            ForEach(action, () => { });
+        }
+
         public bool ValueEqual(T value)
         {
             return Select(v => v.Equals(value), false);

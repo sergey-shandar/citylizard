@@ -2,6 +2,7 @@
 using System.IO;
 using System.Text;
 using System.Collections.Generic;
+using Framework.G1.Leb128;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CityLizard.Test
@@ -20,8 +21,7 @@ namespace CityLizard.Test
         [TestMethod]
         public void Test()
         {
-            var stream = new MemoryStream();
-            Base128.Serialize(100, stream);
+            V1.Value.Encode(100);
             //var x = (ulong)(object)(byte) 1;
             var x = (byte) (object) (X) 4;
         }

@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using CityLizard.Xml;
+
+using Void = Framework.G1.Void;
 
 namespace CityLizard.Collections
 {

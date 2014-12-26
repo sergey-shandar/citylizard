@@ -44,7 +44,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="Base128.cs" />
     <Compile Include="Binary.cs" />
     <Compile Include="Cast.cs" />
     <Compile Include="DecimalExtension.cs" />
@@ -86,7 +85,6 @@
     <Compile Include="ProtoBuf.ReadDelegate.cs" />
     <Compile Include="ProtoBuf.WireType.cs" />
     <Compile Include="StreamExtension.cs" />
-    <Compile Include="Void.cs" />
     <Compile Include="Xml.Attribute.cs" />
     <Compile Include="Xml.ICharacterData.cs" />
     <Compile Include="Xml.Implementation.cs" />

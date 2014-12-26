@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using System.Threading.Tasks;
+using Framework.G1.Leb128;
 
 namespace CityLizard.ProtoBuf
 {
@@ -25,7 +26,7 @@ namespace CityLizard.ProtoBuf
                 switch (type)
                 {
                     case WireType.VARIANT:
-                        readDelegate.Read(value, Base128.Deserialize(stream));
+                        readDelegate.Read(value, V1.Value.Decode(() => (byte)stream.ReadByte()));
                         break;
                     case WireType.FIXED64:
                         readDelegate.Read(value, stream.ReadDouble());
@@ -35,7 +36,7 @@ namespace CityLizard.ProtoBuf
                             Read(
                                 value,
                                 stream.ReadByteArray(
-                                    (int)Base128.Deserialize(stream)
+                                    (int)V1.Value.Decode(() => (byte)stream.ReadByte())
                                 )
                             );
                         break;
@@ -55,16 +56,24 @@ namespace CityLizard.ProtoBuf
             stream.WriteByte((byte)((field << 3) | (byte)wireType));
         }
 
+        private static void Write(Stream stream, IEnumerable<byte> bytes)
+        {
+            foreach (var b in bytes)
+            {
+                stream.Write(b);
+            }
+        }
+
         public static void Write(Stream stream, int field, ulong value)
         {
             WriteHeader(stream, field, WireType.VARIANT);
-            Base128.Serialize(value, stream);
+            Write(stream, V1.Value.Encode(value));
         }
 
         public static void Write(Stream stream, int field, long value)
         {
             WriteHeader(stream, field, WireType.VARIANT);
-            Base128.Serialize(ZigZag.Code(value), stream);
+            Write(stream, V1.Value.Encode(ZigZag.Code(value)));
         }
 
         public static void Write(Stream stream, int field, double value)

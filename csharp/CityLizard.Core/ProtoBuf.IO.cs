@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using System.Threading.Tasks;
+using Framework.G1;
 using Framework.G1.Leb128;
 
 namespace CityLizard.ProtoBuf
@@ -73,7 +74,7 @@ namespace CityLizard.ProtoBuf
         public static void Write(Stream stream, int field, long value)
         {
             WriteHeader(stream, field, WireType.VARIANT);
-            Write(stream, V1.Value.Encode(ZigZag.Code(value)));
+            Write(stream, V1.Value.Encode(ZigZag.ToUnsigned(value)));
         }
 
         public static void Write(Stream stream, int field, double value)

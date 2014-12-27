@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Framework.G1;
 
 namespace CityLizard.Collections
 {
@@ -10,10 +11,7 @@ namespace CityLizard.Collections
             K key)
         {
             T value;
-            return
-                dictionary.TryGetValue(key, out value)
-                    ? value.Optional()
-                    : Optional<T>.Absent();
+            return dictionary.TryGetValue(key, out value).ThenCreateOptional(value);
         }
 
         public static T Get<K, T>(

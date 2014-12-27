@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using CityLizard.Collections;
+using Framework.G1;
 
 namespace CityLizard
 {
@@ -16,7 +17,7 @@ namespace CityLizard
         public Optional<TR> _<TR>()
             where TR: T
         {
-            return Value is TR ? ((TR)Value).Optional() : Optional<TR>.Absent();
+            return (Value is TR).ThenCreateOptional(() => (TR)Value);
         }
 
         private readonly T Value;
@@ -29,9 +30,5 @@ namespace CityLizard
             return new DownCast<T>(value);
         }
 
-        public static T UpCast<T>(this T value)
-        {
-            return value;
-        }
     }
 }
